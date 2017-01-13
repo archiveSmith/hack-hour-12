@@ -1,5 +1,5 @@
 {
-  "name": "hack-hour-11",
+  "name": "hack-hour-12",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "export COHORT=11; node test/run-tests.js",
-    "start": "export COHORT=11; node test/index.js"
+    "test": "export COHORT=12; node test/run-tests.js",
+    "start": "export COHORT=12; node test/index.js"
   },
   "dependencies": {
     "async": "^1.4.2",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodesmithLLC/hack-hour-11.git"
+    "url": "git+https://github.com/CodesmithLLC/hack-hour-12.git"
   },
   "license": "ISC"
 }
