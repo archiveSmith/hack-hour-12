@@ -14,7 +14,18 @@
 */
 
 function drawStairs(n) {
-
+  let step;
+ 
+  for (let i = 1; i <= n; i += 1) {
+    step = '';
+    for (let j = 1; j <= n - i; j += 1) {
+      step += " ";
+    }
+    for (let j = 1; j <= i; j += 1) {
+      step += "*";
+    }
+    console.log(step);
+  }
 }
 
 
