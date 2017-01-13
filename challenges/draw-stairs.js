@@ -14,8 +14,17 @@
 */
 
 function drawStairs(n) {
-
+  const stars = ['\u2605', '\u2606'];
+  const faces = ['\u263A', '\u2639'];
+  const space = ' ';
+  for (let i = n - 1; i >= 0; i -= 1) {
+  	// console.log(space.repeat(i) + stars[Math.floor(Math.random()*stars.length)].repeat(n-i));
+  	// console.log(space.repeat(i) + stars[i % 2].repeat(n-i));
+  	console.log(space.repeat(i) + faces[i % 2].repeat(n-i));
+  }
 }
 
 
 module.exports = drawStairs;
+
+//drawStairs(34);
