@@ -19,7 +19,6 @@ function drawStairs(n) {
   for (let i = 0; i < n; i += 1) {
     spaces -= i;
     steps += i;
-
     while (spaces > 0) {
       console.log(' ');
       spaces -= 1;
