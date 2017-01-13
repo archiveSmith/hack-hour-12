@@ -18,8 +18,7 @@ function drawStairs(n) {
 	let i = 0;
 
 	while (i < n) {
-		stairsArr[i] = Array(i+2).join('*');
-		stairsArr[i] = Array(n-i).join(' ') + stairsArr[i];
+		stairsArr[i] = ' '.repeat(n-i) + '*'.repeat(i+1);
 		i++;
 	}
 
