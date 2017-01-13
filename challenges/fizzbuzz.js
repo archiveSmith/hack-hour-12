@@ -17,7 +17,37 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+    let result = [];
+    for (let i = 1; i <= num; i++) {
+        let by3 = false;
+        let by5 = false;
+        let byBoth = false;
+        if (i % 3 == 0) {
+            by3 = true;
+        }
+        if (i % 5 == 0) {
+            by5 = true;
+        }
+        if (by3 && by5) {
+            byBoth = true;
+        }
+        if (byBoth) {
+            result.push('fizzbuzz');
+            continue;
+        }
+        if (by3) {
+            result.push('fizz');
+            continue;            
+        }
+        if (by5) {
+            result.push('buzz');
+            continue;            
+        }
+        result.push(i);
+    }
+    return result;
 }
+
+
 
 module.exports = fizzbuzz;

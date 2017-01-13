@@ -14,8 +14,19 @@
 */
 
 function drawStairs(n) {
-
+    for (let i = 1; i <= n; i++) {
+        let row = new Array(n);
+        for (var x = 0; x < row.length; x++) {
+            row[x] = ' ';
+        }
+        for (let j = 0; j < i; j++) {
+            row[j] = '*';
+        }
+        console.log(row.reverse().join(''));
+    }
 }
+
+drawStairs(10)
 
 
 module.exports = drawStairs;
