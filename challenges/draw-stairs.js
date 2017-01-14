@@ -34,4 +34,5 @@ function drawStairs(n) {
 		console.log(' '.repeat(n - i) + '*'.repeat(i));
 	}
 }
+
 module.exports = drawStairs;
