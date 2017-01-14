@@ -14,8 +14,8 @@
 */
 
 function drawStairs(n) {
-  const stars = ['\u2605', '\u2606'];
-  const faces = ['\u263A', '\u2639'];
+  // const stars = ['\u2605', '\u2606'];
+  // const faces = ['\u263A', '\u2639'];
   const space = ' ';
   const star  = '*';
   for (let i = n - 1; i >= 0; i -= 1) {
