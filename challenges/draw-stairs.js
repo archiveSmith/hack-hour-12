@@ -14,20 +14,8 @@
 */
 
 function drawStairs(n) {
-	var spaces = '', stars = '';
-	
-	doNTimes(n, function() {
-		spaces += ' ';
-	});
-	doNTimes(n, function(j) {
-		stars += '*'; 
-		console.log(spaces.slice(j) + stars)
-	});
-	
-	function doNTimes(n, func) {
-		for(var i = 0; i < n; i++) {
-			func(i);
-		}
+	for(var i = 0; i < n; i++) {
+		console.log(' '.repeat(n-1) + '*'.repeat(n));
 	}
 }
 
