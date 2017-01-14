@@ -13,16 +13,35 @@
 
 */
 
+// My solution.
+// function drawStairs(n) {
+//     for (let i = 1; i <= n; i++) {
+//         let row = new Array(n);
+//         for (var x = 0; x < row.length; x++) {
+//             row[x] = ' ';
+//         }
+//         for (let j = 0; j < i; j++) {
+//             row[j] = '*';
+//         }
+//         console.log(row.reverse().join(''));
+//     }
+// }
+
+// Codesmith solution.
+// function drawStairs(n) {
+//     let spaces = '';
+//     let splats = '';
+
+//     for (let i = 1; i <= n; i++) {
+//         spaces = ' '.repeat(n - 1);
+//         splats = '*'.repeat(i);
+//         console.log(spaces + splats);
+//     }
+// }
+
 function drawStairs(n) {
-    for (let i = 1; i <= n; i++) {
-        let row = new Array(n);
-        for (var x = 0; x < row.length; x++) {
-            row[x] = ' ';
-        }
-        for (let j = 0; j < i; j++) {
-            row[j] = '*';
-        }
-        console.log(row.reverse().join(''));
+    for (let i = 1; i <= n; i += 1) {
+        console.log(' '.repeat(n - 1) + '*'.repeat(i));        
     }
 }
 
