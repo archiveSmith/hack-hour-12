@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-
+  console.log(2)
 }
 
 module.exports = modemean;
