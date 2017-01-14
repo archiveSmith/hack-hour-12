@@ -15,9 +15,11 @@ function modemean(array) {
 	let mode = 0;
 	let max = 0;
 	let currCount = 0;
-	let stringed = array.join(',');
+	const stringed = array.join(',');
+
 	for(var i = 0; i < array.length; i++) {
 		sum += array[i];
+
 		let regex = array[i] + '';
 		const regVar = new RegExp(regex,'g');
 		currCount = stringed.match(regVar).length;
@@ -26,7 +28,7 @@ function modemean(array) {
 			mode = array[i];
 		}
 	} const mean = Math.floor(sum/array.length);
-  console.log(mean, mode);
+
 	return mean === mode;
 }
 module.exports = modemean;
