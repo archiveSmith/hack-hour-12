@@ -11,7 +11,44 @@
 
 
 function modemean(array) {
+  let sum = 0;
+  let arrayMean = 0;
+  let arrayLength = array.length;
+  
+  for (let i = 0; i < arrayLength; i += 1) {
+    sum += array[i];
+  }
+  
+  arrayMean = Math.floor(sum / arrayLength);
+  
+  let modeArray = [];
+  let arrayMode = 0;
+  let counter;
+  let current;
+  
+  for (let i = 0; i < arrayLength; i += 1) {
+    current = array[i];
+    counter = 1;
+    for (let j = i + 1; j < arrayLength; j += 1) {
+      if (current === array[j]) {
+        counter += 1;
+      }
+    }
+    if (counter > 1) {
+      modeArray.push([current, counter]);
+    }
+  }
+  
+  let highestCounter = 0;
+  let highestCounterIndex;
+  for (let i = 0; i < modeArray.length; i++) {
+    if (modeArray[i][1] > highestCounter) {
+      highestCounterIndex = i;
+    }
+  }
+  arrayMode = modeArray[highestCounterIndex][0];
 
+  return arrayMean === arrayMode;
 }
 
 module.exports = modemean;
