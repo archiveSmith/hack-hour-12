@@ -11,6 +11,9 @@
 
 
 function modemean(array) {
+  if (array.length === 1) {
+    return true;
+  }
   let mean = array.reduce(function(current, next) {
     return current + next;
   }, 0);
