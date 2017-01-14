@@ -17,6 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+
 	var arr = [];
 	for(var i = 1; i <= num; i++) {
 		(i % 3 !== 0 && i % 5 !== 0) ? arr.push(i) : i % 3 === 0 && i % 5 !== 0 ? arr.push('fizz') : i % 5 === 0 && i % 3 !== 0 ? arr.push('buzz') : arr.push('fizzbuzz');
@@ -32,5 +33,9 @@ function fizzbuzz(num) {
 		else arr.push('fizzbuzz');
 	} return arr;
 }*/
+
+
+}
+
 
 module.exports = fizzbuzz;
