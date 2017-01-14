@@ -44,7 +44,7 @@ function modemean(array) {
   console.log(mean);
   //Don't know why it is performing type conversion but triple
   //equals does not work here
-  return mode == mean ? true : false;
+  return mode === mean ? true : false;
 }
 
 module.exports = modemean;

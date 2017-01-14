@@ -16,8 +16,8 @@
 function drawStairs(n) {
   for (let i = 1; i <= n; i += 1) {
     let spaces = n - i;
-	let steps = i;
-	let str = '';
+	  let steps = i;
+  	let str = '';
     while (spaces > 0) {
       str += ' ';
       spaces -= 1;
