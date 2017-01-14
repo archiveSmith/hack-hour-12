@@ -14,7 +14,6 @@
 */
 
 function drawStairs(n) {
-  
   for (let i = 1; i <= n; i += 1) {
     let spaces = n - i;
 	let steps = i;
@@ -31,11 +30,6 @@ function drawStairs(n) {
   }
 }
 
-function drawStairs(n) {
-	
-}
 
 
 module.exports = drawStairs;
-
-console.log(drawStairs(5));
