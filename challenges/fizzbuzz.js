@@ -17,6 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+<<<<<<< HEAD
   const result = [];
 
   for (let i = 1; i <= num; i += 1) {
@@ -31,6 +32,9 @@ function fizzbuzz(num) {
     }
   }
   return result;
+=======
+
+>>>>>>> 73c87a4fbe0ffca391a5d67ff3bbd4948184ebaf
 }
 
 module.exports = fizzbuzz;
