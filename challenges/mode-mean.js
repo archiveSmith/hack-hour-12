@@ -31,7 +31,7 @@ function modemean(array) {
     }
   }, {});
   let modeVal = 0;
-  let mode = 0;
+  let mode = -Infinity;
   //Iterate through object
   for (let names in modeObj) {
     //If the value is equal or greater and the name property is greater, set new mode
