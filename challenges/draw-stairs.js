@@ -3,7 +3,7 @@
  without any leading/trailing spaces.
  
  For example:     
- drawStairs(6) ->
+ drawStairs(6) ->          
      *
     **
    ***
@@ -14,29 +14,12 @@
 */
 
 function drawStairs(n) {
-    const stairs = Array(n);
-    let thisLevel = 1;
-    let stair;
 
-    console.log("stairs", stairs);
-    stairs.forEach(function(level) {
-        for (let i = 0; 0 < n - thisLevel; i++) {
-            stair += ' ';
-        }
-        console.log(thisLevel);
-        for (let k = 0; k < thisLevel ; k++) {
-            stair += '*';
-        }
-
-
-        level.push(stair);
-
-    });
-
-    console.log(stairs.join(''));
-
+    for(let i = 0; i < n; i++) {
+	console.log(' '.repeat(n-i) + '*'.repeat(i));
+    }
 }
 
-drawStairs(6);
+drawStairs(10);
 
-//module.exports = drawStairs;
+module.exports = drawStairs;
