@@ -25,4 +25,5 @@ function drawStairs(n) {
 //console.log(' '+ ' ' + ' ' + '*'+'\n'+'**');
 console.log(drawStairs(10));
 
+
 module.exports = drawStairs;
