@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-
+  // fake test
 }
 
 module.exports = modemean;
