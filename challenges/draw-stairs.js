@@ -24,5 +24,4 @@ function drawStairs(n) {
   console.log(stairsArr.join('\n'));
 }
 
-
 module.exports = drawStairs;
