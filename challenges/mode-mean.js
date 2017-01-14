@@ -22,7 +22,7 @@ function modemean(array) {
 		if (modeHash.hasOwnProperty(array[i])) modeHash[array[i]] += 1;
 		else modeHash[array[i]] = 1;
 	}
-	Object.keys(modeHash).forEach(key => if (modeHash[key] > mode) mode = modeHash[key]);
+	Object.keys(modeHash).forEach(key => if (modeHash[key] >= mode) mode = modeHash[key]);
 	let mean = Math.floor((max-min)/2);
 	return (mode === mean);
 
