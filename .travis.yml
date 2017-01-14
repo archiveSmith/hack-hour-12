@@ -11,3 +11,4 @@ env:
     - MERGE_TOKEN=7ec583e95b00bfab262215cb3bb41c5ec822951f
 script:
   - npm test
+ 
