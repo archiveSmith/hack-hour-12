@@ -13,7 +13,7 @@
 function modemean(array) {
 	let mean = 0;
 
-	for (var i = 0; i < array.length; i++) {
+	for (let i = 0; i < array.length; i++) {
 		mean += array[i];
 	}
 	mean = mean / array.length;
@@ -24,13 +24,13 @@ function modemean(array) {
 	let modeCount = {};
 
 	// use modeCount to increment counts
-	for (var i = 0; i < array.length; i++) {
+	for (let i = 0; i < array.length; i++) {
 		if (!modeCount[array[i]]) modeCount[array[i]] = 0;
 		modeCount[array[i]] += 1;
 	}
 
 	for (num in modeCount) {
-		if (modeCount[num] >= mode || !mode) {
+		if (modeCount[num] >= modeCount[mode] || !mode) {
 			mode = num;
 			modes.push(num);
 		}
@@ -38,7 +38,7 @@ function modemean(array) {
 
 	if (Math.max(modes) > mode) mode = Math.max(modes);
 
-	return mode === mean;
+	return Number(mode) === mean;
 
 }
 
