@@ -4,6 +4,9 @@
 
  For example:
  drawStairs(6) ->
+
+ For example:
+ drawStairs(6) ->
      *
     **
    ***
@@ -23,6 +26,7 @@ function drawStairs(n) {
   for (let i = 1; i < n; i+=1) {
     ' '.repeat(n - i) + '*'.repeat(i);
   }
+
 }
 
 
