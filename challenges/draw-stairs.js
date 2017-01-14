@@ -14,21 +14,28 @@
 */
 
 function drawStairs(n) {
-  let spaces = n - 1;
-  let steps = 1;
-  for (let i = 0; i < n; i += 1) {
-    spaces -= i;
-    steps += i;
+  
+  for (let i = 1; i <= n; i += 1) {
+    let spaces = n - i;
+	let steps = i;
+	let str = '';
     while (spaces > 0) {
-      console.log(' ');
+      str += ' ';
       spaces -= 1;
     }
     while (steps > 0) {
-      console.log('*');
+      str += '*';
       steps -= 1;
     }
+    console.log(str);
   }
+}
+
+function drawStairs(n) {
+	
 }
 
 
 module.exports = drawStairs;
+
+console.log(drawStairs(5));
