@@ -13,7 +13,7 @@
  function modemean(array) {
    function mode(arr) {
      const counts = {};
-     let maxNum = 0;
+     let maxNum = -Infinity;
      let maxNumCount = 0;
 
      for (let i = 0; i < arr.length; i += 1) {
@@ -37,7 +37,6 @@
    function mean(arr) {
      return ~~(arr.reduce((p, c) => p + c) / arr.length);
    }
-
    return mode(array) === mean(array);
  }
 
