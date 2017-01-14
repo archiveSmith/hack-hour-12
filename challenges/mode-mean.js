@@ -39,15 +39,14 @@ function modemean(array) {
     }
   }
   
-  let highestCounter = 0;
-  let highestCounterIndex;
+  let highestMode = 0;
+
   for (let i = 0; i < modeArray.length; i++) {
-    if (modeArray[i][1] > highestCounter) {
-      highestCounterIndex = i;
+    if (modeArray[i][1] > highestMode) {
+      highestMode = modeArray[i][1];
     }
   }
-  arrayMode = modeArray[highestCounterIndex][0];
-
+  arrayMode = highestMode;
   return arrayMean === arrayMode;
 }
 
