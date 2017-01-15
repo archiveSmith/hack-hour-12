@@ -12,8 +12,7 @@
 // mean is the average
 
 function modemean(array) {
-    let mean = array.length > 1 ? Math.floor(array.reduce((ac, cu) => ac + cu, 0) / 2) : array[0];
-    console.log('mean', mean);
+    let mean = Math.floor(array.reduce((ac, cu) => ac + cu, 0) / array.length);
     let obj = {};
 
     let currentMax = null;
@@ -28,16 +27,10 @@ function modemean(array) {
         }
     });
 
-    console.log('mode', mode);
-
     if (mean === mode) {
         return true;
     }
-
     return false;
 }
-
-
-console.log(modemean([1,2,2]))
 
 module.exports = modemean;
