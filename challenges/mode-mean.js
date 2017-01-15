@@ -20,8 +20,8 @@
      if (!cache[array[i]]) cache[array[i]] = 1;
      else cache[array[i]] += 1;
    }
-
-   mean = Math.floor(mean / array.length);
+   
+   mean = ~~(mean / array.length);
 
    for (let key in cache) {
      if (cache[key] > cache[mode]) {
@@ -33,7 +33,9 @@
      }
    }
 
-   return mean === mode;
+   return mean === Number(mode);
  }
+
+ // console.log(modemean([1,1,2,2,2,2,4]));
 
 module.exports = modemean;
