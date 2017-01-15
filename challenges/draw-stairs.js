@@ -14,19 +14,18 @@
 */
 
 function drawStairs(n) {
-  let step;
+  let steps = "";
  
   for (let i = 1; i <= n; i += 1) {
-    step = '';
     for (let j = 1; j <= n - i; j += 1) {
-      step += " ";
+      steps += " ";
     }
     for (let j = 1; j <= i; j += 1) {
-      step += "*";
+      steps += "*";
     }
-    console.log(step);
+    steps += "\n";
   }
+  console.log(steps);
 }
-
 
 module.exports = drawStairs;
