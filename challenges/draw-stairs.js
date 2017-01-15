@@ -13,22 +13,22 @@
 
 */
 
-function drawStairs(n) {
-    let string = '';
+// function drawStairs(n) {
+//     let string = '';
   
-    for (let currStair = 1; currStair <= n; currStair += 1) {
-        for (let space = 0; space < n - currStair; space += 1) {
-            string += ' ';
-        }
-        for (let star = 1; star <= currStair; star += 1) {
-            string += '*';
-        }
-        string += '\n';
-    }
+//     for (let currStair = 1; currStair <= n; currStair += 1) {
+//         for (let space = 0; space < n - currStair; space += 1) {
+//             string += ' ';
+//         }
+//         for (let star = 1; star <= currStair; star += 1) {
+//             string += '*';
+//         }
+//         string += '\n';
+//     }
     
-    return string;
+//     return string;
 
-}
+// }
 
 function drawStairs(n) {
     for (let i = 0; i <= n; i += 1) {
