@@ -14,22 +14,36 @@
 
 function drawStairs(n) {
   for (let i = 1; i <= n; i += 1) {
-    let star = i;
-    let space = n - i;
-    let str = '';
-
-    while (space > 0) {
-      str += ' ';
-      space -= 1;
-    }
-    while (star > 0) {
-      str += '*';
-      star -= 1;
-    }
-    console.log(str);
-    star += 1;
-    space -= 1;
+    console.log(' '.repeat(n - i) + '*'.repeat(i));
   }
+
+  // let spaces = '';
+  // let splats = '';
+
+  // for (let i = 1; i <= n; i += 1) {
+  //   spaces = ' '.repeat(n - i);
+  //   splats = '*'.repeat(i);
+  //   console.log(spaces + splats);
+  // }
+
+  //
+  // for (let i = 1; i <= n; i += 1) {
+  //   let star = i;
+  //   let space = n - i;
+  //   let str = '';
+  //
+  //   while (space > 0) {
+  //     str += ' ';
+  //     space -= 1;
+  //   }
+  //   while (star > 0) {
+  //     str += '*';
+  //     star -= 1;
+  //   }
+  //   console.log(str);
+  //   star += 1;
+  //   space -= 1;
+  // }
 }
 
 
