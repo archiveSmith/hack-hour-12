@@ -22,7 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-	console.log('check');
+	if (head === null || head === undefined) return head;
 	let currNode = head;
 	let counter = k;
 	let output;
@@ -37,7 +37,7 @@ function kthToLastNode(k, head) {
 	}
 
 	traversList(counter, head);
-	
+
 	return output;
 }
 
