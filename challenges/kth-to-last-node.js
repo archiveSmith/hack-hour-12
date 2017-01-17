@@ -33,14 +33,14 @@ function kthToLastNode(k, head) {
 	if (k > length + 1) return undefined;
 	const index = length - k + 1;
 	let location = 0;
-	if(location===index) return head;
+	if(location===index) return head.value;
 
 	let nodeCount = head; 
 	while((location + 1) !== index) {
 		location++;
 		nodeCount = nodeCount.next;
 	}
-	return nodeCount.next;
+	return nodeCount.next.value;
 }
 
 //test
