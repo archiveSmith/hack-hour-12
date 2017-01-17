@@ -25,11 +25,12 @@ function kthToLastNode(k, head) {
 	let length = 0;
 	let currentNode = head;
 	//find length of nodes
+	if (!head) return undefined;
 	while (currentNode.next) {
 		length++;
 		currentNode = currentNode.next;
 	}
-	if (k > length) return undefined;
+	if (k > length + 1) return undefined;
 	const index = length - k + 1;
 	let location = 0;
 	if(location===index) return head;
@@ -43,17 +44,19 @@ function kthToLastNode(k, head) {
 }
 
 //test
-// var a = new Node('A');
-//  var b = new Node('B');
-//  var c = new Node('C');
-//  var d = new Node('D');
-//  var e = new Node('E');
+var a = new Node('A');
+ var b = new Node('B');
+ var c = new Node('C');
+ var d = new Node('D');
+ var e = new Node('E');
+ var f = new Node('F');
 
-//  a.next = b;
-//  b.next = c;
-//  c.next = d;
-//  d.next = e;
+ a.next = b;
+ b.next = c;
+ c.next = d;
+ d.next = e;
+ e.next = f;
 
-// console.log(kthToLastNode(2,a));
+console.log(kthToLastNode(7,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
