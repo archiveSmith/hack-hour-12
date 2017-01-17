@@ -35,6 +35,8 @@ function kthToLastNode(k, head) {
   // reset node finder location
   currentNode = head;
 
+  if (nodeLength < k || !head) return undefined;
+
   // iterate through list until desired node
   while (nodeSpot < nodeLength - k) {
     nodeSpot += 1;
