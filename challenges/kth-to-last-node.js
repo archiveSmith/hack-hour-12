@@ -16,6 +16,11 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
+
 function kthToLastNode(k, head) {
   let nodeLength = 1;
   let nodeSpot = 0;
