@@ -50,6 +50,7 @@ function kthToLastNode(k, head) {
     if (count === kth) return current.value;
     current = current.next;
   }
+  return undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
