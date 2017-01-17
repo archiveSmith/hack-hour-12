@@ -29,7 +29,7 @@ function kthToLastNode(k, head) {
     curr = curr.next
   }
   length += 1;
-
+  if (k > length) return undefined;
   let loop = length - k; //3
   let count = 0;
   let currNode = head;
@@ -40,6 +40,19 @@ function kthToLastNode(k, head) {
 
   return currNode.value;
 }
+
+//  var a = new Node('A');
+//  var b = new Node('B');
+//  var c = new Node('C');
+//  var d = new Node('D');
+//  var e = new Node('E');
+ 
+//  a.next = b;
+//  b.next = c;
+//  c.next = d;
+//  d.next = e;
+
+//  console.log(kthToLastNode(6, a));
 
 
 
