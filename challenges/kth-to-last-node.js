@@ -45,5 +45,4 @@ function kthToLastNode(k, head) {
     return current1.value;
 }
 
- console.log(kthToLastNode(0, a));
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
