@@ -24,7 +24,7 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let currentNode = head;
   let count = 1;
-  
+  if (arguments.length === 1) return undefined;
   //Find the length of the linked list
   while (currentNode.next !== null) {
     count += 1;
@@ -42,7 +42,7 @@ function kthToLastNode(k, head) {
   for (let i = 0; i < numJumps; i += 1) {
     currentNode = currentNode.next;
   }
-  
+
   return currentNode.value;
 }
 
