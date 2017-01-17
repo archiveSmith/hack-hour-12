@@ -43,10 +43,10 @@ function modemean(array) {
 
     }
 
-    console.log("Mean:",mean,"max",mode);
+    console.log("Mean:",mean,"Mode",mode);
     return mean === mode;
 }
 
 
-modemean([1,2,3,4,5,2,5,3,3]);
+modemean([0,0,0,0,0,0]);
 module.exports = modemean;
