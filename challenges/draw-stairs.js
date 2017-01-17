@@ -15,11 +15,22 @@
 
 function drawStairs(n) {
 
-    for(let i = 0; i < n; i++) {
-	console.log(' '.repeat(n-i) + '*'.repeat(i));
+    for(let i = 0; i <= n; i++) {
+        console.log(' '.repeat(n-i) + '*'.repeat(i));
     }
 }
 
-drawStairs(10);
+//drawStairs(10);
+
+function test()  {
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+        for(let  k = 0; k < 1; k++) {
+            i++;
+        }
+    }
+}
+
+test();
 
 module.exports = drawStairs;
