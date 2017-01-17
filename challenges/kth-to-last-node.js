@@ -22,9 +22,10 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (arguments.length < 2) return undefined;
   let currentNode = head;
   let count = 1;
-  if (arguments.length === 1) return undefined;
+  
   //Find the length of the linked list
   while (currentNode.next !== null) {
     count += 1;
