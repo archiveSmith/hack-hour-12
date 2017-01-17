@@ -22,7 +22,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+	console.log('check');
+	let currNode = head;
+	let counter = k;
+	let output;
 
+	function traversList(k, node) {
+		console.log('in: ', node.value, 'k: ', counter);
+		if (node.next) {
+			traversList(k, node.next);
+		}
+		counter--;
+		if (counter === 0) output = node.value;
+	}
+
+	traversList(counter, head);
+	
+	return output;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
