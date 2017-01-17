@@ -39,7 +39,7 @@ function kthToLastNode(k, head) {
   // calculate kth
   let kth = listLength - k + 1;
 
-  if (kth > listLength) return ('kth does not exist');
+  if (kth > listLength) return undefined;
 
   // traverse list to return kth
   let current = head;
@@ -47,7 +47,7 @@ function kthToLastNode(k, head) {
 
   while (current !== null) {
     count += 1;
-    if (count === kth) return current;
+    if (count === kth) return current.value;
     current = current.next;
   }
 }
