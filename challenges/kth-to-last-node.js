@@ -35,7 +35,7 @@ function kthToLastNode(k, head) {
   // reset node finder location
   currentNode = head;
 
-  if (nodeLength < k || !head) return undefined;
+  if (nodeLength < k || !head || k < 1) return undefined;
 
   // iterate through list until desired node
   while (nodeSpot < nodeLength - k) {
@@ -43,7 +43,7 @@ function kthToLastNode(k, head) {
     currentNode = currentNode.next;
   }
 
-  return currentNode.value;
+  return currentNode.value ? currentNode.value : undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
