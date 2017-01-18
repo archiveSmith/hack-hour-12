@@ -23,7 +23,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-	if (head === undefined) return undefined;
+	if (!head || !k || k < 1) return;
 	let currNode = head;
 	let counter = k;
 	let output;
