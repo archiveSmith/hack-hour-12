@@ -22,7 +22,8 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (arguments.length < 2) return undefined;
+  if (arguments.length < 2) return;
+  if (isNaN(k)) return;
   let currentNode = head;
   let count = 1;
   
@@ -33,7 +34,7 @@ function kthToLastNode(k, head) {
   }
 
   //Check for edge cases
-  if (count < k || k < 0) return undefined;
+  if (count < k || k < 0) return;
 
   //Find how far from the head to traverse, reset the head
   let numJumps = count - k;
