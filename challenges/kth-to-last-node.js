@@ -19,10 +19,20 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  // this.count = 0;
 }
 
 function kthToLastNode(k, head) {
+  let nodes = [];
+  let count = 0;
+  while (head) {
+    count++
+    nodes.push(head);
+    head = head.next;
+  }
 
+  if (nodes[count - k].value) return nodes[count - k].value;
+  else return undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
