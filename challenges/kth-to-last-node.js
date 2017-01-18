@@ -63,6 +63,21 @@ function kthToLastNode(k, head) {
   return;
 }
 
+function CSkthToLastNode(k, head) {
+  if (!k === undefined || k < 1 || !head) return;
+  const nodes = [];
+  function traverseAndStore(node) {
+    nodes.push(node);
+    if (node.next === null) return;
+    traverseAndStore(node.next);
+  }
+  traverseAndStore(head);
+
+  if (k > nodes.length) return;
+
+  return nodes[nodes.length - k];
+}
+
 var a = new Node('A');
 var b = new Node('B');
 var c = new Node('C');
@@ -74,6 +89,6 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));
+console.log(CSkthToLastNode(2, a));
  
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
