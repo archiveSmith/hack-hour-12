@@ -21,8 +21,23 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
+Node.prototype.kthToLastNode = function(k, head) {
+  // counter - (k - 1) = node position in LL
+  let counter = 0;
+  function kthToLastNode(k, head) {
 
+  // if (!head.next) return 'there is no kth to last node';
+
+  // while (counter <= k) {
+  //   head.next = head.next.next.value;
+  //   return head.next;
+  // }
+  // // while (head.next !== null) {
+  // //   head.next = head.next.next;
+  // //   counter += 1;
+  // //   console.log(counter);
+  // // }
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
