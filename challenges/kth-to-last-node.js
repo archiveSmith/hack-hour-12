@@ -21,26 +21,27 @@ function Node(val) {
   this.next = null;
 }
 
+// |A| -> |B| -> |C| -> |D| -> |E| -> null
+//  0      1      2      3      4
+
 function kthToLastNode(k, head) {
-  let counter = 1;
-  let curr = head;
-  while (curr.next) {
-    counter++;
-    curr = curr.next;
-  }
-  let goUntil = counter - k;
+  let length = 0; 
+  let currNode = head;
 
-  if (k > counter) {
-    return undefined;
+  while (currNode !== null) {
+    length += 1;
+    currNode = currNode.next;
   }
 
-  counter = 0;
+  if (k > length) return;
+  let counter = 0;
+  const index = length - k;
   curr = head;
-  while (counter++ < goUntil) {
+  while (curr !== null) {
+    if (counter === index) return curr.value;
+    counter += 1;
     curr = curr.next;
   }
-
-  return curr.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
