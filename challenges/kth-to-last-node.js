@@ -19,7 +19,6 @@
 function Node(val) {
   this.value = val;
   this.next = null;
-  // this.count = 0;
 }
 
 function kthToLastNode(k, head) {
@@ -36,3 +35,17 @@ function kthToLastNode(k, head) {
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+
+
+// if (k === undefined || k < 1 || !head) return;
+// const nodes = [];
+// // find length and store each in array
+// function traverseAndStore(node) {
+//   nodes.push(node);
+//   if (node.next === null) return;
+//   traverseAndStoreAndCount(node.next);
+// }
+//
+// traverseAndStore(head);
+// if (k > nodes.length) return;
+// return nodes[nodes.length - k];
