@@ -25,6 +25,9 @@ function kthToLastNode(k, head) {
     if(head === undefined) {
         return undefined;
     }
+    if(k < 0) {
+        return undefined;
+    }
     let current = head;
     let current1 = head;
     // Initialize at 1 to include the head
@@ -44,5 +47,18 @@ function kthToLastNode(k, head) {
     }
     return current1.value;
 }
+
+ var a = new Node('A');
+ var b = new Node('B');
+ var c = new Node('C');
+ var d = new Node('D');
+ var e = new Node('E');
+
+ a.next = b;
+ b.next = c;
+ c.next = d;
+ d.next = e;
+
+console.log(kthToLastNode(2,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
