@@ -56,7 +56,7 @@ function kthToLastNode(k, head) {
     // console.log('new node.index', node.index, 'node.value', node.value);
   }
 
-  return 'undefined';
+  return;
 }
 
 var a = new Node('A');
