@@ -50,8 +50,40 @@ module.exports = {Node: Node, kthToLastNode: kthToLastNode};
   // var e = new Node('E');
  
   // a.next = b;
-  // b.next = c;
+  // b.next = c;return
   // c.next = d;
   // d.next = e;
  
   // console.log(kthToLastNode(10,a));
+
+function kthToLastNode(k, head) {
+  const nodes = [];
+  // let length = 0;
+
+  function traverseAndStore(node) {
+    // length += 1;
+    nodes.push(node);
+    console.log(nodes.length);
+    if (node.next === null) return;
+    traverseAndStore(node.next);
+  }
+
+  traverseAndStore(head);
+  return nodes[nodes.length - k].value;
+
+}
+
+  var a = new Node('A');
+  var b = new Node('B');
+  var c = new Node('C');
+  var d = new Node('D');
+  var e = new Node('E');
+ 
+  a.next = b;
+  b.next = c;
+  c.next = d;
+  d.next = e;
+ 
+  console.log(kthToLastNode(2,a));
+
+
