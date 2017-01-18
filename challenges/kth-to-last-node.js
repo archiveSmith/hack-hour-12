@@ -25,12 +25,12 @@ function kthToLastNode(k, head) {
 	let length = 0;
 	let currentNode = head;
 	//find length of nodes
-	if (!head) return undefined;
+	if (!head) return;
 	while (currentNode.next) {
 		length++;
 		currentNode = currentNode.next;
 	}
-	if (k > length + 1) return undefined;
+	if (k > length + 1) return;
 	const index = length - k + 1;
 	let location = 0;
 	if(location===index) return head.value;
