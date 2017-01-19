@@ -35,13 +35,13 @@ function findLength(node) {
 }
 
 function kthToLastNode(k, head) {
-  if (k === undefined || k < 1 || !head) return;
-  
+  if (k === undefined || k < 1 || !head) return undefined;
+
   let listLength = findLength(head);
   // calculate kth
   let kth = listLength - k + 1;
 
-  if (kth > listLength) return;
+  if (kth > listLength) return undefined;
 
   // traverse list to return kth
   let current = head;
