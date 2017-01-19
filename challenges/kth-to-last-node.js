@@ -21,38 +21,22 @@ function Node(val) {
   this.next = null;
 }
 
-// find length of list
-function findLength(node) {
-  let listLength = 0;
-  let current = node;
-
-  while (current !== null) {
-    listlength += 1;
-    current = current.next;
-  }
-
-  return listLength;
-}
-
 function kthToLastNode(k, head) {
   if (k === undefined || k < 1 || !head) return undefined;
 
-  let listLength = findLength(head);
-  // calculate kth
-  let kth = listLength - k + 1;
+  const nodes = [];
 
-  if (kth > listLength) return undefined;
-
-  // traverse list to return kth
-  let current = head;
-  let count = 0;
-
-  while (current !== null) {
-    count += 1;
-    if (count === kth) return current.value;
-    current = current.next;
+  // find length of list
+  function traverseList(node) {
+    nodes.push(node.value);
+    if (node.next === null) return;
+    traverseList(node.next);
   }
-  return undefined;
+
+  traverseList(head);
+  if (k > nodes.length) return;
+
+  return nodes[nodes.length - k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
