@@ -19,7 +19,7 @@ function reverseInPlace(array) {
 		arr[a] = arr[b];
 		arr[b] = temp;
 	}
-	if(!array[0]) return array;
+	if(!array[0]) return [];
 	for (let i = 0; i < Math.floor(array.length/2); i++) {
 		swap(array, i, array.length-(i+1));
 	}
