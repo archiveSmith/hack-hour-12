@@ -22,8 +22,4 @@ function reverseInPlace(array) {
     return array.slice(len);
 }
 
-console.log(reverseInPlace([1,2,3]));
-console.log(reverseInPlace(['a', 'b', 'ç']));
-console.log(reverseInPlace([]));
-
 module.exports = reverseInPlace;
