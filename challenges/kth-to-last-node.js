@@ -46,6 +46,21 @@ function kthToLastNode(k, head) {
   return currNode.value;
 }
 
+function kthToLastNode(k, head) {
+  if (k === undefined || k < 1 || !head) return;
+  const nodes = [];
+
+  function traverse(node) {
+    nodes.push(node);
+    if (node.next === null) return;
+    traverse(node.next);
+  }
+
+  traverse(head);
+  if (k > nodes.length) return;
+  return nodes[nodes.length - k];
+}
+
 //  var a = new Node('A');
 //  var b = new Node('B');
 //  var c = new Node('C');

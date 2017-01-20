@@ -8,6 +8,11 @@ function pow(base, power) {
   return pow(base, Math.floor(power / 2)) * pow(base, Math.round(power / 2));
 }
 
-console.log(pow(2, 1))
+function pow(base, power) {
+  if (power === 0) return 1;
+  return base * pow(base, power - 1);
+}
+
+// console.log(pow(3, 2))
 
 module.exports = pow;
