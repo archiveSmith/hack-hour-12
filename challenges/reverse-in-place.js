@@ -14,6 +14,7 @@
  */
 
 function reverseInPlace(array) {
+    if (!array) return;
     const ogLength = array.length;
     for (let i = array.length - 1; i > 0; i--) {
         array.push(array[i]);
