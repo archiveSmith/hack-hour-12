@@ -19,6 +19,10 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  this.length = 0;
+
+  
+
 }
 
 function kthToLastNode(k, head) {
@@ -26,7 +30,7 @@ function kthToLastNode(k, head) {
   let count = 0;
 
   if(k > this.length){
-    return "Node not found.";
+    return undefined;
   }
 
   while (count <= k){
