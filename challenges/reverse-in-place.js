@@ -15,7 +15,7 @@
 
 function reverseInPlace(array) {
 	const len = array.length;
-	if (len === 0 || array === undefined) return [];
+	if (len === 0 || arguments.length < 1) return [];
 	for (let i = 0; i < len / 2; i += 1) {
 		[array[i], array[len - (i + 1)]] = [array[len - (i + 1)], array[i]];
 	}
