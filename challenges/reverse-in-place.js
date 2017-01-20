@@ -20,9 +20,13 @@ function swap(array, i, j) {
 }
 
 function reverseInPlace(array) {
-  for (let i = 0, j = array.length - 1; i < ~~(array.length / 2); i++, j--) {
+  if (array === undefined || array.length === 0) return [];
+  const length = array.length;
+  const middle = ~~(array.length / 2);
+  for (let i = 0, j = length - 1; i < middle; i++, j--) {
     swap(array, i, j);
   }
+
   return array;
 }
 
