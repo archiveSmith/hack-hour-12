@@ -33,7 +33,7 @@ function kthToLastNode(k, head) {
     }
     count = linkSize - k;
     if(count < 0) {
-        return undefined;
+        return;
     }
     current = head;
     while(count > 0) {
