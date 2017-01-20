@@ -17,7 +17,6 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-<<<<<<< HEAD
   let arr = [];
 
   for (let i = 1; i <= num; i++){
@@ -32,9 +31,6 @@ function fizzbuzz(num) {
     }
   }
   return arr;
-=======
-
->>>>>>> 73c87a4fbe0ffca391a5d67ff3bbd4948184ebaf
 }
 
 module.exports = fizzbuzz;
