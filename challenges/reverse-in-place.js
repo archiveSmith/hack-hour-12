@@ -14,7 +14,7 @@
  */
 
 function reverseInPlace(array) {
-  if (array.length === 0) return array;
+  if (!array || array.length === 0) return [];
   
   const reversals = Math.floor(array.length / 2);
   for (let i = 0; i < reversals; i += 1) {
