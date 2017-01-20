@@ -15,8 +15,8 @@
 
 function reverseInPlace(array) {
   // define edge cases
-  if (!Array.isArray(array)) return;
-  
+  if (!Array.isArray(array)) return [];
+
   const arrayLength = array.length;
   let temp = 0;
 
