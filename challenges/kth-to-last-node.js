@@ -31,7 +31,7 @@ function kthToLastNode(k, head) {
   }
 
   if (nodes[count - k].value) return nodes[count - k].value;
-  else return undefined;
+  else return;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
