@@ -14,8 +14,7 @@
  */
 
 function reverseInPlace(array) {
-  if (array.length == 0) return [];
-  let max = Math.floor(array.length / 2) - 1;
+  let max = Math.floor(array.length / 2);
 
   for (var i = 0; i <= max; i++) {
       let temp = array[array.length - 1 - i];
@@ -26,8 +25,8 @@ function reverseInPlace(array) {
   return array;
 }
 
-// console.log(reverseInPlace([1,2,3,4,5]))
-// console.log(reverseInPlace([1,2,3,4]))
-// console.log(reverseInPlace([]))
+console.log(reverseInPlace([1,2,3,4,5]))
+console.log(reverseInPlace([1,2,3,4]))
+console.log(reverseInPlace([]))
 
 module.exports = reverseInPlace;
