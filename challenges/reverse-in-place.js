@@ -15,11 +15,10 @@
 
 function reverseInPlace(array) {
     if (!array) return;
-    const ogLength = array.length;
     for (let i = array.length - 1; i > 0; i--) {
         array.push(array[i]);
     }
-    return array.slice(0, ogLength)
+    return array.slice(0, array.length / 2)
 }
 
 module.exports = reverseInPlace;
