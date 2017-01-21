@@ -22,6 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (!head) return undefined;
   let nodes = [];
   let count = 0;
   while (head) {
@@ -33,6 +34,23 @@ function kthToLastNode(k, head) {
   if (nodes[count - k].value) return nodes[count - k].value;
   else return;
 }
+
+
+let node = new Node('a');
+let node2 = new Node('b');
+let node3 = new Node('c');
+let node4 = new Node('d');
+let node5 = new Node('e');
+
+node.next = node2;
+node2.next = node3;
+node3.next = node4;
+node4.next = node5;
+
+console.log(kthToLastNode(5, null));
+
+
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
 

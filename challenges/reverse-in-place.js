@@ -13,6 +13,7 @@
  */
 
 function reverseInPlace(array) {
+    if (array.length < 1) return [];
     for (let i = 1; i < array.length; i += 1) {
         array.splice(array.length - i, 0, array.shift());
     }
@@ -20,3 +21,10 @@ function reverseInPlace(array) {
 }
 
 module.exports = reverseInPlace;
+
+
+// function reverseInPlace(array, startI = 0, endI = array.length - 1) {
+//     if (startI > endI) return array;
+//     [array[startI], array[endI]] = [array[endI], array[startI]];
+//     return reverseInPlace(array)
+// }
