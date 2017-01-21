@@ -33,5 +33,5 @@ function stringRotation(s1, s2) {
 
   return false;
 }
-
+ 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
