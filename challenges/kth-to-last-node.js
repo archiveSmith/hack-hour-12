@@ -64,7 +64,7 @@ function kthToLastNode(k, head) {
     return values[count - k];
   }
   else {
-    return k + " out of range";
+    return;
   }
 
 }
