@@ -16,8 +16,11 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  if (arguments.length !== 2 || typeof s1 !== 'string' || typeof s2 !== 'string' || s1.length !== s2.length) 
+  if (arguments.length !== 2 || typeof s1 !== 'string' || typeof s2 !== 'string') 
     return 'Check Inputs!';
+
+  if (s1.length !== s2.length) 
+    return false;
 
   for (let i = 0; i < s2.length; i++) {
     s2 = s2[s2.length - 1] + s2.slice(0, s2.length - 1);
