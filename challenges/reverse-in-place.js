@@ -15,16 +15,14 @@
 
 function reverseInPlace(array) {
   let jthIndex = array.length - 1;
-  // console.log(jthIndex)
-  //start at the ith index of the array
   for (let i = 0; i <= jthIndex; i += 1) {
-    let temp = array[i];
-    array[i] = array[jthIndex];
-    array[jthIndex] = temp;
+    [array[i], array[jthIndex]] = [array[jthIndex], array[i]];
     jthIndex -= 1;
   }
 
   return array;
 }
+
+console.log(reverseInPlace([]));
 
 module.exports = reverseInPlace;
