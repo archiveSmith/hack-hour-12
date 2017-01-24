@@ -24,16 +24,13 @@
  *
  */
 
- function balancedParens(input){
-   console.log(input);
-   return input.replace(/[^\[\]]/gi, '').length % 2 === 0 &&
-     input.replace(/[^\(\)]/gi, '').length % 2 === 0 &&
-     input.replace(/[^\<\>]/gi, '').length % 2 === 0 &&
-     input.replace(/[^\{\}]/gi, '').length % 2 === 0 &&
-     input.indexOf('\)') >= input.indexOf('\(') &&
-     input.indexOf('\]') >= input.indexOf('\[') &&
-     input.indexOf('\>') >= input.indexOf('\<') &&
-     input.indexOf('\}') >= input.indexOf('\{')
- }
+function balancedParens(input){
+  console.log(input);
+  return input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '').length % 2 === 0 &&
+    input.indexOf('\)') >= input.indexOf('\(') &&
+    input.indexOf('\]') >= input.indexOf('\[') &&
+    input.indexOf('\>') >= input.indexOf('\<') &&
+    input.indexOf('\}') >= input.indexOf('\{')
+}
 
 module.exports = balancedParens;
