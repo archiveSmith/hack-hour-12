@@ -3,7 +3,7 @@
  * the parentheses are balanced and false otherwise.
  *
  * Example:
- *   balancedParens('(');  // false
+ *   balancedParens('(');  // false!
  *   balancedParens('()'); // true
  *   balancedParens(')(');  // false
  *   balancedParens('(())');  // true
