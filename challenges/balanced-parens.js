@@ -25,7 +25,22 @@
  */
 
 function balancedParens(input){
+  
 
+if (input.indexOf('(') > -1 && (input.indexOf(')') < input.indexOf('(') || input.indexOf(')') < input.indexOf('[') || input.indexOf(')') < input.indexOf('{'))) return false;
+if (input.indexOf('[') > -1 && (input.indexOf(']') < input.indexOf('(') || input.indexOf(']') < input.indexOf('[') || input.indexOf(']') < input.indexOf('{'))) return false;
+if (input.indexOf('{') > -1 && (input.indexOf('}') < input.indexOf('(') || input.indexOf('}') < input.indexOf('[') || input.indexOf('}') < input.indexOf('{'))) return false;
+
+
+let sorted = input.split('').sort();
+
+if (sorted.lastIndexOf('(') * 2 + 1 !== sorted.lastIndexOf(')')) return false;
+sorted = sorted.splice(sorted.lastIndexOf(')') + 1);
+if (sorted.lastIndexOf('[') * 2 + 1 !== sorted.lastIndexOf(']')) return false;
+sorted = sorted.splice(sorted.lastIndexOf(']') + 1);
+if (sorted.lastIndexOf('{') * 2 + 1 !== sorted.lastIndexOf('}')) return false;
+
+return true;
 }
 
 module.exports = balancedParens;
