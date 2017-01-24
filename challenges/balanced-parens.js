@@ -26,19 +26,26 @@
 
 function balancedParens(input){
     if (typeof input !== 'string' || !input[1]) return false;
+    if (input.length % 2 !== 0) return false;
     const parensReg = /[\{\(\[\}\]\)]/ig
     let parens = input.match(parensReg)
     const mapped = parens.map(item =>{
-        if(item === '{' || item === '}') return 'b';
-        if(item === '(' || item === ')') return 'p';
-        if(item === '[' || item === ']') return 'a';
+        if(item === '{') return 'openB';
+        if(item === '}') return 'closedB'
+        if(item === '(') return 'openP';
+        if(item === ')') return 'closedP'
+        if(item === '[' ) return 'openA';
+        if(item === ']') return 'closedA'
     })
+    const checkObj = {openB: 'closedB', openP: 'closedP', openA: 'closedA'}
     //check if palindrome
     for (let i = 0; i < Math.floor(mapped.length/2); i++) {
-        if(mapped[i] !== mapped[mapped.length-(1+i)]) return false;
+        console.log(mapped[i], mapped[mapped.length-(1+i)])
+        if(checkObj[mapped[i]] !== mapped[mapped.length-(1+i)]) {
+            return false;
+        }
     }
     return true;
 }
-console.log(balancedParens('(())'))
-console.log(typeof '{')
+console.log(balancedParens('((()))'))
 module.exports = balancedParens;
