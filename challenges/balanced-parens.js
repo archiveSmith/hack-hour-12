@@ -25,7 +25,23 @@
  */
 
 function balancedParens(input){
+  if (input.length % 2 === 1) return false;
 
+  let parens = 0;
+  let counter = 0;
+  let ch = input[counter++];
+
+  while (ch) {
+    if (ch === '(') {
+      parens++;
+      if (input[counter + 1] !== ')' || input[counter + 1] !== '(') return false;
+    } else if (ch === ')') {
+      parens--;
+    }
+    ch = input[counter++];
+  }
+
+  return parens === 0 ? true : false;
 }
 
 module.exports = balancedParens;
