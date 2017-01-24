@@ -25,7 +25,20 @@
  */
 
 function balancedParens(input){
-
+    if (typeof input !== 'string' || !input[1]) return false;
+    const parensReg = /[\{\(\[\}\]\)]/ig
+    let parens = input.match(parensReg)
+    const mapped = parens.map(item =>{
+        if(item === '{' || item === '}') return 'b';
+        if(item === '(' || item === ')') return 'p';
+        if(item === '[' || item === ']') return 'a';
+    })
+    //check if palindrome
+    for (let i = 0; i < Math.floor(mapped.length/2); i++) {
+        if(mapped[i] !== mapped[mapped.length-(1+i)]) return false;
+    }
+    return true;
 }
-
+console.log(balancedParens('(())'))
+console.log(typeof '{')
 module.exports = balancedParens;

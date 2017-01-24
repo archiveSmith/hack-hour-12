@@ -26,7 +26,7 @@ function stringRotation(s1, s2, startIndex) {
 		return stringRotation(s1, s2, newStartIndex);
 	}
 }
-console.log(stringRotation('hellohello', 'ellohelloh'));
+//console.log(stringRotation('hellohello', 'ellohelloh'));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
 
