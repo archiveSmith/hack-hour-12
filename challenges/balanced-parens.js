@@ -52,6 +52,7 @@ function balancedParens(input){
 			default:
 				break;
 		}
+		if (depths.reduce((res, acc) => res + acc, 0) <= 0) return false;
 	}
 
 	return (depths.reduce((res, acc) => res + acc, 0) === 0);
