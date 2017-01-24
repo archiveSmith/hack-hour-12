@@ -27,7 +27,7 @@
 function balancedParens(input){
 	if (!input || input.length < 1) return false;
 	const depths = Array(3).fill(0);
-
+	let result;
 	for (let i = 0; i < input.length; i += 1) {
 		let char = input.charAt(i);
 		switch(char) {
@@ -52,10 +52,11 @@ function balancedParens(input){
 			default:
 				break;
 		}
-		if (depths.reduce((res, acc) => res + acc, 0) <= 0) return false;
+		result = depths.reduce((res, acc) => res + acc, 0);
+		if ( result < 0) return false;
 	}
 
-	return (depths.reduce((res, acc) => res + acc, 0) === 0);
+	return (result === 0);
 
 }
 
