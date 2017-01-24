@@ -24,24 +24,34 @@
  *
  */
 
-function balancedParens(input){
-  if (input.length % 2 === 1) return false;
-
-  let parens = 0;
+function balancedParens(input) {
   let counter = 0;
   let ch = input[counter++];
+  const stack = [];
 
   while (ch) {
     if (ch === '(') {
-      parens++;
-      if (input[counter + 1] !== ')' || input[counter + 1] !== '(') return false;
+      stack.push(ch);
     } else if (ch === ')') {
-      parens--;
+      if (stack[stack.length-1] !== '(') return false;
+      stack.pop();
+    } else if (ch === '[') {
+      stack.push(ch);
+    } else if (ch === ']') {
+      if (stack[stack.length-1] !== '[') return false;
+      stack.pop();
+    } else if (ch === '{') {
+      stack.push(ch);
+    } else if (ch === '}') {
+      if (stack[stack.length-1] !== '{') return false;
+      stack.pop();
     }
+
     ch = input[counter++];
   }
 
-  return parens === 0 ? true : false;
+  if (stack.length > 0) return false;
+  return true;
 }
 
 module.exports = balancedParens;
