@@ -25,7 +25,23 @@
  */
 
 function balancedParens(input){
+    var arr = ["{","(","[","]",")","}"];
+    var arrInput = input.split('');
+    var new_strArray = [];
 
+    for (let i = 0; i < arrInput.length; i++) {
+        if (arr.indexOf(arrInput[i]) > -1){
+            new_strArray.push(arrInput[i]);
+        }
+    }
+
+    var new_str = new_strArray.join('');
+
+    new_str = new_str.split('()').join('');
+    new_str = new_str.split('[]').join('');
+    new_str = new_str.split('{}').join('');
+
+    return new_str.length == 0;
 }
 
 module.exports = balancedParens;
