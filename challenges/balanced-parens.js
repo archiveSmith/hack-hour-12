@@ -24,13 +24,21 @@
  *
  */
 
-function balancedParens(input){
-  console.log(input);
-  return input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '').length % 2 === 0 &&
-    input.indexOf('\)') >= input.indexOf('\(') &&
-    input.indexOf('\]') >= input.indexOf('\[') &&
-    input.indexOf('\>') >= input.indexOf('\<') &&
-    input.indexOf('\}') >= input.indexOf('\{')
-}
+ function balancedParens(input){
+    const newInput = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
+    const length = input.length;
+
+    for (let i = 0; i < ~~(length / 2); i += 1) {
+       if (newInput.indexOf('\(') === i && newInput.lastIndexOf('\)') !== newInput.length - 1 - i) return false;
+       if (newInput.indexOf('\[') === i && newInput.lastIndexOf('\]') !== newInput.length - 1 - i) return false;
+       if (newInput.indexOf('\{') === i && newInput.lastIndexOf('\}') !== newInput.length - 1 - i) return false;
+    }
+
+    return newInput.length % 2 === 0 &&
+      newInput.indexOf('\)') >= newInput.indexOf('\(') &&
+      newInput.indexOf('\]') >= newInput.indexOf('\[') &&
+      newInput.indexOf('\>') >= newInput.indexOf('\<') &&
+      newInput.indexOf('\}') >= newInput.indexOf('\{')
+  }
 
 module.exports = balancedParens;
