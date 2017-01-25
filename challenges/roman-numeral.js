@@ -19,6 +19,7 @@
 
  function romanNumeral(n) {
   const romNum = {
+       0: '',
        1: 'I',
        2: 'II',
        3: 'III',
