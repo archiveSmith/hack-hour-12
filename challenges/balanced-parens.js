@@ -43,20 +43,10 @@ function balancedParens(input) {
         console.log('comparing', array[i], symbolsI[array[countdown]]);
         let open = array[i];
         let close = symbols[array[i]];
-        if (array[i] != symbolsI[array[countdown]]) {
+        if (array[i] !== symbolsI[array[countdown]]) {
             return false;
         }
         countdown -= 1;
-        // let open = array[i];
-        // let close = symbols[open];
-        // console.log('open', open, 'close', close);
-        // let idxOpen = i;
-        // let idxClose = array.indexOf(close);
-        // console.log('idxOpen', idxOpen, 'idxClose', idxClose);
-        // if (idxClose === -1) return false;
-        // if (idxClose - idxOpen % 2 === 0) {
-        //     return false;
-        // }
     }    
     return true;
 }
