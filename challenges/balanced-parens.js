@@ -46,5 +46,7 @@ function balancedParens(input){
   return true;
   
 }
+
+console.log(balancedParens('[{{](]'));
  
 module.exports = balancedParens;
