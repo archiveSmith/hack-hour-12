@@ -18,63 +18,30 @@
  */
 
 function romanNumeral(n) {
-let roman = '';
-
-  function getRomanNumerals(n) {
-    if (n === 0) return;
-    if (n >= 1000) {
-      roman += 'M'; 
-      n -= 1000;
-    } else if (n >= 500) {
-      if (n >= 900) {
-        roman += 'CM';
-        n -= 900;
-      } else {
-        roman += 'D';
-        n -= 500;
+  let romanNumeralsAndValues = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  let roman = '';
+  while (n > 0) {
+    for (value in romanNumeralsAndValues) {
+      if (romanNumeralsAndValues[value] <= n) {
+        n -= romanNumeralsAndValues[value];
+        roman += value;
+        break;
       }
-    } else if (n >= 100) {
-        if (n >= 400) {
-          roman += 'CD';
-          n -= 400;
-        } else {
-          roman += 'C';
-          n -= 100;
-        }
-    } else if (n >= 50) {
-        if (n >= 90) {
-          roman += 'XC';
-          n -= 90;
-        } else {
-          roman += 'L';
-          n -= 50;
-        }
-    } else if (n >= 10) {
-        if (n >= 40) {
-          roman += 'XL';
-          n -= 40;
-        } else {
-          roman += 'X';
-          n -= 10;
-        }
-    } else if (n >= 5) {
-        if (n === 9) {
-          roman += 'IX';
-          n -= 9;
-        } else {
-          roman += 'V';
-          n -= 5;
-        }
-    } else if (n >= 1) {
-        if (n === 4) {
-          roman += 'IV';
-          n -= 4;
-        } else {
-          roman += 'I';
-          n -= 1;
-        }
-    } getRomanNumerals(n);
-  } getRomanNumerals(n);
-  return roman;
+    }
+  } return roman;
 }
 module.exports = romanNumeral;
