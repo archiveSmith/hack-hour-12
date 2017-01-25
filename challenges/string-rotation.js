@@ -23,11 +23,16 @@ function stringRotation(s1, s2) {
   let secondHalf = s2.slice(firstIdx);
   if (secondHalf + firstHalf === s1) {
     return true;
-    // console.log('equal', secondHalf + firstHalf, s1)
   }
-    // console.log('not equal', secondHalf + firstHalf, s1)
   return false;
 }
+
+function CCCstringRotation(s1, s2) {
+    // Rotation must be same length and be a subset of the first
+    // string concatenated onto itself.
+    return s1.length === s2.length && isSubstring(s1.concat(s1), s2);
+}
+
 // stringRotation('abcdef','cdefab');
 // stringRotation('hello','hello');
 // stringRotation('hello','llohe');
