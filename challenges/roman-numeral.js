@@ -18,6 +18,7 @@
  */
 
  function romanNumeral(n) {
+   console.log(n);
   const romNum = {
        0: '',
        1: 'I',
