@@ -26,10 +26,14 @@
 
 function balancedParens(input){
   
+const p1 = input.indexOf('(');
+const pc = input.indexOf(')');
+const b1 = input.indexOf('[');
+const c1 = input.indexOf('{');
 
-if (input.indexOf('(') > -1 && (input.indexOf(')') < input.indexOf('(') || input.indexOf(')') < input.indexOf('[') || input.indexOf(')') < input.indexOf('{'))) return false;
-if (input.indexOf('[') > -1 && (input.indexOf(']') < input.indexOf('(') || input.indexOf(']') < input.indexOf('[') || input.indexOf(']') < input.indexOf('{'))) return false;
-if (input.indexOf('{') > -1 && (input.indexOf('}') < input.indexOf('(') || input.indexOf('}') < input.indexOf('[') || input.indexOf('}') < input.indexOf('{'))) return false;
+if (p1 > -1 && (pc < p1 || pc < b1 || pc < c1)) return false;
+if (b1 > -1 && (input.indexOf(']') < p1 || input.indexOf(']') < b1 || input.indexOf(']') < c1)) return false;
+if (c1 > -1 && (input.indexOf('}') < p1 || input.indexOf('}') < b1 || input.indexOf('}') < c1)) return false;
 
 
 let sorted = input.split('').sort();
