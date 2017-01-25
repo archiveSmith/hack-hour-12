@@ -14,7 +14,7 @@
  */
 
 function reverseInPlace(array) {
-  if (array.length == 0) return array;
+  if (array.length == 0 || !array) return [];
   let max = Math.floor(array.length / 2);
 
   for (var i = 0; i <= max; i++) {
