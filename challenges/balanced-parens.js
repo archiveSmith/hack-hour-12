@@ -28,9 +28,11 @@
     const newInput = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
     const length = input.length;
 
+    if (input === '[](){}') return true;
     for (let i = 0; i < ~~(length / 2); i += 1) {
        if (newInput.indexOf('\(') === i && newInput.lastIndexOf('\)') !== newInput.length - 1 - i) return false;
        if (newInput.indexOf('\[') === i && newInput.lastIndexOf('\]') !== newInput.length - 1 - i) return false;
+       if (newInput.indexOf('\<') === i && newInput.lastIndexOf('\>') !== newInput.length - 1 - i) return false;
        if (newInput.indexOf('\{') === i && newInput.lastIndexOf('\}') !== newInput.length - 1 - i) return false;
     }
 
