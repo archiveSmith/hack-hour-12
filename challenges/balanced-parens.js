@@ -35,13 +35,25 @@ function balancedParens(input){
         }
     }
 
-    var new_str = new_strArray.join('');
+    var input = new_strArray.join('');
 
-    new_str = new_str.split('()').join('');
-    new_str = new_str.split('[]').join('');
-    new_str = new_str.split('{}').join('');
+    var arr2 = ["()","[]","{}"];
+    let condition = false;
 
-    return new_str.length == 0;
+    while(!condition) {
+        condition = true
+        for (let i=0; i<3; i++) {
+            let idx = input.indexOf(arr2[i]);
+
+            if (idx > -1){
+                condition = false;
+                input = input.split(arr2[i]).join('');
+            }
+        }
+    }
+
+    return input.length == 0;
 }
+
 
 module.exports = balancedParens;
