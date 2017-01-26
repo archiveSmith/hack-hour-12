@@ -25,7 +25,7 @@
  */
 
 function balancedParens(input){
-	if (!input || input.length < 1) return false;
+	if (!input || input.length < 1) return ;
 	const depths = Array(3).fill(0);
 	let result;
 	for (let i = 0; i < input.length; i += 1) {
@@ -55,7 +55,7 @@ function balancedParens(input){
 		result = depths.reduce((res, acc) => res + acc, 0);
 		if ( result < 0) return false;
 	}
-
+	console.log('check');
 	return (result === 0);
 
 }
