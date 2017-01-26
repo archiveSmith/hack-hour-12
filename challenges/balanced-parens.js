@@ -24,40 +24,23 @@
  *
  */
 
-function balancedParens(input){
-	if (!input || input.length < 1) return ;
-	const depths = Array(3).fill(0);
-	let result;
-	for (let i = 0; i < input.length; i += 1) {
-		let char = input.charAt(i);
-		switch(char) {
-			case '(':
-				depths[0] += 1;
-				break;
-			case ')':
-				depths[0] -= 1;
-				break;
-			case '[':
-				depths[1] += 1;
-				break;
-			case ']':
-				depths[1] -= 1;
-				break;
-			case '{':
-				depths[2] += 1;
-				break;
-			case '}':
-				depths[2] -= 1;
-				break;
-			default:
-				break;
+function balancedParens(input) {
+	const matches = {'[':']', '{':'}', '(':')',};
+	let brackets = [];
+	// loop over string
+	for (var i = 0; i < input.length; i += 1) {
+		let char = input[i];
+		// if char is opening bracket, push it on the stack
+		if (char in matches) {
+			brackets.push(char);
+		// else, if char closing, compare it with last item on stack
+		} else if (char === ']' || char === '}' || char === ')') {
+			if (matches[brackets.pop()] !== char) {
+				return false;
+			}
 		}
-		result = depths.reduce((res, acc) => res + acc, 0);
-		if ( result < 0) return false;
 	}
-	console.log('check');
-	return (result === 0);
-
+	// return true if stack is empty
+	return !brackets.length;
 }
-
 module.exports = balancedParens;
