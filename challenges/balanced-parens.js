@@ -66,6 +66,22 @@ function balancedParens(input) {
     return false;
 }
 
+function CCCbalancedParens(input) {
+    let matches = {'(':')', '[':']', '{':'}'};
+    var brackets = [];
+    for (let i = 0; i < input.length; i++) {
+        let char = input[i];
+        if (char in matches) {
+            brackets.push(char);
+        } else if (char === ']' || char === ')' || char === '}') {
+            if (matches[brackets.pop()] !== char) {
+                return false;
+            }
+        }
+    }
+    return !brackets.length;
+}
+
 // console.log(balancedParens('()[]{]'));
 // console.log(balancedParens('('))
 // console.log(balancedParens('()'))
