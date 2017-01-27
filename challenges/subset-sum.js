@@ -1,5 +1,5 @@
 function subsetSum(array, target){
-    if (target === undefined) {return []}
+    if (target === undefined) return [];
     if (array.length == 0) {
         if (target == 0) return true;
         return false;
