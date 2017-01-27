@@ -25,7 +25,31 @@
  */
 
 function balancedParens(input){
+  if (typeof input !== "string") return true;
+  if (input === "") return true;
+  
+  const parensCounter = [];  //  counter for balanced parens
+  const inputLength = input.length;
+  
+  for (let i = 0; i < inputLength; i += 1) {
+    // if input[i] is an open parens type, push parens type to parensCounter
+    if (input[i] === '(') parensCounter.push('(');
+    if (input[i] === '[') parensCounter.push('[');
+    if (input[i] === '{') parensCounter.push('{');
+    
+    // if input[i] is matching closing parens type for last element in
+    // closing parensCounter, pop element from parensCounter
+    if (input[i] === ')' && parensCounter[parensCounter.length - 1] === '(') parensCounter.pop();
+    if (input[i] === ']' && parensCounter[parensCounter.length - 1] === '[') parensCounter.pop();
+    if (input[i] === '}' && parensCounter[parensCounter.length - 1] === '{') parensCounter.pop();
+   }
 
+  // if parensCounter === 0 we have balanced parens
+  if (parensCounter.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = balancedParens;
