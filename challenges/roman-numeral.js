@@ -14,6 +14,7 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
+<<<<<<< HEAD
  *
  */
 
@@ -61,6 +62,13 @@
   arr.forEach(e => result += romNum[e])
 
   return result;
+=======
+ * 
+ */
+
+function romanNumeral(n) {
+
+>>>>>>> 500aa713cfccfbc9c0b28e0f02a23a0ac927c5f3
 }
 
 module.exports = romanNumeral;
