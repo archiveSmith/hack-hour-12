@@ -1,4 +1,5 @@
 function subsetSum(array, target){
+    if (target === undefined) {return []}
     if (array.length == 0) {
         if (target == 0) return true;
         return false;
@@ -15,7 +16,7 @@ function subsetSum(array, target){
 // var arr3 = [8,2,4,12]
 // console.log(subsetSum(arr3, 13))
 // var arr4 = [8,-2,1,-3]
-// console.log(subsetSum(arr4, 6))
+// console.log(subsetSum(arr4))
 // var arr5 = [6]
 // console.log(subsetSum(arr5, 6))
 // var arr6 = []
