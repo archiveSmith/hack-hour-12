@@ -36,7 +36,6 @@ function romanNumeral(n) {
        900   :    'CM',
        1000  :    'M'
     };
-    console.log('hi');
     for (let i = nums.length - 1; i >= 0; i--){
         while (n !== 0 && n/nums[i]>=1) {
         result += romanMap[nums[i]];
@@ -45,4 +44,5 @@ function romanNumeral(n) {
     }
     return result;
 }
+console.log(romanNumeral(49));
 module.exports = romanNumeral;
