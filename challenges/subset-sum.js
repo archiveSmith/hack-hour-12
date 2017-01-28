@@ -11,6 +11,8 @@
  */
 
 function subsetSum(array, target) {
+  if (array.length === 1) return array[0] === target;
+  
   let sum;
   
   for (let i = 0; i < array.length; i++) {
