@@ -27,5 +27,3 @@ function reverseInPlace(array) {
 }
 
 module.exports = reverseInPlace;
-
-console.log(reverseInPlace());
