@@ -14,7 +14,15 @@
  */
 
 function reverseInPlace(array) {
-
+  // array.forEach(function(el, idx, arr) {
+  //   let store = el;
+  //   arr.splice(idx, 1);
+  //   arr.unshift(el);
+  // });
+  // return array;
+  return array.reduce((accumulator, currentValue) => {
+    return currentValue.concat(accumulator);
+  }, []).split('');
 }
 
 module.exports = reverseInPlace;
