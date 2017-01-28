@@ -20,9 +20,12 @@ function reverseInPlace(array) {
   //   arr.unshift(el);
   // });
   // return array;
+  if (array.length === 0) return array;
   return array.reduce((accumulator, currentValue) => {
-    return currentValue.concat(accumulator);
-  }, []).split('');
+    return [currentValue].concat(accumulator);
+  });
 }
 
 module.exports = reverseInPlace;
+
+console.log(reverseInPlace([1,2,3]));
