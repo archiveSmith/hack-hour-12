@@ -28,24 +28,37 @@ function balancedParens(input){
     if (typeof input !== 'string' || !input[1]) return false;
     if (input.length % 2 !== 0) return false;
     const parensReg = /[\{\(\[\}\]\)]/ig
+    parensMap = {
+        '{' : '}',
+        '(' : ')',
+        '[' : ']'
+    }
     let parens = input.match(parensReg)
-    const mapped = parens.map(item =>{
-        if(item === '{') return 'openB';
-        if(item === '}') return 'closedB'
-        if(item === '(') return 'openP';
-        if(item === ')') return 'closedP'
-        if(item === '[' ) return 'openA';
-        if(item === ']') return 'closedA'
-    })
-    const checkObj = {openB: 'closedB', openP: 'closedP', openA: 'closedA'}
-    //check if palindrome
-    for (let i = 0; i < Math.floor(mapped.length/2); i++) {
-        console.log(mapped[i], mapped[mapped.length-(1+i)])
-        if(checkObj[mapped[i]] !== mapped[mapped.length-(1+i)]) {
-            return false;
+    while(parens.length){
+        let count = 0
+        if(parens[0] in parensMap) {
+            for (let i = 1; i < parens.length; i++) {
+                if(parens[i] === parens[0]) count++
+                else if(parens[i] === parensMap[parens[0]] && count !== 0) count--
+                else if(parens[i] === parensMap[parens[0]] && count === 0) {
+                    parens.splice(i, 1);
+                    parens.splice(0, 1);
+                }
+                else return false;
+            }
         }
+        else return false;
     }
     return true;
 }
-console.log(balancedParens('((()))'))
+console.log(balancedParens('({(d(s))})'))
+
 module.exports = balancedParens;
+/*
+((([])) ))((
+
+even number,
+if it opens, it must close
+
+
+*/

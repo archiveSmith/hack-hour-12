@@ -14,7 +14,22 @@
  */
 
 function binToDec(binary) {
-
+    //remove beginning 0
+    while(binary[0] === '0'){
+        binary = binary.slice(1);
+    }
+    let decimal = 0;
+    for (let i = binary.length-1, j = 1; i >= 0; i--, j *= 2) {
+        if(binary[i] !== '1' && binary[i] !== '0') return;
+        decimal += Number(binary[i]) * j;
+    }
+    return decimal;
 }
+console.log(binToDec('100101'));
 
 module.exports = binToDec;
+
+
+/*
+each decimal place is a 2 spot
+*/
