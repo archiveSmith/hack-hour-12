@@ -9,7 +9,7 @@
  */
 
 function subsetSum(array, target) {
-    if (!array || !target || array.length < 0) return false;
+    if (!array || !target || array.length <= 0) return false;
     return subsetSum(array.slice(1), target  - array[0] || array.slice(1), target);
 }
 
