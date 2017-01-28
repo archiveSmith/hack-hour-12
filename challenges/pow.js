@@ -3,6 +3,10 @@
  */
 
 function pow(base, power) {
+  if (power < 0) {
+    if (power === 0) return 1;
+    return 1 / (base * pow(base, power + 1));
+  }
   if (power === 0) return 1;
   return base * pow(base, power - 1);
 }
@@ -10,4 +14,9 @@ function pow(base, power) {
 module.exports = pow;
 
 
-// console.log(pow(5,3));
+console.log(pow(5,-10));
+// 
+// if (power === 1) return base;
+// return base * pow(base, power - 1);
+// 
+// 
