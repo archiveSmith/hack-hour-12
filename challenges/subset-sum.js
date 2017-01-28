@@ -17,23 +17,25 @@ function subsetSum(array, target) {
   
   for (let i = 0; i < array.length; i++) {
     sum = array[i];
+    if (sum === target) return true;
     
     for (let j = 0; j < array.length; j++) {
       if (i !== j) {
         sum += array[j];
-        if (sum === target) return true;
       }
+      
+      if (sum === target) return true;
     }
     
     for (let k = 0; k < array.length; k++) {
       if (k !== i) {
         sum -= array[k];
-        if (sum === target) return true;
       }
+      if (sum === target) return true;
     }
   }
   
   return false;
 }
-
+// console.log(subsetSum([5,3,1,7,11],15));
 module.exports = subsetSum;
