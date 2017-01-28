@@ -27,4 +27,35 @@ function binToDec(binary) {
   return total;
 }
 
+function decToBin(decimal) {
+  let binLen = 0;
+  let numCheck = 1;
+  let binStr = '';
+  const binYes = '1';
+  const binNo = '0';
+  let i;
+  if (decimal === 1) return '1';
+  while (numCheck < decimal) {
+    binLen += 1;
+    numCheck *= 2;
+  }
+  for (i = binLen - 1; i > 0; i -= 1) {
+    if (Math.pow(2, i) <= decimal) {
+      binStr += binYes;
+      decimal -= Math.pow(2, i);
+    }
+    else {
+      binStr += binNo;
+    }
+  }
+  if (decimal === 0) {
+    binStr += binNo;
+  }
+  else {
+    binStr += binYes;
+  }
+  return binStr;
+}
+
+
 module.exports = binToDec;
