@@ -15,12 +15,9 @@
 
 function binToDec(binary) {
   const arr = binary.split('').map(a => parseInt(a));
-  while (arr[0] === 0) {
-    arr.shift();
-  }
   let sum = 0;
-  for (var i = 0; i < arr.length; i++) {
-    sum = sum + (arr[i] * Math.pow(2, i));
+  for (var i = arr.length - 1, j = 0; i >= 0; i--, j++) {
+    sum = sum + (arr[j] * Math.pow(2, i));
   }
 	return sum;
 }
