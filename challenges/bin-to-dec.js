@@ -14,7 +14,7 @@
  */
 
 function binToDec(binary) {
-    if(typeof binary !== 'number') {
+    if(typeof parseInt(binary) !== 'number') {
         return;
     }
     let num = 0;
