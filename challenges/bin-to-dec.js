@@ -14,9 +14,9 @@
  */
 
 function binToDec(binary) {
+    if (!binary || binary.length < 1) return;
     let count = 0;
-    let digit = 1;
-    for (let i = binary.length - 1; i >= 0; i -= 1, digit += 1) {
+    for (let i = binary.length - 1, digit = 1; i >= 0; i -= 1, digit += 1) {
         count += (digit * binary[i]);
     }
     return count;
