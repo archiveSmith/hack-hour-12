@@ -16,7 +16,6 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-<<<<<<< HEAD
   let arrS1 = s1.split('');
   let comparer = [];
 
@@ -26,9 +25,6 @@ function stringRotation(s1, s2) {
   }
 
   return comparer.includes(s2);
-=======
-
->>>>>>> 7fa60a3040e802bd9c81cb87be5c17eb1f91890f
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
