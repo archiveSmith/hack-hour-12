@@ -14,7 +14,14 @@
  */
 
 function binToDec(binary) {
+  const binaryCheck = /^['0'|'1']/;
+  
+  if (binary.search(binaryCheck) === -1) return 'not binary';
+  
+  if (binary.length === 1) return Number(binary);
 
+  if (binary[0] === '1') return Math.pow(2, binary.length - 1) + binToDec(binary.slice(1));
+  else return binToDec(binary.slice(1));
 }
 
 module.exports = binToDec;
