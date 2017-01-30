@@ -22,37 +22,39 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (!head) return undefined;
-  let nodes = [];
-  let count = 0;
+  if (!head || k < 1) return undefined;
+  const nodes = [];
+
   while (head) {
-    count++
-    nodes.push(head);
+    nodes.push(head).value;
     head = head.next;
   }
 
-  if (nodes[count - k].value) return nodes[count - k].value;
-  else return;
+  return nodes[nodes.length - k];
 }
 
 
-let node = new Node('a');
-let node2 = new Node('b');
-let node3 = new Node('c');
-let node4 = new Node('d');
-let node5 = new Node('e');
+// let node = new Node('a');
+// let node2 = new Node('b');
+// let node3 = new Node('c');
+// let node4 = new Node('d');
+// let node5 = new Node('e');
 
-node.next = node2;
-node2.next = node3;
-node3.next = node4;
-node4.next = node5;
+// node.next = node2;
+// node2.next = node3;
+// node3.next = node4;
+// node4.next = node5;
 
-console.log(kthToLastNode(5, null));
+// console.log(kthToLastNode(3, node));
+// console.log(node);
 
 
 
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};
 
 
 // if (k === undefined || k < 1 || !head) return;
