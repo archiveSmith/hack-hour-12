@@ -15,21 +15,16 @@ function matchWord(str) {
   const newStr = str.replace(/[^\w\s]|/g, '').replace(/\s+|_/g, ' ');
   const strArr = newStr.split(' ');
   if (strArr.length % 2 !== 0) return false;
-  let i;
   let j;
-  const arr = [];
-  for (i = 0; i < strArr.length; i += 1) {
-    const lowerStr = strArr[i].toLowerCase();
-    arr.push(lowerStr);
-  }
-  const checkArr = [arr[0]];
-  for (j = 1; j < arr.length; j += 1) {
-    const reversedStr = arr[j].split('').reverse().join('');
+  const checkArr = [strArr[0].toLowerCase()];
+
+  for (j = 1; j < strArr.length; j += 1) {
+    const reversedStr = strArr[j].split('').reverse().join('').toLowerCase();
     if (reversedStr === checkArr[checkArr.length - 1]) {
       checkArr.pop();
     }
     else {
-      checkArr.push(arr[j]);
+      checkArr.push(strArr[j].toLowerCase());
     }
   }
   return checkArr.length === 0;
