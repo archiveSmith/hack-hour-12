@@ -12,19 +12,20 @@
 
 function matchWord(str) {
   if (str.length === 0) return true;
+  str = str.toLowerCase()
   const newStr = str.replace(/[^\w\s]|/g, '').replace(/\s+|_/g, ' ');
   const strArr = newStr.split(' ');
   if (strArr.length % 2 !== 0) return false;
   let j;
-  const checkArr = [strArr[0].toLowerCase()];
+  const checkArr = [strArr[0]];
 
   for (j = 1; j < strArr.length; j += 1) {
-    const reversedStr = strArr[j].split('').reverse().join('').toLowerCase();
+    const reversedStr = strArr[j].split('').reverse().join('');
     if (reversedStr === checkArr[checkArr.length - 1]) {
       checkArr.pop();
     }
     else {
-      checkArr.push(strArr[j].toLowerCase());
+      checkArr.push(strArr[j]);
     }
   }
   return checkArr.length === 0;
