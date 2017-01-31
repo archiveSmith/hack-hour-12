@@ -20,6 +20,8 @@ function matchWord(str) {
         if (words.length > 0) {
           if (words[words.length - 1] === word.split('').reverse().join('').toLowerCase()) {
             words.pop();
+          } else {
+            words.push(word.toLowerCase());
           }
         } else {
           words.push(word.toLowerCase());
