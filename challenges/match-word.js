@@ -8,7 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  if (!str || typeof str !== 'string') return 'Check Inputs';
+  if (!str || typeof str !== 'string' || !!str.length) return 'Check Inputs';
   
   str = str.replace(/[^A-Za-z]/g, '');
   
