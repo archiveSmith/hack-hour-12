@@ -25,6 +25,4 @@ function binToDec(binary) {
     return sum;
 }
 
-console.log(binToDec('0101'));
-
 module.exports = binToDec;
