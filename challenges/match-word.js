@@ -42,3 +42,6 @@ function matchWord(str) {
 }
 
 module.exports = matchWord;
+
+// if(reverseWord !== wordStack[wordStack.length - 1]) wordStack.push(word);
+// else wordStack.pop();

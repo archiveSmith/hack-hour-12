@@ -26,7 +26,6 @@ function drawStairs(n) {
   let stairCount;
 
   for (let i = 1; i <= n; i += 1) {
-
     spaceCount = n - i;
     stairCount = i;
 

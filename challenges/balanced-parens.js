@@ -24,23 +24,36 @@
  *
  */
 
- function balancedParens(input){
-    const newInput = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
-    const length = input.length;
+function balancedParens(input) {
+  const newInput = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
+  const len = newInput.length;
+  const compArr = [];
+  const matchArr = [];
+  const matches = {
+    '{': '}',
+    '(': ')',
+    '[': ']',
+  };
 
-    if (input === '[](){}') return true;
-    for (let i = 0; i < ~~(length / 2); i += 1) {
-       if (newInput.indexOf('\(') === i && newInput.lastIndexOf('\)') !== newInput.length - 1 - i) return false;
-       if (newInput.indexOf('\[') === i && newInput.lastIndexOf('\]') !== newInput.length - 1 - i) return false;
-       if (newInput.indexOf('\<') === i && newInput.lastIndexOf('\>') !== newInput.length - 1 - i) return false;
-       if (newInput.indexOf('\{') === i && newInput.lastIndexOf('\}') !== newInput.length - 1 - i) return false;
+  for (let i = 0; i < len; i += 1) {
+    if (compArr.length > 0) {
+      if (matchArr.includes(newInput[i])) {
+        compArr.pop();
+        matchArr.pop();
+      } else {
+        compArr.push(newInput[i]);
+        matchArr.push(matches[newInput[i]]);
+      }
+    } else {
+      compArr.push(newInput[i]);
+      matchArr.push(matches[newInput[i]]);
     }
-
-    return newInput.length % 2 === 0 &&
-      newInput.indexOf('\)') >= newInput.indexOf('\(') &&
-      newInput.indexOf('\]') >= newInput.indexOf('\[') &&
-      newInput.indexOf('\>') >= newInput.indexOf('\<') &&
-      newInput.indexOf('\}') >= newInput.indexOf('\{')
   }
+
+  if (compArr.length > 0) return false;
+
+  return true;
+}
+
 
 module.exports = balancedParens;
