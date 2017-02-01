@@ -1,4 +1,8 @@
-// Some languages have "if" statements that are closed by "fi" instead of curly brackets. Or they close a "case" with "esac", i.e. the same keyword backwards. for this problem we'll check that all words in a string are "closed". Write a function that takes a string and returns true if every word is closed by its backwards counterpart. Words must be separated by space or punctuation.
+// Some languages have "if" statements that are closed by "fi" instead of curly
+// brackets. Or they close a "case" with "esac", i.e. the same keyword backwards.
+// for this problem we'll check that all words in a string are "closed".
+// Write a function that takes a string and returns true if every word is closed
+// by its backwards counterpart. Words must be separated by space or punctuation.
 
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
@@ -10,32 +14,31 @@
 function matchWord(str) {
   if (str.length === 0) return true;
   if (str.match(/[.,!?:;'"\-_[\]}()]/) === false) return false;
-  let strArr = str.replace(/[.,!?:;'"\-_[\]}()]/gi, ' ')
-    .match(/(\w+)/g)
-    .map(e => e.toLowerCase());
-  let len = strArr.length;
-  // console.log(str.match(/(\w+)/g).length)
+
+  const strArr = str.replace(/[.,!?:;'"\-_[\]}()]/gi, ' ')
+  .match(/(\w+)/g)
+  .map(e => e.toLowerCase());
+  const len = strArr.length;
+  const compArr = [];
+  const matchArr = [];
+
   if (len % 2 === 1) return false;
+
   for (let i = 0; i < len; i += 1) {
-    // console.log(strArr[i])
-    // console.log(strArr[len - 1 - i].split('').reverse().join(''))
-    if (strArr[i] !== strArr[len - 1 - i].split('').reverse().join('')) return false;
+    if (compArr.length > 0) {
+      if (matchArr.includes(strArr[i])) {
+        compArr.pop();
+        matchArr.pop();
+      }
+    } else {
+      compArr.push(strArr[i]);
+      matchArr.push(strArr[i].split('').reverse().join(''));
+    }
   }
 
-  let compArr = [str[0]];
-  let length = compArr.length;
-  let match = compArr[length - 1].split('').reverse().join('');
-  for (let i = 1; i < len; i += 1) {
-    if (compArr[i] === match) {
-      compArr.pop();
-    }
-    compArr.push(strArr[i]);
-    match = compArr[length - 1].split('').reverse().join('')
-  }
+  if (compArr.length > 0) return false;
 
   return true;
-
-  // console.log(strArr)
 }
 
 module.exports = matchWord;
