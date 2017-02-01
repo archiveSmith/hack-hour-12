@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+    if (array.length < 3) return 0;
     var max = -Infinity;
     var secondmax = -Infinity;
     var thirdmax = -Infinity;
