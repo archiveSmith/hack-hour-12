@@ -7,11 +7,12 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+
+// you can lowercase the str before you do anything... don't have to map!!!
 function matchWord(str) {
-    var wordArr = str.split(/[/\_\W+/]/gi).filter((words) => words !== "").map((words) => {
-        return words.toLowerCase();
-    })
-    let tempArr = [];
+    let wordArr = str.toLowerCase().split(/[/\_\W+/]/gi).filter((words) => words !== "");
+    
+    const tempArr = [];
     for(let i = 0; i < wordArr.length; i++) {
         if(wordArr[i].split("").reverse().join("") === tempArr[tempArr.length - 1]) tempArr.pop();
         else tempArr.push(wordArr[i]);
