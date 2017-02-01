@@ -7,31 +7,27 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
+<<<<<<< HEAD
 
-    // change everything to lowercase using regex or toLowerCase(), split everything
-    // by space and punctuations
-    // use a stack
-    var wordArr = str.split(/[/\_\W+/]/gi).filter((words) => words !== "");
-    // we have to push things into an array and pop out when we find a reverse at the
-    // the end of the stack. then check the array after. if not length of 0, return false.
-    // else return true
+// you can lowercase the str before you do anything... don't have to map!!!
+function matchWord(str) {
+    let wordArr = str.toLowerCase().split(/[/\_\W+/]/gi).filter((words) => words !== "");
+    
+    const tempArr = [];
     for(let i = 0; i < wordArr.length; i++) {
-        wordArr[i] = wordArr[i].toLowerCase();
+        if(wordArr[i].split("").reverse().join("") === tempArr[tempArr.length - 1]) tempArr.pop();
+        else tempArr.push(wordArr[i]);
     }
-    let tempArr = [];
-    for(let i = 0; i < wordArr.length; i++) {
-        if(wordArr[i].split("").reverse().join("") === tempArr[tempArr.length - 1]) {
-            tempArr.pop();
-        } else {
-            tempArr.push(wordArr[i]);
-        }
-    }
-    if(tempArr.length != 0) {
-        return false;
-    }
+    if(tempArr.length != 0) return false;
     return true;
 }
 
 module.exports = matchWord;
 
+=======
+function matchWord(str) {
+
+}
+
+module.exports = matchWord;
+>>>>>>> a3e7558829470752c1b7ca4bb02eb6bb48f05c20
