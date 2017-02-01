@@ -4,7 +4,7 @@
 <<<<<<< HEAD
  *
 =======
- * 
+ *
 >>>>>>> e3dc620f30f6b501ed4782a83c299c8a0d18beb8
  * subsetSum([3, 7, 4, 2], 5) - > true, 3 + 2 = 5
  * subsetSum([3, 34, 4, 12, 5, 12], 32) -> true, 3 + 12 + 5 + 12 = 32
@@ -12,7 +12,6 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-<<<<<<< HEAD
  function subsetSum(array, target) {
    function getCombinations(chars) {
      let result = [];
@@ -27,10 +26,5 @@
    }
    return getCombinations(array).includes(target);
  }
-=======
-function subsetSum(array, target) {
-
-}
->>>>>>> e3dc620f30f6b501ed4782a83c299c8a0d18beb8
 
 module.exports = subsetSum;
