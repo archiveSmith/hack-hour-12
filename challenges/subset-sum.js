@@ -9,11 +9,6 @@
  */
 
 function subsetSum(array, target) {
-<<<<<<< HEAD
-    // if (array === undefined) return;
-    // if (target === undefined) return;
-    // if (!Array.isArray(array)) return;
-    // if (!Number.isInteger(target)) return;
     console.log(array, target);
 
     if (!target) {
@@ -27,12 +22,6 @@ function subsetSum(array, target) {
     return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
-console.log(subsetSum([3, 34, 4, 12, 5, 12], 6));
+console.log(subsetSum([1,2,3], 6));
 
 module.exports = subsetSum;
-=======
-
-}
-
-module.exports = subsetSum;
->>>>>>> e3dc620f30f6b501ed4782a83c299c8a0d18beb8
