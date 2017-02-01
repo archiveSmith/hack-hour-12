@@ -3,7 +3,7 @@
  */
 
 function highestProduct(array) {
-  if (array.length < 3) return 0;
+  if (!Array.isArray(array) || array.length < 3) return 0;
   let max = -Infinity;
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
@@ -20,10 +20,5 @@ function highestProduct(array) {
   
   return max;
 }
-console.log(highestProduct([1,2,3,4,5]));
-console.log(highestProduct([4,1,2,10,10]));
-console.log(highestProduct([1,2,-30,-4,20]));
-// console.log(highestProduct([1,2,3,4,5]));
-// console.log(highestProduct([1,2,3,4,5]));
 
 module.exports = highestProduct;
