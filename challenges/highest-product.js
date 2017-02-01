@@ -2,7 +2,7 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 function highestProduct(array) {
-
+  console.log(array);
   if (!array || array.length < 3) return 0;
 
   const positiveArr = array.filter(number => {
