@@ -25,28 +25,28 @@
  */
 
 function balancedParens(input) {
-  input = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
-  const len = input.length;
+  const newInput = input.replace(/[^\[\]\(\)\<\>\{\}]/gi, '');
+  const len = newInput.length;
   const compArr = [];
   const matchArr = [];
   const matches = {
     '{': '}',
     '(': ')',
-    '[': ']'
-  }
+    '[': ']',
+  };
 
   for (let i = 0; i < len; i += 1) {
     if (compArr.length > 0) {
-      if (matchArr.includes(input[i])) {
+      if (matchArr.includes(newInput[i])) {
         compArr.pop();
         matchArr.pop();
       } else {
-        compArr.push(input[i]);
-        matchArr.push(matches[input[i]]);
+        compArr.push(newInput[i]);
+        matchArr.push(matches[newInput[i]]);
       }
     } else {
-      compArr.push(input[i]);
-      matchArr.push(matches[input[i]]);
+      compArr.push(newInput[i]);
+      matchArr.push(matches[newInput[i]]);
     }
   }
 

@@ -14,17 +14,17 @@
 
  function subsetSum(array, target) {
    function getCombinations(chars) {
-     let result = [];
-     let f = function(prefix, chars) {
-       for (var i = 0; i < chars.length; i++) {
+     const result = [];
+     const f = (prefix, chars) => {
+       for (let i = 0; i < chars.length; i += 1) {
          result.push(prefix + chars[i]);
          f(prefix + chars[i], chars.slice(i + 1));
        }
-     }
+     };
      f(0, chars);
      return result;
    }
    return getCombinations(array).includes(target);
  }
 
-module.exports = subsetSum;
+ module.exports = subsetSum;
