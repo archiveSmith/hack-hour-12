@@ -3,7 +3,9 @@
  */
 
 function highestProduct(array) {
-
+    if (array.length < 3) return;
+    array.reverse();
+    return array[0] * array[1] * array[2];
 }
 
 
