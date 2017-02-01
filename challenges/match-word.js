@@ -12,7 +12,7 @@
 
 function matchWord(str) {
   if (str.length === 0) return true;
-  str = str.toLowerCase()
+  str = str.toLowerCase();
   const newStr = str.replace(/[^\w\s]|/g, '').replace(/\s+|_/g, ' ');
   const strArr = newStr.split(' ');
   if (strArr.length % 2 !== 0) return false;
