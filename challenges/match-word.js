@@ -7,6 +7,7 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+<<<<<<< HEAD
 
 // you can lowercase the str before you do anything... don't have to map!!!
 function matchWord(str) {
@@ -23,3 +24,10 @@ function matchWord(str) {
 
 module.exports = matchWord;
 
+=======
+function matchWord(str) {
+
+}
+
+module.exports = matchWord;
+>>>>>>> a3e7558829470752c1b7ca4bb02eb6bb48f05c20
