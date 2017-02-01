@@ -3,6 +3,7 @@
  */
 
  function highestProduct(array) {
+   console.log(array);
    if (array.length < 3) return 0;
    const sortedArray = array.sort();
    const absSortedArray = array.map(e => Math.abs(e)).sort((a, b) => a - b).reverse();
