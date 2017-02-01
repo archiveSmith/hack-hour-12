@@ -15,11 +15,17 @@ function highestProduct(array) {
   const sortedPosArr = positiveArr.sort((a, b) => { return b-a });
   const sortedNegativeArr = negativeArr.sort((a, b) => {return b-a});
 
+  const almostMaxPositive = sortedPosArr[1] * sortedPosArr[2];
   const minimumPositive = sortedPosArr[sortedPosArr.length - 1] * sortedPosArr[sortedPosArr.length - 2];
   const maxNegative = sortedNegativeArr[sortedNegativeArr.length - 1] * sortedNegativeArr[sortedNegativeArr.length - 2];
 
   if (sortedPosArr.length > 2) {
-    return sortedPosArr[0] * sortedPosArr[1] * sortedPosArr[2];
+    if (almostMaxPositive >= maxNegative) {
+      return sortedPosArr[0] * sortedPosArr[1] * sortedPosArr[2];
+    }
+    else {
+      return maxNegative * sortedPosArr[0];
+    }
   }
   else if (sortedPosArr.length === 2) {
     if (sortedNegativeArr.length < 2) {
