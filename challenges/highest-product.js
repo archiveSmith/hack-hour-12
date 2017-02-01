@@ -4,8 +4,11 @@
 
 function highestProduct(array) {
     if (!array || array.length < 3) return 0;
-    array = array.sort();
-    return (array[array.length - 3] * array[array.length - 2] > array[0] * array[1]) ? array[array.length - 3] * array[array.length - 2] * array[array.length - 1] : Math.abs(array[0] * array[1]) * array[array.length - 1];
+    const arr = array.sort();
+    if (arr[arr.length - 1] > 0) {
+        return (arr[arr.length - 3] * arr[arr.length - 2] >= arr[0] * arr[1]) ? arr[arr.length - 3] * arr[arr.length - 2] * arr[arr.length - 1] : Math.abs(arr[0] * arr[1]) * arr[arr.length - 1];
+    }
+    return (arr[0] * arr[1] * arr[2]);
 }
 
 // console.log(highestProduct([-12, 5, 0, 3, 7, -4]));
