@@ -3,7 +3,7 @@
  */
 function highestProduct(array) {
 
-  if (array.length < 3) return 0;
+  if (!array || array.length < 3) return 0;
 
   const positiveArr = array.filter(number => {
     return number > 0;
