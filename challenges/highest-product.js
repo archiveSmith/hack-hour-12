@@ -7,7 +7,7 @@
  // whichever is bigger, multiply by the remaining largst number
 
 function highestProduct(array) {
-  if (array.lengh < 3) return 0;
+  if (array.length < 3) return 0;
 
   array.sort((a, b) => a - b);
 
@@ -19,7 +19,7 @@ function highestProduct(array) {
 
   if (last1 < 0) return last1 * last2 * last3;
 
-  return lowestTwo > highestTwo ? lowestTwo * last1 : highestTwo * last3;
+  return lowestTwo < highestTwo ?  highestTwo * last3 : lowestTwo * last1;
 }
 
 module.exports = highestProduct;
