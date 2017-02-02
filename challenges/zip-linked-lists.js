@@ -11,17 +11,18 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  let mergedHead = new Node(l1.val);
-  mergedHead.next = l2;
-  mergedHead = mergedHead.next;
+  let mergedHead = new Node(l1.value);
+  mergedHead.next = new Node(l2.value);
+  let temp = mergedHead.next
+  let count = 3;
   
-  while (l2.next) {
-    mergedHead.next = l1.next;
-    mergedHead.next.next = l2.next;
-    mergedHead = mergedHead.next.next;
+  while (count--) { 
+    temp.next = new Node(l1.next.value);
+    temp.next.next = new Node(l2.next.value);
+    temp = temp.next.next;
     l1 = l1.next;
     l2 = l2.next;
   } return mergedHead;
-};
+}
 
 module.exports = {Node: Node, zip: zip};
