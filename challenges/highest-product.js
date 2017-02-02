@@ -53,4 +53,11 @@ function highestProduct(array) {
 // var array3 = [-1,-2,-4,-5];
 // console.log(highestProduct(array3))
 
+// var array3 = [];
+// console.log(highestProduct(array3))
+
+// var array4 = [1,2];
+// console.log(highestProduct(array4))
+
+
 module.exports = highestProduct;
