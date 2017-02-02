@@ -19,7 +19,7 @@ function zip(l1, l2) {
   let currNode = head;
   let currPick = l2;
   let nextPick = l2.next;
-  while (l2.next) {
+  while (currPick.next) {
     if (currNode.next) {
       let tempNode = currNode.next;
       nextPick = currPick.next;
@@ -27,9 +27,13 @@ function zip(l1, l2) {
       currPick.next = tempNode;
       currNode = tempNode;
     } else {
+      currNode.next = currPick;
       return head;
     }
   }
+  currPick.next = currNode.next;
+  currNode.next = currPick;
+
   return head;
 };
 
