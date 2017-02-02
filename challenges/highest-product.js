@@ -3,25 +3,13 @@
  */
 
 function highestProduct(array) {
-  if (array.length < 3) return 'not a valid array';
+  if (array.length < 3) return 0;
   const order = array.sort((a, b) => a - b);
-// console.log(order);
-  const nega = [];
-  const posi = [];
-  const num1 = [];
-  const num2 = [];
-  for (let i = 0; i < 3; i += 1) {
-    if (order[i] < 0) nega.push(order[i]);
-    posi.push(order.pop());
-  }
-// console.log('nega =', nega);
-// console.log('posi =', posi);
-  if (nega.length === 2) num1.push(nega[0] * nega[1] * posi[0]);
-  if (posi.length === 3) num2.push(posi[0] * posi[1] * posi[2]);
 
+  const max1 = order[0] * order[1] * order[0];
+  const max2 = order[0] * order[1] * order[2];
 
-// console.log('nega =', nega);
-  return Math.max(num1, num2);
+  return Math.max(max1, max2);
 }
 
 
