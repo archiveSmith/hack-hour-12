@@ -11,6 +11,26 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l1 || !l2) return;
+  if (l1 || !l2) return l1;
+  if (!l1 || l2) return l2;
+
+  const head = l1;
+  let currNode = head;
+  let currPick = l2;
+  let nextPick = l2.next;
+  while (l2.next) {
+    if (currNode.next) {
+      let tempNode = currNode.next;
+      nextPick = currPick.next;
+      currNode.next = currPick;
+      currPick.next = tempNode;
+      currNode = tempNode;
+    } else {
+      return head;
+    }
+  }
+  return head;
 };
 
 module.exports = {Node: Node, zip: zip};
