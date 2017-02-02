@@ -16,7 +16,7 @@ function zip(l1, l2) {
   let temp = mergedHead.next
   let count = 3;
   
-  while (count--) { 
+  while (l2.next) { 
     temp.next = new Node(l1.next.value);
     temp.next.next = new Node(l2.next.value);
     temp = temp.next.next;
