@@ -33,6 +33,8 @@ function zip(l1, l2) {
 		if (arr2[0]) {
 			output.next = new Node(arr2[0]);
 			currNode = output.next;
+		} else {
+			currNode = output;
 		}
 	} else if (arr2[0]) {
 		var output = new Node(arr2[0]);
@@ -55,15 +57,15 @@ function zip(l1, l2) {
 	return output;
 };
 
-// var listA = new Node('a1');
-// listA.next = new Node('a2');
-// listA.next.next = new Node('a3');
+var listA = new Node('a1');
+listA.next = new Node('a2');
+listA.next.next = new Node('a3');
 
-// var listB = new Node('b1');
-// listB.next = new Node('b2');
-// listB.next.next = new Node('b3');
+var listB = new Node('b1');
+listB.next = new Node('b2');
+listB.next.next = new Node('b3');
 
-// var zipped = zip(listA, listB);
+var zipped = zip(listA, listB);
 
 // console.log(zipped);
 
