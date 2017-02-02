@@ -11,14 +11,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  console.log(l1);
-  console.log(l2);
-  // if (!l1 || !l2) return undefined;
-  // let tail1;
-  // let tail2;
-  // while(this.next !== null) {
-  //   tail1 = 
-  // }
+  console.log('li1: ', l1);
+  console.log('li2: ', l2);
+  if (!l1) return l2;
+  if (!l2) return l1;
+  if (!l1 && !l2) return undefined;
+
+  
+
+
 };
 
 module.exports = {Node: Node, zip: zip};
