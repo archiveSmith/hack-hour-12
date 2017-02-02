@@ -24,12 +24,23 @@ function zip(l1, l2) {
   if (l1.next && l2.next) {
     const temp1 = l1.next;
     l1.next = l2;
-    l2.next = temp
+    l2.next = temp1;
     zip(l2,l1);
   }
 };
 
+// function createLinkedList(head, ...values) {
+//   let node = new Node(values.shift());
+//   if(values.length > 0){
+//     store.next = createLinkedList(values);
+//   }
+//   else {
+//     return store;
+//   }
+  
+// }
 
+console.log(createLinkedList(9,10,11,20));
 
 
 module.exports = {Node: Node, zip: zip};
