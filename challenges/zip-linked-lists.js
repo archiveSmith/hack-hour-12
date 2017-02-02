@@ -30,6 +30,9 @@ function zip(l1, l2) {
 };
 
 // function createLinkedList(head, ...values) {
+//   if(head) {
+//     let header = new Node(head);
+//   }
 //   let node = new Node(values.shift());
 //   if(values.length > 0){
 //     store.next = createLinkedList(values);
@@ -40,7 +43,7 @@ function zip(l1, l2) {
   
 // }
 
-console.log(createLinkedList(9,10,11,20));
+// console.log(createLinkedList(9,10,11,20));
 
 
 module.exports = {Node: Node, zip: zip};
