@@ -29,7 +29,7 @@ function Stack() {
   };
 
   this.getMax = function (val) {
-    return (thi.len > 0) ? this.max : undefined;
+    return (this.len > 0) ? this.max : undefined;
   };
 }
 
