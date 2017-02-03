@@ -7,7 +7,7 @@
  */
 
  function Stack(array) {
-   this.array = array;
+   this.array = array || [];
 
    this.push = (value) => {
      this.array[this.array.length] = value;
