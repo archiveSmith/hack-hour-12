@@ -10,16 +10,22 @@ function Stack() {
   // body...
   const storage = [];
   let max = -infinity;
-  let index = 0;
+  let len = 0;
 
   this.push = function (val) {
-    storage.push(val);
-    this.index += 1;
-    return this.index;
+    storage[this.len] = val;
+    if (val > max) max = val;
+    this.len += 1;
+    return this.len;
   };
 
   this.pop = function () {
-    return storage.pop();
+    if (this.len > 0) {
+      const result = storage[this.len - 1];
+      this.len -= 1;
+      return result;
+    }
+    return undefined;
   };
 
   this.getMax = function (val) {
