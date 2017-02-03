@@ -23,6 +23,9 @@ Stack.prototype.push = function(value) {
 }
 
 Stack.prototype.getMax = function() {
+  if(this.stack.length === 0) {
+    return;
+  }
   return this.stack.reduce((a, b) => {
     return Math.max(a, b);
   })
