@@ -9,11 +9,10 @@
 function Stack() {
   // body...
   this.storage = [];
-  this.max = -Infinity;
+  this.max = undefined;
   this.len = 0;
 
   this.push = function (val) {
-    console.log('hi from push', this.len);
     this.storage[this.len] = val;
     if (val > this.max) this.max = val;
     this.len += 1;
@@ -38,6 +37,12 @@ let s = new Stack();
 
 for (let i = 0; i < 10; i += 1) {
   console.log('pushing: ', s.push(i));
+}
+
+
+for (let i = 0; i < 10; i += 1) {
+  console.log('getMax: ', s.getMax());
+  console.log('popping: ', s.pop());
 }
 
 
