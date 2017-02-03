@@ -18,8 +18,12 @@ let current1 = l1.next;
 let current2 = l2;
 let nextList = current2;
 
-// use a boolean switch to alernate between linkedlists
-
+// if(l2 === undefined) {
+//   return l1;
+// }
+// if(l1 === undefined) {
+//   return l2;
+// }
 while(current1 !== null && current2 !== null) {
   if(nextList === current1) {
     currentHead.next = current1;
@@ -32,20 +36,33 @@ while(current1 !== null && current2 !== null) {
   }
   currentHead = currentHead.next;
 }
+if(current1 === null && current2 !== null) {
+  currentHead.next = current2;
+}
+if(current2 === null && current !== null) {
+  currentHead.next = current1;
+}
 return head;
 };
 
-// const head1 = new Node(1);
-// const val3 = new Node(3);
-// const val5 = new Node(5);
-// const head2 = new Node(2);
-// const val4 = new Node(4);
-// const val6 = new Node(6);
-// head1.next = val3;
-// val3.next = val5;
-// head2.next = val4;
-// val4.next = val6;
+const head1 = new Node(1);
+const val3 = new Node(3);
+const val5 = new Node(5);
+const head2 = new Node(2);
+const val4 = new Node(4);
+const val6 = new Node(6);
+const val7 = new Node(7);
+const val8 = new Node(8);
+const val10 = new Node(10);
+head1.next = val3;
+val3.next = val5;
+val5.next = val10;
+head2.next = val4;
+val4.next = val6;
+val6.next = val7;
+val7.next = val8;
 
-// console.log(zip(head1,head2));
+
+console.log(JSON.stringify(zip(head1,head2)));
 
 module.exports = {Node: Node, zip: zip};
