@@ -8,20 +8,21 @@
 
 function Stack() {
   // body...
-  const storage = [];
-  let max = -infinity;
-  let len = 0;
+  this.storage = [];
+  this.max = -Infinity;
+  this.len = 0;
 
   this.push = function (val) {
-    storage[this.len] = val;
-    if (val > max) max = val;
+    console.log('hi from push', this.len);
+    this.storage[this.len] = val;
+    if (val > this.max) this.max = val;
     this.len += 1;
     return this.len;
   };
 
   this.pop = function () {
     if (this.len > 0) {
-      const result = storage[this.len - 1];
+      const result = this.storage[this.len - 1];
       this.len -= 1;
       return result;
     }
@@ -32,5 +33,12 @@ function Stack() {
     return this.max;
   };
 }
+
+let s = new Stack();
+
+for (let i = 0; i < 10; i += 1) {
+  console.log('pushing: ', s.push(i));
+}
+
 
 module.exports = Stack;
