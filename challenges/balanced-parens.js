@@ -24,8 +24,31 @@
  *
  */
 
+
 function balancedParens(input){
+    const brackets = [];
+    console.log(input);
+
+    const openBrackets = { '{':'}',  '[':']', '(':')' };
+
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] in openBrackets)
+            brackets.push(input[i]);
+        else if(/[\]})]/.test(input[i])) {
+            if (openBrackets[brackets.pop()] !== input[i]) return false;
+        }
+    }
+
+    return !brackets.length;
 
 }
 
+
+console.log(balancedParens('[({})]')); // true
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('(')); //false
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); //false
+console.log(balancedParens('[({})]'));   // true
+console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
 module.exports = balancedParens;

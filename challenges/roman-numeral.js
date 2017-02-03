@@ -21,6 +21,7 @@ function romanNumeral(n) {
     const romaMap = {
         1: 'I',
         4: 'IV',
+        5: 'V',
         9: 'IX',
         10: 'X',
         40: 'XL',
@@ -54,6 +55,6 @@ function romanNumeral(n) {
     return romaNumeral.join('');
 }
 
-console.log(romanNumeral(14));
+console.log(romanNumeral(14998));
 
 module.exports = romanNumeral;

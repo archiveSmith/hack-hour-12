@@ -44,5 +44,9 @@ function decToBin(dec) {
 //console.log(binToDec('11')); //-> 3
 //console.log(binToDec('100')); //-> 4 module.exports = binToDec;
 //console.log(binToDec('101')); //-> 5
-console.log(binToDec('101010101')); //-> 5
+//console.log(binToDec('101010101')); //-> 5
 //console.log(binToDec('101')); //-> 5
+
+}
+
+module.exports = binToDec;
