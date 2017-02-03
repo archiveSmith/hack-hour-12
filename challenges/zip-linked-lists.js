@@ -11,31 +11,27 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if (!l1 && !l2) return;
-  if (l1 && !l2) return l1;
-  if (!l1 && l2) return l2;
+  if (!l1) return l2;
+  if (!l2) return l1;
 
-  const head = l1;
-  let currNode = head;
-  let currPick = l2;
-  let nextPick = l2.next;
-  while (currPick.next) {
-    if (currNode.next) {
-      let tempNode = currNode.next;
-      nextPick = currPick.next;
-      currNode.next = currPick;
-      currPick.next = tempNode;
-      currNode = tempNode;
-      currPick = nextPick;
-    } else {
-      currNode.next = currPick;
-      return head;
-    }
+  const head = l1;  // set head of new list
+  let tempNode = head; // set temporary node to head
+
+  l1 = l1.next; // advance l1 to next node in its list
+
+  while (l2 && l1) { // while both lists have nodes
+    tempNode.next = l2; // link tempNode to l2 node
+    l2 = l2.next; // advance l2 to next node in its list
+    tempNode = tempNode.next; // advance tempNode to previous l2 node
+    tempNode.next = l1; // link temp node to l1 node
+    l1 = l1.next; // advance l1 to next node in its list
+    tempNode = tempNode.next; // advance tempNode to previous l1 node
   }
-  currPick.next = currNode.next;
-  currNode.next = currPick;
 
-  return head;
+  // when either list has ended, link tempNode to the other list
+  tempNode.next = l2 ? l2 : l1;
+
+  return head; // return head
 };
 
 module.exports = {Node: Node, zip: zip};
