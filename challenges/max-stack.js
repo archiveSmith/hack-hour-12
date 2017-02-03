@@ -12,7 +12,7 @@ function Stack() {
 }
 
 Stack.prototype.pop = function() {
-  let popped = this.stack[this.length--];
+  let popped = this.stack[--this.length];
   this.stack = this.stack.slice(0, this.length);
   return popped;
 }
