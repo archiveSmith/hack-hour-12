@@ -5,9 +5,9 @@
 function highestProduct(array) {
 
     // verify that the array contains at least three values
-    if(array.length < 3) return "Please supply an array of 3 or more values";
+    if(array.length < 3) return 0;
     // verify that the array only contains numerals
-    if(array.join('').match(/^[^0-9]+$/)) return "Array cannot contain non numerics";
+    if(array.join('').match(/^[^0-9]+$/)) return 0;
 
     // sort the array
     array = array.sort((low,high) => (low - high));
