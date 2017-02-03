@@ -11,55 +11,27 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if (!l1 && !l2) return;
-  if (l1 && !l2) return l1;
-  if (!l1 && l2) return l2;
+  if (!l1) return l2;
+  if (!l2) return l1;
 
-  console.log('check');
-  const head = l1;
-  let currNode = head;
-  let currPick = l2;
-  let nextPick = l2.next;
-  while (currPick.next) {
-    console.log('currNode: ', currNode.value, 'currPick: ', currPick.value);
-    if (currNode.next) {
-      let tempNode = currNode.next;
-      nextPick = currPick.next;
-      currNode.next = currPick;
-      currPick.next = tempNode;
-      currNode = tempNode;
-      currPick = nextPick;
-    } else {
-      currNode.next = currPick;
-      return head;
-    }
+  const head = l1;  // set head of new list
+  let tempNode = head; // set temporary node to head
+
+  l1 = l1.next; // advance l1 to next node in its list
+
+  while (l2 && l1) { // while both lists have nodes
+    tempNode.next = l2; // link tempNode to l2 node
+    l2 = l2.next; // advance l2 to next node in its list
+    tempNode = tempNode.next; // advance tempNode to previous l2 node
+    tempNode.next = l1; // link temp node to l1 node
+    l1 = l1.next; // advance l1 to next node in its list
+    tempNode = tempNode.next; // advance tempNode to previous l1 node
   }
-  currPick.next = currNode.next;
-  currNode.next = currPick;
 
-  return head;
+  // when either list has ended, link tempNode to the other list
+  tempNode.next = l2 ? l2 : l1;
+
+  return head; // return head
 };
-
-// let a1 = new Node(1);
-// let a2 = new Node(2);
-// let a3 = new Node(3);
-// let a4 = new Node(4);
-// let a5 = new Node(5);
-// a1.next = a2;
-// a2.next = a3;
-// a3.next = a4;
-// a4.next = a5;
-
-// let b1 = new Node(10);
-// let b2 = new Node(20);
-// let b3 = new Node(30);
-// let b4 = new Node(40);
-// let b5 = new Node(50);
-// b1.next = b2;
-// b2.next = b3;
-// b3.next = b4;
-// b4.next = b5;
-
-// console.log(zip(a1, b1));
 
 module.exports = {Node: Node, zip: zip};
