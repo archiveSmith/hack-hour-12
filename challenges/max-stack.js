@@ -7,22 +7,58 @@
  */
 
 function Stack() {
-  this.storage = [];
+  this.length = 0
+  this.store = {}
+  this.max = {
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY
+  }
+}
+Stack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i]
+      this.max.idx = i
+    }
+  }
 }
 
-Stack.prototype.push = function(val) {
-  this.storage.push(val);
-  return this.storage.length;
-};
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY
+  this.max.idx = -1
+  return
+}
 
-Stack.prototype.pop = function() {
-  return this.storage.pop();
-};
+Stack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.idx = this.length
+    this.max.val = v
+  }
+  this.store[this.length] = v
+  this.length++
+  return this.length
+}
 
-Stack.prototype.getMax = function() {
-  if (!this.storage) return;
-  return Math.max(...this.storage);
-};
+Stack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+  else {
+    var popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax()
+    }
+    delete this.store[this.length - 1]
+    this.setNewMax()
+  }
+  this.length -= 1
+  return popped
+}
+
+Stack.prototype.getMax = function () {
+  return this.length === 0
+    ? undefined
+    : this.max.val
+}
+
 
 let myStack = new Stack();
 myStack.push(1);
