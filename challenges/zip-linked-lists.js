@@ -5,44 +5,24 @@
  * BONUS: Do this in place
  */
 
- function Node(val) {
-   this.value = val;
-   this.next = null;
- }
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
 
- function zip(l1, l2) {
-   if (!l1 && !l2) return;
-   if (!l1) return l2;
-   if (!l2) return l1;
+function zip(l1, l2) {
+<<<<<<< HEAD
+  if (!l1) return l2;
+  if (!l2) return l1;
 
-   let val1 = l1.value;
-   let val2 =  l2.value;
-   let result = new Node(0);
-   // let tail = result.next;
-   result.next = l1;
-   l1 = l1.next;
-   result.next.next = l2;
-   l2 = l2.next
-   result.next.next.next = l1;
-   l1 = l1.next
-   result.next.next.next.next = l2;
-   l2 = l2.next
-   result.next.next.next.next.next = l1;
-   l1 = l1.next;
-   result.next.next.next.next.next.next = l2;
+  const curr = new Node(l1.value);
+  curr.next = zip(l2, l1.next);
+  return curr;
+}
 
-   // result.next = y;
-
-   // console.log(result)
-
-   // if (x.next && y.next) {
-   //   result.next = l1;
-   //   l1 = l1.next;
-   //   result.next.next = l2;
-   //   l2 = l2.next;
-   // }
-
-   return result.next;
- };
+module.exports = { Node, zip };
+=======
+};
 
 module.exports = {Node: Node, zip: zip};
+>>>>>>> a77205c41e32f0af3cd87986d552a949a9c56047
