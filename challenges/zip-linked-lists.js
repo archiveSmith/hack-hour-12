@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+<<<<<<< HEAD
 
 let head = l1;
 let currentHead = head;
@@ -65,4 +66,8 @@ val7.next = val8;
 
 console.log(JSON.stringify(zip(head1,head2)));
 
+=======
+};
+
+>>>>>>> a77205c41e32f0af3cd87986d552a949a9c56047
 module.exports = {Node: Node, zip: zip};
