@@ -8,6 +8,23 @@
 
 function Stack() {
   // body...
+  const storage = [];
+  let max = -infinity;
+  let index = 0;
+
+  this.push = function (val) {
+    storage.push(val);
+    this.index += 1;
+    return this.index;
+  };
+
+  this.pop = function () {
+    return storage.pop();
+  };
+
+  this.getMax = function (val) {
+    return this.max;
+  };
 }
 
 module.exports = Stack;
