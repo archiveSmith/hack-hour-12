@@ -9,7 +9,7 @@
 function Stack() {
   // body...
   this.storage = [];
-  this.max = undefined;
+  this.max = -Infinity;
   this.len = 0;
 
   this.push = function (val) {
@@ -29,21 +29,21 @@ function Stack() {
   };
 
   this.getMax = function (val) {
-    return this.max;
+    return (thi.len > 0) ? this.max : undefined;
   };
 }
 
-let s = new Stack();
+// let s = new Stack();
 
-for (let i = 0; i < 10; i += 1) {
-  console.log('pushing: ', s.push(i));
-}
+// for (let i = 0; i < 10; i += 1) {
+//   console.log('pushing: ', s.push(i));
+// }
 
 
-for (let i = 0; i < 10; i += 1) {
-  console.log('getMax: ', s.getMax());
-  console.log('popping: ', s.pop());
-}
+// for (let i = 0; i < 10; i += 1) {
+//   console.log('getMax: ', s.getMax());
+//   console.log('popping: ', s.pop());
+// }
 
 
 module.exports = Stack;
