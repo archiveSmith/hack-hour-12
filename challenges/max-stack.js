@@ -20,6 +20,7 @@ Stack.prototype.pop = function() {
 };
 
 Stack.prototype.getMax = function() {
+  if (!this.storage) return;
   return Math.max(...this.storage);
 };
 
@@ -27,6 +28,8 @@ let myStack = new Stack();
 myStack.push(1);
 myStack.push(2);
 myStack.push(3);
+// myStack.push(3);
+console.log(myStack.getMax());
 myStack.pop();
 console.log(JSON.stringify(myStack));
 
