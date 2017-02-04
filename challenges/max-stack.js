@@ -8,6 +8,7 @@
 
  function Stack(array) {
    this.array = array || [];
+   // this.maxArray = [];
 
    this.push = (value) => {
      this.array[this.array.length] = value;
@@ -18,6 +19,7 @@
 
 
    this.getMax = () => this.array.length > 0 ? Math.max(...this.array) : undefined;
+   // do two arrays
  }
 
  module.exports = Stack;
