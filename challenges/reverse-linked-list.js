@@ -14,7 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-
+  console.log(head);
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
