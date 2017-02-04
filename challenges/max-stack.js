@@ -22,6 +22,7 @@ function Stack() {
   this.pop = function () {
     if (this.len > 0) {
       const result = this.storage[this.len - 1];
+      this.storage = this.storage.splice(0, this.len - 2);
       this.len -= 1;
       return result;
     }
@@ -29,6 +30,7 @@ function Stack() {
   };
 
   this.getMax = function (val) {
+    console.log('from getMax: ', this.storage);
     return (this.len > 0) ? Math.max(...this.storage) : undefined;
   };
 }
