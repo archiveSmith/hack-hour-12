@@ -6,42 +6,99 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
-function Stack(val) {
-  this.value = val;
-  this.next = null;
+// function Stack(val) {
+//   this.value = val;
+//   this.next = null;
 
-  this.tail = this;
-  this.max = null;
+//   this.tail = this;
+//   this.max = null;
 
-  this.push = function (val) {
-    this.tail.next = {
-      value: val,
-      next: null
-    }
+//   this.push = function (val) {
+//     this.tail.next = {
+//       value: val,
+//       next: null
+//     }
 
-    this.tail = this.tail.next;
+//     this.tail = this.tail.next;
 
-    if (val > this.max) this.max = val;
-  }
+//     if (val > this.max) this.max = val;
+//   }
 
-  this.pop = function () {
-    const output = this.tail;
-    this.tail = null;
+//   this.pop = function () {
+//     const output = this.tail;
+//     this.tail = null;
 
-    this.max = this.value;
-    currNode = this;
+//     this.max = this.value;
+//     currNode = this;
     
-    while (currNode) {
-      if (currNode.value > this.max) this.max = currNode.value;
-      currNode = currNode.next;
-    }
+//     while (currNode) {
+//       if (currNode.value > this.max) this.max = currNode.value;
+//       currNode = currNode.next;
+//     }
 
-    return output;
-  }
+//     return output;
+//   }
 
-  this.getMax = function () {
-    return this.max;
+//   this.getMax = function () {
+//     return this.max;
+//   }
+// }
+
+// given answer
+
+function Stack() {
+  this.length = 0
+  this.store = {}
+  this.max = {
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY
   }
 }
+
+Stack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i]
+      this.max.idx = i
+    }
+  }
+}
+
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY
+  this.max.idx = -1
+  return
+}
+
+Stack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.idx = this.length
+    this.max.val = v
+  }
+  this.store[this.length] = v
+  this.length++
+  return this.length
+}
+
+Stack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+  else {
+    var popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax()
+    }
+    delete this.store[this.length - 1]
+    this.setNewMax()
+  }
+  this.length -= 1
+  return popped
+}
+
+Stack.prototype.getMax = function () {
+  return this.length === 0
+    ? undefined
+    : this.max.val
+}
+
 
 module.exports = Stack;
