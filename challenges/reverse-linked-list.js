@@ -16,19 +16,18 @@ function Node(value) {
 function reverseLinkedList(head) {
     if (!head || !head.next) return head;
 
-    const nodeStack = [head];
-    let curr = head.next;
+    let prev = null;
+    let curr = head;
+    let next;
+
     while (curr) {
-        nodeStack.push(curr);
-        curr = curr.next;
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
     }
-    head = nodeStack.pop();
-    head.next = null;
-    curr = head;
-    while (nodeStack.length > 0) {
-        curr.next = nodeStack.pop();
-        curr = curr.next;
-    }
+
+    head = prev;
 
     return head;
 }
