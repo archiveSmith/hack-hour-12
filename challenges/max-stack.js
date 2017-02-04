@@ -35,17 +35,17 @@ function Stack() {
   };
 }
 
-let s = new Stack();
+// let s = new Stack();
 
-for (let i = 0; i < 10; i += 1) {
-  console.log('pushing: ', s.push(i));
-}
+// for (let i = 0; i < 10; i += 1) {
+//   console.log('pushing: ', s.push(i));
+// }
 
 
-for (let i = 0; i < 10; i += 1) {
-  console.log('getMax: ', s.getMax());
-  console.log('popping: ', s.pop());
-}
+// for (let i = 0; i < 10; i += 1) {
+//   console.log('getMax: ', s.getMax());
+//   console.log('popping: ', s.pop());
+// }
 
 
 module.exports = Stack;
