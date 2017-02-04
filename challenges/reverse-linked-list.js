@@ -27,14 +27,16 @@ function reverseLinkedList(head) {
   const newHead = new Node(arr[0])
   let newTail = newHead;
 
-  function push1(value) {
-    newTail.next = value;
+  function push1(node) {
+    newTail.next = node;
     newTail = newTail.next;
   }
 
   for (let i = 1; i < arr.length; i += 1) {
     push1(new Node(arr[i]))
   }
+
+  return newHead;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
