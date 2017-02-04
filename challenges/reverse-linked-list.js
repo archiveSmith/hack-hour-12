@@ -14,7 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-  if (!head) return;
+  if (!head) return head;
 
   const nodes = [];
   let currNode = head;
@@ -32,4 +32,5 @@ function reverseLinkedList(head) {
   return nodes[nodes.length - 1];
 }
 
+console.log(JSON.stringify(reverseLinkedList(null)));
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
