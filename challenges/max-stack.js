@@ -27,18 +27,20 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.getMax = function() {
+  if (this.length === 0) return;
   if (this.max) return this.max;
   return this.storage.reduce((acc, cv) => {
     return cv > acc ? cv : acc;
   })
 }
 
-// let newStack = new Stack();
-// newStack.push(3)
-// newStack.push(4)
-// newStack.push(7)
-// newStack.push(10)
-// newStack.pop();
-// console.log(newStack.getMax())
+let newStack = new Stack();
+newStack.push(3)
+newStack.push(4)
+newStack.push(7)
+newStack.push(10)
+newStack.push(10)
+newStack.pop();
+console.log(newStack.getMax())
 
 module.exports = Stack;
