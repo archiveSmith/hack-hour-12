@@ -1,4 +1,4 @@
-'use strict'
+
 /*
  * Create a stack with the push, pop, and getMax methods.
  * push should return the new length of the stack.
@@ -9,6 +9,7 @@
 
 function Stack() {
   // body...
+
   this.stack = [];
   
   this.push = (ele) => {
@@ -30,11 +31,5 @@ function Stack() {
   
 }
 
-// let stack = new Stack();
-// stack.push(5);
-// console.log(stack);
-// console.log(stack.pop());
-// stack.push(4);
-// stack.push(7);
-// console.log(stack.getMax())
+
 module.exports = Stack;
