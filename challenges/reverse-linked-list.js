@@ -14,6 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+  if (head) return;
   let links = []
   while (head) {
     links.unshift(head)
