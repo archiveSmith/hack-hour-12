@@ -14,6 +14,8 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+  if (!head) return null;
+
   function add(value) {
     let currNode = head;
     while (currNode.next) {
