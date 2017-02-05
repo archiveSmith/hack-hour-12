@@ -9,34 +9,35 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
 
 function reverseLinkedList(head) {
+  function add(value) {
+    let currNode = head;
+    while (currNode.next) {
+      currNode = currNode.next;
+    }
+    currNode.next = new Node(value);
+  }
+
   let temp = head;
-  let arr = [];
+  const arr = [temp.value];
 
   while (temp.next) {
-    arr.push(temp.value);
+    arr.push(temp.next.value);
     temp = temp.next;
   }
 
   arr.reverse();
-
-  const newHead = new Node(arr[0])
-  let newTail = newHead;
-
-  function push1(node) {
-    newTail.next = node;
-    newTail = newTail.next;
-  }
+  head = new Node(arr[0]);
 
   for (let i = 1; i < arr.length; i += 1) {
-    push1(new Node(arr[i]))
+    add(arr[i]);
   }
 
-  return newHead;
+  return head;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node, reverseLinkedList };
