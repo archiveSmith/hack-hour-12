@@ -22,4 +22,14 @@ function reverseLinkedList(head) {
     return tempNode;
 }
 
+// // recursive
+// function reverseLinkedList(head){
+//   let previous = head;
+//   if(head.next !== null){
+//     reverseLinkedList(head.next, head);
+//   }
+//   head.next = head;
+// }
+// reverseLinkedList(list, null);
+
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
