@@ -9,7 +9,20 @@
  */
 
 function subsetSum(array, target) {
+    let sum;
+    console.log(array,min);
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] === target) return true;
+        sum += array[i];
 
+    }
 }
+
+subsetSum([3, 7, 4, 2], 5) //- > true, 3 + 2 = 5
+subsetSum([3, 34, 4, 12, 5, 12], 32)// -> true, 3 + 12 + 5 + 12 = 32
+subsetSum([8, 2, 4, 12], 13) //-> false
+subsetSum([8, -2, 1, -3], 6)// -> true, 8 + 1 + (-3) = 6
+
+
 
 module.exports = subsetSum;
