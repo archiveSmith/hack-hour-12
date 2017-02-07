@@ -30,6 +30,14 @@ function reverseLinkedList(head) {
   return links[0]
 }
 
+function reverseLinkedList(head, prev = null) {
+  if (!head) return null;
+  const forward = head.next;
+  head.next = prev;
+  if (forward) return reverseLinkedList(forward, head);
+  return head;
+}
+
 // let linkedList = { 
 //     value: 6, next: {
 //         value: 5, 
