@@ -31,7 +31,6 @@ function zip(l1, l2) {
         l2.next = (tmp1) ? tmp1 : l2.next;
     }
 
-
     l1 = tmp1;
     l2 = tmp2;
   }
@@ -53,13 +52,11 @@ list2.next.next = new Node('3');
 list2.next.next.next = new Node('4');
 list2.next.next.next.next = new Node('5');
 
-//let node = zip(list1,list2);
+let node = zip(list1,list2);
 
-/*
 while (node) {
   console.log(node.value);
   node = node.next;
 }
-*/
 
 module.exports = {Node: Node, zip: zip};
