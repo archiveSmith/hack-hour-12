@@ -14,6 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+<<<<<<< HEAD
     let copy = JSON.parse(JSON.stringify(head));
     const tempArr = [];
 
@@ -43,4 +44,9 @@ function reverseLinkedList(head) {
 
 // console.log(JSON.stringify(reverseLinkedList(node1)));
 
+=======
+
+}
+
+>>>>>>> f9b02b681d27526249e4fa3c6903d717ac416dfa
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
