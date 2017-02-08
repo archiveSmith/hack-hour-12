@@ -13,19 +13,21 @@
  */
 
 function numToWords(num) {
-  let ONE_TO_NINETEEN = [
-    'one', 'two', 'three', 'four', 'five',
-    'six', 'seven', 'eight', 'nine', 'ten',
-    'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
-    'sixteen', 'seventeen', 'eighteen', 'nineteen'
+  if (num === 0) return 'Zero';
+
+  const ONE_TO_NINETEEN = [
+    'One', 'Two', 'Three', 'Four', 'Five',
+    'Six', 'Seven', 'Eight', 'Eine', 'Ten',
+    'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen',
+    'Sixteen', 'Seventeen', 'Eighteen', 'Eineteen'
   ];
 
-  let TENS = [
-    'ten', 'twenty', 'thirty', 'forty', 'fifty',
-    'sixty', 'seventy', 'eighty', 'ninety'
+  const TENS = [
+    'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty',
+    'Sixty', 'Seventy', 'Eighty', 'Ninety'
   ];
 
-  let SCALES = ['thousand', 'million', 'billion', 'trillion'];
+  const SCALES = ['Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
 
   // helper function for use with Array.filter
   function isTruthy(item) {
@@ -34,7 +36,7 @@ function numToWords(num) {
 
   // convert a number into 'chunks' of 0-999
   function chunk(number) {
-    let thousands = [];
+    const thousands = [];
 
     while(number > 0) {
       thousands.push(number % 1000);
