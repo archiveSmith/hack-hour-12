@@ -166,6 +166,8 @@ function numToWords(num) {
 console.log(numToWords(20))
 console.log(numToWords(2999))
 console.log(numToWords(300525151340440))
+console.log('ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty')
 console.log(numToWords(92120000000000000))
+console.log('NintyTwoQuadrillionOneHundredTwentyTrillion')
 
 module.exports = numToWords;
