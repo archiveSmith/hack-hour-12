@@ -10,6 +10,7 @@
  */
 
 function permPalin(str) {
+  if (!str || typeof str !== "string") return false;
 	if (str.length === 1) return true;
   for (let [index, ch] of str.split('').entries()) {
     let nextInst = str.indexOf(ch, index + 1);
