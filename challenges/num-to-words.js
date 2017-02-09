@@ -53,7 +53,7 @@ function numToWords(num) {
     numArr.pop();
     numArr.pop();
     
-    if (numArr.length > 0) {
+    if (numArr.length > 0 && threeDigitWord(numArr)) {
       word = threeDigitWord(numArr) + 'Thousand' + word;
     }
     
@@ -61,7 +61,7 @@ function numToWords(num) {
     numArr.pop();
     numArr.pop();
     
-    if (numArr.length > 0) {
+    if (numArr.length > 0 && threeDigitWord(numArr)) {
       word = threeDigitWord(numArr) + 'Million' + word;
     }
     
@@ -69,7 +69,7 @@ function numToWords(num) {
     numArr.pop();
     numArr.pop();
     
-    if (numArr.length > 0) {
+    if (numArr.length > 0 && threeDigitWord(numArr)) {
       word = threeDigitWord(numArr) + 'Billion' + word;
     }
     
@@ -77,8 +77,12 @@ function numToWords(num) {
     numArr.pop();
     numArr.pop();
     
-    if (numArr.length > 0) {
+    if (numArr.length > 0 && threeDigitWord(numArr)) {
       word = threeDigitWord(numArr) + 'Trillion' + word;
+    }
+
+    if (numArr.length > 0) {
+      word = threeDigitWord(numArr) + 'Quadrillion' + word;
     }
 
     return word;
