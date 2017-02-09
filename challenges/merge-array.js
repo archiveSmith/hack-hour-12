@@ -21,6 +21,7 @@ function mergeArrays(arr1, arr2) {
   while (arr1.length > 0 && arr2.length > 0) {
     (arr1[0] <= arr2[0]) ? output.push(arr1.shift()) : output.push(arr2.shift());
   }
+  
   if (arr1.length > 0) arr1.forEach((el) => { output.push(el); });
   if (arr2.length > 0) arr2.forEach((el) => { output.push(el); });
 
