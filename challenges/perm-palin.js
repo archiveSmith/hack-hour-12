@@ -18,13 +18,10 @@ function permPalin(str) {
   for(var i = 0; i < str.length; i++){
     uniqueFrequency[str[i]] = ++uniqueFrequency[str[i]]||1;
   }
-
-  console.log(uniqueFrequency);
   
   let oddsCount = 0;
   
-  for (let uniqueStr in uniqueFrequency) {
-    console.log(uniqueFrequency[uniqueStr]);  
+  for (let uniqueStr in uniqueFrequency) {  
     if (uniqueFrequency[uniqueStr] % 2 !== 0) {
       oddsCount += 1;
     }
