@@ -38,12 +38,14 @@ function MMMzip(l1, l2) {
     if (ziped === null) {
       ziped = new Node(item);
     } else {
-      while (ziped.next) {
-        
+      let current = ziped;
+      while (current.next) {
+        current = current.next;
       }
-      ziped.next = new Node(item);
+      current.next = new Node(item);
     }
   })
+  return inter;
 };
 
 function zip(l1, l2) {
@@ -55,14 +57,14 @@ function zip(l1, l2) {
 
 let l1 = new Node(1);
 l1.next = new Node(2);
-// l1.next.next = new Node(3);
-// l1.next.next.next = new Node(4);
-// l1.next.next.next.next = new Node(5);
+l1.next.next = new Node(3);
+l1.next.next.next = new Node(4);
+l1.next.next.next.next = new Node(5);
 
 let l2 = new Node('a');
 l2.next = new Node('b');
-// l2.next.next = new Node('c');
-// l2.next.next.next = new Node('d');
+l2.next.next = new Node('c');
+l2.next.next.next = new Node('d');
 
 console.log(zip(l1,l2));
 

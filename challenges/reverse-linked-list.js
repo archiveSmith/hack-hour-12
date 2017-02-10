@@ -37,6 +37,27 @@ function reverseLinkedList(head) {
    return reversed;
 }
 
+function CCCreverseLinkedList(head) {
+    if (!head || !head.next) return head;
+    let prev = null, curr = head, next;
+    while (curr) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    head = prev;
+    return head;
+}
+
+function RRRreverseLinkedList(head, prev = null) {
+    if (!head) { return null };
+    const forward = head.next;
+    head.next = prev;
+    if (forward) return RRRreverseLinkedList(forward, head);
+    return head;
+}
+
 // {"value":1,"next":{"value":2,"next":{"value":3,"next":{"value":4,"next":null}}}
 
 // let l1 = new Node(1);
