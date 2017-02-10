@@ -34,7 +34,8 @@ function rotateGrid(grid, n, i = 0) {
         grid[i][j] = grid[n-j][i];
         grid[n-j][i] = grid[n][n-j];
         grid[n][n-j] = grid[j][n];
-        grid[j][n] = grid[i][j];
+        grid[j][n] = temp;
+        
     }
 
     rotateGrid(grid, n, ++i);
