@@ -12,6 +12,7 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
+<<<<<<< HEAD
 // 9 = billion
 // 12 = trillion
 // 15 = quadrillion
@@ -116,4 +117,10 @@ function numToWords(num) {
 
 console.log(numToWords(11));
 
+=======
+function numToWords(num) {
+
+}
+
+>>>>>>> 1db713a30bafb26b5170feb7aa7b58f9367a206a
 module.exports = numToWords;
