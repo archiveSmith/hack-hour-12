@@ -17,22 +17,15 @@
  */
 
 function rotateGrid(grid, n) {
-    // get the first element of every array, put in array, and push to new empty array
     let rotated = [];
-
     for(let i = 0; i < grid.length; i++) {
         let arr = [];
-        for(let j = 0; j < n; j++) {
+        for(let j = n - 1; j >= 0; j--) {
             arr.push(grid[j][i]);
         }
-        rotated.push(arr.reverse());
+        rotated.push(arr);
     }
-
     return rotated;
-
 }
-
-// let before = [  [1, 2, 3], [4, 5, 6], [7, 8, 9]  ];
-// rotateGrid(before, 3);
 
 module.exports = rotateGrid;
