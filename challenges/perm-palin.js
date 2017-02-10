@@ -15,14 +15,16 @@ function permPalin(str) {
 	
 	const uniqueFrequency = {};
 	
-  for(var i = 0; i < str.length; i++){
+  for (let i = 0; i < str.length; i++){
     uniqueFrequency[str[i]] = ++uniqueFrequency[str[i]]||1;
   }
   
   let oddsCount = 0;
   
-  for (let uniqueStr in uniqueFrequency) {  
-    if (uniqueFrequency[uniqueStr] % 2 !== 0) {
+  const uniqueFrequencyKeys = Object.keys(uniqueFrequency);
+
+  for (let i = 0; i < uniqueFrequencyKeys.length; i += 1) {  
+    if (uniqueFrequency[uniqueFrequencyKeys[i]] % 2 !== 0) {
       oddsCount += 1;
     }
     if (oddsCount > 1) return false;
