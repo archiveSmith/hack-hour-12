@@ -16,8 +16,28 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
 
+function rotateGrid(grid, n) {
+  if (!grid) return;
+  let output = [];
+  let row = [];
+
+  for (let i = 0; i < n; i += 1) {
+    for (let j = n - 1; j >= 0; j -= 1) {
+      row.push(grid[j][i]);
+    }
+    output.push(row);
+    row = [];
+  }
+  return output;
 }
+
+// let grid = [
+//   [1,2,3,4],
+//   [5,6,7,8],
+//   [9,10,11,12],
+//   [13,14,15,16],
+// ];
+// console.log(rotateGrid(grid, 4));
 
 module.exports = rotateGrid;
