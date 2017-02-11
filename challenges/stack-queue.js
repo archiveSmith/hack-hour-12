@@ -15,7 +15,7 @@ function Stack(array) {
   this.pop = () => {
     if (!this.array.length) return;
     this.array.splice(this.array.length - 1);
-  }
+  };
 }
 
 
