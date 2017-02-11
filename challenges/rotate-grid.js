@@ -17,7 +17,19 @@
  */
 
 function rotateGrid(grid, n) {
-
+  if (!Array.isArray(grid) && typeof n !== 'number') return 'bad inputs';
+  
+  const rotatedGrid = [];
+  let row = [];
+  
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
+      row.push(grid[n-j-1][i]);
+    }
+    rotatedGrid.push(row);
+    row = [];
+  }
+  return rotatedGrid;
 }
 
 module.exports = rotateGrid;
