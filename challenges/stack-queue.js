@@ -7,7 +7,7 @@ function Stack(array) {
   this.array = array || [];
 
   this.push = (value) => {
-    if (!array.length) return;
+    if (!this.array.length) return;
     this.array[this.array.length] = value;
     return this.array.length;
   };
@@ -25,7 +25,8 @@ function Queue(array) {
   this.array = array || [];
 
   this.enqueue = (value) => {
-    for (let i = array.length - 1; i >= 0; i -= 1) {
+    if (!this.array.length) return;
+    for (let i = this.array.length - 1; i >= 0; i -= 1) {
       array[i] = array[i + 1];
     }
     array[0] = value;
