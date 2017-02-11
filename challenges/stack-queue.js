@@ -12,7 +12,10 @@ function Stack(array) {
     return this.array.length;
   };
 
-  this.pop = () => this.array.splice(this.array.length - 1);
+  this.pop = () => {
+    if (!this.array.length) return;
+    this.array.splice(this.array.length - 1);
+  }
 }
 
 
