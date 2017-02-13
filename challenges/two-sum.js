@@ -6,11 +6,13 @@ function twoSum(arr, n) {
   if (arr.length === 0 || !arr || typeof n !== 'number') return false;
   const search = {};
   for (let num of arr) {
-    if (search[n - num] === true) return true;
+    if (search[num] === true) return true;
     search[n - num] = true;
   }
 
   return false;
 }
+
+// console.log(twoSum([1, -2, 3, -4, -7, 6, 20], 13))
 
 module.exports = twoSum;
