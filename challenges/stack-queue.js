@@ -2,7 +2,6 @@
  * Create a stack.Then create a queue using two stacks.
  */
 
-
 function Stack() {
   this.storage = {};
   this.size = 0;
@@ -22,9 +21,9 @@ function Stack() {
     return result;
   }
 
-  // this.getSize = () => {
-  //   return this.size;
-  // }
+  this.isEmpty = () => {
+    return this.size <= 0;
+  }
 }
 
 
@@ -32,43 +31,33 @@ function Stack() {
 * Queue Class
 */
 
-
 function Queue() {
-  this.s1 = new Stack();
-  this.s2 = new Stack();
+  this.in = new Stack();
+  this.out = new Stack();
   this.size = 0;
 
   this.enqueue = (val) => {
-    this.s1.push(val);
+    this.in.push(val);
     this.size += 1;
   };
 
   this.dequeue = () => {
-    if (this.size === 0) return;
-
-    for (let i = 0; i < this.size; i += 1) {
-      this.s2.push(this.s1.pop());
+    // check if the out stack has elements
+    if (this.out.isEmpty()) {
+      // if not, fill it with the in stack
+      while (!this.in.isEmpty()) {
+        this.out.push(this.in.pop());
+      }
     }
-    // console.log('transferred queue: ', this.s2.storage);
-    const result = this.s2.pop();
-    this.size -= 1;
-    for (let i = 0; i < this.size; i += 1) {
-      this.s1.push(this.s2.pop());
-    }
-    // console.log('transferred back queue: ', this.s1.storage);
-    return result;
-  };
-
-  // this.getSize = () => {
-  //   return this.size;
-  // };
+    // pop of the out stack
+    return this.out.pop();
+  }
 }
 
 // let q = new Queue();
 // for (let i = 0; i < 10; i += 1) {
 //   console.log('enqueue: ', i * 10);
 //   q.enqueue(i * 10);
-//   console.log('length: ', q.getSize());
 // }
 // for (let i = 0; i < 12; i += 1) {
 //   console.log('dequeue: ', q.dequeue());
