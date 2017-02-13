@@ -3,7 +3,18 @@
  */
 
 function twoSum(arr, n) {
-
+  let i; 
+  for (i = 0; i < arr.length; i += 1) {
+    let diff = n - arr[i];
+    if (arr.indexOf(diff) !== -1) {
+      if (arr.indexOf(diff) === i) {
+        let newArr = arr.slice(i + 1, arr.length);
+        if (newArr.indexOf(diff) !== -1) return true; 
+      }
+      return true;
+    }
+  }
+  return false;
 }
 
 module.exports = twoSum;
