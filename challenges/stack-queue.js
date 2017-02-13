@@ -45,3 +45,5 @@ Queue.prototype.dequeue = function() {
   return this.outbox.pop();
 }
 
+module.exports = {Stack: Stack, Queue: Queue};
+
