@@ -3,7 +3,7 @@
  */
 
 function twoSum(arr, n) {
-    if (!arr || !n || !arr.length) return 'Check Inputs';
+    if (!arr || !n || arr.length < 2) return 'Check Inputs';
 
     for (var i = 0; i < arr.length; i++) {
         if (arr.indexOf(n - arr[i]) > -1) return true;
