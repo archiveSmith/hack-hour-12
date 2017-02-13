@@ -32,7 +32,7 @@ function Queue() {
 
 Queue.prototype.enqueue = function(val) {
   this.inStack.push(val);
-  return val;
+  return this.inStack.length;
 }
 
 Queue.prototype.dequeue = function() {
