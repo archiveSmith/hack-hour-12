@@ -32,15 +32,17 @@ function Queue() {
 
 Queue.prototype.enqueue = function(val) {
   this.inStack.push(val);
+  return val;
 }
 
 Queue.prototype.dequeue = function() {
-  let i;
-  for (i = this.inStack.length; i >= 0; i -=1) {
-    this.outStack.push(this.inStack[i]);
+  if (this.outbox.index === 0) {
+    if (this.inbox.index === 0) return undefined;
+    while (this.inbox.index > 0) {
+      this.outbox.push(this.inbox.pop());
+    }
   }
-  this.outStack.pop();
-  this.outStack = new Stack();
+  return this.outbox[this.outbox.length - 1];
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
