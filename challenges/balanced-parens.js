@@ -24,25 +24,49 @@
  *
  */
 
+function balancedParens(input) {
+  const brackets = [];
+  console.log(input);
 
-function balancedParens(input){
-    const brackets = [];
-    console.log(input);
+  // make a reference object with valid open and closing brackets
+  const openBrackets = { '{': '}',  '[': ']', '(': ')' };
 
-    const openBrackets = { '{':'}',  '[':']', '(':')' };
+  // loop through input
+  for (let i = 0; i < input.length; i++) {
+    // if we find any open brackets, push them onto the brackets array
+    if (input[i] in openBrackets)
+      brackets.push(input[i]);
 
-    for (let i = 0; i < input.length; i++) {
-        if (input[i] in openBrackets)
-            brackets.push(input[i]);
-        else if(/[\]})]/.test(input[i])) {
-            if (openBrackets[brackets.pop()] !== input[i]) return false;
-        }
+    // if we find any closing brackets, check to see if it is the valid closing
+    // bracket matching the last open bracket on the stack.  If it is, we've closed
+    // that group so we can pop it off the array and keep going.  If not, we know this
+    // string does not contain balanced parens.  Return false.
+    else if (/[\]})]/.test(input[i])) {
+      if (openBrackets[brackets.pop()] !== input[i]) return false;
     }
+  }
 
-    return !brackets.length;
+  // if brackets is empty, we return true, if not, we know something didn't match
+  return !brackets.length;
 
 }
 
+function cSbalancedParens(input){
+  var matches = { '[': ']', '{': '}', '(': ')' };
+  var brackets = [];
+  for (var i = 0; i < input.length; i++) {
+    var char = input[i];
+    if (char in matches) {
+      brackets.push(char);
+    } else if (char === ']' || char === ')' || char === '}') {
+      if (matches[brackets.pop()] !== char){
+        return false;
+      }
+    }
+  }
+
+  return !brackets.length;
+}
 
 console.log(balancedParens('[({})]')); // true
 console.log(balancedParens('[](){}')); // true

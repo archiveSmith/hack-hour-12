@@ -18,19 +18,19 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-    const res = [];
+  const res = [];
 
-    for (let i = 1; i <= num; i++) {
-        const check3 = (i) => (i % 3 == 0);
-        const check5 = (i) => (i % 5 == 0);
+  for (let i = 1; i <= num; i++) {
+    const check3 = (i) => (i % 3 == 0);
+    const check5 = (i) => (i % 5 == 0);
 
-        if ( check3(i) && check5(i) ) res.push('fizzbuzz');
-        else if ( check3(i) ) res.push('fizz');
-        else if ( check5(i) ) res.push('buzz');
-        else res.push(i);
-    }
+    if (check3(i) && check5(i)) res.push('fizzbuzz');
+    else if (check3(i)) res.push('fizz');
+    else if (check5(i)) res.push('buzz');
+    else res.push(i);
+  }
 
-    return res;
+  return res;
 }
 
 module.exports = fizzbuzz;

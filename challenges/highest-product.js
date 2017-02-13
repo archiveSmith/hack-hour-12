@@ -4,25 +4,26 @@
 
 function highestProduct(array) {
 
-    // verify that the array contains at least three values
-    if(array.length < 3) return 0;
-    // verify that the array only contains numerals
-    if(array.join('').match(/^[^0-9]+$/)) return 0;
+  // verify that the array contains at least three values
+  if (array.length < 3) return 0;
+  // verify that the array only contains numerals
+  if (array.join('').match(/^[^0-9]+$/)) return 0;
 
-    // sort the array
-    array = array.sort((low,high) => (low - high));
-    // handle an all negative array
-    if (array[array.length-1] < 0) {
-        return array.splice(-3).reduce((acc,curr) => {return acc * curr});
-    }
+  // sort the array
+  array = array.sort((low,high) => (low - high));
+  // handle an all negative array
+  if (array[array.length - 1] < 0) {
+    return array.splice(-3).reduce((acc, curr) => acc * curr);
+  }
 
-    const highestNum = array[array.length-1];
-    // get the sum of the two lowest numbers (this accounts for neg * neg)
-    let lowsum = array[0] * array[1];
-    // get the sum of the two lowest of the top three numbers
-    let highsum = array[array.length-3] * array[array.length-2];
+  const highestNum = array[array.length-1];
+  // get the sum of the two lowest numbers (this accounts for neg * neg)
+  let lowsum = array[0] * array[1];
 
-    return (lowsum > highsum) ? lowsum * highestNum : highsum * highestNum;
+  // get the sum of the two lowest of the top three numbers
+  let highsum = array[array.length - 3] * array[array.length - 2];
+
+  return (lowsum > highsum) ? lowsum * highestNum : highsum * highestNum;
 
 }
 

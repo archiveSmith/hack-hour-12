@@ -21,28 +21,26 @@ function stringRotation(s1, s2) {
   let sArray = s2.split('');
   let firstLetter = fArray[0];
 
+  if (fArray.length !== sArray.length) return false;
+  if (fArray === sArray) return true;
 
- if(fArray.length !== sArray.length) return false;
- if(fArray === sArray) return true;
+  let indexes = [];
+  let matched = false;
 
- let indexes = [],
-     matched = false;
+  for (let i = 0; i < sArray.length; i++) {
+    if (sArray[i] === fArray[0]) indexes.push(i);
+  }
 
- for(let i = 0; i < sArray.length; i++) {
-    if (sArray[i] === fArray[0]);
-        indexes.push(i);
- }
+  indexes.forEach(function (idx) {
+    let end = sArray.slice(idx);
+    let start = sArray.slice(0, idx);
+    let test = end.concat(start);
 
-  indexes.forEach(function(idx) {
-      let end = sArray.slice(idx);
-      let start = sArray.slice(0,idx);
-      let test = end.concat(start);
+    if (test.join('') === fArray.join('')) matched = true;
 
-      if( test.join('') === fArray.join('')) matched = true;
+  });
 
-  })
-
-    return matched;
+  return matched;
 
 }
 
