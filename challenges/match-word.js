@@ -7,47 +7,48 @@
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
 // matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
+// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ]
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
 function matchWord(str) {
-    const matches = {};
-    const openWords = [];
-    // create an object of all words in  the string
-    console.log(str);
-    let key = '';
-    for (let i = 0; i < str.length; i++) {
-        if(/[A-Za-z]/.test(str[i])) {
-            key += str[i]
+  const matches = {};
+  const openWords = [];
+
+  // create an object of all words in  the string
+  console.log(str);
+  let key = '';
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-Za-z]/.test(str[i])) {
+      key += str[i];
+    } else if (key) {
+      key = key.toLowerCase();
+      let reversed = key.split('').reverse().join('');
+
+      // check to see if we're expecting to see this
+      if (key in matches) {
+        if (reversed !== openWords.pop()) {
+          return false;
         }
-        else if (key) {
-            key = key.toLowerCase();
-            let reversed = key.split('').reverse().join('');
-            // check to see if we're expecting to see this
-            if( key in matches ) {
-                if (reversed !== openWords.pop()) {
-                    return false;
-                }
-            }
-            else {
-                openWords.push(key);
-                matches[reversed] = key;
-            }
-            //console.log("looking for <" + reversed + ">" + " in [" + openWords + "]");
-            key = reversed = '';
+      } else {
+        openWords.push(key);
+        matches[reversed] = key;
+      }
 
-        }
+      //console.log("looking for <" + reversed + ">" + " in [" + openWords + "]");
+      key = reversed = '';
+
     }
+  }
 
-    // last check for the final key
-    // (Our for loop boots us out if the last key is at the
-    //  very end of the string)
-    if(key.split('').reverse().join('') === openWords[0]) {
-      openWords.pop();
-    }
+  // last check for the final key
+  // (Our for loop boots us out if the last key is at the
+  //  very end of the string)
+  if (key.split('').reverse().join('') === openWords[0]) {
+    openWords.pop();
+  }
 
-    return !openWords.length;
+  return !openWords.length;
 
 }
 

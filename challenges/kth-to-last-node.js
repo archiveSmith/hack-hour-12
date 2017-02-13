@@ -25,26 +25,25 @@ function List() {
   this.head = null;
 }
 
-List.prototype.add = function(val) {
+List.prototype.add = function (val) {
   let node = new Node(String.fromCharCode(val));
   let currentNode = this.head;
 
-    if (!currentNode) {
-        this.head = node;
-        return node;
-    }
-
-    while (currentNode.next) {
-        currentNode = currentNode.next;
-    }
-
-    currentNode.next = node;
-
+  if (!currentNode) {
+    this.head = node;
     return node;
-}
+  }
+
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
+
+  currentNode.next = node;
+
+  return node;
+};
 
 let list = new List();
-
 
 for (let i = 65; i < 70; i++) {
   list.add(i);
@@ -60,15 +59,14 @@ function kthToLastNode(k, head) {
     node = node.next;
   }
 
-  if( values[count - k ] ) {
+  if (values[count - k ]) {
     return values[count - k];
-  }
-  else {
+  } else {
     return;
   }
 
 }
 
-console.log(kthToLastNode(10,list.head));
+console.log(kthToLastNode(10, list.head));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
