@@ -3,12 +3,15 @@
  */
 
 function twoSum(arr, n) {
-  console.log('arr', arr);
-  console.log('n', n);
   let i; 
   for (i = 0; i < arr.length; i += 1) {
     let diff = n - arr[i];
-    if (arr.indexOf(diff) !== -1) return true;
+    console.log('arr', arr[i]);
+    console.log(diff);
+    if (arr.indexOf(diff) !== -1 && diff !== arr[i]) {
+      console.log(diff);
+      return true;
+    }
   }
   return false;
 }
