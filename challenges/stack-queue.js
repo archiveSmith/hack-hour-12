@@ -42,7 +42,6 @@ Queue.prototype.dequeue = function() {
       this.outbox.push(this.inbox.pop());
     }
   }
-  return this.outbox[this.outbox.length - 1];
+  return this.outbox.pop();
 }
 
-module.exports = {Stack: Stack, Queue: Queue};
