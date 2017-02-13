@@ -20,15 +20,6 @@ Stack.prototype.pop = function() {
   return value;
 }
 
-Stack.prototype.unshift = function(val) {
-  let i;
-  for (i = this.index; i > 0; i -= 1) {
-    this.storage[i] = this.storage[i - 1];
-  }
-  this.storage[0] = val;
-  this.index += 1;
-}
-
 /**
 * Queue Class
 */
@@ -39,14 +30,16 @@ function Queue() {
 }
 
 Queue.prototype.enqueue = function(val) {
-  this.inStack.push();
+  this.inStack.push(val);
 }
 
 Queue.prototype.dequeue = function() {
-  while (this.inStack.index > 0) {
-    this.outStack.push(this.inStack.pop);
+  let i;
+  for (i = this.inStack.length; i >= 0; i -=1) {
+    this.outStack.push(this.inStack[i]);
   }
   this.outStack.pop();
+  this.outStack = new Stack();
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
