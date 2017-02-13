@@ -8,7 +8,7 @@ function Stack() {
     this.length = 0;
 }
 
-Stack.prototype.add = function(value) {
+Stack.prototype.push = function(value) {
     this.stack[this.length++] = value;
 }
 
@@ -26,37 +26,22 @@ Stack.prototype.pop = function() {
 
 // goes through the first stack first.. and then the second stack?
 function Queue() {
-    this.stackQueue = {};
-    this.length = 0;
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
 }
 
-Queue.prototype.add = function(stack) {
-    this.stackQueue[this.length++] = stack;
+Queue.prototype.enqueue = function(value) {
+    this.stack1.push(value);
 }
 
-Queue.prototype.pop = function() {
-    if(this.length === 0) return;
-    let currentStack = this.stackQueue[0];
-    if(currentStack.length === 0) {
-        delete this.stackQueue[0];
-        this.length--;
-        return this.pop();
+Queue.prototype.dequeue = function() {
+    if(this.stack2.length === 0) {
+        while(this.stack1.length !== 0) {
+            this.stack2.push(this.stack1.pop());
+        }
     }
-    return currentStack.pop();
+    if(this.stack2.length !== 0) return this.stack2.pop();
+    else return;
 }
-
-const stack = new Stack();
-stack.add('hi');
-stack.add('im');
-stack.add('richard');
-
-const queue = new Queue();
-queue.add(stack);
-console.log(queue);
-queue.pop();
-queue.pop();
-queue.pop();
-queue.pop();
-console.log(queue);
 
 module.exports = {Stack: Stack, Queue: Queue};
