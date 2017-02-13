@@ -6,7 +6,9 @@
    if (arr.length === 0) return false;
    if (arr.includes(n)) return true;
    for (let i = 0; i < arr.length; i += 1) {
-     if (arr.splice(arr.indexOf(arr[i]), 1).includes(n - arr[i])) return true;
+     const arrCopy = arr.slice();
+     arrCopy.splice(arr.indexOf(arr[i]), 1)
+     if (arrCopy.includes(n - arr[i])) return true;
    }
    return false;
  }
