@@ -9,10 +9,10 @@
 function Stack() {
   // body...
   this.values = {};
-  this.max = 0;
+  this.max = {};
   this.length = 0;
   this.push = function(value) {
-    if (this.max < value) this.max = value;
+    if (!this.max || this.max < value) this.max = value;
     this.values[this.length] = value;
     this.length++;
     return this.length;
@@ -24,6 +24,7 @@ function Stack() {
     return popped;
   }
   this.getMax = function() {
+
     return this.max;
   }
 }
@@ -33,6 +34,7 @@ console.log(testStack.push(8));
 console.log(testStack.pop());
 console.log(testStack.push(10));
 console.log(testStack.getMax());
+
 
 
 module.exports = Stack;

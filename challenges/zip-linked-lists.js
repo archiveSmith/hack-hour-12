@@ -9,6 +9,11 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+const list = new Node('1');
+list.next = new Node ('2');
+list.next.next = new Node ('3');
+list.next.next.next = new Node ('4');
+list.next.next.next.next = new Node ('5');
 
 function zip(l1, l2) {
   if(!l1) return l2;
@@ -42,8 +47,7 @@ function zip(l1, l2) {
 //   }
   
 // }
-
-// console.log(createLinkedList(9,10,11,20));
+console.log(createLinkedList(9,10,11,20));
 
 
 module.exports = {Node: Node, zip: zip};
