@@ -16,10 +16,12 @@
  * BONUS: Do this in place
  */
 
-const rotateGrid = (grid) => {
+const rotateGrid = grid => (
   grid[0].map((column, index) => (
     grid.map(row => row[index]).reverse()
-  ));
-};
+  ))
+);
 
+
+console.log(rotateGrid([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 module.exports = rotateGrid;
