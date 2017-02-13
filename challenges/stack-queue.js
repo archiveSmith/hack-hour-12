@@ -11,12 +11,13 @@ function Stack() {
 Stack.prototype.push = function(val) {
   this.storage[this.index] = val;
   this.index += 1;
+  return this.index;
 }
 
 Stack.prototype.pop = function() {
   if (this.index === 0) return undefined;
-  const value = this.storage[this.index];
-  if (this.index > 0) this.index -= 1;
+  const value = this.storage[this.index - 1];
+  this.index -= 1;
   return value;
 }
 
