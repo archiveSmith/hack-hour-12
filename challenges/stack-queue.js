@@ -14,8 +14,9 @@ Stack.prototype.push = function(val) {
 }
 
 Stack.prototype.pop = function() {
+  if (this.index === 0) return undefined;
   const value = this.storage[this.index];
-  this.index -= 1;
+  if (this.index > 0) this.index -= 1;
   return value;
 }
 
