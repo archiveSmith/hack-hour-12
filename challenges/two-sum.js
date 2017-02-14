@@ -9,6 +9,6 @@ function twoSum(arr, n) {
         if (arr.indexOf(n - arr[i]) > -1) return true;
     } return false;
 }
-// console.log(twoSum([1,2,3,4], 5));
-// console.log(twoSum([1,2,3,4], 3));
+console.log(twoSum([1,2,3,4], 5));
+console.log(twoSum([1,2,3,4], 20));
 module.exports = twoSum;
