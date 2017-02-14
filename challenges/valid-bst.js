@@ -12,18 +12,19 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  function helperLeft(tree, n) {
+  function helperLeft(tree, n, root) {
     if (tree === null) return true;
-    if (tree.value > n) return false;
-    return helperLeft(tree.left, tree.value) && helperRight(tree.right, tree.value);
-  }
-  function helperRight(tree, n) {
-    if (tree === null) return true;
-    if (tree.value <= n) return false;
-    return helperLeft(tree.left, tree.value) && helperRight(tree.right, tree.value);
+    if (tree.value > n || tree.value > root) return false;
+    return helperLeft(tree.left, tree.value, root) && helperRight(tree.right, tree.value, root);
   }
 
-  return helperLeft(tree.left, tree.value) && helperRight(tree.right, tree.value);
+  function helperRight(tree, n, root) {
+    if (tree === null) return true;
+    if (tree.value <= n || tree.value <= root) return false;
+    return helperLeft(tree.left, tree.value, root) && helperRight(tree.right, tree.value, root);
+  }
+
+  return helperLeft(tree.left, tree.value, tree.value) && helperRight(tree.right, tree.value, tree.value);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
