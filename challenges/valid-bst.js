@@ -12,7 +12,37 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    // if there are no tree return false
+    if (!tree) return false;
 
-}
+    // if there are no branch on both left and right
+    if (!tree.left && !tree.right) return true;
 
+    // if there are only left
+    if (!tree.right) {
+        if (tree.left.value > tree.value) return false;
+        return validBST(tree.left);
+    }
+
+    // if there are only right
+    if (!tree.left) {
+        if (tree.right.value <= tree.value) return false;
+        return validBST(tree.right);
+    }  
+
+    if (tree.left.value > tree.value) return false;
+    if (tree.right.value <= tree.value) return false;
+
+    return validBST(tree.left) && validBST(tree.right)
+} 
+
+
+let tree = new BinaryTree(3);
+tree.left = new BinaryTree(1);
+tree.left.left = new BinaryTree(0);
+tree.right = new BinaryTree(7);
+tree.right.left = new BinaryTree(4);
+tree.right.right = new BinaryTree(8);
+
+console.log(validBST(tree))
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
