@@ -3,39 +3,33 @@
  */
 
 
-function Stack(callback) {
-    //  [    ]
-    //  [    ]
-    //  [    ]
-    //  [    ]
-    // this.context = null;
-    // this.next = null;
-    // this.head = null;
-
-    // addToStack: function(callback) {
-    //     this.context = callback;
-    //     this.tail = this;
-    // }
-
-    // prototypal inheritance
-    // inbox/outbox
-
-    this.storage = [];
-    this.index = 0;
-
+function Stack() {
+    this._size = 0;
+    this._storage = {};
 }
 
-Stack.prototype.push = function(value) {
-    this.storage[this.index] = value;
-    this.index++;
-    return value;
-}
+Stack.prototype.push = function(data) {
+    // increases the size of our storage
+    var size = this._size++;
+ 
+    // assigns size as a key of storage
+    // assigns data as the value of this key
+    this._storage[size] = data;
+};
 
-Stack.prototype.pop = funtion() {
-
-
-
-}
+Stack.prototype.pop = function() {
+    var size = this._size,
+        deletedData;
+ 
+    if (size) {
+        deletedData = this._storage[size];
+ 
+        delete this._storage[size];
+        this._size--;
+ 
+        return deletedData;
+    }
+};
 
 
 /**
@@ -43,24 +37,33 @@ Stack.prototype.pop = funtion() {
 */
 
 
-function Queue(stackObj) {
-//  o   o   o
-// /\  /\  /\
-// ||  ||  ||
-
-// while (stackObj.length === 0 && queue.length > 0) {
-//     let callback = queue[0];
-//     queue.shift();
-//     callback();
-// }
-
-this.inbox = new Stack();
-this.outbox = new Stack();
-
+function Queue() {
+    this._oldestIndex = 1;
+    this._newestIndex = 1;
+    this._storage = {};
 }
-
-Queue.prototype.enqueue = function () {
-    
-}
+ 
+Queue.prototype.size = function() {
+    return this._newestIndex - this._oldestIndex;
+};
+ 
+Queue.prototype.enqueue = function(data) {
+    this._storage[this._newestIndex] = data;
+    this._newestIndex++;
+};
+ 
+Queue.prototype.dequeue = function() {
+    var oldestIndex = this._oldestIndex,
+        newestIndex = this._newestIndex,
+        deletedData;
+ 
+    if (oldestIndex !== newestIndex) {
+        deletedData = this._storage[oldestIndex];
+        delete this._storage[oldestIndex];
+        this._oldestIndex++;
+ 
+        return deletedData;
+    }
+};
 
 module.exports = {Stack: Stack, Queue: Queue};

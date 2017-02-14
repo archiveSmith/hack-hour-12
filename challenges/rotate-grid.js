@@ -19,20 +19,22 @@
 // 
 
 function rotateGrid(grid, n) {
-  
-  let temp = [];
-  for (let i = 0; i < grid.length; i += 1) {
-    for (let j = grid.length; j < 0; j -= 1) {
-      temp.push(grid[j][n]);
-    }
-  }
-  for (let c = 0, i = 0; i < grid.length; i += 1) {
-    for (let j = 0; j < arr.length; j += 1, c += 1) {
-      grid[i][j] = temp[c];
-    }
-  }
+  var newGrid = [];
 
-  return grid;
+  for (var i = 0; i < grid.length; i++) {
+    //convert to x/y
+    var x = i % n;
+    var y = Math.floor(i / n);
+
+    //find new x/y
+    var newX = n - y - 1;
+    var newY = x;
+
+    //convert back to index
+    var newPosition = newY * n + newX;
+    newGrid[newPosition] = grid[i];
+  }
+  return newGrid;
 }
 
 module.exports = rotateGrid;
