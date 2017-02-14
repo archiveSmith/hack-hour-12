@@ -3,12 +3,12 @@
  */
 
  function twoSum(arr, n) {
+   const compObj = {};
+
    if (arr.length === 0) return false;
-   if (arr.includes(n)) return true;
    for (let i = 0; i < arr.length; i += 1) {
-     const arrCopy = arr.slice();
-     arrCopy.splice(arr.indexOf(arr[i]), 1)
-     if (arrCopy.includes(n - arr[i])) return true;
+     if (arr[i] in compObj) return true;
+     compObj[n - arr[i]] = true;
    }
    return false;
  }
