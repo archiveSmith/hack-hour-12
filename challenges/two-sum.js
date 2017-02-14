@@ -5,11 +5,12 @@
 function twoSum(arr, n) {
   if (!arr || !n) return false;
 
-  for (let i = 0; i < arr.length - 1; i += 1) {
-    for (let j = i + 1; j < arr.length; j += 1) {
-      // console.log('testing: ', arr[i], '+', arr[j], '===', n);
-      if (arr[i] + arr[j] === n) return true;
-    }
+  const hash = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    // if hash contains a value that 
+    if (hash[n - arr[i]]) return true;
+    // add the key with value 1 (= falsy)
+    hash[arr[i]] = 1;
   }
   return false;
 }
