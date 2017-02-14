@@ -15,12 +15,12 @@ function validBST(tree) {
   let validLeft = true;
   let validRight = true;
   
-  if (this.left === null && this.right === null) return true;
+  if (tree.left === null && tree.right === null) return true;
   
-  if (this.left.value <= this.value) validLeft = validBST(this.left);
+  if (tree.left.value <= tree.value) validLeft = validBST(tree.left);
   else validLeft = false;
   
-  if (this.right.value > this.value) validRight = validBST(this.right);
+  if (tree.right.value > tree.value) validRight = validBST(tree.right);
   else validRight = false;
   
   if (validLeft && validRight) return true;
