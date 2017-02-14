@@ -4,11 +4,7 @@
 
 function twoSum(arr, n) {
     for (let i = 0; i < arr.length; i += 1) {
-      let find = n - arr[i];
-      let look = arr.slice(i);
-      if (look.indexOf(find) > -1) {
-          return true;
-      }
+      if (look.indexOf(n - arr[i]) > i) return true;
     }
     return false;
 }
