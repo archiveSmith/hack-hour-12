@@ -54,7 +54,7 @@
    }
 
    if (sharedFacs.length === 0) return 1;
-   return sharedFacs[sharedFacs.length - 1];
+   return sharedFacs.reduce((a, b) => a * b, 1);
 
  }
 
