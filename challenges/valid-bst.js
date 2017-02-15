@@ -11,38 +11,127 @@ function BinaryTree(val) {
     this.right = null;
 }
 
+// ============= DONT MODIFY ANYTHING BEFORE THIS ===========================================
+
+// function validBST(tree) {
+//     // if there are no tree return false
+//     if (!tree) return false;
+
+//     // if there are no branch on both left and right
+//     if (!tree.left && !tree.right) return true;
+
+//     // if there are only left
+//     if (!tree.right) {
+//         if (tree.left.value > tree.value) return false;
+//         return validBST(tree.left);
+//     }
+
+//     // if there are only right
+//     if (!tree.left) {
+//         if (tree.right.value <= tree.value) return false;
+//         return validBST(tree.right);
+//     }  
+
+//     if (tree.left.value > tree.value) return false;
+//     if (tree.right.value <= tree.value) return false;
+
+//     return validBST(tree.left) && validBST(tree.right)
+// } 
+
+
+// ========================= NEW SOLUTION ======================================
+
+function returnArray(tree, arr = [], pos = -1) {
+    // if there are no more left or right branch
+
+    
+    // if there are branch left is deadend
+    if (tree.left) {
+        pos = returnArray(tree.left, arr, pos)
+    };
+    arr[++pos] = tree.value;
+    if (tree.right) {
+        pos = returnArray(tree.right, arr, pos);
+    };
+    return pos;
+}
+
+
 function validBST(tree) {
-    // if there are no tree return false
-    if (!tree) return false;
+    let arr = [];
+    // go through the tree and return an array of supposed to be sorted tree leaf
+    function returnArray(tree, arr = [], pos = -1) {
+     
+        // if there are branch left is deadend
+        if (tree.left) {
+            pos = returnArray(tree.left, arr, pos)
+        };
 
-    // if there are no branch on both left and right
-    if (!tree.left && !tree.right) return true;
+        arr[++pos] = tree.value;
 
-    // if there are only left
-    if (!tree.right) {
-        if (tree.left.value > tree.value) return false;
-        return validBST(tree.left);
+        if (tree.right) {
+            pos = returnArray(tree.right, arr, pos);
+        };
+
+        return pos;
     }
 
-    // if there are only right
-    if (!tree.left) {
-        if (tree.right.value <= tree.value) return false;
-        return validBST(tree.right);
-    }  
+    // check if it actually sorted: true:  validBST return true, false: validBST  return false
+    return(tree, arr);
 
-    if (tree.left.value > tree.value) return false;
-    if (tree.right.value <= tree.value) return false;
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i+1]) {
+            return false;
+        }
+    }
 
-    return validBST(tree.left) && validBST(tree.right)
+    return true;
 } 
 
+//============================ GIVEN SOLUTION +=============================
 
-let tree = new BinaryTree(3);
-tree.left = new BinaryTree(1);
-tree.left.left = new BinaryTree(0);
-tree.right = new BinaryTree(7);
-tree.right.left = new BinaryTree(4);
-tree.right.right = new BinaryTree(8);
+// function validBST(BST) {
 
-console.log(validBST(tree))
+//     function isValid(tree, min, max) {
+//         if (!tree) return true;
+
+//         if (tree.value > min && tree.value < max) {
+//             return true;
+//         } 
+
+//         return false;
+//     }
+
+//     return isValid(BST, -Infinity, Infinity)
+// }
+
+
+// ===================================TESTING ========================================================
+
+// let tree = new BinaryTree(3);
+// tree.left = new BinaryTree(1);
+// tree.left.left = new BinaryTree(0);
+// tree.right = new BinaryTree(7);
+// tree.right.left = new BinaryTree(4);
+// tree.right.right = new BinaryTree(8);
+
+// let arr = [];
+// value = returnArray(tree, arr);
+// console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//==========================================EXPORT==============================================================
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
