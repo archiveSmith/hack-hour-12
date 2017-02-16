@@ -29,22 +29,31 @@ function numToWords(num) {
   let counter;
   for (let i = numStr.length - 1, counter = 0; i >= 0; i -= 3, counter += 3) {
     let groupStr = '';
+    let hasValues = false;
+    let gotSingles = false;
+    
     // extract hundreds
     if (numStr[i - 2] && numStr[i - 2] > 0) {
       groupStr += hash[numStr[i - 2]] + 'Hundred';
+      hasValues = true;
     }
     // extract tens
-    if (numStr[i - 1] && numStr[i - 1] < 2) {
-      groupStr += hash[numStr[i - 1]];
+    // everything 1 - 19
+    if (numStr[i - 1] && numStr[i - 1] < 2 && numStr[i - 1] > 0) {
+      groupStr += hash[(numStr[i - 1]) + numStr[i]];
+      gotSingles = hasValues = true;
+    // everything 20 - 90
     } else if (numStr[i - 1] && numStr[i - 1] >= 2) {
       groupStr += hash[numStr[i - 1] * 10];
+      hasValues = true;
     }
     // extract singles
-    if (numStr[i] && numStr[i] > 0) {
+    if (!gotSingles && numStr[i] && numStr[i] > 0) {
       groupStr += hash[numStr[i]];
+      gotSingles = hasValues = true;
     }
     // add thousands, millions, ...
-    if (counter > 1) {
+    if (hasValues && counter > 1) {
       groupStr += baseHash[counter];
     }
     groupStrArr.push(groupStr);
@@ -56,6 +65,6 @@ function numToWords(num) {
   return output;
 }
 
-console.log(numToWords(0));
+console.log(numToWords(10000000000));
 
 module.exports = numToWords;
