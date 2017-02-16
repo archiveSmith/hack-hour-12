@@ -27,6 +27,11 @@ function gcd(a, b) {
   }
 }
 
-// console.log(gcd(24, 6))
+// function gcd(a, b, divisor = 1) {
+//   if (divisor === a || divisor === b) return divisor;
+
+// }
+
+console.log(gcd(10000000000, 9000000000))
 
 module.exports = gcd;
