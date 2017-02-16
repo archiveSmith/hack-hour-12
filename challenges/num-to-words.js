@@ -65,6 +65,6 @@ function numToWords(num) {
   return output;
 }
 
-console.log(numToWords(10000000000));
+// console.log(numToWords(10000000000));
 
 module.exports = numToWords;
