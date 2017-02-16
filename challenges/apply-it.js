@@ -27,12 +27,8 @@
 
 function applyIt(func, args) {
   if (typeof func !== 'function' || !Array.isArray(args)) return;
-
-  for (let i = 0; i < args.length; i++) {
-    func = func.bind(null, args[i]);
-  }
-
-  return func();
+  const [ arg1, arg2, arg3 ] = args;
+  return func(arg1, arg2, arg3);
 }
 
 module.exports = applyIt;
