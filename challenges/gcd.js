@@ -9,9 +9,10 @@
 
 function gcd(a, b) {
     const y = a > b ? a : b;
-    const x = y === a ? b : a;
-    for (let i = x; i > 0; i = i / 2) {
-      if (y % i === 0 && x % i === 0) return i;
+    let x = y === a ? b : a;
+    for (let i = 1; i > 0; i += 1) {
+      j = x / i;
+      if (j % 1 === 0 && y % j === 0) return j;
     }
 }
 
