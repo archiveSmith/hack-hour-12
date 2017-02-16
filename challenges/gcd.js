@@ -31,6 +31,11 @@ function gcd(a, b) {
     return divisor;
 }
 
+function CCCgcd(a, b) {
+    return b ? gcd(b, a % b) : a;
+}
+
+
 // console.log(gcd(10,8));
 // console.log(gcd(10,9));
 
