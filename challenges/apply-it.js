@@ -35,6 +35,8 @@ function helper(fn, thisObj, args) {
 }
 
 function applyIt(func, args) {
+  console.log(func);
+  console.log(args);
   return helper(func, this, args);
 }
 
