@@ -26,8 +26,8 @@
  */
 
 function applyIt(func, args) {
-    return func(arg[0], arg[1], arg[2], arg[3], arg[4], arg[5], arg[6], arg[7], arg[8], arg[9], 
-    arg[10], arg[11], arg[12], arg[13], arg[14], arg[15], arg[16], arg[17], arg[18], arg[19]);
+    return func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], 
+    args[10], args[11], args[12], args[13], args[14], args[15], args[16], args[17], args[18], args[19]);
 }
 
 module.exports = applyIt;
