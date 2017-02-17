@@ -26,15 +26,8 @@
  */
 
 function applyIt(func, args) {
-  let funcStr = 'func(';
-  args.forEach((el, i) => {
-    funcStr += `${el}`;
-    if (i < args.length - 1) funcStr += ',';
-  });
-  funcStr += ')';
-  return () => eval(funcStr);
+  const argums = args.join('","');
+  return () => eval(`func("${argums}")`);
 }
-
-console.log(applyIt(function(a,b,c) { return a+b+c; }, [1, 2, 3]));
 
 module.exports = applyIt;
