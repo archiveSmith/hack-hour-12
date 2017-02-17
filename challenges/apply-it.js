@@ -31,7 +31,7 @@ function helper(fn, thisObj, args) {
   for (let i = 0; i < args.length; i += 1)
     str += (i?',':'') + "args["+i+"]";
   str += ");";
-  return eval(str);
+  return () => eval(str);
 }
 
 function applyIt(func, args) {
