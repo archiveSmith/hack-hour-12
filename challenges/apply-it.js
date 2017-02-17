@@ -26,8 +26,10 @@
  */
 
 function applyIt(func, args) {
-    const arguments = args.join(',');
-    return eval('func(' + arguments + ')');
+    // eval is expecting strings inside of strings
+    const argss = args.join('",""');
+    // return an anonymous function because we are looking for the function to be not invoked
+    return () => eval('func("' + argss + '")');
 }
 
 module.exports = applyIt;
