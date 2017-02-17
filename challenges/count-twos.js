@@ -7,15 +7,27 @@
 // countTwos(11420);  -> 4483
 
 
+// function countTwos(num) {
+//     let count = 0;
+//     for(let i = 1; i <= num; i++) {
+//         let numString = String(i);
+//         for(let j = 0; j < numString.length; j++) {
+//             if(numString[j] === '2') {
+//                 count++;
+//             }
+//         }        
+//     }
+//     return count;
+// }
+
 function countTwos(num) {
+    let bigString = '';
     let count = 0;
-    for(let i = 0; i < num; i++) {
-        let numString = String(i);
-        for(let j = 0; j < numString.length; j++) {
-            if(numString[j] === '2') {
-                count++;
-            }
-        }        
+    for(let i = 1; i <= num; i++) {
+        bigString += i;
+    }
+    for(let i = 0; i < bigString.length; i++) {
+        if(bigString[i] === '2') count++;
     }
     return count;
 }
