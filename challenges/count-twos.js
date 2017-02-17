@@ -14,7 +14,7 @@ function countTwos(num) {
         result += (str.length - str.replace(/2/g,'').length);
     }
 
-    console.log(result)
+    return result;
 }
 
 countTwos(1);  //-> 0
