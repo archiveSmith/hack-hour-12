@@ -26,7 +26,23 @@
  */
 
 function applyIt(func, args) {
+  // Build up funcString starting with func(
+  let funcString = 'func(';
 
+  // Loop through arguments in ascending order
+  args.forEach((arg, index, args) => {
+    // Concat each argument wrapped by quotation marks
+    funcString += `'${arg}'`;
+
+    // Concat comma after each argument except last
+    if (index < args.length - 1) funcString += ',';
+  });
+
+  // Concat )
+  funcString += ')';
+
+  // Return callback that returns evaluation of funcString
+  return () => eval(funcString);
 }
 
 module.exports = applyIt;
