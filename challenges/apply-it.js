@@ -26,7 +26,13 @@
  */
 
 function applyIt(func, args) {
+  return func.bind(null, args);
 
 }
+var jae = function(name, age) {
+  console.log(name + ' is ' + age);
+}
+var jaero = applyIt(jae, ['jae', '15']);
+jaero();
 
 module.exports = applyIt;

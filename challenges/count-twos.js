@@ -8,7 +8,16 @@
 
 
 function countTwos(num) {
+  if (!num || typeof num !== 'number') return 'Check Input';
+  
+  let count = 0;
+  let str;
 
+  for (let i = 0; i <= num; i++) {
+    str = i.toString();
+    count += str.length - str.replace(/2/g, '').length;
+  }
+  return count;
 }
 
 module.exports = countTwos;
