@@ -8,6 +8,7 @@
 
 
 function countTwos(num) {
+  console.log(num);
   let i;
   let j;
   let count = 0;
