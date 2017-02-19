@@ -31,15 +31,14 @@ function Queue() {
 }
 
 Queue.prototype.enqueue = function(val) {
-  this.inStack.push(val);
+  return this.inStack.push(val);
 }
 
 Queue.prototype.dequeue = function() {
+  if (this.inStack.index === 0) return undefined;
   if (this.outStack.index === 0) {
-    if (this.inStack.index === 0) return undefined;
     while (this.inStack.index > 0) {
       this.outStack.push(this.inStack.pop());
-      console.log(this.instack.index);
     }
   }
   return this.outStack.pop();
