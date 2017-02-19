@@ -4,7 +4,7 @@
 
 
 function Stack() {
-  this.storage = [];
+  this.storage = {};
   this.index = 0;
 }
 
@@ -39,6 +39,7 @@ Queue.prototype.dequeue = function() {
     if (this.inStack.index === 0) return undefined;
     while (this.inStack.index > 0) {
       this.outStack.push(this.inStack.pop());
+      console.log(this.instack.index);
     }
   }
   return this.outStack.pop();
