@@ -30,21 +30,14 @@ function balancedParens(input) {
   let ch = input[counter++];
 
   while (ch) {
-    if (ch === '(') {
+    if (ch === '(' || ch === '[' || ch === '{') {
       stack.push(ch);
     } else if (ch === ')') {
-      if (stack[stack.length - 1] !== '(') return false;
-      stack.pop();
-    } else if (ch === '[') {
-      stack.push(ch);
+      if (stack.pop() !== '(') return false;
     } else if (ch === ']') {
-      if (stack[stack.length - 1] !== '[') return false;
-      stack.pop();
-    } else if (ch === '{') {
-      stack.push(ch);
+      if (stack.pop() !== '[') return false;
     } else if (ch === '}') {
-      if (stack[stack.length - 1] !== '{') return false;
-      stack.pop();
+      if (stack.pop() !== '{') return false;
     }
 
     ch = input[counter++];
