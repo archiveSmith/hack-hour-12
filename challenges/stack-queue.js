@@ -41,7 +41,7 @@ Queue.prototype.dequeue = function() {
       this.outStack.push(this.inStack.pop());
     }
   }
-  return this.outStack.pop();
+  this.outStack.pop();
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
