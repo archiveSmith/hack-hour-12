@@ -4,7 +4,8 @@
 
 //first in last out
 function Stack() {
-
+  this.storage = {};
+  this.length = 0;
 }
 
 
@@ -14,7 +15,8 @@ function Stack() {
 
 //first in first out
 function Queue() {
-
+  this.enqueue = new Stack();
+  this.dequeue = new Stack();
 }
 
 Queue.prototype.push = function(arg) {
