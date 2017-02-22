@@ -32,4 +32,14 @@ function countTwos(num) {
     return count;
 }
 
+// need updating
+// function countTwos(num, currentNum = 0, count = 0) {
+//     if(currentNum > num) return count;
+//     let currString = currentNum + "";
+//     for(let i = 0; i < currString.length; i++) {
+//         if(currString[i] === '2') count++;
+//     }
+//     return countTwos(num, ++currentNum, count);
+// }
+
 module.exports = countTwos;

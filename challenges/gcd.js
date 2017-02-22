@@ -11,6 +11,7 @@
 // 8 = 1, 2, 4, 8
 
 function gcd(a, b) {
+    // part 1
     // const divisor1 = [];
     // const divisor2 = [];
     // for(let i = a; i > 0; i--) {
@@ -32,16 +33,15 @@ function gcd(a, b) {
     //     }
     // }
 
-    const obj = {a: [], b: []};
-    for(let i = ((a>b) ? a: b) ; i > 0; i--) {
-        if((a / i) % 1 === 0) obj['a'].push(i);
-        if((b / i) % 1 === 0 && obj['a'].includes(i)) return i;
-    }
-}
+    // part 2
+    // const obj = {a: [], b: []};
+    // for(let i = ((a>b) ? a: b) ; i > 0; i--) {
+    //     if((a / i) % 1 === 0) obj['a'].push(i);
+    //     if((b / i) % 1 === 0 && obj['a'].includes(i)) return i;
+    // }
 
-// euclids O_O
-// function gcd(a,b) {
-    // return b ? gcd(b, a % b) : a;
-// }
+    // part 3
+    return b ? gcd(b, a % b) : a;
+}
 
 module.exports = gcd;
