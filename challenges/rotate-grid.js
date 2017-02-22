@@ -19,11 +19,13 @@
 function rotateGrid(grid, n) {
   if (!Array.isArray(grid)) return;
   const newArr = [];
+
   for (let i = 0; i < n; i++) {
     const row = [];
-    for (let j = 0; j < n; j++) {
-      row.push(grid[n-j-1][i]);
+    for (let j = 1; j <= n; j++) {
+      row.push(grid[n - j][i]);
     }
+
     newArr.push(row);
   }
 
