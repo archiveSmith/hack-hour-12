@@ -25,15 +25,7 @@
  */
 
 function balancedParens(input) {
-    // const arr = input.split('');
-    // const par = ['(', ')', '{', '}', '[', ']'];
-    // const results = arr.reduce(function (a, b) {
-    //     if (par.includes(b)) a.push(b);
-    //     return a;
-    // }, []);
-    // console.log(results);
-
-
+   
     const open = ['(', '[', '{'];
     const close = [')', ']', '}'];
     const paren, obj;
