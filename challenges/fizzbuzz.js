@@ -20,16 +20,10 @@ function fizzbuzz(num) {
     var counter = 1;
     var output = [];
     while(num > 0) {
-        if(counter % 3 === 0 && counter % 5 === 0) {
-            output.push("fizzbuzz");
-        } else if(counter % 3 === 0) {
-            output.push("fizz");
-        } else if(counter % 5 === 0) {
-            output.push("buzz");
-        }
-        else {
-            output.push(counter);
-        }
+        if(counter % 3 === 0 && counter % 5 === 0) output.push("fizzbuzz");
+        else if(counter % 3 === 0) output.push("fizz");
+        else if(counter % 5 === 0) output.push("buzz");
+        else output.push(counter);
         counter++;
         num--;
     }
