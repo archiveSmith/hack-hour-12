@@ -16,25 +16,15 @@
  * BONUS: Do this in place
  */
 
-// 
-
+// in place
 function rotateGrid(grid, n) {
-  var newGrid = [];
-
-  for (var i = 0; i < grid.length; i++) {
-    //convert to x/y
-    var x = i % n;
-    var y = Math.floor(i / n);
-
-    //find new x/y
-    var newX = n - y - 1;
-    var newY = x;
-
-    //convert back to index
-    var newPosition = newY * n + newX;
-    newGrid[newPosition] = grid[i];
+  grid = grid.reverse()
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      [grid[j][i], grid[i][j]] = [grid[i][j], grid[j][i]];
+    }
   }
-  return newGrid;
+  return grid;
 }
 
 module.exports = rotateGrid;
