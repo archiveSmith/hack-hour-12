@@ -17,13 +17,4 @@ function countTwos(num) {
     return result;
 }
 
-countTwos(1);  //-> 0
-countTwos(3);  //-> 1
-countTwos(13);  //-> 2
-countTwos(1000);  //-> 300
-countTwos(11420);  //-> 4483
-
-
-
-
 module.exports = countTwos;
