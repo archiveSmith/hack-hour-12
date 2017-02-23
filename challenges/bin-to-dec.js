@@ -22,10 +22,4 @@ function binToDec(binary) {
         return accu + (ele*Math.pow(2,idx))
     });
 }
-
-// console.log(binToDec('0'))
-// console.log(binToDec('11'))
-// console.log(binToDec('100'))
-// console.log(binToDec('101')) 
-// console.log(binToDec('0101'))
 module.exports = binToDec;

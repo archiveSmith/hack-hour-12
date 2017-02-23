@@ -45,20 +45,4 @@ function highestProduct(array) {
     return (Math.max(result1,result2,result3,result4))
 }
 
-// var array1 = [1,2,3,4,5];
-// console.log(highestProduct(array1));
-
-// var array2 = [-1,-2,-8,-7,4];
-// console.log(highestProduct(array2))
-
-// var array3 = [-1,-2,-4,-5];
-// console.log(highestProduct(array3))
-
-// var array3 = [];
-// console.log(highestProduct(array3))
-
-// var array4 = [1,2];
-// console.log(highestProduct(array4))
-
-
 module.exports = highestProduct;
