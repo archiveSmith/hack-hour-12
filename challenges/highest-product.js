@@ -7,19 +7,23 @@
  // whichever is bigger, multiply by the remaining largst number
 
 function highestProduct(array) {
-  if (array.length < 3) return 0;
+  const highest = Math.max(array[0], array[1]);
+  const lowest = Math.min(array[0], array[1]);
 
-  array.sort((a, b) => a - b);
+  var highestProductOfTwo = array[0] * array[1];
+  var lowestProductOfTwo = array[0] * array[1];
+  var highestProduct = array[0] * array[1] * array[2];
 
-  last1 = array[array.length - 1];
-  last2 = array[array.length - 2];
-  last3 = array[array.length - 3];
-  lowestTwo = array[0] * array[1];
-  highestTwo = last1 * last2;
+  array.forEach(function(current) {
+    highestProduct = Math.max(highestProduct, current * highestProductOfTwo, current * lowestProductOfTwo);
+    highestProductOfTwo = Math.max(highestProductOfTwo, current * highest, current * lowest);
+    lowestProductOfTwo = Math.min(lowestProductOfTwo, current * highest, current * lowest);
 
-  if (last1 < 0) return last1 * last2 * last3;
+    highest = Math.max(highest, current);
+    lowest = Math.min(lowest, current);
+  });
 
-  return lowestTwo < highestTwo ?  highestTwo * last3 : lowestTwo * last1;
+  return highestProduct;
 }
 
 module.exports = highestProduct;
