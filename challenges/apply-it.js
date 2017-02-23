@@ -25,11 +25,9 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-    // eval is expecting strings inside of strings
-    const argss = args.join('",""');
-    // return an anonymous function because we are looking for the function to be not invoked
-    return () => eval('func("' + argss + '")');
-}
+// "Mark had an awesome solution that I added to the slides, check out how clean this is."
+// -George Anoberg
+// THANKS GEORGE!
+const applyIt = (func, args) => () => eval(`func("${args.join('","')}")`);
 
 module.exports = applyIt;
