@@ -9,7 +9,6 @@
  */
 
 function subsetSum(array, target) {
-<<<<<<< HEAD
   let sortedArr = array.sort();
   console.log(sortedArr);
 }
@@ -53,10 +52,5 @@ module.exports = subsetSum;
 // }
 
 // // subsetSum([3, 7, 4, 2], 5);
-// subsetSum([3, 34, 4, 12, 5, 12], 32);
-=======
 
-}
 
-module.exports = subsetSum;
->>>>>>> e3dc620f30f6b501ed4782a83c299c8a0d18beb8
