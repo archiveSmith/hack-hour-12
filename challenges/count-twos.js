@@ -20,4 +20,21 @@ function countTwos(num) {
     return twos.length;
 }
 
+// // provided solution
+// function bruteForce(num) {
+//   var count = 0;
+//   str = String(num);
+
+//   for (var i = 2; i <= num; i++) {
+//     var subStr = String(i);
+
+//     for (var j = 0; j < str.length; j++) {
+//       if (subStr[j] === '2')
+//         count++;
+//     }
+//   }
+
+//   return count;
+// }
+
 module.exports = countTwos;
