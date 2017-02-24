@@ -26,8 +26,6 @@
  */
 
 function applyIt(func, args) {
-  function applyIt(func, args) {
-  
   let argStr = '';
   let i;
   for(i = 0; i < args.length; i += 1) {
@@ -36,8 +34,7 @@ function applyIt(func, args) {
       argStr += ', ';
     }
   }
-  return func()
-}
+  return func();
 }
 
 module.exports = applyIt;
