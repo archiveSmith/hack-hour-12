@@ -14,6 +14,93 @@
 
 function numToWords(num) {
 
+  if (num === 0) return 'Zero';
+  
+  // creating arrays of possible num words
+  let below20 = ['', 'One', 'Two', 'Three',
+    'Four', 'Five', 'Six', 'Seven',
+    'Eight', 'Nine', 'Ten', 'Eleven',
+    'Twelve', 'Thirteen', 'Fourteen',
+    'Fifteen', 'Sixteen', 'Seventeen',
+    'Eighteen', 'Nineteen'];
+  let below100 = ['', '', 'Twenty', 'Thirty',
+    'Fourty', 'Fifty', 'Sixty', 'Seventy',
+    'Eighty', 'Ninety'];
+  let greater = ['', 'Thousand', 'Million',
+    'Billion', 'Trillion', 'Quadrillion'];
+
+
+  let nums = [];
+  let numString = num.toString();
+  console.log('Original Numstring: ', numString);
+  
+  // adding 0's to the first Number
+  // eg 2 becomes 002
+  while (numString.length % 3 !== 0) {
+    numString = '0' + numString;
+  }
+  console.log('NUMSTRING with starting zeroes added: ', numString);
+  
+  // adding strings of numbers to num arrays
+  // eg 002999 becomes ['002', '999']
+  for (let i = 0; i < numString.length; i += 3) {
+    let toAdd = numString[i] + numString[i + 1] + numString[i + 2];
+    nums.push(toAdd);
+  }
+  console.log('NUMS', nums);
+  
+  
+  let finalString = '';
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums[i].length; j++) {
+      if (j === 0 && nums[i][j] !== '0') {
+        // adding whatever is in the hundreds place to the final string
+        // eg in '999' it is going to add NineHundred
+        console.log('\n', 'ADDING HUNDRED')
+        console.log(below20[nums[i][j]])
+        finalString += below20[nums[i][j]];
+        finalString += 'Hundred';
+      } else if (j === 1 && nums[i][j] !== '0') {
+        // adding whatever is in the 10s place to the final string
+        // eg in '999' it adds Ninety
+        // remember those empty strings in our hard coded arrays
+        // if the number starts with a 1 it will add an empty string
+        console.log('\n', 'ADDING TENS');
+        console.log(below100[nums[i][j]]);
+        finalString += below100[nums[i][j]];
+      } else if (j === 2 && nums[i][j] !== '0') {
+        // adding whatever is in the ones place to the final string
+        // eg '999' will add Nine
+        if (nums[i][j - 1] !== '1') {
+          // if the tens value was not a teen just add the Number
+          // eg '025' will add Five
+          console.log('\n', 'ADDING 1S')
+          console.log(below20[nums[i][j]]);
+          finalString += below20[nums[i][j]];
+        } else {
+          // if the tens value was a teen we will add 10 to the selection
+          // eg '015' will add 'Fifteen'
+          console.log('\n', 'ADDING TEENS')
+          console.log(below20[Number(nums[i][j]) + 10]);
+          finalString += below20[Number(nums[i][j]) + 10];
+        }
+      }
+    }
+    
+    // outside of inner for loop
+    // just finished going through '002'
+    // so adding the neccesary suffix for '002'
+    console.log('ADDING THOUSANDS MILLIONS ETC');
+    greater[nums.length - 1 - i] ? console.log(greater[nums.length - 1 - i]) : console.log('no suffix');
+    finalString += greater[nums.length - 1 - i];
+    console.log('final String: ', finalString);
+  }
+  return finalString;
+}
+
+
+function numToWordsAlternate(num) {
+
     const numWord = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
     const teenWord = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
     const tenWord = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
