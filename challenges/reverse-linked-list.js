@@ -8,7 +8,7 @@
  *
  */
 
-function reverseLinkedList(head) {
+function reverseLinkedListAlternate(head) {
     let currNode = head;
     let tempNode = null;
     let nextNode = null;
@@ -22,14 +22,13 @@ function reverseLinkedList(head) {
     return tempNode;
 }
 
-// // recursive
-// function reverseLinkedList(head){
-//   let previous = head;
-//   if(head.next !== null){
-//     reverseLinkedList(head.next, head);
-//   }
-//   head.next = head;
-// }
-// reverseLinkedList(list, null);
+// recursive
+function reverseLinkedList(head, prev = null) {
+    if (!head) return null;
+    const forward = head.next;
+    head.next = prev;
+    if (forward) return reverseLinkedList(forward, head);
+    return head; // Code only goes here on last node
+}
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
