@@ -11,7 +11,7 @@ function countTwos(num) {
   const two = '2';
   let count = 0;
   for (let i = 1; i <= num; i += 1) {
-    let strArr = i.toString().split('');
+    const strArr = i.toString().split('');
     let k = 0;
     while (k < strArr.length) {
       if (strArr[k].includes(two)) {
