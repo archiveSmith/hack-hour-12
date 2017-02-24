@@ -22,6 +22,18 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (!Number.isInteger(k) || k < 1 || !head) return;
+
+  const nodeValues = [];
+  while (head !== null) {
+    nodeValues.push(head.value);
+    head = head.next;
+  }
+
+  return nodeValues[nodeValues.length - k];
+}
+
+function kthToLastNodeAlternate(k, head) {
   let nodeLength = 1;
   let nodeSpot = 0;
   let currentNode = head;
