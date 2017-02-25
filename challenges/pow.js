@@ -2,11 +2,17 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-    if(power === 0) {
-        return 1;
-    }
-    return base * pow(base, power - 1);
+// function pow(base, power) {
+//     if(power === 0) {
+//         return 1;
+//     }
+//     return base * pow(base, power - 1);
+// }
+
+// tail call optimization
+function pow(base, power, result = 1) {
+    if(power <= 0) return result;
+    return pow(base, power - 1, result*base);
 }
 
 module.exports = pow;
