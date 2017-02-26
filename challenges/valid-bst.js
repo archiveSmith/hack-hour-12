@@ -3,12 +3,11 @@
  *      at any given node, the value of all the nodes in its left tree must be <= its value
  *      at any given node, the value of all the nodes in its right tree must be > its value
  */
- 
 
 function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
 // O(n) time and O(n) space
@@ -31,7 +30,7 @@ function validBST(tree) {
 // O(n) time and O(1) space
 function validBSTalternate(tree) {
   if (tree instanceof BinaryTree === false) return 'bad input';
-  
+
   function isValid(tree, min, max) {
     if (!tree) return true;
 
