@@ -11,62 +11,66 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-	arr1 = [];
-	arr2 = [];
+  const arr1 = [];
+  const arr2 = [];
+  let output;
 
-	currNode = l1;
-	while (currNode) {
-		arr1.push(currNode.value);
-		currNode = currNode.next;
-	}
+  let currNode = l1;
+  while (currNode) {
+    arr1.push(currNode.value);
+    currNode = currNode.next;
+  }
 
-	currNode = l2;
-	while (currNode) {
-		arr2.push(currNode.value);
-		currNode = currNode.next;
-	}
-	
-	arrLength = arr1.length > arr2.length ? arr1.length : arr2.length;
+  currNode = l2;
+  while (currNode) {
+    arr2.push(currNode.value);
+    currNode = currNode.next;
+  }
 
-	if (arr1[0]) {
-		var output = new Node(arr1[0]);
-		if (arr2[0]) {
-			output.next = new Node(arr2[0]);
-			currNode = output.next;
-		} else {
-			currNode = output;
-		}
-	} else if (arr2[0]) {
-		var output = new Node(arr2[0]);
-		currNode = output;
-	} else {
-		return new Node();
-	}
+  const arrLength = arr1.length > arr2.length ? arr1.length : arr2.length;
 
-	for (var i = 1; i < arrLength; i++) {
-		if (arr1[i]) {
-			currNode.next = new Node(arr1[i]);
-			currNode = currNode.next;
-		}
-		if (arr2[i]) {
-			currNode.next = new Node(arr2[i]);
-			currNode = currNode.next;
-		}
-	}
+  if (arr1[0]) {
+    output = new Node(arr1[0]);
+    if (arr2[0]) {
+      output.next = new Node(arr2[0]);
+      currNode = output.next;
+    } else {
+      currNode = output;
+    }
+  } else if (arr2[0]) {
+    output = new Node(arr2[0]);
+    currNode = output;
+  } else {
+    return new Node();
+  }
 
-	return output;
-};
+  for (let i = 1; i < arrLength; i += 1) {
+    if (arr1[i]) {
+      currNode.next = new Node(arr1[i]);
+      currNode = currNode.next;
+    }
+    if (arr2[i]) {
+      currNode.next = new Node(arr2[i]);
+      currNode = currNode.next;
+    }
+  }
 
-var listA = new Node('a1');
-listA.next = new Node('a2');
-listA.next.next = new Node('a3');
+  return output;
+}
 
-var listB = new Node('b1');
-listB.next = new Node('b2');
-listB.next.next = new Node('b3');
+// const listA = new Node('a1');
+// listA.next = new Node('a2');
+// listA.next.next = new Node('a3');
 
-var zipped = zip(listA, listB);
+// const listB = new Node('b1');
+// listB.next = new Node('b2');
+// listB.next.next = new Node('b3');
+
+// const zipped = zip(listA, listB);
 
 // console.log(zipped);
 
-module.exports = {Node: Node, zip: zip};
+module.exports = {
+  Node: Node,
+  zip: zip
+};
