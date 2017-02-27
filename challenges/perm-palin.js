@@ -11,7 +11,7 @@
 
 function permPalin(str) {
   str = str.split('');
-  i = 0;
+  let i = 0;
   while (str.length > 1) {
     if (i === 1 && str.indexOf(str[i]) === str.lastIndexOf(str[i])) return false;
     if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) i = 1;
