@@ -18,7 +18,6 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  console.log(l1, l2);
   const arr1 = [];
   const arr2 = [];
 
@@ -38,7 +37,7 @@ function addLinkedList(l1, l2) {
   let currNode = result;
 
   for (let i = 1; i < resultArr.length; i += 1) {
-    let newNode = new Node(resultArr[i]);
+    const newNode = new Node(resultArr[i]);
     currNode.next = newNode;
     currNode = currNode.next;
   }
@@ -46,4 +45,4 @@ function addLinkedList(l1, l2) {
   return result;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node, addLinkedList };
