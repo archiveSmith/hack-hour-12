@@ -18,6 +18,36 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  if (typeof l1 !== 'object' || typeof l2 !== 'object') return;
+
+  let n1 = '';
+  let n2 = '';
+
+  let curr1 = l1;
+  let curr2 = l2;
+
+  while (curr1) {
+    n1 = curr1.value + n1;
+    curr1 = curr1.next;
+  }
+
+  while (curr2) {
+    n2 = curr2.value + n2;
+    curr2 = curr2.next;
+  }
+
+  const sum = Number(n1) + Number(n2);
+  let nums = sum.toString().split('');
+
+  const result = new Node(nums.pop());
+  let pointer = result;
+
+  while (nums.length) {
+    pointer.next = new Node(nums.pop());
+    pointer = pointer.next;
+  }
+
+  return result;
 
 }
 
