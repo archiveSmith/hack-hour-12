@@ -11,26 +11,10 @@
  * The 8 is the hundreds digit (1 carried over + 5 + 2).
  *
  */
-function linkedList() {
-  this.head = null;
-  this.tail = null;
-}
 
 function Node(val) {
   this.value = val;
   this.next = null;
-}
-
-function Add(val) {
-  const newNode = new Node(val);
-
-  if (!this.head) {
-    this.head = newNode;
-    this.tail = newNode;
-  } else {
-    this.tail.next = newNode;
-    this.tail = this.tail.next;
-  }
 }
 
 function addLinkedList(l1, l2) {
@@ -38,25 +22,28 @@ function addLinkedList(l1, l2) {
   const arr1 = [];
   const arr2 = [];
 
-  while (l1.next) {
+  while (l1) {
     arr1.unshift(l1.value);
     l1 = l1.next;
   }
 
-  while (l2.next) {
+  while (l2) {
     arr2.unshift(l2.value);
     l2 = l2.next;
   }
 
-  const resultArr = (arr1.join('') + arr2.join('')).split('');
+  const resultArr = String(+arr1.join('') + +arr2.join('')).split('').reverse();
 
-  const newNode = new Node(resultArr[0]);
+  const result = new Node(resultArr[0]);
+  let currNode = result;
 
   for (let i = 1; i < resultArr.length; i += 1) {
-    newNode.add(resultArr[i]);
+    let newNode = new Node(resultArr[i]);
+    currNode.next = newNode;
+    currNode = currNode.next;
   }
 
-  return newNode;
+  return result;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
