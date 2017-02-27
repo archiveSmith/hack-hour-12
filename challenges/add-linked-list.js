@@ -17,10 +17,10 @@ function Node(val) {
   this.next = null;
 }
 
-const l1 = new Node(1);
-l1.next = new Node(2);
-l1.next.next = new Node(3);
-const l2 = new Node(5);
+const l1 = new Node(2);
+l1.next = new Node(3);
+l1.next.next = new Node(4);
+const l2 = new Node(9);
 l2.next = new Node(6);
 l2.next.next = new Node(7);
 l2.next.next.next = new Node(8);
@@ -45,13 +45,18 @@ function addLinkedList(l1, l2) {
     return;
   }
 
+  let carryOver = 0;
+
   while (list1 ||  list2) {
     // get the value from a valid list
     let value = list1 ? list1.value : 0;
     value += list2 ? list2.value : 0;
+    value += carryOver;
 
-    // create the new node
-    node = new Node(value);
+    // create the new node, adjusted the value for its current factor
+    node = new Node(Math.floor(value % 10));
+
+    carryOver = value / 10;
 
     // if we're the first node, create the list
     // otherwise, keep it going
