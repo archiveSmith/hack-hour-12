@@ -18,44 +18,44 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  // let firstNum = [];
-  // let secondNum = [];
-  // let addedArr;
-  // let shortest;
-  // let nodes = [];
-  // let i = 0;
-  // let j;
-  // let n;
-  // if (!l1) return l2;
-  // if (!l2) return l1;
-  // if (!l1 && !l2) return null;
+  let firstNum = [];
+  let secondNum = [];
+  let addedArr;
+  let shortest;
+  let nodes = [];
+  let i = 0;
+  let j;
+  let n;
+  if (!l1) return l2;
+  if (!l2) return l1;
+  if (!l1 && !l2) return null;
 
-  // do {
-  //   firstNum.push(l1.value);
-  //   l1 = l1.next;
-  // } while (l1.next !== null);
-  // firstNum.push(l1.value);
+  while (l1.next !== null) {
+    firstNum.push(l1.value);
+    l1 = l1.next;
+  }
+  firstNum.push(l1.value);
 
-  // do {
-  //   secondNum.push(l2.value);
-  //   l2 = l2.next;
-  // } while (l2.next !== null);
-  // secondNum.push(l2.value);
+  while (l2.next !== null) {
+    secondNum.push(l2.value);
+    l2 = l2.next;
+  } 
+  secondNum.push(l2.value);
 
-  // let firstFullNum = parseInt(firstNum.reverse().join(''));
-  // let secondFullNum = parseInt(secondNum.reverse().join(''));
+  let firstFullNum = parseInt(firstNum.reverse().join(''));
+  let secondFullNum = parseInt(secondNum.reverse().join(''));
 
-  // let addedArr = (firstFullNum + secondFullNum).split('').reverse();
+  addedArr = (firstFullNum + secondFullNum).toString().split('').reverse();
 
-  // for (j = 0; j < addedArr.length; j += 1) {
-  //   nodes.push(new Node(addedArr[j]));
-  // }
+  for (j = 0; j < addedArr.length; j += 1) {
+    nodes.push(new Node(addedArr[j]));
+  }
 
-  // for (n = 0; n < nodes.length - 1; n += 1) {
-  //   nodes[n].next = nodes[n + 1];
-  // }
+  for (n = 0; n < nodes.length - 1; n += 1) {
+    nodes[n].next = nodes[n + 1];
+  }
 
-  // return nodes[0];
+  return nodes[0];
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
