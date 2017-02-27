@@ -18,9 +18,9 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-let addedList = new Node();
-let currNode = addedList;
-let carry = 0;
+  let addedList = new Node();
+  let currNode = addedList;
+  let carry = 0;
 
   while (l1 && l2) {
     if (l1.value + l2.value + carry > 9) {
@@ -36,7 +36,5 @@ let carry = 0;
     l2 = l2.next;
   } return addedList;
 }
-
-console.log(addLinkedList(first, second));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
