@@ -12,8 +12,82 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function numToWords(num) {
+ function numToWords(num) {
+   if (num === 0) return 'Zero';
 
-}
+   const ONE_TO_NINETEEN = [
+     'One', 'Two', 'Three', 'Four', 'Five',
+     'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+     'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen',
+     'Sixteen', 'Seventeen', 'Eighteen', 'Eineteen'
+   ];
+
+   const TENS = [
+     'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty',
+     'Sixty', 'Seventy', 'Eighty', 'Ninety'
+   ];
+
+   const SCALES = ['Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+   // helper function for use with Array.filter
+   function isTruthy(item) {
+     return !!item;
+   }
+
+   // convert a number into 'chunks' of 0-999
+   function chunk(number) {
+     const thousands = [];
+
+     while(number > 0) {
+       thousands.push(number % 1000);
+       number = Math.floor(number / 1000);
+     }
+
+     return thousands;
+   }
+
+   // translate a number from 1-999 into English
+   function inEnglish(number) {
+     let thousands, hundreds, tens, ones, words = [];
+
+     if (number < 20) {
+       return ONE_TO_NINETEEN[number - 1]; // may be undefined
+     }
+
+     if (number < 100) {
+       ones = number % 10;
+       tens = number / 10 | 0; // equivalent to Math.floor(number / 10)
+
+       words.push(TENS[tens - 1]);
+       words.push(inEnglish(ones));
+
+       return words.filter(isTruthy).join('');
+     }
+
+     hundreds = number / 100 | 0;
+     words.push(inEnglish(hundreds));
+     words.push('Hundred');
+     words.push(inEnglish(number % 100));
+
+     return words.filter(isTruthy).join('');
+   }
+
+   // append the word for a scale. Made for use with Array.map
+   function appendScale(chunk, exp) {
+     let scale;
+     if (!chunk) {
+       return null;
+     }
+     scale = SCALES[exp - 1];
+     return [chunk, scale].filter(isTruthy).join('');
+   }
+
+   return chunk(num)
+   .map(inEnglish)
+   .map(appendScale)
+   .filter(isTruthy)
+   .reverse()
+   .join('');
+ }
 
 module.exports = numToWords;
