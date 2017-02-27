@@ -46,6 +46,6 @@ let carry = 0;
 // second.next.next = new Node(2);
 // console.log(first, second);
 
-console.log(addLinkedList(first, second));
+// console.log(addLinkedList(first, second));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
