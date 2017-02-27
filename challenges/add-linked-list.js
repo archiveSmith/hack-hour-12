@@ -60,23 +60,3 @@ function addLinkedList(l1, l2) {
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
 
-  // if (firstNum.length >= secondNum.length) {
-  //   while(secondNum[i]) {
-  //     addedArr.push(firstNum[i] + secondNum[i]);
-  //     i += 1;
-  //   }
-  //   while(firstNum[i]) {
-  //     addedArr.push(firstNum[i]);
-  //     i += 1;
-  //   }
-  // }
-  // else {
-  //   while(firstNum[i]) {
-  //     addedArr.push(firstNum[i] + secondNum[i]);
-  //     i += 1;
-  //   }
-  //   while(secondNum[i]) {
-  //     addedArr.push(firstNum[i]);
-  //     i += 1;
-  //   }
-  // }
