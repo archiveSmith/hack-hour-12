@@ -23,7 +23,7 @@ l1.next.next = new Node(4);
 const l2 = new Node(9);
 l2.next = new Node(6);
 l2.next.next = new Node(7);
-l2.next.next.next = new Node(8);
+l2.next.next.next = new Node(9);
 
 
 function addLinkedList(l1, l2) {
@@ -47,7 +47,7 @@ function addLinkedList(l1, l2) {
 
   let carryOver = 0;
 
-  while (list1 ||  list2) {
+  while (list1 ||  list2 || carryOver) {
     // get the value from a valid list
     let value = list1 ? list1.value : 0;
     value += list2 ? list2.value : 0;
@@ -56,7 +56,7 @@ function addLinkedList(l1, l2) {
     // create the new node, adjusted the value for its current factor
     node = new Node(Math.floor(value % 10));
 
-    carryOver = value / 10;
+    carryOver = Math.floor(value / 10);
 
     // if we're the first node, create the list
     // otherwise, keep it going
