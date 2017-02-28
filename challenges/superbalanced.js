@@ -22,7 +22,7 @@ function superbalanced(tree) {
     // console.log(bst.value, "depth: ", depth);
     if (bst.right) recurse(bst.right, depth + 1);
     // if (!bst.left && !bst.right) return true;
-    return Math.abs(maxDepth - depth) >= 1;
+    return Math.abs(maxDepth - depth) <= 1;
   }
 
   return recurse(tree);
