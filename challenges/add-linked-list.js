@@ -23,7 +23,7 @@ function addLinkedList(l1, l2) {
 
   let currA = l1;
   let currB = l2;
-  let output = null;
+  let output;
   let prev;
   let currOutput;
   let currDigit;
