@@ -38,14 +38,14 @@ let carry = 0;
   else currNode = null; 
   return addedList;
 }
-// let first = new Node(2);
-// first.next = new Node(1);
-// first.next.next = new Node(5);
-// let second = new Node(5);
-// second.next = new Node(9);
-// second.next.next = new Node(2);
+let first = new Node(2);
+first.next = new Node(1);
+first.next.next = new Node(5);
+let second = new Node(5);
+second.next = new Node(9);
+second.next.next = new Node(2);
 // console.log(first, second);
 
-// console.log(addLinkedList(first, second));
+console.log(addLinkedList(first, second));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
