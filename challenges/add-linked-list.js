@@ -31,8 +31,16 @@ function addLinkedList(l1, l2) {
     l2 = l2.next;
   }
   let carried = 0;
-  for(let i = 0; i < arr1.length; i++) {
-    let temp = arr1[i] + arr2[i] + carried;
+  let temp;
+  let maxLength = (arr1.length > arr2.length) ? arr1.length : arr2.length
+  for(let i = 0; i < maxLength; i++) {
+    if(arr1[i] === undefined) {
+      arr1[i] = 0;
+    }
+    if(arr2[i] === undefined) {
+      arr2[i] = 0;
+    }
+    temp = arr1[i] + arr2[i] + carried;
     if(temp > 9) {
       temp = temp.toString().split('');
       carried = parseInt(temp.slice(0, temp.length - 1));
@@ -49,18 +57,18 @@ function addLinkedList(l1, l2) {
   return addLinkedList;
 }
 
-// const a1 = new Node(1);
-// const a2 = new Node(2);
-// const a3 = new Node(3);
-// a1.next = a2;
-// a2.next = a3;
+const a1 = new Node(5);
+const a2 = new Node(2);
+const a3 = new Node(3);
+a1.next = a2;
+a2.next = a3;
 
-// const b1 = new Node(9);
-// const b2 = new Node(8);
-// const b3 = new Node(3);
-// b1.next = b2;
-// b2.next = b3;
+const b1 = new Node(5);
+const b2 = new Node(8);
+const b3 = new Node(3);
+b1.next = b2;
+b2.next = b3;
 
-// console.log(addLinkedList(a1, b1));
+console.log(addLinkedList(a1, b1));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
