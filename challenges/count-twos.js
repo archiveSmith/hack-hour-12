@@ -18,6 +18,24 @@ function countTwos(num, count = 0) {
   return countTwos(num - 1, count);
 }
 
+function countTwos(num) {
+  let count = 0;
+
+  for (let i = 2; i <= num; i += 1) {
+    const numString = i.toString();
+    for (let i = 0; i < numString.length; i += 1) {
+      if (numString[i] === '2') count += 1;
+    }
+  }
+
+  return count;
+}
+
+function countTwos(num, counter = 0) {
+  if (num === 0) return counter;
+  return countTwos(num - 1, counter += num.toString().split('').filter(digit => digit === '2').length);
+}
+
 console.log(countTwos(1000))
 
 module.exports = countTwos;
