@@ -18,7 +18,40 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let a1 = [];
+  let a2 = [];
+  let as = [];
+  let l1Current = l1;
+  while (l1Current) {
+    a1.push(l1Current.value);
+    l1Current = l1Current.next;
+  }
+  let l2Current = l2;
+  while (l2Current) {
+    a2.push(l2Current.value);
+    l2Current = l2Current.next;
+  }
+  a1.forEach((item, idx) => {
+   let remains = 0;
+   let sum = 0;
+   if (a2[idx]) {
+    sum = item + a2[idx];
+   } else {
+    sum = item;
+   }
+   as.push(sum);
+  });
+  console.log(as);
 }
+
+let l1 = new Node(2);
+l1.next = new Node(1);
+l1.next.next = new Node(5);
+
+let l2 = new Node(5);
+l2.next = new Node(9);
+l2.next.next = new Node(2);
+
+addLinkedList(l1, l2);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
