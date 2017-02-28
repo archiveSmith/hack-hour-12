@@ -14,7 +14,37 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  let maxDepth = 0;
+  // recursive helper
+  function recurse(bst, depth) {
+    if (depth > maxDepth) maxDepth = depth;
+    if (bst.left) recurse(bst.left, depth + 1);
+    // console.log(bst.value, "depth: ", depth);
+    if (bst.right) recurse(bst.right, depth + 1);
+    // if (!bst.left && !bst.right) return true;
+    return Math.abs(maxDepth - depth) >= 1;
+  }
 
+  return recurse(tree, 0);
 }
+
+// let b1 = new BinaryTree(5);
+// let b2 = new BinaryTree(2);
+// let b3 = new BinaryTree(1);
+// let b4 = new BinaryTree(3);
+// let b5 = new BinaryTree(8);
+// let b6 = new BinaryTree(7);
+// let b7 = new BinaryTree(6);
+// let b8 = new BinaryTree(9);
+
+// b1.left = b2;
+// b2.left = b3;
+// b2.right = b4;
+// b1.right = b5;
+// b5.right = b8;
+// b5.left = b6;
+// b6.left = b7;
+
+// console.log(superbalanced(b1));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
