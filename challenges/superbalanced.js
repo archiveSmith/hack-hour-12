@@ -16,7 +16,7 @@ function BinaryTree(value) {
 function superbalanced(tree) {
   let maxDepth = 0;
   // recursive helper
-  function recurse(bst, depth) {
+  function recurse(bst, depth = 0) {
     if (depth > maxDepth) maxDepth = depth;
     if (bst.left) recurse(bst.left, depth + 1);
     // console.log(bst.value, "depth: ", depth);
@@ -25,7 +25,7 @@ function superbalanced(tree) {
     return Math.abs(maxDepth - depth) >= 1;
   }
 
-  return recurse(tree, 0);
+  return recurse(tree);
 }
 
 // let b1 = new BinaryTree(5);
