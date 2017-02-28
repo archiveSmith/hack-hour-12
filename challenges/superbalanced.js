@@ -15,6 +15,8 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
   let checker;
+  let leftCounter = 0;
+  let rightCounter = 0;
   if (!this.right && this.left) {
     checker = this.left;
     if (checker.left || checker.right) return false;
