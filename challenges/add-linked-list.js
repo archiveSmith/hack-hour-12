@@ -57,18 +57,4 @@ function addLinkedList(l1, l2) {
   return addLinkedList;
 }
 
-// const a1 = new Node(5);
-// const a2 = new Node(2);
-// const a3 = new Node(3);
-// a1.next = a2;
-// a2.next = a3;
-
-// const b1 = new Node(5);
-// const b2 = new Node(8);
-// const b3 = new Node(3);
-// b1.next = b2;
-// b2.next = b3;
-
-// console.log(addLinkedList(a1, b1));
-
 module.exports = {Node: Node, addLinkedList: addLinkedList};
