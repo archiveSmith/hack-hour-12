@@ -18,56 +18,30 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  let sum;
-  let next;
-  let carry;
-  while(l1 && l2) {
-    let curr = l1.value + l2.value;
-    if (carry) curr += carry;
-    if (curr >= 10) {
-      carry = 1;
-      curr = curr - 10;
-    } else {
-      carry = null;
+  if (!l1 || !l2) return l1 ? l1 : l2;
+  let sumList;
+  let nextNode;
+  function addNode(n1, n2, carry = null) {
+    if (n1 && n2) {
+      const curr = n1.value + n2.value;
+      let carr = null;
+      if (carry) curr += carry;
+      if (curr >= 10) {
+        curr = curr - 10;
+        carr = 1;
+      }
+      if (!sumList) {
+        nextNode = sumList = new Node(curr);
+        addNode(n1.next, n2.next, carr);
+      } else {
+        nextNode = nextNode.next = new Node(curr);
+        addNode(n1.next, n2.next, carr);
+      }
     }
-
-    if (sum) {
-      sum = new Node(curr);
-      next = sum;
-    } else {
-      next = sum.next = new Node(curr);
-    }
-
-    l1 = l1.next;
-    l2 = l2.next;
   }
 
-  let cont = l1 ? l1 : l2;
-
-  while (cont) {
-    let curr;
-    if (carry) {
-      curr = cont.value + carry;
-    } else curr = cont.value;
-
-    if (curr >= 10) {
-      carry = 1;
-      curr = curr - 10;
-    } else {
-      carry = null;
-    }
-
-    if (sum) {
-      sum = new Node(curr);
-      next = sum;
-    } else {
-      next = sum.next = new Node(curr);
-    }
-
-    cont = cont.next;
-  }
-
-  return sum;
+  addNode(l1, l2);
+  return sumList;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
