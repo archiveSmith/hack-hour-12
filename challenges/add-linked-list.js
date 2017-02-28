@@ -49,9 +49,11 @@ function addLinkedList(l1, l2) {
 
   if (currA) { 
     currOutput = new Node(currA.value + carryOver);
+    currOutput.next = currA.next;
     prev.next = currOuput;
   } else if (currB) { 
     currOutput = new Node(currB.value + carryOver);
+    currOutput.next = currB.next;
     prev.next = currOutput;
   } else if (!currA && !currB && carryOver !== 0) {
     currOutput = new Node(carryOver);
