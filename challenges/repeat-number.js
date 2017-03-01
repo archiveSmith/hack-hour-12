@@ -20,7 +20,7 @@ function repeatNumbers(array) {
 	return sum - true_sum;
 }
 
-let result = repeatNumbers([3,1,2,4,5,6,7,5])
-console.log(result);
+// let result = repeatNumbers([3,1,2,4,5,6,7,5])
+// console.log(result);
 
 module.exports = repeatNumbers;
