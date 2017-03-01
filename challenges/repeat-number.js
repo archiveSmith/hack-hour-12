@@ -20,6 +20,6 @@ function repeatNumbers(array) {
  }
 }
 
-console.log(repeatNumbers(array));
+//console.log(repeatNumbers(array));
 
 module.exports = repeatNumbers;
