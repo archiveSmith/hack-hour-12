@@ -31,6 +31,5 @@ function repeatNumbers(array) {
   //   return curr;
   // }, []);
   // return answer;
-}
 
 module.exports = repeatNumbers;
