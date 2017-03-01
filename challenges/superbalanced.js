@@ -19,15 +19,15 @@ function superbalanced(tree) {
   }
   const leftSide = superbalanced(tree.left);
   if (leftSide === -1) {
-    return -1;
+    return false;
   }
   const rightSide = superbalanced(tree.right);
   if (rightSide === -1) {
-    return -1;
+    return false;
   }
   const diff = leftSide - rightSide;
   if (Math.abs(diff) > 1) {
-    return -1;
+    return false;
   }
   const res = 1 + Math.max(leftSide, rightSide);
 
