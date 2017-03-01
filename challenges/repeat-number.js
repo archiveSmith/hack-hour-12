@@ -11,7 +11,15 @@
  */
 
 function repeatNumbers(array) {
+  if (!array || !Array.isArray(array)) return 'Check Inputs';
 
+  const inArray = {};
+
+  for (let i = 0; i < array.length; i++) {
+    if (inArray.hasOwnProperty(array[i])) return array[i];
+    else inArray[array[i]] = null;
+  } return 'No Repeats';
 }
+// console.log(repeatNumbers([1,2,3,4,4,5,6]));
 
 module.exports = repeatNumbers;

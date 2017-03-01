@@ -25,9 +25,4 @@ function superbalanced(tree) {
   return checkHeight(tree.left, 0) - checkHeight(tree.right, 0) < 2;
 }
 
-// tree = new BinaryTree(10);
-// tree.left = new BinaryTree(9);
-// tree.left.left = new BinaryTree(8);
-// console.log(superbalanced(tree));
-
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
