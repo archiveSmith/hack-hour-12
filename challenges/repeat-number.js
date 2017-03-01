@@ -12,11 +12,12 @@
 
 function repeatNumbers(array) {
   let answer;
-  return array.reduce(function(curr, next) {
-    if (curr.indexOf(next) !== -1) {
+  array.reduce(function(curr, next) {
+    if (curr.includes(next)) {
       answer = next;
     }
-    return curr.push(next);
+    else curr.push(next);
+    return curr;
   }, []);
   return answer;
 }
