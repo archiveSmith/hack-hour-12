@@ -11,8 +11,10 @@
  */
 
 function repeatNumbers(array) {
+  const checked = {};
   for (let i = 0; i < array.length; i += 1) {
-    if (array.lastIndexOf(array[i]) > i) return array[i];
+    if (checked[array[i]]) return array[i];
+    checked[array[i]] = 1;
   }
   return 'Invalid input array';
 }
