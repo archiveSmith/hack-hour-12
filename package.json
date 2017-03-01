@@ -27,5 +27,8 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-12.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-airbnb": "^14.1.0"
+  }
 }
