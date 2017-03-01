@@ -13,9 +13,13 @@
 function repeatNumbers(array) {
   let cache = {};
   for (let num of array) {
-    if (cache[num]) cache[num] = 1;
-    else return num;
+    if (cache[num] === 1) return num;
+    else cache[num] = 1;
   }
 }
+
+const arr = [1, 2, 3, 4, 5, 7, 8, 5];
+
+console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
