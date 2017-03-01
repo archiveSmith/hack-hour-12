@@ -45,9 +45,9 @@ function superbalanced(tree) {
 
 // tree.left.left = new BinaryTree(5);
 // tree.left.right = new BinaryTree(10);
-// tree.left.right.right.left = new BinaryTree
-// tree.left.right.left = new BinaryTree(9)
-// // tree.right.right.right = new BinaryTree(20);
+// tree.right.right.right = new BinaryTree(20);
+// tree.left.right.right = new BinaryTree(11);
+// tree.left.right.left = new BinaryTree(9);
 // // tree.right.right.right.right = new BinaryTree(20);
 // console.log(countHeights(tree))
 // console.log(superbalanced(tree))
