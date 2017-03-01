@@ -12,19 +12,27 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
- function subsetSum(array, target) {
-   function getCombinations(chars) {
-     const result = [];
-     const f = (prefix, chars) => {
-       for (let i = 0; i < chars.length; i += 1) {
-         result.push(prefix + chars[i]);
-         f(prefix + chars[i], chars.slice(i + 1));
-       }
-     };
-     f(0, chars);
-     return result;
-   }
-   return getCombinations(array).includes(target);
+ // function subsetSum(array, target) {
+ //   function getCombinations(chars) {
+ //     const result = [];
+ //     const f = (prefix, chars) => {
+ //       for (let i = 0; i < chars.length; i += 1) {
+ //         result.push(prefix + chars[i]);
+ //         f(prefix + chars[i], chars.slice(i + 1));
+ //       }
+ //     };
+ //     f(0, chars);
+ //     return result;
+ //   }
+ //   return getCombinations(array).includes(target);
+ // }
+
+ function subsetSum(array, target, sum = 0) {
+   if (sum === target) return true;
+   if (sum > target) return false;
+   if (!array.length) return false;
+   return subsetSum(array.slice(1), target, sum += array[0]) ||
+    subsetSum(array.slice(1), target, sum);
  }
 
  module.exports = subsetSum;
