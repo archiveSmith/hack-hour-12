@@ -10,12 +10,22 @@
  *
  */
 
+// function repeatNumbers(array) {
+//   if (!array || !(array instanceof Array)) return 'bad input';
+//
+//   const obj = {};
+//
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (!obj[array[i]]) obj[array[i]] = true;
+//     else return array[i];
+//   }
+// }
+
 function repeatNumbers(array) {
-  const obj = {};
+  if (!array || !(array instanceof Array)) return 'bad input';
 
   for (let i = 0; i < array.length; i += 1) {
-    if (!obj[array[i]]) obj[array[i]] = true;
-    else return array[i];
+    if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) return array[i];
   }
 }
 
