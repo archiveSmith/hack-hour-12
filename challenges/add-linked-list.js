@@ -34,12 +34,8 @@ function addLinkedList(l1, l2) {
   let temp;
   let maxLength = (arr1.length > arr2.length) ? arr1.length : arr2.length
   for(let i = 0; i < maxLength; i++) {
-    if(arr1[i] === undefined) {
-      arr1[i] = 0;
-    }
-    if(arr2[i] === undefined) {
-      arr2[i] = 0;
-    }
+    if(arr1[i] === undefined) arr1[i] = 0;
+    if(arr2[i] === undefined) arr2[i] = 0;
     temp = arr1[i] + arr2[i] + carried;
     if(temp > 9) {
       temp = temp.toString().split('');
