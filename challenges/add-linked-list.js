@@ -20,7 +20,7 @@ function Node(val) {
 function carryOverHelper(n1, n2) {
   if (!n1.value) n1.value = 0;
   if (!n2.value) n2.value = 0;
-  const valArr = (n1.value + n2.value).split('');
+  const valArr = (n1.value + n2.value + 100).toString().slice(1).split('');
   const val = valArr[1] ? valArr[1] : valArr[0];
   const carryOver = valArr[1] ? valArr[0] : 0;
   return [carryOver, val];
@@ -36,8 +36,8 @@ function addLinkedList(l1, l2) {
   while (currL1Node || currL2Node) {
     currOutputNode = new Node();
     const carryOvers = carryOverHelper(currL1Node, currL2Node);
-    currOutputNode.value = carryOvers[1] + tempCarryOver;
-    tempCarryOver = carryOvers[0];
+    currOutputNode.value = Number(carryOvers[1]) + Number(tempCarryOver);
+    tempCarryOver = Number(carryOvers[0]);
     currOutputNode = currOutputNode.next;
     currL1Node = currL1Node.next;
     currL2Node = currL2Node.next;
