@@ -9,8 +9,6 @@
  */
 
 function subsetSum(array, target) {
-    console.log(array, target);
-
     if (!target) {
         return true;
     }
