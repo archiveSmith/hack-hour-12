@@ -10,22 +10,14 @@
  *
  */
 
-// brute force solution
 function repeatNumbers(array) {
-    let answer;
-    // filter out unique numbers
-    array.reduce((a, b) => {
-        if(!a.includes(b)) {
-            a.push(b);
-        } else {
-            // save number that isn't unique
-            answer = b;
-        }
-        return a;
-    }, []);
-    return answer;
+    let arr = [];
+    for(let i = 0; i < array.length; i++) {
+        if(arr.indexOf(array[i]) === -1) arr.push(array[i]);
+        else return array[i];
+    }
 }
 
-console.log(repeatNumbers([1,2,3,3,4,5,6]));
+// console.log(repeatNumbers([1,2,3,3,4,5,6]));
 
 module.exports = repeatNumbers;
