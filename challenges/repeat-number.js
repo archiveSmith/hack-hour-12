@@ -21,12 +21,23 @@
 //   }
 // }
 
+// function repeatNumbers(array) {
+//   if (!array || !(array instanceof Array)) return 'bad input';
+//
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) return array[i];
+//   }
+// }
+
 function repeatNumbers(array) {
   if (!array || !(array instanceof Array)) return 'bad input';
 
+  const expected = (array.length - 1) * ((array[array.length - 1] - 1) / 2);
+  let result = 0;
   for (let i = 0; i < array.length; i += 1) {
-    if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) return array[i];
+    result += array[i];
   }
+  return result - expected;
 }
 
 module.exports = repeatNumbers;

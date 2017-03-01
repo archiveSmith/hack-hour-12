@@ -13,6 +13,11 @@ function BinaryTree(value) {
   this.right = null;
 }
 
+// function getHeight(bst) {
+//   if (bst === null) return 0;
+//   return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
+// }
+
 function superbalanced(tree) {
   if (!tree) return true;
   if (tree.left && !tree.right) {
