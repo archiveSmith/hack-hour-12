@@ -10,13 +10,14 @@
  *
  */
 
-const array = [];
+//const array = [1,9,2,3,4,5,6,7,8,9];
 
 function repeatNumbers(array) {
 
-  for (let i = 0, k = 1; i < array.length; i++, k++) {
-    if(array[i] === array[k]) return array[i];
-  }
+ array = array.sort((a,b) => a - b);
+ for (let i = 0, k = 1; i < array.length; i++, k++) {
+   if(array[i] === array[k]) return array[i];
+ }
 }
 
 console.log(repeatNumbers(array));
