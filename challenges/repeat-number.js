@@ -11,7 +11,19 @@
  */
 
 function repeatNumbers(array) {
-
+  const storage = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!storage.hasOwnProperty(array[i])) {
+      storage[array[i]] = null;
+    } else {
+      return array[i];
+    }
+  }
+  return;
 }
+
+// arr = [1,2,3,4,5,6,6];
+
+// console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
