@@ -28,7 +28,7 @@ function getLevels(tree) {
 
   return 0;
 }
-
+ 
 function superbalanced(tree) {
   // if tree is empty, it is balanced
   if (!tree) return true;
