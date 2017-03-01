@@ -17,31 +17,35 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-  if (!l1 || !l2) return l1 ? l1 : l2;
-  let sumList;
-  let nextNode;
-  function addNode(n1, n2, carry = null) {
-    if (n1 && n2) {
-      const curr = n1.value + n2.value;
-      let carr = null;
-      if (carry) curr += carry;
-      if (curr >= 10) {
-        curr = curr - 10;
-        carr = 1;
-      }
-      if (!sumList) {
-        nextNode = sumList = new Node(curr);
-        addNode(n1.next, n2.next, carr);
-      } else {
-        nextNode = nextNode.next = new Node(curr);
-        addNode(n1.next, n2.next, carr);
-      }
-    }
-  }
+// function addLinkedList(l1, l2) {
+//   if (!l1 || !l2) return l1 ? l1 : l2;
+//   let sumList;
+//   let nextNode;
+//   function addNode(n1, n2, carry = null) {
+//     if (n1 && n2) {
+//       const curr = n1.value + n2.value;
+//       let carr = null;
+//       if (carry) curr += carry;
+//       if (curr >= 10) {
+//         curr = curr - 10;
+//         carr = 1;
+//       }
+//       if (!sumList) {
+//         nextNode = sumList = new Node(curr);
+//         addNode(n1.next, n2.next, carr);
+//       } else {
+//         nextNode = nextNode.next = new Node(curr);
+//         addNode(n1.next, n2.next, carr);
+//       }
+//     }
+//   }
 
-  addNode(l1, l2);
-  return sumList;
+//   addNode(l1, l2);
+//   return sumList;
+// }
+
+function addLinkedList(l1, l2) {
+  
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
