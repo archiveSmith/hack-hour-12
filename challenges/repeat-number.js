@@ -11,7 +11,11 @@
  */
 
 function repeatNumbers(array) {
-
+  if (!array) return;
+  return array.filter((el, i) => array.indexOf(el) !== i)[0];
 }
+
+// let arr = [1,2,3,4,5,6,7,3,8,9];
+// console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
