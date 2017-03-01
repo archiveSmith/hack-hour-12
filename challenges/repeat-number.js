@@ -11,13 +11,13 @@
  */
 
 function repeatNumbers(array) {
-    let arr = [];
+    // use object
+    let obj = {};
     for(let i = 0; i < array.length; i++) {
-        if(arr.indexOf(array[i]) === -1) arr.push(array[i]);
-        else return array[i];
+        // if not in obj, add to obj. if in obj, return
+        if(obj.hasOwnProperty(array[i].toString())) return array[i];
+        else obj[array[i]] = '';
     }
 }
-
-// console.log(repeatNumbers([1,2,3,3,4,5,6]));
 
 module.exports = repeatNumbers;
