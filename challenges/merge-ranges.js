@@ -31,6 +31,11 @@ function mergeRanges(array) {
           changed = true;
         }
       }
+      else if (array[i][0] < answerArr[j][0] && array[i][1] > answerArr[j][1]) {
+        answerArr[j][0] = array[i][0];
+        answerArr[j][1] = array[i][1];
+        changed = true;
+      }
     }
     if (!changed) answerArr.push(array[i]);
   }
