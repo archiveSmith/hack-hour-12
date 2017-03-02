@@ -11,7 +11,30 @@
 
 
 function mergeRanges(array) {
+  // create a meetingInProgress timeline
+  // plot down areas where ranges exist
+  // create new ranges
+  const meetingInProgress = [];
+  const result = [];
 
+  for (let i = 0; i < array.length; i += 1) {
+    for (let j = array[i][0]; j < array[i][1]; j += 1) {
+        meetingInProgress[j] = true;
+    }
+  }
+
+  let lastMeetingStart;
+  for (let i = 0; i < meetingInProgress.length + 1; i += 1) {
+    if (meetingInProgress[i] === true && !lastMeetingStart) {
+    lastMeetingStart = i;
+    }
+    if (!meetingInProgress[i] && lastMeetingStart !== undefined) {
+    result.push([lastMeetingStart, i]);
+    lastMeetingStart = undefined;
+    }
+  }
+
+  return result;
 }
 
 module.exports = mergeRanges;
