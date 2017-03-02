@@ -13,20 +13,24 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function isBalanced(subTree) {
-  if (subTree === null) return 0;
-  let leftH = isBalanced(subTree.left);
-  if (leftH === -1) return -1;
-  let rightH = isBalanced(subTree.right);
-  if (rightH === -1) return -1;
-  if (Math.abs(leftH - rightH) > 1) return -1;
-  return 1 + Math.max(leftH, rightH);
-}
+// function isBalanced(subTree) {
+//   if (subTree === null) return 0;
+//   let leftH = isBalanced(subTree.left);
+//   if (leftH === -1) return -1;
+//   let rightH = isBalanced(subTree.right);
+//   if (rightH === -1) return -1;
+//   if (Math.abs(leftH - rightH) > 1) return -1;
+//   return 1 + Math.max(leftH, rightH);
+// }
+
+// function superbalanced(tree) {
+//   if (tree) return true;
+//   let result = isBalanced(tree);
+//   return result > 0 ? true : false;
+// }
 
 function superbalanced(tree) {
-  if (tree) return true;
-  let result = isBalanced(tree);
-  return result > 0 ? true : false;
+  
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
