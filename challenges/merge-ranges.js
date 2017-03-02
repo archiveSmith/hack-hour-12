@@ -11,7 +11,6 @@
 
 
 function mergeRanges(array) {
-  console.log(array);
   if (!array) return null;
   let answerArr = [array[0]];
   let i;
@@ -35,6 +34,10 @@ function mergeRanges(array) {
       else if (array[i][0] < answerArr[j][0] && array[i][1] > answerArr[j][1]) {
         answerArr[j][0] = array[i][0];
         answerArr[j][1] = array[i][1];
+        changed = true;
+      }
+      
+      if (array[i][0] >= answerArr[j][0] && array[i][1] <= answerArr[j][1]) {
         changed = true;
       }
     }
