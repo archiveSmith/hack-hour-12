@@ -20,6 +20,7 @@ function Node(val) {
 function addLinkedList(l1, l2) {
   let head = l2;
   while (l1 !== null) {
+    if (l2 === null) l2 = new Node(0);
     l2.value += l1.value;
     if (l2.value >= 10) {
       let val = l2.value;
