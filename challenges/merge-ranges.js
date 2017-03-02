@@ -11,6 +11,7 @@
 
 
 function mergeRanges(array) {
+  console.log(array);
   if (!array) return null;
   let answerArr = [array[0]];
   let i;
