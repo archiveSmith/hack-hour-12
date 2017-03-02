@@ -13,19 +13,16 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-  let maxDepth = 0;
-  // recursive helper
-  function recurse(bst, depth = 0) {
-    if (depth > maxDepth) maxDepth = depth;
-    if (bst.left) recurse(bst.left, depth + 1);
-    // console.log(bst.value, "depth: ", depth);
-    if (bst.right) recurse(bst.right, depth + 1);
-    // if (!bst.left && !bst.right) return true;
-    return Math.abs(maxDepth - depth) <= 1;
-  }
+function getHeight(bst) {
+  if (!bst) return 0;
+  return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
+}
 
-  return recurse(tree);
+function superbalanced(tree) {
+  if (!bst) return true;
+
+  const diff = Math.abs(getHeight(tree.left) - getHeight(tree.right));
+  return diff <= 1 && superbalanced(tree.left) && superbalanced(tree.right);
 }
 
 // let b1 = new BinaryTree(5);
