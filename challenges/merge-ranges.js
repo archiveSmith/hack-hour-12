@@ -14,7 +14,7 @@ function mergeRanges(array) {
   copyArr = array.slice();
   copyArr.sort((a, b) => a[0] - b[0]);
   for (let i = 1; i < copyArr.length; i += 1) {
-    if (copyArr[i][0] <= copyArr[i - 1][1]) {
+    if (copyArr[i][0] <= copyArr[i - 1][1] && copyArr[i][1] > copyArr[i - 1][1]) {
       copyArr[i - 1][1] = copyArr[i][1];
       copyArr.splice(i,1);
     }
@@ -23,3 +23,7 @@ function mergeRanges(array) {
 }
 
 module.exports = mergeRanges;
+
+var times = [[0, 1], [3, 10], [4, 5]];
+
+console.log(mergeRanges(times));
