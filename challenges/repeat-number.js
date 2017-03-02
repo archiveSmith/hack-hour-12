@@ -20,6 +20,5 @@ function repeatNumbers(array) {
     else inArray[array[i]] = null;
   } return 'No Repeats';
 }
-// console.log(repeatNumbers([1,2,3,4,4,5,6]));
 
 module.exports = repeatNumbers;

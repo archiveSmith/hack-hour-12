@@ -11,7 +11,18 @@
 
 
 function mergeRanges(array) {
+  if(!array || !Array.isArray(array)) return 'Check Inputs';
 
+  for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array.length; j++) {
+      if (i === j) continue;
+      else if (array[j][0] >= array[i][0] && array[j][0] <= array[i][1]) {
+        array.push(array[i][1] >= array[j][1] ? [array[i][0], array[i][1]] : [array[i][0],array[j][1]]);
+        i > j ? (array.splice(i, 1), array.splice(j,1)) : (array.splice(j, 1), array.splice(i, 1));
+        i = j = 0;
+      }
+    } 
+  } return array;
 }
 
 module.exports = mergeRanges;
