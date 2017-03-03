@@ -14,7 +14,7 @@
 // }
 
 
-function sumMultiples3Or5Below1000(sum = 0, current = 9) {
+function sumMultiples3Or5Below1000(sum = 0, current = 999) {
   if(current === 1) return sum;
   if(current % 3 === 0 || current % 5 === 0) sum += current;
   return sumMultiples3Or5Below1000(sum, current - 1);
@@ -31,10 +31,13 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
 }
 
 // function sumMultiplesXOrYBelowZ(x, y, z, sum = 0) {
-//   if(z === 1) return sum;
+//   z--;
+//   if(z === 0) return sum;
 //   if(z % x === 0 || z % 5 === 0) sum += z;
 //   return sumMultiplesXOrYBelowZ(x, y, z - 1, sum);
 // }
+
+// console.log(sumMultiplesXOrYBelowZ(3,5,10));
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
