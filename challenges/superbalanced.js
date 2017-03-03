@@ -14,15 +14,19 @@ function BinaryTree(value) {
 }
 
 function getHeight(bst) {
-  if (!bst) return 0;
+  if (bst === null) return 0;
   return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
 }
 
 function superbalanced(tree) {
   if (!bst) return true;
 
-  const diff = Math.abs(getHeight(tree.left) - getHeight(tree.right));
-  return diff <= 1 && superbalanced(tree.left) && superbalanced(tree.right);
+  const left = getHeight(tree.left);
+  const right = getHeight(tree.right)
+  const diff = Math.abs(left - right);
+  return  (diff <= 1 
+          && superbalanced(tree.left) 
+          && superbalanced(tree.right));
 }
 
 // let b1 = new BinaryTree(5);
