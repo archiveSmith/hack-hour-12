@@ -19,7 +19,7 @@ function getHeight(bst) {
 }
 
 function superbalanced(tree) {
-  if (!bst) return true;
+  if (!tree) return true;
 
   const left = getHeight(tree.left);
   const right = getHeight(tree.right)
