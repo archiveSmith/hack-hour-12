@@ -18,32 +18,40 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  const LL = new Node(0);
-  let head = LL;
   let carry = 0;
-  let sum = 0;
+  let current1 = l1.next;
+  let current2 = l2.next;
+  let tempvalue;
+  const answerlist = new Node((l1.value + l2.value) % 10);
+  carry = (l1.value + l2.value) / 10 < 1 ? 0 : 1;
 
-  while (l1 !== null || l2 !== null || sum > 0) {
-    if (l1 !== null) {
-      sum += l1.val;
-      l1 = l1.next;
+  while (current1 || current2 || carry === 1) {
+    let currentanswer = answerlist;
+    while (currentanswer.next) {
+      currentanswer = currentanswer.next;
     }
-    if (l2 !== null) {
-      sum += l2.val;
-      l2 = l2.next;
+    if (!current1 && !current2) {
+      currentanswer.next = new Node(carry);
+      carry = 0;
+    } else if (!current2) {
+      tempvalue = current1.value + carry;
+      currentanswer.next = new Node(tempvalue % 10);
+      carry = tempvalue / 10 < 1 ? 0 : 1;
+      current1 = current1.next;
+    } else if (!current1) {
+      tempvalue = current2.value + carry;
+      currentanswer.next = new Node(tempvalue % 10);
+      carry = tempvalue / 10 < 1 ? 0 : 1;
+      current2 = current2.next;
+    } else {
+      tempvalue = current1.value + current2.value + carry;
+      currentanswer.next = new Node(tempvalue % 10);
+      carry = tempvalue / 10 < 1 ? 0 : 1;
+      current1 = current1.next;
+      current2 = current2.next;
     }
-    if (sum >= 10) {
-      carry = 1;
-      sum -= 10;
-    }
-
-    head.next = new Node(sum);
-    head = head.next;
-
-    sum = carry;
-    carry = 0;
   }
-  return LL.next;
+  return answerlist;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
