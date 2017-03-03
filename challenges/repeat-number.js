@@ -24,8 +24,8 @@ function repeatNumbers(array) {
   return actualSum - expectedSum;
 }
 
-const arr = [1, 2, 3, 4, 5, 5, 6, 7, 8];
+// const arr = [1, 2, 3, 4, 5, 5, 6, 7, 8];
 
-console.log(repeatNumbers(arr));
+// console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;

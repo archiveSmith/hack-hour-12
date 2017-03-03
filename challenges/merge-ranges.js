@@ -45,13 +45,18 @@ function mergeRanges(array) {
         if (cv[1] >= arr[1]) arr[1] = cv[1];
         return acc;
       }
+
+      if (cv[0] > arr[0] && cv[1] >= arr[1]) {
+        arr[1] = cv[1];
+        return acc;
+      } 
     }
     acc.push(cv);
     return acc;
   }, [])
 }
 
-// let test = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
-// console.log(mergeRanges(test));
+let test = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
+console.log(mergeRanges(test));
 
 module.exports = mergeRanges;
