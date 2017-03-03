@@ -13,28 +13,31 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
-  function height(node, leftHeight = 0, rightHeight = 0) {
-    if (!node) return 0;
-    height(node.left, leftHeight+=1, rightHeight);
-    height(node.right, leftHeight, rightHeight+=1);
-    console.log(leftHeight, rightHeight);
-    return Math.max(leftHeight, rightHeight) + 1;
+function getHeight(bst) {
+  if (bst == null) {
+    return 0;
   }
-  return height(tree);
-
+  return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
 }
 
-let bt = new BinaryTree(10);
-bt.left =  new BinaryTree(8);
-bt.right =  new BinaryTree(12);
-bt.right.right =  new BinaryTree(15);
-bt.left.left =  new BinaryTree(6);
-bt.left.right =  new BinaryTree(7);
-bt.left.left.left =  new BinaryTree(4);
+function superbalanced(bst) {
+  if (bst === null) {
+    return true;
+  }
 
-console.log(JSON.stringify(bt));
-console.log(superbalanced(bt));
+  const diff = Math.abs(getHeight(bst.left) - getHeight(bst.right));
+
+  return diff <= 1 && superbalanced(bst.left) && superbalanced(bst.right);
+}
+
+// let bt = new BinaryTree(10);
+// bt.left =  new BinaryTree(8);
+// bt.right =  new BinaryTree(12);
+// bt.right.right =  new BinaryTree(15);
+// bt.left.left =  new BinaryTree(6);
+// bt.left.right =  new BinaryTree(7);
+// bt.left.left.left =  new BinaryTree(4);
+// console.log(JSON.stringify(bt));
+// console.log(superbalanced(bt));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
