@@ -8,7 +8,20 @@
  */
 
 function maxSubarray(arr) {
+  if (!arr) return;
+  let result = -Infinity;
 
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    let subSection = [arr[i]];
+    for (let j = i + 1; j < arr.length; j += 1) {
+      subSection.push(arr[j]);
+      let sum = subSection.reduce((acc, val) => val + acc);
+      if (sum > result) result = sum;
+    }
+  }
+  return result;
 }
+
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
 
 module.exports = maxSubarray;
