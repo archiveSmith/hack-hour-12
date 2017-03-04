@@ -8,7 +8,18 @@
  */
 
 function maxSubarray(arr) {
+  let max = 0;
 
+  function recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(array) {
+    if (array.length === 0) return;
+    let sum = array.reduce((accum, elem) => {
+      return accum + elem;
+    }, 0);
+    max = max > sum ? max : sum;
+    recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(array.slice(0, -1));
+    recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(array.slice(1));
+  }
+  recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(arr);
+  return max;
 }
-
 module.exports = maxSubarray;
