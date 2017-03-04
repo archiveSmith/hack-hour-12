@@ -13,16 +13,16 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function getHeight(bst) {
+function height(bst) {
   if (bst === null) return 0;
-  return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
+  return 1 + Math.max(height(bst.left), height(bst.right));
 }
 
 function superbalanced(tree) {
   if (!tree) return true;
 
-  const left = getHeight(tree.left);
-  const right = getHeight(tree.right)
+  const left = height(tree.left);
+  const right = height(tree.right)
   const diff = Math.abs(left - right);
   return  (diff <= 1 
           && superbalanced(tree.left) 
