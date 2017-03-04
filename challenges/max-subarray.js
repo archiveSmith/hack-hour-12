@@ -7,8 +7,21 @@
  *
  */
 
-function maxSubarray(arr) {
+ function sum(arr) {
+   return arr.reduce((p, c) => p + c, 0);
+ }
 
-}
+ function maxSubarray(arr) {
+   const compArr = [];
+
+   for (let i = 0; i < arr.length; i += 1) {
+     for (let j = i; j < arr.length; j += 1) {
+       compArr.push(sum(arr.slice(i, j)));
+     }
+   }
+   compArr.push(sum(arr));
+
+   return Math.max(...compArr);
+ }
 
 module.exports = maxSubarray;
