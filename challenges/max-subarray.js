@@ -9,7 +9,7 @@
 
 function maxSubarray(arr) {
   let max = arr[0];
-  let acc = 0;
+  let acc = -Infinity;
 
   for (let i = 0; i < arr.length - 1; i += 1) {
     acc = arr[i];
