@@ -7,8 +7,20 @@
  *
  */
 
-function maxSubarray(arr) {
-
+function maxSubarray(arr, sum = 0) {
+  console.log(arr);
+  
+  if (!arr) return 0;
+  let answer = [];
+  answer.push(sum);
+  let firstNum = arr.splice(0, 1);
+  if (arr.length === 0) {
+    answer.sort(function(a, b) {
+      return b - a;
+    })
+    return answer[0];
+  }
+  return (maxSubarray(arr, sum) || maxSubarray(arr, sum += firstNum));
 }
 
 module.exports = maxSubarray;
