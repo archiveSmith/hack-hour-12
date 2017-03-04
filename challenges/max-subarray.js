@@ -8,7 +8,7 @@
  */
 
 function maxSubarray(arr) {
-  let max = 0;
+  let max = -Infinity;
 
   function recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(array) {
     if (array.length === 0) return;
