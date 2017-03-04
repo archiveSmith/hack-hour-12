@@ -13,9 +13,11 @@ function maxSubarray(arr) {
 
   for (let i = 0; i < arr.length - 1; i += 1) {
     let subSection = [arr[i]];
+    let sum = arr[i];
+    if (sum > result) result = sum;
     for (let j = i + 1; j < arr.length; j += 1) {
       subSection.push(arr[j]);
-      let sum = subSection.reduce((acc, val) => val + acc);
+      sum = subSection.reduce((acc, val) => val + acc);
       if (sum > result) result = sum;
     }
   }
