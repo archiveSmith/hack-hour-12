@@ -8,22 +8,32 @@
  */
 
 function maxSubarray(arr) {
-  if (!arr) return;
-  let result = -Infinity;
+  // if (!arr) return;
+  // let result = -Infinity;
 
-  for (let i = 0; i < arr.length - 1; i += 1) {
-    let subSection = [arr[i]];
-    let sum = arr[i];
-    if (sum > result) result = sum;
-    for (let j = i + 1; j < arr.length; j += 1) {
-      subSection.push(arr[j]);
-      sum = subSection.reduce((acc, val) => val + acc);
-      if (sum > result) result = sum;
-    }
+  // for (let i = 0; i < arr.length - 1; i += 1) {
+  //   let subSection = [arr[i]];
+  //   let sum = arr[i];
+  //   if (sum > result) result = sum;
+  //   for (let j = i + 1; j < arr.length; j += 1) {
+  //     subSection.push(arr[j]);
+  //     sum = subSection.reduce((acc, val) => val + acc);
+  //     if (sum > result) result = sum;
+  //   }
+  // }
+  // return result;
+
+  let currMax = -Infinity;
+  let finalMax = -Infinity;
+
+  for (let i = 0; i < arr.length; i += 1) {
+    // check if new element makes sum larger
+    currMax = Math.max(arr[i], currMax + arr[i]);
+    // check how it compares to overall max
+    finalMax = Math.max(finalMax, currMax);
   }
-  return result;
-}
 
-// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+  return finalMax;
+}
 
 module.exports = maxSubarray;
