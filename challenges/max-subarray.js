@@ -13,9 +13,12 @@ function maxSubarray(arr) {
   let innerSum = 0;
   let i;
   for (i = 0; i < arr.length; i += 1) {
+    // Add any positive number to innerSum
     if (arr[i] > 0) innerSum += arr[i];
     else {
+      // If the current number will turn innerSum negative... 
       if (Math.abs(arr[i]) > innerSum) {
+        // Check current innerSum against highest total thus far and reset innerSum
         if (innerSum > totalSum) totalSum = innerSum
         innerSum = 0;
       }
@@ -26,6 +29,10 @@ function maxSubarray(arr) {
     }
   }
   if (innerSum > totalSum) totalSum = innerSum;
+  if (totalSum === 0) {
+    arr.sort(function(a, b) { return b-a });
+    return arr[0];
+  }
   return totalSum;
 }
 
