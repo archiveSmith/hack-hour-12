@@ -8,10 +8,12 @@
  */
 
 function maxSubarray(arr) {
+  if (!arr || !Array.isArray(arr)) return 'Check Inputs';
+
   let max = -Infinity;
 
   function recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(array) {
-    if (array.length === 0) return;
+    if (!array.length) return;
     let sum = array.reduce((accum, elem) => {
       return accum + elem;
     }, 0);
@@ -22,4 +24,5 @@ function maxSubarray(arr) {
   recursivelyGetAllSubArraysAndAddEachsElementsToSeeWhichOneHasLargestSum(arr);
   return max;
 }
+console.log(maxSubarray([15,20,-5,10, 5]))
 module.exports = maxSubarray;

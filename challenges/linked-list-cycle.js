@@ -33,7 +33,22 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head) return 'check inputs';
 
+  let currNode = head;
+  currNode.breadCrumb = true;
+
+  while (currNode.next) {
+    currNode = currNode.next;
+    if (currNode.breadCrumb) return true;
+    else currNode.breadCrumb = true;
+  }
+  return false;
 }
 
+// var head = new Node(1);
+// var body1 = head.next = new Node(2);
+// var body2 = body1.next = new Node(3);
+// body2.next = head;
+// console.log(hasCycle(head));
 module.exports = {Node: Node, hasCycle: hasCycle}
