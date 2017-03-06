@@ -34,12 +34,12 @@ var Node = function(value) {
 
 
 function hasCycle(head) {
-  if (head) return false;
+  if (!head) return false;
   const nodes = {};
   let cycle = false;
   let currNode = head;
   while (!cycle) {
-    if (nodes[currNode]) return true;
+    if (nodes[JSON.stringify(currNode)]) return true;
     if (currNode.next === null) return false;
     nodes(JSON.stringify(currNode)) = true;
     currNode = currNode.next;
