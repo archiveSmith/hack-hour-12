@@ -15,7 +15,7 @@ function subsetSum(array, target) {
         return false;
     } else {
         let i = array[0];
-        return subsetSum(array.slice(1),(target - i)) || subsetSum(array.slice(2),target);
+        return subsetSum(array.slice(1),(target - i)) || subsetSum(array.slice(1),target);
     }
 }
 
