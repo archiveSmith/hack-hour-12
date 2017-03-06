@@ -33,7 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  if (!head) return 'check inputs';
+  if (!head) return false;
 
   let currNode = head;
   currNode.breadCrumb = true;
