@@ -35,13 +35,13 @@ var Node = function(value) {
 
 function hasCycle(head) {
   if (head) return false;
-  const nodes = [];
+  const nodes = {};
   let cycle = false;
   let currNode = head;
   while (!cycle) {
-    if (nodes.includes(currNode)) return true;
+    if (nodes[currNode]) return true;
     if (currNode.next === null) return false;
-    nodes.push(currNode);
+    nodes(JSON.stringify(currNode)) = true;
     currNode = currNode.next;
   }
 }
