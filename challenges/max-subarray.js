@@ -8,13 +8,19 @@
  */
 
 function maxSubarray(arr) {
+  // check if valid input
   if (!Array.isArray(arr)) return;
+
+  // store max sum
   let max = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
     let sum = 0;
     for (let j = i; j < arr.length; j++) {
+      // calculate sum
       sum += arr[j];
+
+      // check if sum is greater than max
       if (sum > max) max = sum;
     }
   }
