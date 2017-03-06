@@ -9,6 +9,7 @@ function sumMultiples3Or5Below1000() {
   let LCM = function(x,y) {
     let  i = 1;
 
+<<<<<<< HEAD
     while (!(i % x === 0 && i % y === 0)) {
       i++;
     }
@@ -37,6 +38,15 @@ let sumSingle = function(x,roof) {
       return x * (n+1) * n / 2 ;
     } 
   }
+=======
+  for (let i = 0; i < 1000; i++) {
+    if (i % 3 == 0 && i % 5 == 0) {
+      sum += i;
+    }
+  } 
+
+  return sum;
+>>>>>>> 9dbee951bf20b2b9b8bc5926cb5450463ace4d33
 }
 
 console.log(sumMultiples3Or5Below1000());
