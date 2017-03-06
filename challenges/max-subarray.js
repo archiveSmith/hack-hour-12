@@ -7,20 +7,26 @@
  *
  */
 
-function maxSubarray(arr, sum = 0) {
-  console.log(arr);
-  
+function maxSubarray(arr) {
   if (!arr) return 0;
-  let answer = [];
-  answer.push(sum);
-  let firstNum = arr.splice(0, 1);
-  if (arr.length === 0) {
-    answer.sort(function(a, b) {
-      return b - a;
-    })
-    return answer[0];
+  let totalSum = 0;
+  let innerSum = 0;
+  let i;
+  for (i = 0; i < arr.length; i += 1) {
+    if (arr[i] > 0) innerSum += arr[i];
+    else {
+      if (Math.abs(arr[i]) > innerSum) {
+        if (innerSum > totalSum) totalSum = innerSum
+        innerSum = 0;
+      }
+      else {
+        if (innerSum > totalSum) totalSum = innerSum;
+        innerSum += arr[i];
+      }
+    }
   }
-  return (maxSubarray(arr, sum) || maxSubarray(arr, sum += firstNum));
+  if (innerSum > totalSum) totalSum = innerSum;
+  return totalSum;
 }
 
 module.exports = maxSubarray;
