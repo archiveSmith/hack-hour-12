@@ -31,7 +31,7 @@ function superbalanced(tree) {
   }
   const res = 1 + Math.max(leftSide, rightSide);
 
-  return res > 0;
+  return res !== -1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
