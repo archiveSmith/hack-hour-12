@@ -35,7 +35,7 @@ var Node = function(value) {
 function hasCycle(head) {
   let prevNodes = [];
   let currNode = head;
-  if (!head) return null;
+  if (!head) return false;
   while (currNode.next !== null) {
     prevNodes.push(currNode);
     if (prevNodes.includes(currNode.next)) return true;
