@@ -7,25 +7,43 @@
  *
  */
 
+// function maxSubarray(arr) {
+//   // check if valid input
+//   if (!Array.isArray(arr)) return;
+//
+//   // store max sum
+//   let max = -Infinity;
+//
+//   for (let i = 0; i < arr.length; i++) {
+//     let sum = 0;
+//     for (let j = i; j < arr.length; j++) {
+//       // calculate sum
+//       sum += arr[j];
+//
+//       // check if sum is greater than max
+//       if (sum > max) max = sum;
+//     }
+//   }
+//
+//   return max;
+// }
 function maxSubarray(arr) {
   // check if valid input
   if (!Array.isArray(arr)) return;
 
-  // store max sum
+  // set max, sum to -Infinity so every number is bigger than it
   let max = -Infinity;
+  let sum = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
-    let sum = 0;
-    for (let j = i; j < arr.length; j++) {
-      // calculate sum
-      sum += arr[j];
+    // check if adding the next number makes it larger than prev sum
+    sum = Math.max(arr[i], sum + arr[i]);
 
-      // check if sum is greater than max
-      if (sum > max) max = sum;
-    }
+    // set max to the bigger number
+    max = Math.max(sum, max);
   }
 
   return max;
 }
-
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
 module.exports = maxSubarray;
