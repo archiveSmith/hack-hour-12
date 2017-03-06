@@ -10,16 +10,26 @@
  *
  */
 
-function repeatNumbers(array) {
+function MMMrepeatNumbers(array) {
   const storage = {};
   for (let i = 0; i < array.length; i++) {
-    if (!storage.hasOwnProperty(array[i])) {
-      storage[array[i]] = null;
-    } else {
+    if (storage.hasOwnProperty(array[i])) {
       return array[i];
     }
+    storage[array[i]] = array[i];
   }
   return;
+}
+
+// O(n) time, O(1) space
+function repeatNumbers(array) {
+  const expected = ((array.length - 1) * array.length) / 2;
+  let actual = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    actual += array[i];
+  }
+  return actual - expected;
 }
 
 module.exports = repeatNumbers;

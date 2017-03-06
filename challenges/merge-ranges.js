@@ -10,18 +10,6 @@
  */
 
 function mergeRanges(array) {
-  let meetings = [];
-  for (let i = 0; i < array.length; i++) {
-    const start = array[i][0];
-    const end = array[i][1];
-    for (let j = i+1; j < array.length; i++) {
-      const startTest = array[j][0];
-      const endTest = array[j][1];
-      if (end > startTest) {
-
-      }
-    }   
-  }
 }
 
 module.exports = mergeRanges;
