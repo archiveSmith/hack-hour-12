@@ -30,6 +30,8 @@ var Node = function(value) {
 
 function hasCycle(node) {
 
+  if(!node) return false;
+
   while( node.next ){
     node = node.next;
     if (!node.visited) {
