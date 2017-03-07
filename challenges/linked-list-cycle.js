@@ -10,8 +10,7 @@
  *    |     V
  *    G<-F<-E
  *
- * Create a function that accepts a linked list and returns true
- * if the linked list has a cyclical reference
+ * Create a function that accepts a linked list and returns true if the linked list has a cyclical reference
  *
  * var node1 = new Node('1');
  * var node2 = node1.next = new Node('2');
@@ -28,6 +27,7 @@
  *
  */
 
+<<<<<<< HEAD
 const Node = (value) => {
   this.value = value;
   this.next = null;
@@ -47,3 +47,15 @@ function hasCycle(head) {
 }
 
 module.exports = { Node, hasCycle };
+=======
+var Node = function(value) {
+  this.value = value;
+  this.next = null;
+}
+
+function hasCycle(head) {
+
+}
+
+module.exports = {Node: Node, hasCycle: hasCycle}
+>>>>>>> b6fb62b53b89cd4ae7cb44e9282c51ebc208276d
