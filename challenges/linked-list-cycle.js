@@ -27,7 +27,6 @@
  *
  */
 
-<<<<<<< HEAD
 const Node = (value) => {
   this.value = value;
   this.next = null;
@@ -47,15 +46,3 @@ function hasCycle(head) {
 }
 
 module.exports = { Node, hasCycle };
-=======
-var Node = function(value) {
-  this.value = value;
-  this.next = null;
-}
-
-function hasCycle(head) {
-
-}
-
-module.exports = {Node: Node, hasCycle: hasCycle}
->>>>>>> b6fb62b53b89cd4ae7cb44e9282c51ebc208276d
