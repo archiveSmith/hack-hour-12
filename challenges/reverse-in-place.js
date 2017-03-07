@@ -14,7 +14,10 @@
  */
 
 function reverseInPlace(array) {
-
+  if (array === undefined || array.length === 0) return [];
+  return array.reduce((accumulator, currentValue) => {
+    return [currentValue].concat(accumulator);
+  });
 }
 
 module.exports = reverseInPlace;
