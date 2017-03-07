@@ -27,25 +27,35 @@
  *
  */
 
+<<<<<<< HEAD
+const Node = (value) => {
+  this.value = value;
+  this.next = null;
+};
+
+function hasCycle(head) {
+  if (!head) return false;
+  let curNode = head;
+  const compArr = [];
+
+  while (curNode) {
+    if (compArr.includes(curNode.value)) return true;
+    compArr.push(curNode.value);
+    curNode = curNode.next;
+  }
+  return false;
+}
+
+module.exports = { Node, hasCycle };
+=======
 var Node = function(value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-  console.log(head);
-  if (!head) return false;
-  let curNode = head;
-  let compNode = head;
-  while (curNode) {
-    while (compNode) {
-      if (JSON.parse(JSON.stringify(compNode)) === JSON.parse(JSON.stringify(curNode))) return true;
-      compNode = compNode.next;
-    }
-    compNode = head;
-    curNode = curNode.next;
-  }
-  return false;
+
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+>>>>>>> b6fb62b53b89cd4ae7cb44e9282c51ebc208276d

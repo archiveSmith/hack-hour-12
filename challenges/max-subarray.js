@@ -12,7 +12,6 @@
  }
 
  function maxSubarray(arr) {
-   console.log(arr);
    const compArr = [];
 
    for (let i = 0; i < arr.length; i += 1) {
