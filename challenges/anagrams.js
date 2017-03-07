@@ -25,7 +25,8 @@ function anagrams(string) {
       allAnswers.push(letter + shortstringArray[j]);
     }
   }
-  return allAnswers;
+  const result = [...new Set(allAnswers)];
+  return result;
 }
 
 module.exports = anagrams;
