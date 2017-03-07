@@ -22,6 +22,7 @@ function maxSubarray(arr) {
   return max;
 }
 
+// linear
 function maxSubarrayOptimal(arr) {
 
   var currentMax = Number.NEGATIVE_INFINITY;
