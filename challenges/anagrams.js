@@ -21,7 +21,7 @@ function anagrams(string) {
     let c;
     for (let i = 0; i < items.length; i += 1) {
       c = items.splice(i, 1)[0];
-      perm(items.slice(), cur.concat(c));
+      perm(items.slice(), cur + c);
       items.splice(i, 0, c);
     }
   }
