@@ -23,18 +23,18 @@ function deleteDups(head) {
   let prevNode = null;
   
   // // buffer
-  // const cache = {};
+  const cache = {};
   
-  // while (currNode.next) {
-  //   if (cache[currNode.next.value]) {
-  //     if (prevNode) prevNode.next = currNode.next;
-  //   } else {
-  //     cache[currNode.next.value] = true;
-  //   }
-  //   prevNode = currNode;
-  //   currNode = currNode.next;
-  // }
-  // if (cache[currNode.value]) prevNode.next = null;
+  while (currNode.next) {
+    if (cache[currNode.next.value]) {
+      if (prevNode) prevNode.next = currNode.next;
+    } else {
+      cache[currNode.next.value] = true;
+    }
+    prevNode = currNode;
+    currNode = currNode.next;
+  }
+  if (cache[currNode.value]) prevNode.next = null;
   
   // // no buffer (not working!!!)
   // let currCompareNode = currNode.next;
