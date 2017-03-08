@@ -11,7 +11,7 @@
   * var result = anagrams('abc');
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
-'use strict';
+
 function anagrams(string) {
   // Store results in object for constant lookup time
   const permutations = {};
@@ -38,10 +38,7 @@ function anagrams(string) {
 
   // Call getPerms on string input
   getPerms(string);
-  console.log(Object.keys(permutations));
-
+  return Object.keys(permutations);
 }
 
 module.exports = anagrams;
-
-anagrams('abc');
