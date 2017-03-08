@@ -13,14 +13,18 @@
 
 
 function deleteDups(head) {
+  console.log(head);
   let valueArr = [];
   while (head.next !== null) {
-    if (valueArr.includes(head)) {
-      while (valueArr.includes(head)) {
-        head = head.next;
-      }
-    }
     valueArr.push(head);
+    let temp = null;
+    if (valueArr.includes(head.next)) {
+      temp = head.next;
+      while (valueArr.includes(temp)) {
+        temp = temp.next;
+      }
+      head.next = temp;
+    }
   }
   return head;
 }
