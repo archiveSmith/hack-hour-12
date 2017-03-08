@@ -29,7 +29,7 @@ function mergeRanges(array) {
 	return array;
 }
 
-// let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
-// console.log(mergeRanges(times));  [[0, 1], [3, 8], [9, 12]]
+let times = [[0, 5], [0, 1], [4, 8], [10, 12], [9, 10]]
+console.log(mergeRanges(times));  [[0, 1], [3, 8], [9, 12]]
 
 module.exports = mergeRanges;
