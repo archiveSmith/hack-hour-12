@@ -13,6 +13,9 @@
   */
 
 function anagrams(string) {
+  // Store results in object for constant lookup time
+  // Create driver function for getting perms
+    // Base case: If we have used all elements from str AND we haven't stored this anagram already, save
 
 }
 
