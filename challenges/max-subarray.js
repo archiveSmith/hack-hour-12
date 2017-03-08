@@ -19,4 +19,15 @@ function maxSubarray(arr) {
   return max;
 }
 
+function CCCmaxSubarray(arr) {
+  const currentMax = -Infinity;
+  const finalMax = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    currentMax = Math.max(arr[i], currentMax + arr[i]);
+    finalMax = Math.max(finalMax, currentMax);
+  }
+  return finalMax;
+}
+
 module.exports = maxSubarray;
