@@ -10,8 +10,19 @@
  */
 
 
-function mergeRanges(array) {
-
-}
+const mergeRanges = array => array.sort((a, b) => a[0] - b[0])
+  .reduce((a, b) => {
+    if (a.length >= 1) {
+      if (a[a.length - 1][1] >= b[0]) {
+        if (a[a.length - 1][1] <= b[1]) {
+          a.push([a.pop()[0], b[1]]);
+          return a;
+        }
+        return a;
+      }
+    }
+    a.push(b);
+    return a;
+  }, []);
 
 module.exports = mergeRanges;
