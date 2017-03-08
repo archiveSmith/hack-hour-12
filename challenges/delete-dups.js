@@ -13,7 +13,23 @@
 
 
 function deleteDups(head) {
+  const vals = {};
+  let currNode = head;
+  let prevNode;
+  let temp;
 
+  while (currNode) {
+    if (!vals[currNode.value]) {
+      vals[currNode.value] === true;
+      prevNode = currNode;
+      currNode = currNode.next;
+    } else {
+      prevNode.next = currNode.next;
+      temp = currNode;
+      currNode = currNode.next;
+      delete temp;
+    }
+  }
 }
 
 module.exports = deleteDups;
