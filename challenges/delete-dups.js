@@ -16,15 +16,16 @@ function deleteDups(head) {
   console.log(head);
   let valueArr = [];
   while (head.next !== null) {
-    valueArr.push(head);
+    valueArr.push(head.value);
     let temp = null;
-    if (valueArr.includes(head.next)) {
+    if (valueArr.includes(head.next.value)) {
       temp = head.next;
-      while (valueArr.includes(temp)) {
+      while (valueArr.includes(temp.value)) {
         temp = temp.next;
       }
       head.next = temp;
     }
+    head = head.next;
   }
   return head;
 }
