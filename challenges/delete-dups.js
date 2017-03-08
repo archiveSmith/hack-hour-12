@@ -13,19 +13,16 @@
 
 
 function deleteDups(head) {
-  const vals = {};
   let currNode = head;
-  let prevNode;
-  let temp;
+  let prevNode = head;
 
   while (currNode) {
     if (!checkDup(currNode.value, head)) {
-      vals[currNode.value] = true;
       prevNode = currNode;
       currNode = currNode.next;
     } else {
       prevNode.next = currNode.next;
-      temp = currNode;
+      let temp = currNode;
       currNode = currNode.next;
       delete temp;
     }

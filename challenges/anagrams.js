@@ -17,11 +17,17 @@ function anagrams(string) {
   let stringArr = string.split('');
 
   function perm(items, cur = []) {
+    // base case: when length is reached
     if (cur.length === string.length) if (results.indexOf(cur) === -1) results.push(cur);
-    let c;
-    for (let i = 0; i < items.length; i += 1) {
+
+    for (let i = 0, c; i < items.length; i += 1) {
+      // get character at i
       c = items.splice(i, 1)[0];
+
+      // recurse on remaining values and built-up value
       perm(items.slice(), cur + c);
+
+      // put back together
       items.splice(i, 0, c);
     }
   }
