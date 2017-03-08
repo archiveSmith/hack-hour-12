@@ -19,8 +19,8 @@ function deleteDups(head) {
   let temp;
 
   while (currNode) {
-    if (!vals[currNode.value]) {
-      vals[currNode.value] === true;
+    if (!checkDup(currNode.value, head)) {
+      vals[currNode.value] = true;
       prevNode = currNode;
       currNode = currNode.next;
     } else {
@@ -30,6 +30,19 @@ function deleteDups(head) {
       delete temp;
     }
   }
+  return head;
+}
+
+function checkDup(val, head) {
+  let count = 0;
+  let currNode = head;
+
+  while (currNode) {
+    if (currNode.value === val) count += 1;
+    if (count > 1) return true;
+    currNode = currNode.next;
+  }
+  return false;
 }
 
 module.exports = deleteDups;
