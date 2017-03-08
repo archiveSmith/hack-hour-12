@@ -13,7 +13,13 @@
 
 
 function deleteDups(head) {
-
+  console.log(head);
+  let valueArr = [];
+  while (head.next !== null) {
+    if (!valueArr.includes(head)) valueArr.push(head);
+    head = head.next;
+  }
+  return valueArr;
 }
 
 module.exports = deleteDups;
