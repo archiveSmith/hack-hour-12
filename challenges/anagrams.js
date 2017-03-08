@@ -13,7 +13,16 @@
   */
 
 function anagrams(string) {
+  let splitStr = string.split('');
+  const indexes = [];
 
+  for (var i = 0; i < splitStr.length; i++) {
+    indexes.push(i);
+  }
+
+  function recurseAnagram() {
+    
+  }
 }
 
 module.exports = anagrams;
