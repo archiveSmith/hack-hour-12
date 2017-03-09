@@ -26,12 +26,15 @@ function EventEmitter() {
 }
 // listener
 EventEmitter.prototype.on = function(funcName, func) {
-  this.listeners[funcName] = func;
+  // is there already an event with this name?
+  if (!this.listeners[funcName]) return this.listeners[funcName] = [func];
+  return this.listeners[funcName].push(func);
 };
 // emitter
 EventEmitter.prototype.trigger = function(funcName, ...args) {
   if (!this.listeners[funcName]) return;
-  this.listeners[funcName](...args);
+  // execute all listeners for that event
+  this.listeners[funcName].forEach(func => func(...args));
 };
 
 // var instance = new EventEmitter();
