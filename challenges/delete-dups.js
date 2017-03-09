@@ -13,7 +13,7 @@
 
 
 function deleteDups(head, prev = null, values = {}) {
-  if (!head) return;
+  if (!head) return 'finished';
   if (values[head.value] === true) {
     prev.next = head.next;
     return deleteDups(head.next, prev, values)
@@ -23,5 +23,22 @@ function deleteDups(head, prev = null, values = {}) {
     return deleteDups(head.next, prev, values);
   }
 }
+
+const linkedList = { value: 1, next: {
+  value: 2,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+}}
+
+console.log(deleteDups(linkedList));
+console.log(linkedList)
 
 module.exports = deleteDups;
