@@ -30,7 +30,7 @@
  };
 
  EventEmitter.prototype.trigger = function(funcName, ...args) {
-   return this[funcName](...args);
+   return !args.length ? this[funcName]() : this[funcName](...args);
  };
 
 module.exports = EventEmitter;
