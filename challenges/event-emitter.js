@@ -19,7 +19,9 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  this[funcName] = func;
+  if (this[funcName]) {
+    this[funcName].push(func);
+  } else this[funcName] = [func];
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
