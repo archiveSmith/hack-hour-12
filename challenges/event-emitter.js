@@ -30,6 +30,7 @@
  };
 
  EventEmitter.prototype.trigger = function(funcName, ...args) {
+   console.log(...args);
    return !args.length ? this[funcName]() : this[funcName](...args);
  };
 
