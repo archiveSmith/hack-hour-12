@@ -32,6 +32,8 @@ function modemean(array) {
   });
   const mode = Number(sortable[sortable.length - 1][0]);
   return avg === mode;
+
 }
 
 module.exports = modemean;
+
