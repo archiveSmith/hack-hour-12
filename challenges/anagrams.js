@@ -16,17 +16,25 @@ function anagrams(string) {
   if (string.length < 2) {
     return [string];
   }
-  const allAnswers = [];
+  const allPerms = [];
   for (let i = 0; i < string.length; i += 1) {
     const letter = string[i];
     const shorterWord = string.substr(0, i) + string.substr(i + 1, string.length - 1);
     const shortstringArray = anagrams(shorterWord);
     for (let j = 0; j < shortstringArray.length; j += 1) {
-      allAnswers.push(letter + shortstringArray[j]);
+      allPerms.push(letter + shortstringArray[j]);
     }
   }
-  const result = [...new Set(allAnswers)];
+  const result = [...new Set(allPerms)];
   return result;
+}
+
+function anagrams(string) {
+  // store results in object for constant lookup time
+  const permutations = {};
+
+  // create driver function for getting permutations
+
 }
 
 module.exports = anagrams;
