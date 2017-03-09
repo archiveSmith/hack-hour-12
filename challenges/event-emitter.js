@@ -22,15 +22,17 @@
  */
 
 function EventEmitter() {
-
+  console.log('event');
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  console.log('on func: ', func);
+  console.log('on funcName: ', funcName);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  console.log('trigger', funcName);
+  console.log('args', ...args);
 };
 
 module.exports = EventEmitter;
