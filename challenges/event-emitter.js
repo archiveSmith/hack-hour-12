@@ -23,6 +23,7 @@
 
 function EventEmitter() {
 	this.func = {};
+	this.address= [];
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
@@ -30,8 +31,8 @@ EventEmitter.prototype.on = function(funcName, func) {
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-	let running = this.func[funcName];
-	return running(...args);
+	this.address.push(this.func[funcName]);
+	return this.address[this.address.length - 1](...args);
 };
 // =========== TESTING ===========
 // let instance = new EventEmitter();
