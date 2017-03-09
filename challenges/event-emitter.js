@@ -29,16 +29,18 @@ function EventEmitter() {
 EventEmitter.prototype.on = function(funcName, func) {
   this.listeners.push(funcName);
   this.functions.push(func);  
-  // console.log('on func: ', func);
-  // console.log('on funcName: ', funcName);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  for (let i = 0; i < this.listeners.length; i += 1) {
-    if (this.listeners[i] === funcName) {
-      this.functions[i]();
-    }
-  }
+  this.listeners.forEach((el, i) => {
+    if (el === funcName) this.functions[i]();
+  }) 
+
+  // for (let i = 0; i < this.listeners.length; i += 1) {
+  //   if (this.listeners[i] === funcName) {
+  //     this.functions[i]();
+  //   }
+  // }
 };
 
 module.exports = EventEmitter;
