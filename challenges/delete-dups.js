@@ -64,4 +64,4 @@ function deleteDups(head) {
 
 // console.log(JSON.stringify(deleteDups(node1)));
 
-module.exports = deleteDups;
+module.exports = { deleteDups, Node };
