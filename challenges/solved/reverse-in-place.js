@@ -14,6 +14,15 @@
  */
 
 function reverseInPlace(array) {
+<<<<<<< HEAD:challenges/reverse-in-place.js
+=======
+  // array.forEach(function(el, idx, arr) {
+  //   let store = el;
+  //   arr.splice(idx, 1);
+  //   arr.unshift(el);
+  // });
+  // return array;
+>>>>>>> 7b643b732361617d9b88f0f441f217508aa1ca70:challenges/solved/reverse-in-place.js
   if (array === undefined || array.length === 0) return [];
   return array.reduce((accumulator, currentValue) => {
     return [currentValue].concat(accumulator);
