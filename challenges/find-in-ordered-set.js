@@ -9,21 +9,16 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-function findInOrderedSet(arr, target) {
-  let lowRange = 0;
-  let highRange = arr.length;
-  let halfwayPoint;
-
-  while (arr.length > 0) {
-    halfwayPoint = Math.floor(lowRange + highRange / 2);
-    if (arr[halfwayPoint] === target) return true;
-    if (highRange - lowRange < 2) return false;
-    if (arr[halfwayPoint] > target) {
-      highRange = halfwayPoint;
-    } else {
-      lowRange = halfwayPoint;
-    }  
+function findInOrderedSet(arr, target, lowRange = 0, highRange = arr.length, half) {
+  halfwayPoint = Math.floor((lowRange + highRange) / 2);
+  if (arr[halfwayPoint] === target) return true;
+  if (highRange - lowRange < 2) return false;
+  if (arr[halfwayPoint] > target) {
+    highRange = halfwayPoint;
+  } else {
+    lowRange = halfwayPoint;
   }
+  return findInOrderedSet(arr, target, lowRange, highRange, halfwayPoint)
 }
 
 module.exports = findInOrderedSet;
