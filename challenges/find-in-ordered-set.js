@@ -12,7 +12,7 @@ findInOrderedSet(nums, 2);  -> false
 
 function findInOrderedSet(arr, target) {
   if (!arr || !target) return;
-  if (arr[0] > target) return false;
+  if (target < arr[0]) return false;
   if (arr.length <= 1 && arr[0] !== target) return false;
   const split = Math.floor(arr.length / 2);
   if (target === arr[split]) return true;
