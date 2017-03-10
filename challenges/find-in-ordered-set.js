@@ -18,7 +18,7 @@ function findInOrderedSet(arr, target) {
   return target < arr[split] ? findInOrderedSet(arr.slice(0, split), target) : findInOrderedSet(arr.slice(split), target);
 }
 
-var nums = [1, 4, 6, 7, 9, 17, 45]
+// var nums = [1, 4, 6, 7, 9, 17, 45]
 // console.log(findInOrderedSet(nums, 1));
 
 module.exports = findInOrderedSet;
