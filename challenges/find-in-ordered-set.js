@@ -20,8 +20,8 @@ findInOrderedSet(nums, 2);  -> false
 // }
 
 function findInOrderedSet(arr, target) {
-  if(arr[0] > target || arr.length === 1) return false;
   if(arr[0] === target) return true;
+  if(arr[0] > target || arr.length === 1) return false;
 
   let middle = arr.length / 2
   let arr1 = arr.slice(0, middle);
