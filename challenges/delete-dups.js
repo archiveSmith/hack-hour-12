@@ -10,36 +10,24 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-function deleteDups(head) {
-  const store = {};
-  const clone = JSON.parse(JSON.stringify(head));
-  clone.value = null;
-  clone.next = null;
-  let currentNode = head;
-  while (currentNode) {
-    if (!store[currentNode.value]) {
-      store[currentNode.value] = true;
-    }
-    currentNode = currentNode.next;
-  }
-
-  let cloneCurrentNode = clone;
-  let headClone = cloneCurrentNode;
-  for (let prop in store) {
-    while (cloneCurrentNode.next !== null) {
-      cloneCurrentNode = cloneCurrentNode.next;
-    }
-    console.log(prop);
-    cloneCurrentNode.value = prop;
-  }
-  console.log('headClone', JSON.stringify(headClone));
-}
-
-var Node = function(value) {
+const Node = function(value) {
   this.value = value;
   this.next = null;
 }
+
+function deleteDups(head) {
+  if (!head) return;
+  if (head.next === null) return head;
+
+  for (let compare = head; compare !== null; compare = compare.next) {
+    let currNode = compare;
+    for (let nextNode = currNode.next; nextNode !== null; nextNode = nextNode.next) {
+      nextNode.value === compare.value ? currNode.next = nextNode.next : currNode = nextNode;
+    }
+  }
+  return head;
+}
+
 
 var node1 = new Node('1');
 var node2 = node1.next = new Node('2');
