@@ -11,8 +11,18 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  let halfwayPoint = Math.floor(arr.length / 2);
 
+  while (arr.length > 0) {
+    halfwayPoint = Math.floor(halfwayPoint / 2);
+    if (arr[halfwayPoint] === target) return true;
+    if (arr.length === 1) return false;
+    if (arr[halfwayPoint] > target) {
+      arr.splice(halfwayPoint + 1);
+    } else {
+      arr.splice(0, arr.length - halfwayPoint - 1);
+    }  
+  }
 }
-
 
 module.exports = findInOrderedSet;
