@@ -22,6 +22,7 @@
  */
 
 function EventEmitter() {
+
 }
 // listener
 EventEmitter.prototype.on = function(funcName, func) {
@@ -31,9 +32,8 @@ EventEmitter.prototype.on = function(funcName, func) {
 };
 // emitter
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  if (!this[funcName]) return;
   // execute all listeners for that event
-  this[funcName].forEach(func => func(...args));
+  if (this[funcName]) this[funcName].forEach(func => func(...args));
 };
 
 // var instance = new EventEmitter();
