@@ -9,18 +9,19 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
-  let halfwayPoint = Math.floor(arr.length / 2);
+  let lowRange = 0;
+  let highRange = arr.length;
+  let halfwayPoint;
 
   while (arr.length > 0) {
-    halfwayPoint = Math.floor(halfwayPoint / 2);
+    halfwayPoint = Math.floor(lowRange + highRange / 2);
     if (arr[halfwayPoint] === target) return true;
-    if (arr.length === 1) return false;
+    if (highRange - lowRange < 2) return false;
     if (arr[halfwayPoint] > target) {
-      arr.splice(halfwayPoint + 1);
+      highRange = halfwayPoint;
     } else {
-      arr.splice(0, arr.length - halfwayPoint - 1);
+      lowRange = halfwayPoint;
     }  
   }
 }
