@@ -22,17 +22,16 @@
  */
 
 function EventEmitter() {
-  this.listeners = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  this.listeners[funcName] = this.listeners[funcName] || [];
-  this.listeners[funcName].push(func);
+  this[funcName] = this[funcName] || [];
+  this[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  if (this.listeners[funcName]) {
-    this.listeners[funcName].forEach((func) => {
+  if (this[funcName]) {
+    this[funcName].forEach((func) => {
       func(...args);
     })
   }
