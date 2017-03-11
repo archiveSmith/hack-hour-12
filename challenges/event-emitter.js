@@ -19,13 +19,17 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  if (this[funcName]) {
-    this[funcName].push(func);
-  } else this[funcName] = [func];
+  // if (this[funcName]) {
+  //   this[funcName].push(func);
+  // } else this[funcName] = [func];
+  if (!this[funcName]) this[funcName] = [];
+  this[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  this[funcName].forEach(func => func(...args));
+  if (this[funcName]) {
+    this[funcName].forEach(func => func(...args));
+  }
 };
 
 var instance = new EventEmitter();
