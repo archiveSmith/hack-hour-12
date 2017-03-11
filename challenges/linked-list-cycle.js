@@ -30,10 +30,20 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let turtle = head;
+  let rabbit = head;
 
+  while (rabbit !== null && rabbit.next !== null) {
+    turtle = turtle.next;
+    rabbit = rabbit.next.next;
+    if (turtle === rabbit || (rabbit && rabbit.next === turtle)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
