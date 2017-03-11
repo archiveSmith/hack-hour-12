@@ -33,6 +33,13 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  //if there is a cycle reference, then there is seomthing like: node.next.next.next.next... = node
+  //the problem is it not necessary the head os u cant check head.next.next.next... = head
+
+  //if it fail then we may check the hasCycle of the next node
+
+  //alternative
+  //if there is a cycle reference. there will be an infinite of loop
 
 }
 

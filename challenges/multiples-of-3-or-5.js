@@ -6,8 +6,39 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
+  let LCM = function(x,y) {
+    let  i = 1;
 
+<<<<<<< HEAD
+    while (!(i % x === 0 && i % y === 0)) {
+      i++;
+    }
+
+    return i;
+  }
+
+  let sumSingle = function(x,roof) {
+    for (let i = roof; i >= 0; i--) {
+      if (i % x === 0) {
+        let n = i / x;
+        return x * (n+1) * n / 2 ;
+      } 
+    }
+  }
+
+  let LCMvalue = LCM(3,5);
+
+  return sumSingle(3,10) + sumSingle(5,10) - sumSingle(LCMvalue,10);
+}
+
+let sumSingle = function(x,roof) {
+  for (let i = roof; i >= 0; i--) {
+    if (i % x === 0) {
+      let n = i / x;
+      return x * (n+1) * n / 2 ;
+    } 
+  }
+=======
   for (let i = 0; i < 1000; i++) {
     if (i % 3 == 0 && i % 5 == 0) {
       sum += i;
@@ -15,8 +46,11 @@ function sumMultiples3Or5Below1000() {
   } 
 
   return sum;
+>>>>>>> 9dbee951bf20b2b9b8bc5926cb5450463ace4d33
 }
 
+console.log(sumMultiples3Or5Below1000());
+console.log(sumSingle(5,10))
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
