@@ -2,7 +2,8 @@
 
 // https://en.wikipedia.org/wiki/Insertion_sort
 
-
+// worst case: O(n^2)
+// best case: already sorted O(n)
 
 function insertionSort(array) {
   if (!array) return;
@@ -11,7 +12,6 @@ function insertionSort(array) {
   let current, compare;
   // loop over array starting with 2nd element
   for (let i = 1; i < array.length; i += 1) {
-    current = array[i];
     compare = i;
     // compare, and while previous element is larger than current,
     while (compare > 0 && array[compare - 1] > array[compare]) {
@@ -24,7 +24,7 @@ function insertionSort(array) {
   return array;
 }
 
-// arr = [12,5,9,4,-3,72, 36, 0, 18];
+// arr = [12, 5, 9, 4, -3, 72, 36, 0, 18];
 // console.log(insertionSort(arr));
 
 module.exports = insertionSort;
