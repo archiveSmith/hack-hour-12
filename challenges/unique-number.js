@@ -18,8 +18,8 @@ function uniqueNumber(array) {
     else delete store[array[i]];
   }
   let result;
-  Object.keys(store).forEach(el => { result = el });
-  return result;
+  return Object.keys(store)[0];
+  
 }
 
 // console.log(uniqueNumber([1,2,1,3,3,2,4,5,4]));
