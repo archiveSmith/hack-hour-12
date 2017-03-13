@@ -5,26 +5,12 @@
 
 
 function insertionSort(array) {
-  function swap(a, b) {
-    let temp = a;
-    a = b;
-    b = temp;
+  function swap(arr, index1, index2) {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
   }
-
-  if (!array) return [];
-  // Check each element against each that came before it
-  let i;
-  for (i = 0; i < array.length; i += 1) {
-    let prevChecked = array.slice(0, i);
-    let temp = array[i];
-    let notSwapped = true;
-    let numToCheck = i - 1;
-    while (notSwapped && numToCheck > 0) {
-      if (temp > array[numToCheck]) notSwapped = true;
-      else {
-        swap(array[numToCheck], array[numToCheck + 1]);
-      }
-      numToCheck -= 1;
+  for (let i = 1; i < array.length; i += 1) {
+    for (let j = i; j > 0 && array[j - 1] > array[j]; j -= 1) {
+      swap(array, j, j - 1);
     }
   }
   return array;

@@ -10,19 +10,27 @@
  *
  */
 function uniqueNumber(array) {
-  let newObj = array.reduce(function(curr, next) {
-    console.log('curr', next);
-    if (curr[next]) curr[next] += 1;
-    else {
-      curr[next] = 1;
+  for (let i = 0; i < array.length; i += 1) {
+    let paired = false;
+    for (let j = 0; j < array.length; j += 1) {
+      if (j === i) j += 1;
+      if (array[j] === array[i]) paired = true;
     }
-    return curr;
-  }, {});
-  let keys = Object.keys(newObj);
-  let i;
-  for (i = 0; i < keys.length; i += 1) {
-    if (newObj[keys[i]] === 1) return keys[i];
+    if (!paired) return array[i];
   }
 }
+
+// let newObj = array.reduce(function(curr, next) {
+//     if (curr[next]) curr[next] += 1;
+//     else {
+//       curr[next] = 1;
+//     }
+//     return curr;
+//   }, {});
+//   let keys = Object.keys(newObj);
+//   let i;
+//   for (i = 0; i < keys.length; i += 1) {
+//     if (newObj[keys[i]] === 1) return keys[i];
+//   }
 
 module.exports = uniqueNumber;
