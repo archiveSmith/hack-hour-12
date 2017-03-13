@@ -10,17 +10,15 @@
  *
  */
 function uniqueNumber(array) {
+  if(!array) return;
   let numbers = {};
   for(let i = 0; i < array.length; i++) {
     if(!numbers[array[i]]) numbers[array[i]] = 1;
     else numbers[array[i]]++;
   }
-  let keys = Object.keys(numbers);
-  for(let i = 0; i < keys.length; i++) {
-    if(numbers[keys[i]] === 1) return keys[i];
+  for(num in numbers) {
+    if(numbers[num] === 1) return num;
   }
 }
-
-// console.log(uniqueNumber([1,1,2,2,3,3,4,4,5,6,6,7,7]));
 
 module.exports = uniqueNumber;
