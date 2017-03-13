@@ -12,10 +12,14 @@ findInOrderedSet(nums, 2);  -> false
 
  function findInOrderedSet(arr, target) {
    if (!arr.length) return false;
-   if (target === arr[~~(arr.length / 2)]) return true;
-   return target < arr[~~(arr.length / 2)] ?
-     findInOrderedSet(arr.slice(0, ~~(arr.length / 2)), target) :
-     findInOrderedSet(arr.slice(~~(arr.length / 2) + 1), target);
+
+   const mid = ~~(arr.length / 2);
+
+   if (target === arr[mid]) return true;
+
+   return target < arr[mid] ?
+     findInOrderedSet(arr.slice(0, mid), target) :
+     findInOrderedSet(arr.slice(mid + 1), target);
  }
 
 
