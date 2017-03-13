@@ -10,7 +10,21 @@
  *
  */
 function uniqueNumber(array) {
+    let max = -Infinity;
+    let min = Infinity;
+    let actual_sum = 0; 
+    for (let i = 0; i < array.length; i++) {
+        if ( max < array[i]) {
+            max = array[i];
+        }
+        if ( min > array[i]) {
+            min = array[i]
+        }
+        actual_sum += array[i];
+    }
 
+    let sum = (min + max)*(max - min + 1) / 2;
+    return actual_sum - sum;
 }
 
 module.exports = uniqueNumber;
