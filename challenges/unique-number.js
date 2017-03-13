@@ -10,7 +10,23 @@
  *
  */
 function uniqueNumber(array) {
+  //check inputs
+  if (!array || !Array.isArray(array)) return 'Check Inputs';
 
+  //loop through and put into object cache
+  const found = {};
+
+  for (var i = 0; i < array.length; i++) {
+    console.log(found);
+    //if number not in cache, create new property with number
+    if (found.hasOwnProperty(array[i])) {
+      delete found[array[i]];
+    //else delete number from cache
+    } else {
+      found[array[i]] = true;
+    }
+  }
+  return Object.keys(found)[0];
 }
-
+console.log(uniqueNumber([1,1,2,3,3]));
 module.exports = uniqueNumber;
