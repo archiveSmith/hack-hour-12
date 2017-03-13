@@ -16,7 +16,7 @@ function uniqueNumber(array) {
       if (j === i) j += 1;
       if (array[j] === array[i]) paired = true;
     }
-    if (!paired) return array[i]
+    if (!paired) return array[i];
   }
 }
 
