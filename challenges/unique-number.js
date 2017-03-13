@@ -17,7 +17,6 @@ function uniqueNumber(array) {
   const found = {};
 
   for (var i = 0; i < array.length; i++) {
-    console.log(found);
     //if number not in cache, create new property with number
     if (found.hasOwnProperty(array[i])) {
       delete found[array[i]];
@@ -28,5 +27,4 @@ function uniqueNumber(array) {
   }
   return Object.keys(found)[0];
 }
-console.log(uniqueNumber([1,1,2,3,3]));
 module.exports = uniqueNumber;
