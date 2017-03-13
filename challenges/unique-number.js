@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-
+  const seen = {};
+  for (let i = 0; i < array.length; i += 1) {
+    seen[array[i]] = !seen[array[i]];
+  }
+  for (let key in seen) {
+    if (seen[key] === true) return key;
+  }
 }
 
 module.exports = uniqueNumber;
