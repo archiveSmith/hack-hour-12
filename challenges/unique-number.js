@@ -12,14 +12,16 @@
 function uniqueNumber(array) {
   if (!array || array.length < 1) return;
   if (array.length === 1) return array[0];
-
-  let mySet = new Set(array);
-  let sum1 = [...mySet].reduce((acc, curr) =>  acc + curr) * 2;
-  let sum2 = array.reduce((acc, curr) => acc + curr);
-
-  return sum1 - sum2;
+  const store = {};
+  for (let i = 0; i < array.length; i += 1) {
+    if (!store[array[i]]) store[array[i]] = true;
+    else delete store[array[i]];
+  }
+  let result;
+  Object.keys(store).forEach(el => { result = el });
+  return result;
 }
 
-// console.log(uniqueNumber([1,2,1,3,3,2,4,5,4]));
+console.log(uniqueNumber([1,2,1,3,3,2,4,5,4]));
 
 module.exports = uniqueNumber;
