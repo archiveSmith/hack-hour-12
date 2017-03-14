@@ -11,7 +11,9 @@
 
 function getAllProducts(array) {
   //each one is the one not multiplied
-  if (!array || !array.length) return;
+  if (!array) return;
+  if (!array.length) return [0];
+  if (array[length] === 1) return array[0]
   let result = [];
   for (let i = 0; i < array.length; i++) {
   let product = 1;
