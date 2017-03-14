@@ -11,9 +11,12 @@
 
 function getAllProducts(array) {
   const newArr = [];
+  if (array.length === 0) return [0];
   for (let i = 0; i < array.length; i += 1) {
-    newArr.push(array[0] * array[1] * array[2]);
-    array.unshift(array.pop());
+    const remove = array.pop();
+    const prod = array.reduce((a, b) => a * b);
+    newArr.push(prod);
+    array.unshift(remove);
   }
   return newArr;
 }
