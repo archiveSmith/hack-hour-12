@@ -14,6 +14,7 @@
  }
 
  function getAllProducts(array) {
+   console.log(array);
    if (array.length === 0) return [0];
 
    const newArray = array.concat(array.slice(0, array.length - 2));
