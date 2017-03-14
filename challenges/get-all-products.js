@@ -8,6 +8,9 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
+function product(arr) {
+  return arr.reduce((p, c) => p * c);
+}
 
 function getAllProducts(array) {
 
