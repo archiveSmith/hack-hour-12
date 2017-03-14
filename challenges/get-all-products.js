@@ -10,24 +10,17 @@
  */
 
 function getAllProducts(array) {
-  if (array.length === 0) return [0];
+  if (!array.length) return [0];
 
   const results = [];
 
   for (let i = 0; i < array.length; i += 1) {
     const skip = i;
-    let product = 1;
-    for (let j = 0; j < array.length; j += 1) {
-      if (j !== skip) {
-        product = product * array[j];
-      }
-    }
-    results.push(product);
+    results.push(array.reduce((acc, cur, j) => j !== skip ? acc * cur : acc, 1));
   }
-
   return results;
 }
 
-console.log(getAllProducts([1, 7, 3, 4, 0]));
+console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
