@@ -10,7 +10,7 @@
  */
 
 function getAllProducts(array) {
-  if (!array || array.length <= 1) return;
+  if (!array || array.length < 1) return [0];
   const output = [];
   let current;
   for (let i = 0; i < array.length; i += 1) {
