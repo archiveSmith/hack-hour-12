@@ -13,7 +13,7 @@ function getAllProducts(array) {
   //each one is the one not multiplied
   if (!array) return;
   if (!array.length) return [0];
-  if (array[length] === 1) return array[0]
+  if (array.length === 1) return array[0]
   let result = [];
   for (let i = 0; i < array.length; i++) {
   let product = 1;
@@ -24,5 +24,5 @@ function getAllProducts(array) {
   }
   return result;
 }
-console.log(getAllProducts([1, 7, 3, 4]));
+//console.log(getAllProducts([5, 7, 3, 4]));
 module.exports = getAllProducts;
