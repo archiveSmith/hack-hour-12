@@ -8,12 +8,20 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
-function product(arr) {
-  return arr.reduce((p, c) => p * c);
-}
 
-function getAllProducts(array) {
+ function product(arr) {
+   return arr.reduce((p, c) => p * c);
+ }
 
-}
+ function getAllProducts(array) {
+   const newArray = array.concat(array.slice(0, array.length - 2));
+   const result = [];
+
+   for (let i = 0; i < array.length; i += 1) {
+     result.push(product(newArray.slice(i, i + (array.length - 1))));
+   }
+
+   return result;
+ }
 
 module.exports = getAllProducts;
