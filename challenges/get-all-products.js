@@ -10,7 +10,16 @@
  */
 
 function getAllProducts(array) {
-
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    const current = array.slice(0, i).concat(array.slice(i+1));
+    result.push(current.reduce((acc, curr) => {
+      return acc * curr;
+    }, 1));
+  }
+  return result;
 }
+
+// console.log(getAllProducts([1,7,3,4]));
 
 module.exports = getAllProducts;
