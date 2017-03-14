@@ -10,8 +10,8 @@ function insertionSort(array) {
     arr[t1] = arr[t2];
     arr[t2] = temp;
   }
-  for (let i = 1; i <= array.length; i++) {
-    let j = i-1;
+  for (let i = 1; i < array.length; i++) {
+    let j = i;
     while (array[j-1] && array[j] < array[j-1]) {
       swap(array, j, j-1);
       j--;
@@ -20,9 +20,9 @@ function insertionSort(array) {
   return array;
 }
 
-//let testArr = [1,3,2,9,0,8,6,4];
+let testArr = [1,3,2,9,0,8,6,4];
 //console.log(swap(testArr,1,2));
-//console.log(insertionSort(testArr));
+console.log(insertionSort(testArr));
 
 
 module.exports = insertionSort;
