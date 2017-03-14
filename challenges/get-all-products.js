@@ -10,7 +10,20 @@
  */
 
 function getAllProducts(array) {
+  const results = [];
 
+  for (let i = 0; i < array.length; i += 1) {
+    const skip = i;
+    let product = 1;
+    for (let j = 0; j < array.length; j += 1) {
+      if (j !== skip) {
+        product = product * array[j];
+      }
+    }
+    results.push(product);
+  }
+
+  return results;
 }
 
 module.exports = getAllProducts;
