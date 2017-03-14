@@ -10,7 +10,7 @@
  */
 
 function getAllProducts(array) {
-  if (!array) return [0];
+  if (array.length === 0) return [0];
   console.log('another one', array);
   let finalArr = [];
   let i;
@@ -18,7 +18,7 @@ function getAllProducts(array) {
     let tempArr = array.slice(0, i).concat(array.slice(i + 1));
     let val = tempArr.reduce((curr, next) => {
       return curr * next;
-    });
+    }, 1);
     finalArr.push(val);
   }
   return finalArr;
