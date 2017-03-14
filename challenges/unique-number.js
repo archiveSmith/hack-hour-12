@@ -14,8 +14,8 @@ function uniqueNumber(array) {
   if (!array || !Array.isArray(array)) return 'Check Inputs';
 
   //loop through and put into object cache
-  const found = {};
-
+  // const found = {};
+  let sum = 0;
   for (var i = 0; i < array.length; i++) {
     //if number not in cache, create new property with number
     if (found.hasOwnProperty(array[i])) {

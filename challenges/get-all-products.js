@@ -10,7 +10,21 @@
  */
 
 function getAllProducts(array) {
+  if (!array || !Array.isArray(array)) return 'Check Inputs';
+  const products = [];
 
+  function recurseGetAll3Products(arr) {
+    if (arr.length === 3) {
+      products.push(arr[0]*arr[1]*arr[2]); 
+    }
+    let copy;
+    for (var i = 0; i < arr.length; i++) {
+      copy = [...arr];
+      copy.splice(i, 1);
+      recurseGetAll3Products(copy);
+    }
+  }
+  recurseGetAll3Products(array);
+  return products;
 }
-
 module.exports = getAllProducts;
