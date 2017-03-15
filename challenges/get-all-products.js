@@ -17,9 +17,13 @@ function getAllProducts(array, index = 0, products = []) {
   for (let i = 0; i < array.length; i += 1) {
     if (i !== index) currProduct *= array[i];
   }
-  
+
   products.push(currProduct);
   return getAllProducts(array, index += 1, products);
+}
+
+function getAllProducts(array) {
+  
 }
 
 // console.log(getAllProducts([]))
