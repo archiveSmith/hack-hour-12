@@ -11,6 +11,7 @@
 
 function getAllProducts(array) {
   if (!array || array.length < 1) return [0];
+  if (array.length === 2) return array[0] * array[1];
   const output = [];
   let current;
   for (let i = 0; i < array.length; i += 1) {
@@ -20,5 +21,5 @@ function getAllProducts(array) {
   return output;
 }
 
-// console.log(getAllProducts([1,7,3,4]));
+// console.log(getAllProducts([1,7]));
 module.exports = getAllProducts;
