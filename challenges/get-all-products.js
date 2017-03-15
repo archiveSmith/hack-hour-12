@@ -18,7 +18,7 @@ function getAllProducts(array) {
     newArr.push(prod);
     array.unshift(remove);
   }
-  return newArr;
+  return newArr.reverse();
 }
 
 console.log(getAllProducts([1, 7, 3, 4, 2, 6])); //  [84, 12, 28, 21]
