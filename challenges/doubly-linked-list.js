@@ -20,9 +20,8 @@ LinkedList.prototype.add = function(val) {
   const node = new Node(val);
   if (!this.head) this.head = this.tail = node;
   else {
-    const tail = this.tail;
-    tail.next = node;
-    node.prev = tail;
+    this.tail.next = node;
+    node.prev = this.tail;
     this.tail = node;
   }
 };
@@ -34,11 +33,15 @@ LinkedList.prototype.remove = function(val) {
   let node = this.head;
   while (node) {
     if (node.val === val) {
-      if (node.prev) {
+      if (node === this.head) {
+        this.head = node.next;
+        this.head.prev = null;
+      } else if (node === this.tail) {
+        this.tail = node.prev;
+        this.tail.next = null;
+      } else {
         node.prev.next = node.next;
-        if (node.next) {
-          node.next.prev = node.prev;
-        }
+        node.next.prev = node.prev;
       }
     }
     node = node.next;
