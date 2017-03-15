@@ -47,9 +47,11 @@ LinkedList.prototype.remove = function(val) {
     currNode.prev = currNode.prev.prev;
     currNode = currNode.prev;
     currNode.next = currNode.next.next;
+    return;
   } else {
     currNode = currNode.prev;
     currNode.next = null;
+    return;
   }
 };
 
