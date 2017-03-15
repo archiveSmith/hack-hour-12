@@ -19,14 +19,10 @@ Adds a node to the end of the list
 LinkedList.prototype.add = function(val) {
   let newNode = new Node(val);
   if (this.head === null) {
-    this.head = newNode;
-    this.tail = newNode;
+    this.head = this.tail = newNode;
   } else {
-    let currNode = this.head;
-    while (currNode.next) currNode = currNode.next;
-    currNode.next = newNode;
-    this.tail.next = newNode;
     newNode.prev = this.tail;
+    this.tail.next = newNode;
     this.tail = newNode;
   }
 };
@@ -37,7 +33,10 @@ Removes the first node with the inputted value
 LinkedList.prototype.remove = function(val) {
   // Check if the first node has the value
   let currNode = this.head;
-  if (currNode.val === val) this.head = currNode.next;
+  if (currNode.val === val) {
+    this.head = currNode.next;
+    this.head.prev = null;
+  }
   while (currNode.val !== val) {
     currNode = currNode.next;
   }
