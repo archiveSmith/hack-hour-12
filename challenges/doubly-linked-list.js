@@ -18,9 +18,13 @@ Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
   const node = new Node(val);
-  node.prev = this.tail;
-  this.tail.next = node;
-  this.tail = node;
+  if (!this.head) this.head = this.tail = node;
+  else {
+    const tail = this.tail;
+    tail.next = node;
+    node.prev = tail;
+    this.tail = node;
+  }
 };
 
 /*
