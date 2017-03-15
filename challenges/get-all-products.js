@@ -16,15 +16,18 @@ function getAllProducts(array) {
   function recurseGetAll3Products(arr) {
     if (arr.length === 3) {
       products.push(arr[0]*arr[1]*arr[2]); 
+      return;
     }
     let copy;
     for (var i = 0; i < arr.length; i++) {
       copy = [...arr];
       copy.splice(i, 1);
+      console.log(copy);
       recurseGetAll3Products(copy);
     }
   }
   recurseGetAll3Products(array);
   return products;
 }
+console.log(getAllProducts([1,7,3,4,2]))
 module.exports = getAllProducts;
