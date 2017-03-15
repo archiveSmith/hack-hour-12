@@ -23,4 +23,16 @@ function uniqueNumber(array) {
   return Object.keys(store)[0];
 }
 
+// Bitwise XOR O(n)
+function uniqueNumberAlt(array) {
+  var result = 0;
+  for (var i = 0; i < array.length; i++) {
+    result = result ^ array[i];
+  }
+  return result;
+}
+
+// one liner Bitwise
+// const uniqueNumberReduce = (array) => reduce(acc, curr, 0) => 
+
 module.exports = uniqueNumber;

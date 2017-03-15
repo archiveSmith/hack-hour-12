@@ -21,6 +21,6 @@ function getAllProducts(array) {
   return results;
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
+// console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
