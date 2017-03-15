@@ -53,6 +53,7 @@ LinkedList.prototype.remove = function(val) {
   if(currNode.val === val){
     this.head = this.head.next
     this.head.prev = null;
+    return;
   }
   while(currNode && currNode.val !== val){
     currNode = currNode.next;
@@ -64,6 +65,7 @@ LinkedList.prototype.remove = function(val) {
   if (!currNode.next) {
     this.tail = this.tail.prev;
     this.tail.next = null;
+    return;
   }
   //now currnode.value === val;
   else {
@@ -77,9 +79,11 @@ const list = new LinkedList();
 let node = 1;
 let node2 = 2;
 let node3 = 3;
+let node4 = 3;
 list.add(node);
 list.add(node2);
 list.add(node3);
+list.add(node4);
 list.remove(3);
 console.log(list);
 module.exports = LinkedList;
