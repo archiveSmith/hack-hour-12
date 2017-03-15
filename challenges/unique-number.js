@@ -17,4 +17,7 @@ function uniqueNumber(array) {
   }
 }
 
+// use bitwise XOR
+// const uniqueNumber = (array) => array.reduce((acc, curr) => acc ^ curr);
+
 module.exports = uniqueNumber;
