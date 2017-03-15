@@ -25,6 +25,9 @@ LinkedList.prototype.add = function(val) {
     let currNode = this.head;
     while (currNode.next) currNode = currNode.next;
     currNode.next = newNode;
+    this.tail.next = newNode;
+    newNode.prev = this.tail;
+    this.tail = newNode;
   }
 };
 
@@ -43,7 +46,6 @@ LinkedList.prototype.remove = function(val) {
   } else {
     let currNode = this.head;
     while (currNode.value !== val) {
-      currNode.next.prev = currNode;
       currNode = currNode.next;
     }
     currNode.prev.next = currNode.next;
