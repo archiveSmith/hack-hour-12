@@ -42,6 +42,8 @@ LinkedList.prototype.remove = function(val) {
   while (currNode.val !== val) {
     currNode = currNode.next;
   }
+  currNode = currNode.next;
+  currNode.prev = currNode.prev.prev;
   currNode = currNode.prev;
   currNode.next = currNode.next.next;
 };
