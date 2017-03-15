@@ -36,20 +36,12 @@ Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
   // Check if the first node has the value
-  if (this.head.val === val) {
-    if (this.head === this.tail) {
-      this.head = null;
-      this.tail = null;
-    } else {
-      this.head = this.head.next;
-    }
-  } else {
-    let currNode = this.head;
-    while (currNode.value !== val) {
-      currNode = currNode.next;
-    }
-    currNode.prev.next = currNode.next;
+  let currNode = this.head;
+  while (currNode.val !== val) {
+    currNode = currNode.next;
   }
+  currNode = currNode.prev;
+  currNode.next = currNode.next.next;
 };
 
 module.exports = LinkedList;
