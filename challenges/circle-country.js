@@ -23,7 +23,41 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // check to see if starting point is inside a district
+    // check the starting point againt each district coordinates with r as the diff
+  // if we are inside a district, output += 1
+  // do the same for the end 
+  
+  let borders = 0;
+
+  for (let i = 0; i < x.length; i += 1) {
+    if ((x[i] + r[i] < start_x || x[i] - r[i] < start_x) && (y[i] + r[i] < start_y || y[i] - r[i] < start_y)) borders += 1; 
+  }
+  for (let i = 0; i < x.length; i += 1) {
+    if ((x[i] + r[i] < end_x || x[i] - r[i] < end_x) && (y[i] + r[i] < end_y || y[i] - r[i] < end_y)) borders += 1; 
+  }
+
+  return borders;
 
 }
+
+// var x = [1, 3, 2, 3];
+// var y = [1, 2, 4, 2];
+// var r = [1, 1, 0.5, 0.5];
+
+// var start_x = 1;
+// var start_y = 1;
+// var end_x = 3;
+// var end_y = 2;
+
+// var start_x2 = 6;
+// var start_y2 = 2;
+// var end_x2 = 2;
+// var end_y2 = 1;
+
+// console.log(circleCountry(x, y, r, start_x, start_y, end_x, end_y)) // -> 3
+// console.log(circleCountry(x, y, r, start_x, start_y, end_x2, end_y2)) // -> 2
+// console.log(circleCountry(x, y, r, start_x2, start_y2, end_x2, end_y2)) // -> 1
+
 
 module.exports = circleCountry;
