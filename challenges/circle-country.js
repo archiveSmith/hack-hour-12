@@ -23,7 +23,14 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  //find how many circles start is inside, 
+  let count = 0;
+  for (let i = 0; i < x.length; i++) {
+    count += (Math.sqrt(Math.pow(start_x - x[i], 2) + Math.pow(start_y - y[i], 2)) < r[i]) ^ (Math.sqrt(Math.pow(end_x-x[i], 2) + Math.pow(end_y-y[i],2)) < r[i]);
+  }
+  // console.log(count);
+  //find how many circles end is inside
+  //add them together and return lol
 }
-
+// circleCountry([1,2,3], [1,2,3], [3,3,3], 7, 2, 4, 5);
 module.exports = circleCountry;
