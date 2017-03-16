@@ -25,8 +25,8 @@
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     function inside(x_cor,y_cor,r_val,pointA_x, pointA_y, pointB_x, pointB_y) {
         //checking if the point is inside a circle
-        let inA = ((Math.pow(pointA_x - x_cor, 2) + Math(pointA_y - y_cor, 2)) < r_val)
-        let inB = ((Math.pow(pointB_x - x_cor, 2) + Math(pointB_y - y_cor, 2)) < r_val)
+        let inA = ((Math.pow(pointA_x - x_cor, 2) + Math(pointA_y - y_cor, 2)) < Math.pow(r_val))
+        let inB = ((Math.pow(pointB_x - x_cor, 2) + Math(pointB_y - y_cor, 2)) < Math.pow(r_val))
         if ((inA && !inB) || (inB && !inA)) {
             return true;
         }
