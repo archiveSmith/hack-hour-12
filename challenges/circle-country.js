@@ -23,7 +23,20 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  let startOrFinishInside = 0;
+  let numCircles = x.length;
+  let i;
+  let bordersToCross = 0;
+  for (i = 0; i < numCircles; i += 1) {
+    let startIn = false;
+    let finishIn = false;
+    let startDistance = Math.pow((start_x - x[i]), 2) + Math.pow((start_y - y[i]));
+    let finishDistance = Math.pow((end_x - x[i]), 2) + Math.pow((end_y - y[i]));
+    if (startDistance < Math.pow(r[i], 2)) startIn = true;
+    if (finishDistance < Math.pow(r[i], 2)) finishIn = true;
+    if (startIn !== finishIn) bordersToCross += 1;
+  }
+  return bordersToCross;
 }
 
 module.exports = circleCountry;
