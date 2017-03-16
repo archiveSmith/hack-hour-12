@@ -30,8 +30,8 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   for (i = 0; i < numCircles; i += 1) {
     let startIn = false;
     let finishIn = false;
-    let startDistance = Math.pow((start_x - x[i]), 2) + Math.pow((start_y - y[i]));
-    let finishDistance = Math.pow((end_x - x[i]), 2) + Math.pow((end_y - y[i]));
+    let startDistance = Math.pow((start_x - x[i]), 2) + Math.pow((start_y - y[i]), 2);
+    let finishDistance = Math.pow((end_x - x[i]), 2) + Math.pow((end_y - y[i]), 2);
     if (startDistance < Math.pow(r[i], 2)) startIn = true;
     if (finishDistance < Math.pow(r[i], 2)) finishIn = true;
     if (startIn !== finishIn) bordersToCross += 1;
