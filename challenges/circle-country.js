@@ -37,8 +37,8 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     // check if it covers start or end points
     const start_dist = dist(x[i], y[i], start_x, start_y);
     const end_dist = dist(x[i], y[i], end_x, end_y);
-    if (start_dist <= r[i]) borders += 1;
-    if (end_dist <= r[i]) borders += 1;
+
+    if ((start_dist <= r[i] && end_dist > r[i]) || (end_dist <= r[i] && start_dist > r[i]) borders += 1;
   }
   return borders;
 }
