@@ -27,18 +27,17 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     // check the starting point againt each district coordinates with r as the diff
   // if we are inside a district, output += 1
   // do the same for the end 
-  
+
   let borders = 0;
 
   for (let i = 0; i < x.length; i += 1) {
-    if ((x[i] + r[i] < start_x || x[i] - r[i] < start_x) && (y[i] + r[i] < start_y || y[i] - r[i] < start_y)) borders += 1; 
+    if (Math.abs(x[i] - start_x) < r[i] && Math.abs(y[i] - start_y) < r[i]) borders += 1; 
   }
   for (let i = 0; i < x.length; i += 1) {
-    if ((x[i] + r[i] < end_x || x[i] - r[i] < end_x) && (y[i] + r[i] < end_y || y[i] - r[i] < end_y)) borders += 1; 
+    if (Math.abs(x[i] - end_x) < r[i] && Math.abs(y[i] - end_y) < r[i]) borders += 1; 
   }
 
   return borders;
-
 }
 
 // var x = [1, 3, 2, 3];
