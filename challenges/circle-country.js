@@ -23,7 +23,22 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // return distance between 2 points
+  function dist(xC, yC, x, y) {
+    const distVec_x = xC - x;
+    const distVec_y = yC - y;
+    return Math.sqrt(Math.pow(distVec_x, 2) + Math.pow(distVec_y, 2));
+  }
 
+  const N_DISTRICTS = x.length;
+  let borders = 0;
+  // for each circle
+  for (let i = 0; i < N_DISTRICTS; i += 1) {
+    // check if it covers start or end points
+    if (dist(x[i], y[i], start_x, start_y) <= r[i]) borders += 1;
+    if (dist(x[i], y[i], end_x, end_y) <= r[i]) borders += 1;
+  }
+  return borders;
 }
 
 module.exports = circleCountry;
