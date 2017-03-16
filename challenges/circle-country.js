@@ -35,8 +35,10 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   // for each circle
   for (let i = 0; i < N_DISTRICTS; i += 1) {
     // check if it covers start or end points
-    if (dist(x[i], y[i], start_x, start_y) <= r[i]) borders += 1;
-    if (dist(x[i], y[i], end_x, end_y) <= r[i]) borders += 1;
+    const start_dist = dist(x[i], y[i], start_x, start_y);
+    const end_dist = dist(x[i], y[i], end_x, end_y);
+    if (start_dist <= r[i]) borders += 1;
+    if (end_dist <= r[i]) borders += 1;
   }
   return borders;
 }
