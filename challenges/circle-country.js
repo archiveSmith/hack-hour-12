@@ -32,11 +32,8 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
   for (let i = 0; i < x.length; i += 1) {
     if (Math.abs(x[i] - start_x) < r[i] && Math.abs(y[i] - start_y) < r[i]) borders += 1; 
-  }
-  for (let i = 0; i < x.length; i += 1) {
     if (Math.abs(x[i] - end_x) < r[i] && Math.abs(y[i] - end_y) < r[i]) borders += 1; 
   }
-
   return borders;
 }
 
