@@ -14,7 +14,6 @@ function getAllProducts(array) {
   let result = [];
   for (let i = 0; i < array.length; i++) {
     const current = array.slice(0, i).concat(array.slice(i+1));
-    console.log(current)
     result.push(current.reduce((acc, curr) => {
       return acc * curr;
     }, 1));
