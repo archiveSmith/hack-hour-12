@@ -24,3 +24,9 @@ function countTwos(num) {
 }
 
 module.exports = countTwos;
+
+
+// function countTwos(num, counter = 0) {
+//   if (num === 0) return counter;
+//   return countTwos(num - 1, counter += num.toString().split('').filter(digit => digit === '2').length);
+// }

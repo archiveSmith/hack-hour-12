@@ -23,11 +23,10 @@ function getAllProducts(array) {
 }
 
 console.log(getAllProducts([1, 7, 3, 4, 2, 6])); //  [84, 12, 28, 21]
-// [] [ 1 ] [ 5, 0, 2, 3, 4 ] [ 0, 1, 2, 0 ]
-console.log(getAllProducts([])); //  [84, 12, 28, 21]
-console.log(getAllProducts([1])); //  [84, 12, 28, 21]
-console.log(getAllProducts([5, 0, 2, 3, 4])); //  [84, 12, 28, 21]
-console.log(getAllProducts([0, 1, 2, 0])); //  [84, 12, 28, 21]
+console.log(getAllProducts([]));
+console.log(getAllProducts([1]));
+console.log(getAllProducts([5, 0, 2, 3, 4]));
+console.log(getAllProducts([0, 1, 2, 0]));
 
 
 
