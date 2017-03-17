@@ -13,25 +13,42 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function height(tree) {
   if (tree === null) {
     return 0;
   }
-  const leftSide = superbalanced(tree.left);
-  if (leftSide === -1) {
-    return false;
-  }
-  const rightSide = superbalanced(tree.right);
-  if (rightSide === -1) {
-    return false;
-  }
-  const diff = leftSide - rightSide;
-  if (Math.abs(diff) > 1) {
-    return false;
-  }
-  const res = 1 + Math.max(leftSide, rightSide);
-
-  return res !== -1;
+  return 1 + Math.max(height(tree.left), height(tree.right));
 }
 
+function superbalanced(tree) {
+  if (tree === null) {
+    return true;
+  }
+  return Math.abs(height(tree.left) - height(tree.right)) <=
+    1 && superbalanced(tree.left) && superbalanced(tree.right);
+}
+
+
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+
+
+// function superbalanced(tree) {
+//   if (tree === null) {
+//     return 0;
+//   }
+//   const leftSide = superbalanced(tree.left);
+//   if (leftSide === -1) {
+//     return false;
+//   }
+//   const rightSide = superbalanced(tree.right);
+//   if (rightSide === -1) {
+//     return false;
+//   }
+//   const diff = leftSide - rightSide;
+//   if (Math.abs(diff) > 1) {
+//     return false;
+//   }
+//   const res = 1 + Math.max(leftSide, rightSide);
+
+//   return res !== -1;
+// }
