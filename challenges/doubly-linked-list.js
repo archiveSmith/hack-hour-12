@@ -13,6 +13,7 @@ function Node(val) {
   this.prev = null;
 }
 
+
 /*
 Adds a node to the end of the list
  */
@@ -29,6 +30,18 @@ LinkedList.prototype.add = function(val) {
   return;
 };
 
+let linkedList = new LinkedList();
+// let nodeA = new Node(6);
+// let nodeB = new Node(5);
+// let nodeC = new Node(7);
+// let nodeD = new Node(10);
+
+linkedList.add(6);
+linkedList.add(5);
+linkedList.add(10);
+linkedList.add(8);
+
+console.log(linkedList)
 /*
 Removes the first node with the inputted value
  */
@@ -66,5 +79,8 @@ LinkedList.prototype.remove = function(val) {
 
   return 'No node matched the value';
 };
+
+linkedList.remove(5);
+console.log(linkedList)
 
 module.exports = LinkedList;
