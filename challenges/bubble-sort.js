@@ -2,8 +2,6 @@
 
 // https://en.wikipedia.org/wiki/Bubble_sort
 
-
-
 function bubbleSort(array) {
   let arr = array.slice();
   for(let i = 0; i < array.length; i++) {
@@ -16,11 +14,10 @@ function bubbleSort(array) {
   return arr;
 }
 
-function swapValues() {
-  
+function swapValues(arr, idx1, idx2) {
+  let temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
 }
-
-// let array = [22,1,23,44,25,64,43,65,54];
-
 
 module.exports = bubbleSort;
