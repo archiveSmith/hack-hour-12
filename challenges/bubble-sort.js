@@ -6,9 +6,7 @@
 
 function bubbleSort(array) {
   function swap(arr, ind1, ind2) {
-    let temp = arr[ind1];
-    arr[ind1] = arr[ind2];
-    arr[ind2] = temp;
+    [arr[ind1], arr[ind2]] = [arr[ind2], arr[ind1]];
   }
 
   let i = array.length - 1;
