@@ -10,7 +10,20 @@
  *
  */
 function uniqueNumber(array) {
+    let data = [];
 
+    for (let i = 0; i < array.length; i++) {
+        let idx = data.indexOf(array[i])
+        if (idx > -1) {
+            data.splice(idx, 1)
+        } else {
+            data.push(array[i])
+        }
+        console.log(data)
+    }
+
+    return data[0]
 }
+
 
 module.exports = uniqueNumber;
