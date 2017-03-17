@@ -23,7 +23,15 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+    // Iterating through all circles, reducing to a count of # of times a border was crossed.
+  return r.reduce((acc, rad, i) => {
+    // Distance from current circle center at the start.
+    const startDistance = Math.hypot(x[i] - start_x, y[i] - start_y);
+    // Distance from current circle center at the end.
+    const endDistance = Math.hypot(x[i] - end_x, y[i] - end_y);
+    // If radius is in between startDistance and endDistance, increase counter.
+    return (startDistance > rad && rad > endDistance) || (startDistance < rad && rad < endDistance) ? ++acc : acc;
+  }, 0);
 }
 
 module.exports = circleCountry;
