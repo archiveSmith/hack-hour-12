@@ -22,7 +22,7 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+function circleCountryOriginal(x, y, r, start_x, start_y, end_x, end_y) {
   // check to see if starting point is inside a district
     // check the starting point againt each district coordinates with r as the diff
   // if we are inside a district, output += 1
@@ -35,6 +35,18 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     if (Math.abs(x[i] - end_x) < r[i] && Math.abs(y[i] - end_y) < r[i]) borders += 1; 
   }
   return borders;
+}
+
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // Iterating through all circles, reducing to a count of # of times a border was crossed.
+  return r.reduce((acc, rad, i) => {
+    // Distance from current circle center at the start.
+    const startDistance = Math.hypot(x[i] - start_x, y[i] - start_y)
+    // Distance from current circle center at the end.
+    const endDistance = Math.hypot(x[i] - end_x, y[i] - end_y)
+    // If radius is in between startDistance and endDistance, increase counter.
+    return (startDistance > rad && rad > endDistance) || (startDistance < rad && rad < endDistance) ? ++acc : acc
+  }, 0)
 }
 
 // var x = [1, 3, 2, 3];
