@@ -27,7 +27,7 @@
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
   for (var i = 0; i < jazbook.length; i++) {
-    if (jazbook[i][0] === 'name') return jazbook[i][1];
+    if (jazbook[i][0] === name) return jazbook[i][1];
   }
   return false;
 }
@@ -39,7 +39,7 @@ function makePhoneBookObject(jazbook){
   for (var i = 0; i < jazbook.length; i++) {
     phonebook[jazbook[i][0]] = jazbook[i][1];
   }
-  
+
   phonebook.add = (name, number) => {
     phonebook[name] = number;
   }
