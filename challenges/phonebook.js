@@ -3,13 +3,6 @@
 * You are given an array of arrays.  The subarrays are first names and phone numbers.
 *
 * Example:
-*   jazbook = [
-*     ['alex','301-844-3421'],
-*     ['jae','301-844-1211'],
-*     ['david','301-844-0978'],
-*     ['travis','301-844-8505']
-*     ['jasmine','1800-974-4539'],
-*   ];
 *
 * jazbooks are not always sorted...
 *
@@ -26,13 +19,22 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-  for (let i = 0, j = jazbook.length - 1; j < i; i += 1, j -= 1) {
+  for (let i = 0, j = jazbook.length - 1; j >= i; i += 1, j -= 1) {
     if (jazbook[i][0].toLowerCase() === name.toLowerCase()) return jazbook[i][1];
     if (jazbook[j][0].toLowerCase() === name.toLowerCase()) return jazbook[j][1];
   }
 
   return false;
 }
+
+// const jazbook = [
+//   ['alex','301-844-3421'],
+//   ['jae','301-844-1211'],
+//   ['david','301-844-0978'],
+//   ['travis','301-844-8505'],
+//   ['jasmine','1800-974-4539'],
+// ];
+// console.log(findName(jazbook, 'david'))
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
