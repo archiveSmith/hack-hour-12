@@ -23,15 +23,35 @@
  */
 
 function findCurrentCircle(x, y, r, pos_x, pos_y) {
-  let ith;
+  let ith = [];
   for (let i = 0; i < x.length; i += 1) {
-    if (Math.abs(x[i] - pos_x) < (x + r) && Math.abs(y[i] - pos_x) < )
+    if (Math.abs(x[i] - pos_x) < (x + r) && Math.abs(y[i] - pos_y) < (y + r)) {
+      ith.push(i);
+    }
   }
 }
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-  let ithStartingCircle = ;
-  let ithEndingCircle = ;
+  let ithStartingCircle = findCurrentCircle(x, y, r, start_x, start_y);
+  let ithEndingCircle = findCurrentCircle(x, y, r, end_x, end_y);
+  console.log(ithEndingCircle, ithStartingCircle)
+}
+
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  let crossedBorder = 0;
+
+  // loop through radius
+  r.forEach((radius, i) => {
+    // compare radii using distance from start to center and end to center
+    const startDistance = Math.hypot(x[i] - start_x, y[i] - start_y);
+    const endDistance = Math.hypot(x[i] - end_x, y[i] - end_y);
+    // if startDistance less than radius and endDistance greater than radis (or vice versa), inc counter
+    if (startDistance < radius && endDistance > radius || startDistance > radius && endDistance < radius) {
+      crossedBorder += 1;
+    }
+  })
+
+  return crossedBorder;
 }
 
 module.exports = circleCountry;
