@@ -7,7 +7,7 @@
 *     ['alex','301-844-3421'],
 *     ['jae','301-844-1211'],
 *     ['david','301-844-0978'],
-*     ['travis','301-844-8505']
+*     ['travis','301-844-8505'],
 *     ['jasmine','1800-974-4539'],
 *   ];
 *
@@ -26,17 +26,58 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  for (let i = 0; i < jazbook.length; i += 1) {
+    if (jazbook[i][0] === name) return jazbook[i][1];
+  }
+  return false;
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
 
+  let output = new Obj();
+  
+
+  return output;
 }
 
 const objectToExport = {
   findName,
   makePhoneBookObject,
 };
+
+objectToExport.findName = function (val) {
+  return this.val;
+}
+
+objectToExport.remove = function (val) {
+  delete this[val];
+}
+
+objectToExport.add = function (val) {
+  this[val] = val;
+}
+
+objectToExport.makePhoneBookObject = function (jazbook) {
+  jazbook.forEach(el => {
+    this[el[0]] = el[1];
+  });
+  return this;
+}
+
+// jazbook = [
+//   ['alex','301-844-3421'],
+//   ['jae','301-844-1211'],
+//   ['david','301-844-0978'],
+//   ['travis','301-844-8505'],
+//   ['jasmine','1800-974-4539'],
+// ];
+
+// let a = objectToExport
+// console.log(a.makePhoneBookObject(jazbook));
+// a.remove('jae');
+// console.log(a);
+// a.add('Timmy');
+// console.log(a);
 
 module.exports = objectToExport;
