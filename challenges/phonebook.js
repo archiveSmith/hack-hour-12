@@ -36,7 +36,10 @@ function findName(jazbook, name) {
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
-
+  let jazObj = jazbook.reduce((curr, next) => {
+    return curr[next[0]] = curr[next[1]];
+  }, {});
+  return jazObj;
 }
 
 const objectToExport = {
