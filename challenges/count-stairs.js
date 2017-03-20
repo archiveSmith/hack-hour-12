@@ -15,9 +15,8 @@
  */
 
 function countStairs(n) {
-  if (n <= 3) return n;
-
-  return 1 + countStairs(n - 1);
+  if (n === 0 || n === 1) return 1;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
 
 module.exports = countStairs;
