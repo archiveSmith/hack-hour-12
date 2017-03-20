@@ -20,6 +20,8 @@ function countStairs(n) {
   arr[1] = 1;
   arr[2] = 2;
 
+  if (n <= 1) return 1;
+
   for (let i = 3; i <= n; i += 1) {
     arr[i] = arr[i - 1] + arr[i - 2];
   }
