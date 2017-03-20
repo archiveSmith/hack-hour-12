@@ -29,6 +29,7 @@ function findName(jazbook, name) {
   for(let i = 0; i < jazbook.length; i++) {
     if(jazbook[i][0] === name) return jazbook[i][1];
   }
+  return false;
 }
 
 // return an object literal representing the jazbook
