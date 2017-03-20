@@ -28,23 +28,23 @@
 function findName(jazbook, name) {
   jazbook.forEach(el => {
     if (el[0] === name) return true;
-    return false;
   });
+  return false;
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
   const phoneBook = {};
 
-  jazbook.forEach(el => {
+  jazbook.forEach((el) => {
     phoneBook[el[0]] = el[1];
   });
 
-  phoneBook.add = function (name, phoneNumber) {
+  phoneBook.add = (name, phoneNumber) => {
     phoneBook[name] = phoneNumber;
   };
 
-  phoneBook.remove = function (name) {
+  phoneBook.remove = (name) => {
     delete phoneBook[name];
   };
 
