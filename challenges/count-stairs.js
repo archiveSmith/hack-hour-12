@@ -18,16 +18,16 @@
 
 function countStairs(n, steps = 0) {
   if (steps === n) {
-    console.log('step', steps); 
+    // console.log('step', steps); 
     return 1;
   }
   if (steps > n) return 0;
-  console.log(n, steps)
+  // console.log(n, steps)
   let count = countStairs(n, steps += 1) + countStairs(n, steps += 2);
-  console.log('count', count)
+  // console.log('count', count)
   return count;
 }
 
-console.log(countStairs(5))
+// console.log(countStairs(5))
 
 module.exports = countStairs;
