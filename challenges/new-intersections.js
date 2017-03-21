@@ -24,23 +24,22 @@ function newIntersections(x, y){
   for(let i = 0; i < length; i++) {
     let currentX = x[i];
     let currentY = y[i];
-    let left = false;
+    // testing every old left coordinate
     let top = false;
     let right = false;
     let bottom = false;
     for(let j = 0; j < length; j++) {
       if(i !== j) {
-
-
-        // logic here
-
+        if(currentX + 1 === x[j] && currentY - 1 === y[j]) bottom = true;
+        if(currentX + 1 === x[j] && currentY + 1 === y[j]) top = true;
+        if(currentX + 2 === x[j] && currentY + 0 === y[j]) right = true;
       }
     }
-
-    if(left && top && right && bottom) {
+    if(top && right && bottom) {
       counter++;
     }
   }
+  return counter;
 }
 
 module.exports = newIntersections;
