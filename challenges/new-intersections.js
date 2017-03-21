@@ -18,7 +18,32 @@
  */
 
 function newIntersections(x, y){
+  function findPairs(arr) {
+    const pairsObj = {};
+    for (let i = 0; i < arr.length; i += 1) {
+      let val = pairsObj[arr[i]];
+      if (!val) {
+        pairsObj[arr[i]] = 1;
+      } else {
+        pairsObj[arr[i]] = val + 1;
+      }
+    }
+    for (let key in pairsObj) {
+      if (pairsObj[key] % 2 !== 0) pairsObj[key] = pairsObj[key] - 1;
+    }
+    const valArr = Object.keys(pairsObj).map((key) => pairsObj[key]);
+    return valArr.reduce((a, b) => a + b) / 2;
+  }
 
+  const xPairs = findPairs(x);
+  const yPairs = findPairs(y);
+
+  return Math.min(xPairs, yPairs);
 }
+
+// var x = [-1, -1, 2, 2, 3, 4];
+// var y = [2, -1, 1, 3, -2, 2];
+
+// console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
