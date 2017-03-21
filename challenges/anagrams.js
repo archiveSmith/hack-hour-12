@@ -14,6 +14,7 @@
 
 function anagrams(string) {
   if (!string) return;
+  if (string === '') return string;
   
   const output = [];
   const used = [];
