@@ -14,7 +14,7 @@ function repeatNumbers(array) {
   if (!array || !Array.isArray(array)) return 'Check Inputs';
 
   const inArray = {};
-
+  
   for (let i = 0; i < array.length; i++) {
     if (inArray.hasOwnProperty(array[i])) return array[i];
     else inArray[array[i]] = null;
