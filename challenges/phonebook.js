@@ -19,6 +19,8 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
+  if (!Array.isArray(jazbook) || !jazbook.length || typeof name !== 'string') return false;
+
   for (let i = 0, j = jazbook.length - 1; j >= i; i += 1, j -= 1) {
     if (jazbook[i][0].toLowerCase() === name.toLowerCase()) return jazbook[i][1];
     if (jazbook[j][0].toLowerCase() === name.toLowerCase()) return jazbook[j][1];
@@ -56,6 +58,8 @@ function makePhoneBookObject(jazbook){
 
   return phonebook;
 }
+
+const makePhoneBookObject = (jazbook) => new Map(jazbook);
 
 const objectToExport = {
   findName,
