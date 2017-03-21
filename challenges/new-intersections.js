@@ -17,8 +17,40 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+  let horizontals = {};
+  let verticals = {};
+  for (var i = 0; i < x.length; i++) {
+    for (var j = i + 1; j < y.length; j++) {
+      if (x[i] === x[j]) {
+        [smaller, bigger] = y[i] > y[j] ? [y[j], y[i]] : [y[i], y[j]];
+        if (!horizontals[x[i]]) {
+          horizontals[x[i]] = [smaller, bigger];
+        } else {
+           if (smaller < horizontals[x[i]][0]) horizontals[x[i]].splice(0, 1, smaller);
+           if (bigger > horizontals[x[i]][1]) horizontals[x[i]].splice(1, 1, bigger);
+        }
+      }
+      if (y[i] === y[j]) {
+        [smaller, bigger] = x[i] > x[j] ? [x[j], x[i]] : [x[i], x[j]];
+        if (!verticals[y[i]]) {
+          verticals[y[i]] = [smaller, bigger];
+        } else {
+          if (smaller < verticals[x[i]][0]) verticals[x[i]].splice(0, 1, smaller);
+          if (bigger > verticals[x[i]][1]) verticals[x[i]].splice(1, 1, bigger);
+        }
+      }
+    }
+  }
+  let count = 0;
+  for (var i in horizontals) {
+    for (var j in verticals) {
+      count += i < verticals[j][1] && i > verticals[j][0] && j < horizontals[i][1] && j > horizontals[i][0];
+    }
+  }
+  return count;
 }
+
+console.log(newIntersections([1, 4, 4, 6], [4, 6, 1, 4]));
 
 module.exports = newIntersections;
