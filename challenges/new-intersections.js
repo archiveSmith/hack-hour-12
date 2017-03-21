@@ -17,8 +17,27 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+  const len = x.length;
+  const hor = [];
+  const vert = [];
+  let newCount = 0;
+  for (let i = 0; i < len - 1; i += 1) {
+    for (let j = i + 1; j < len; j += 1) {
+      if (x[i] === x[j]) vert.push([[x[i], y[i]], x[j], y[j]]);
+      if (y[i] === y[j]) hor.push([[x[i], y[i]], x[j], y[j]]);
+    }
+  }
+  for (let i = 0; i < len; i += 1) {
+    for (let j = 0; j < len; j += 1) {
+      // if hor x Values include vert xVal && vert y Values include hor yVal
+      if ((Math.min(hor[i][0][0], hor[i][1][0]) <= vert[j][0][0] && Math.max(hor[i][0][0], hor[i][1][0]) >= vert[j][0][0])
+        && (Math.min(vert[i][0][1], vert[i][1][1]) <= hor[j][0][1] && Math.max(vert[i][0][1], vert[i][1][1]) >= hor[j][0][1])) {
+          newCount += 1;
+        }
+    }
+  }
+  return newCount;
 }
 
 module.exports = newIntersections;
