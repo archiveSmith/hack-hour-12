@@ -18,32 +18,39 @@
  */
 
 function newIntersections(x, y){
+
+  // use obj to count number of instances of each value
   function findPairs(arr) {
+
     const pairsObj = {};
+
+    // count instances
     for (let i = 0; i < arr.length; i += 1) {
       let val = pairsObj[arr[i]];
-      if (!val) {
-        pairsObj[arr[i]] = 1;
-      } else {
-        pairsObj[arr[i]] = val + 1;
-      }
+      pairsObj[arr[i]] = val ? val + 1 : 1;
     }
+
+    // if odd, reduce to even
     for (let key in pairsObj) {
       if (pairsObj[key] % 2 !== 0) pairsObj[key] = pairsObj[key] - 1;
     }
+
+    // get values in obj
     const valArr = Object.keys(pairsObj).map((key) => pairsObj[key]);
+
+    // return number of pairs
     return valArr.reduce((a, b) => a + b) / 2;
   }
 
-  const xPairs = findPairs(x);
-  const yPairs = findPairs(y);
+  const xPairs = findPairs(x) ? findPairs(x) : 0;
+  const yPairs = findPairs(y) ? findPairs(y) : 0;
 
   return Math.min(xPairs, yPairs);
 }
 
-// var x = [-1, -1, 2, 2, 3, 4];
-// var y = [2, -1, 1, 3, -2, 2];
+var x = [-1, -1, 2, 2, 3, 4];
+var y = [2, -1, 1, 3, -2, 2];
 
-// console.log(newIntersections(x, y));
+console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
