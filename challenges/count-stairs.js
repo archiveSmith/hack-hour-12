@@ -17,17 +17,38 @@
 // either take one step or two steps 
 
 function countStairs(n, steps = 0) {
-  if (steps === n) {
-    // console.log('step', steps); 
-    return 1;
-  }
+  if (steps === n) return 1;
+    // console.log('step', steps); return 1;
   if (steps > n) return 0;
   // console.log(n, steps)
-  let count = countStairs(n, steps += 1) + countStairs(n, steps += 2);
+  const oneStep = steps += 1;
+  const twoStep = steps += 2;
+  console.log(oneStep, twoStep)
+  // return countStairs(n, steps += 1) + countStairs(n, steps += 2);
+  return countStairs(n, oneStep) + countStairs(n, twoStep);
   // console.log('count', count)
-  return count;
 }
 
-// console.log(countStairs(5))
+function countStairs(n) {
+  const memo = {};
+
+  function counting(n) {
+    if (memo.hasOwnProperty(n)) return memo[n];
+    // base case: when n < 2, inc counter
+    if (n < 2) return 1;
+    // return recursive sum
+    return memo[n] = counting(n - 1) + counting(n - 2);
+  }
+
+  return counting(n);
+}
+
+function countStairs(n, memo = {}) {
+  if (memo.hasOwnProperty(n)) return memo[n];
+  if (n < 2) return 1;
+  return memo[n] = countStairs(n - 1, memo) + countStairs(n - 2, memo);
+}
+
+console.log(countStairs(5))
 
 module.exports = countStairs;
