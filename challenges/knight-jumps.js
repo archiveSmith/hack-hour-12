@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  // get the coordinate of the knight
+  let arr = str.replace('(','').replace(')','').split(' ').map( (num) => Number(num));
+  console.log(arr)
 
+  // get all possible location it can move to
+    let table = [[2,-1],[2,1],[1,2],[1,-2],[-2,1],[-2,-1],[-1,2],[-1,-2]]
+
+    //helper function to add array
+  function addArray([a,b],[x,y]) {
+    return [a + x, b + y]
+  }
+
+  let result = []
+
+    //add it to the table
+  table.forEach( (coor) => {result.push(addArray(coor,arr))});
+
+  // check which one can exist on the board ( 0 < x,y < 8)
+  return result.filter( (coor) => (coor[0] > 0 && coor[0] < 8 && coor[1] > 0 && coor[1] < 8)).length
 }
 
 module.exports = knightjumps;
