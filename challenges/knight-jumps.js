@@ -25,7 +25,6 @@ function knightjumps(str) {
 
   return moves;
 }
-
-// console.log(knightjumps('4 5'));
+// console.log(knightjumps('1 1'));
 
 module.exports = knightjumps;
