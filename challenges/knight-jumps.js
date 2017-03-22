@@ -11,7 +11,19 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  const newStr = str.replace(/(\()|(\))/g, '').split(' ');
+  const x = parseInt(newStr[0]);
+  const y = parseInt(newStr[1]);
+  let totalSpots = 0;
+  if (x + 2 <= 8 && x + 2 >= 1 && y + 1 <= 8 && y + 1 >= 1) totalSpots += 1;
+  if (x + 2 <= 8 && x + 2 >= 1 && y - 1 <= 8 && y - 1 >= 1) totalSpots += 1;
+  if (x - 2 <= 8 && x - 2 >= 1 && y + 1 <= 8 && y + 1 >= 1) totalSpots += 1;
+  if (x - 2 <= 8 && x - 2 >= 1 && y - 1 <= 8 && y - 1 >= 1) totalSpots += 1;
+  if (x + 1 <= 8 && x + 1 >= 1 && y + 2 <= 8 && y + 2 >= 1) totalSpots += 1;
+  if (x - 1 <= 8 && x - 1 >= 1 && y + 2 <= 8 && y + 2 >= 1) totalSpots += 1;
+  if (x + 1 <= 8 && x + 1 >= 1 && y - 2 <= 8 && y - 2 >= 1) totalSpots += 1;
+  if (x - 1 <= 8 && x - 1 >= 1 && y - 2 <= 8 && y - 2 >= 1) totalSpots += 1;
+  return totalSpots;
 }
 
 module.exports = knightjumps;
