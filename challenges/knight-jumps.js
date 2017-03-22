@@ -25,11 +25,11 @@ function knightjumps(str) {
   function count(x, y) {
     for (var i = 0; i < long.length; i++) {
       for (var j = 0; j < short.length; j++) {
-        possibleMoves += x + long[i] < 9 && x + long[i] > 0 && y + short[i] < 9 && y + short[i] > 0;
+        possibleMoves += x + long[i] < 9 && x + long[i] > 0 && y + short[j] < 9 && y + short[j] > 0;
       }
     }
   }
 
 }
-// console.log(knightjumps('(7 5)'));
+// console.log(knightjumps('(8 8)'));
 module.exports = knightjumps;
