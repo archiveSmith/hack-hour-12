@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const long = [-2, 2];
+  const short = [-1, 1];
+  let possibleMoves = 0;
+  
+  const x = Number(str[1]);
+  const y = Number(str[3]);
+
+  count(x, y);
+  count(y, x);
+  return possibleMoves;
+
+  function count(x, y) {
+    for (var i = 0; i < long.length; i++) {
+      for (var j = 0; j < short.length; j++) {
+        possibleMoves += x + long[i] < 9 && x + long[i] > 0 && y + short[i] < 9 && y + short[i] > 0;
+      }
+    }
+  }
 
 }
-
+// console.log(knightjumps('(7 5)'));
 module.exports = knightjumps;

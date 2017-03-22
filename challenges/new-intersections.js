@@ -51,5 +51,6 @@ function newIntersections(x, y) {
   return count;
 }
 
+console.log(newIntersections([1, 4, 4, 6, 4], [4, 6, 1, 4, 5]));
 
 module.exports = newIntersections;
