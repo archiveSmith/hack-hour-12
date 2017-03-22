@@ -20,6 +20,8 @@ function knightjumps(str) {
     return 4;
   }
 
+  if (x === 1 || x === 8) return 4;
+
   return 8;
 }
 
