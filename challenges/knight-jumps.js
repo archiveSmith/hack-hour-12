@@ -11,6 +11,7 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  console.log(str);
   let arr = str.split(' ');
   arr[0] = parseInt(arr[0]);
   arr[1] = parseInt(arr[1]);
