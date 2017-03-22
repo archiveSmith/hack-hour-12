@@ -11,7 +11,21 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const pos = str.split(' ').map((i) => Number(i));
+  let moves = 0;
 
+  if (pos[0] + 1 < 9 && pos[1] + 2 < 9) moves += 1;
+  if (pos[0] + 1 < 9 && pos[1] - 2 > 0) moves += 1;
+  if (pos[0] - 1 > 0 && pos[1] + 2 < 9) moves += 1;
+  if (pos[0] - 1 > 0 && pos[1] - 2 > 0) moves += 1;
+  if (pos[0] + 2 < 9 && pos[1] + 1 < 9) moves += 1;
+  if (pos[0] + 2 < 9 && pos[1] - 1 > 0) moves += 1;
+  if (pos[0] - 2 > 0 && pos[1] + 1 < 9) moves += 1;
+  if (pos[0] - 2 > 0 && pos[1] - 1 > 0) moves += 1;
+
+  return moves;
 }
+
+// console.log(knightjumps('4 5'));
 
 module.exports = knightjumps;
