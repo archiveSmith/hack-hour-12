@@ -17,8 +17,7 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
 }
 
 module.exports = newIntersections;
