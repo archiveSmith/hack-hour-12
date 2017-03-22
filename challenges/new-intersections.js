@@ -18,11 +18,14 @@
  */
 
 function newIntersections(x, y, ithX = 0, checked = {}, count = 0) {
+  // if we've reached end of array return the count
   if (ithX === x.length) return count;
+  // store current x value we are checking
   let currCheck = x[ithX];
-  // find min y and max y for given x value
+  // check if we have already found all values for current x
   if (checked[currCheck]) return newIntersections(x, y, ithX += 1, checked, count);
 
+  // for curr x find minY
   let minY = x.reduce((acc, cv, index) => {
     if (cv === currCheck) {
       if (y[index] < acc) acc = y[index]
