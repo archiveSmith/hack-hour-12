@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  if (!str) return;
+  const len = 8;
+  const x = str.charAt(1);
+  const y = str.charAt(3);
+  if (x === undefined || y === undefined || x < 1 || x > 8 || y < 1 || y > 8) return;
+  let count = 0;
 
+  if ((x - 2) >= 1 && (y - 1) >= 1) { count += 1; console.log('a', x, y); }
+  if ((x - 2) >= 1 && (y + 1) <= 8) { count += 1; console.log('b', x, y); }
+  if ((x + 2) <= 8 && (y - 1) >= 1) { count += 1; console.log('c', x, y); }
+  if ((x + 2) <= 8 && (y + 1) <= 8) { count += 1; console.log('d', x, y); }
+  if ((x - 1) >= 1 && (y - 2) >= 1) { count += 1; console.log('e', x, y); }
+  if ((x - 1) >= 1 && (y + 2) <= 8) { count += 1; console.log('f', x, y); }
+  if ((x + 1) <= 8 && (y - 2) >= 1) { count += 1; console.log('g', x, y); }
+  if ((x + 1) <= 8 && (y + 2) <= 8) { count += 1; console.log('h', x, y); }
+
+  return count;
 }
+
+console.log(knightjumps("(4 5)"));
 
 module.exports = knightjumps;
