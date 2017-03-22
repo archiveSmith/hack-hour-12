@@ -21,8 +21,7 @@ function drawStairs(n) {
       console.log(str)
     }
   }
-  console.log('hello')
 }
 
-drawStairs(5)
+// drawStairs(5)
 module.exports = drawStairs;
