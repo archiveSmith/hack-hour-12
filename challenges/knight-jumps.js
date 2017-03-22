@@ -11,8 +11,8 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  console.log(str);
-  let arr = str.split(' ');
+  let testArr = str.split('');
+  let arr = [testArr[1], testArr[3]];
   arr[0] = parseInt(arr[0]);
   arr[1] = parseInt(arr[1]);
   let count = 0;
@@ -27,6 +27,6 @@ function knightjumps(str) {
   return count;
 }
 
-console.log(knightjumps('4 5'));
+console.log(knightjumps('(4 5)'));
 
 module.exports = knightjumps;
