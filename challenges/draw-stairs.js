@@ -14,13 +14,15 @@
 */
 
 function drawStairs(n) {
-  for (let i = 0; i < n; i++){
-    for (let j = 0; i < n - 1; i++){
-      console.log(" ")
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < i - 1; j++) {
+      str = str.concat('*')
+      console.log(str)
     }
   }
-  console.log(hello)
+  console.log('hello')
 }
 
-
+drawStairs(5)
 module.exports = drawStairs;
