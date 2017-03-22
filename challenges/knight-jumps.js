@@ -30,7 +30,7 @@ function knightjumps(str) {
   // if these points are within the board, increment the counter
   // loop through all items in the object and test
   for(let i = 1; i < 9; i++) {
-    if(potentials[i][0] >= 1 && potentials[i][1] <= 8) {
+    if(potentials[i][0] >= 1 && potentials[i][0] <= 8 && potentials[i][1] >= 1 && potentials[i][1] <= 8) {
       counter++;
     }
   }
