@@ -15,11 +15,9 @@ function knightjumps(str) {
   let [x, y] = [Number(nums[1]), Number(nums[2])];
   // console.log(x, y)
   if (y === 1 || y === 8) {
-    if (x === 1 || x === 8) {
-      return 3;
-    } 
-    
-    return 5;
+    if (x === 1 || x === 8) return 2;
+    if (x === 2 || x === 7) return 3;
+    return 4;
   }
 
   return 8;
