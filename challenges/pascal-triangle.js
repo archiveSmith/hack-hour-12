@@ -33,7 +33,27 @@
 */
 
 function pascalTriangle(numRows) {
-
+  const pscalTriangle = [];
+  if (numRows === 0) return pscalTriangle;
+  pscalTriangle.push([1]);
+  if (numRows === 1) {
+    return pscalTriangle;
+  }
+  pscalTriangle.push([1,1]);
+  if (numRows === 2) {
+    return pscalTriangle;
+  }
+  numRows - 2;
+  while (numRows--) {
+    const newRow = [1];
+    const prevRow = pscalTriangle[pscalTriangle.length - 1];
+    for (var i = 0; i < prevRow.length - 1; i++) {
+      newRow.push(prevRow[i] + prevRow[i + 1]);
+    }
+    newRow.push(1);
+    pscalTriangle.push(newRow)
+  }
+  return pscalTriangle;
 }
-
+// console.log(pascalTriangle(5));
 module.exports = pascalTriangle;
