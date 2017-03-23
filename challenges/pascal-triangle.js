@@ -33,12 +33,7 @@
 */
 
 function pascalTriangle(numRows) {
-  //Set a final array
-  //loop numRows times, pushing vals to temp arrays
-  //each loop, begin and end with 1
-  //add the previous array values for the new array values
-  //need to keep track of previous array
-
+  console.log(numRows);
   let finalArr = [];
   let lastArr = [];
   let i;
@@ -54,6 +49,6 @@ function pascalTriangle(numRows) {
   return finalArr;
 }
 
-console.log(pascalTriangle(6));
+console.log(pascalTriangle(20));
 
 module.exports = pascalTriangle;
