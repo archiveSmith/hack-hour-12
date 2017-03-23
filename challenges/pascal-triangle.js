@@ -34,8 +34,6 @@
 
 function pascalTriangle(numRows) {
   if (!numRows) return [];
-  // if (numRows === 1) return [[1]];
-  // if (numRows === 2) return [[1], [1,1]];
   const output = [];
   let curr;
   let prev;
@@ -48,13 +46,11 @@ function pascalTriangle(numRows) {
       else curr.push(prev[j -1] + prev[j]);
     }
     prev = curr;
-    // console.log('prev: ', prev)
-    // console.log('curr: ', curr);
     output.push(curr);
   }
-  // console.log(output);
+  console.log(output);
   return output;
 }
 
-// pascalTriangle(6);
+pascalTriangle(10);
 module.exports = pascalTriangle;
