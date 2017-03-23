@@ -29,7 +29,7 @@ function knightjumps(str) {
   table.forEach( (coor) => {result.push(addArray(coor,arr))});
 
   // check which one can exist on the board ( 0 < x,y < 8)
-  return result.filter( (coor) => (coor[0] > 0 && coor[0] < 8 && coor[1] > 0 && coor[1] < 8)).length
+  return result.filter( (coor) => (coor[0] > 0 && coor[0] < 9 && coor[1] > 0 && coor[1] < 9)).length
 }
 
 module.exports = knightjumps;
