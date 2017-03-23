@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
   let sum = array.reduce(function (a, b) {
     return a + b;
@@ -25,14 +24,16 @@ function modemean(array) {
     modeMap[array[i]]++;
   }
 
-  let mode = Math.max.apply(null, modeMap);
+  let mode = Object.keys(modeMap).reduce((a, b) => { 
+    return modeMap[a] > modeMap[b] ? a : b 
+  });
 
-  console.log(modeMap)
+  if (Number(mode)=== mean) return true;
 
-  console.log(mean)
+  return false
 }
 
-let array = [1,2,2,3]
-modemean(array)
+let array = [1, 2, 2, 2]
+console.log(modemean(array))
 
 module.exports = modemean;
