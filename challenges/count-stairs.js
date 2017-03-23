@@ -15,21 +15,19 @@
  */
 
 function countStairs(n) {
+  const memo = {};
   let count = 0;
   
-  function recurse(target) {
-    if (target === 0) return count++;
-    if (target < 0) return;
+  function counting(n) {
+    if (memo.hasOwnProperty(n)) return memo[n];
+    if (n < 2) return 1;
 
-    recurse(target - 1);
-    recurse(target - 2);
+    return memo[n] = counting(n - 1) + counting(n - 2);
   }
   
-  recurse(n);
-  
-  return count;
+  return counting(n);
 }
 
-// console.log(countStairs(5));
+// console.log(countStairs(10));
 
 module.exports = countStairs;
