@@ -33,13 +33,14 @@
 */
 
 function pascalTriangle(numRows) {
-  let results = [[1], [1, 1]];
-  if(numRows === 1) return results[0];
-  if(numRows === 2) return results;
+  let results = [[1]];
+  if(numRows === 1) return results;
+  let temp;
+  let last;
 
-  for(let i = numRows; i > 2; i--) {
-    let temp = [];
-    let last = results[results.length - 1];
+  for(let i = numRows; i > 1; i--) {
+    last = results[results.length - 1];
+    temp = [];
     temp.push(1);
     for(let j = 0; j < last.length - 1; j++) {
       temp.push(last[j] + last[j+1]);
