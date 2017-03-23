@@ -33,7 +33,20 @@
 */
 
 function pascalTriangle(numRows) {
-
+  if (typeof numRows !== 'number') return;
+  output = [];
+  //each level is the length of the row;
+  //on each level the first and last elements are 1's
+  //inner elements are the addition of 
+  for (let i = 0; i < numRows; i++) {
+    output.push([])
+    for (let j = 0; j <= i; j++) {
+      if (j === 0 || j === i) output[i].push(1);
+      else output[i].push(output[i-1][j-1] + output[i-1][j])
+    }
+  }
+  return output;
 }
+//console.log(pascalTriangle(6));
 
 module.exports = pascalTriangle;
