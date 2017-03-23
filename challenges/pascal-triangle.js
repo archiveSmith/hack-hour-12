@@ -33,7 +33,17 @@
 */
 
 function pascalTriangle(numRows) {
+  const result = [];
 
+  // if less than 5, 11^numRow
+  if (numRows < 5) {
+    for (let i = 0; i < 5; i++) {
+      const row = Math.pow(11, i).toString().split('');
+      result.push(row);
+    }
+  }
+
+  return result;
 }
-
+console.log(pascalTriangle(4));
 module.exports = pascalTriangle;
