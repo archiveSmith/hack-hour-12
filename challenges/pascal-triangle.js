@@ -58,8 +58,9 @@ function pascalTriangle(numRows) {
     }
   }
 
+  return rows;
 }
 
-pascalTriangle(6);
+pascalTriangle(10);
 
 module.exports = pascalTriangle;
