@@ -11,27 +11,28 @@
 
 
 function modemean(array) {
-  let sum = array.reduce(function(a, b) {
+  let sum = array.reduce(function (a, b) {
     return a + b;
   }, 0);
   let mean = Math.floor(sum / array.length);
 
   let modeMap = {}
 
-  for(let i = 0; i < array.length; i++){
-    if(!modeMap[array[i]]){
+  for (let i = 0; i < array.length; i++) {
+    if (!modeMap[array[i]]) {
       modeMap[array[i]] = 0;
     }
     modeMap[array[i]]++;
   }
 
+  let mode = Math.max.apply(null, modeMap);
 
+  console.log(modeMap)
 
-  // let mode = Math.max.apply(null, modeMap);
-
-  // console.log(modeMap)
-  
-// console.log (sum)
+  console.log(mean)
 }
+
+let array = [1,2,2,3]
+modemean(array)
 
 module.exports = modemean;

@@ -15,6 +15,25 @@
  */
 
 function countStairs(n) {
+  let temp = n
+  let count = 1;
+
+  while(temp > 0) {
+    temp - 1;
+    count += 1;
+  }
+
+  temp = n;
+  while (temp > 0 && temp != 1){
+    temp - 2;
+    count += 1;
+
+    if (temp = 1) {
+      temp - 1;
+      count +=1;
+    }
+  }
+
 
 }
 
