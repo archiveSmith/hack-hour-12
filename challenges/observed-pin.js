@@ -63,7 +63,12 @@ function getPINs(observed) {
     if (posibility.length === len) return posiblities.push(posibility);
 
     for (let i = 0; i < arr.length; i += 1) {
-      makePosibility(arr.slice(), posibility + pos[Number(arr[i])]);
+      // get the ith item out of the array
+      item = arr.splice(i, 1)[0];
+      // recurisve call with copy of arr array and copy of cur with the item added
+      makePosibility(arr.slice(), posibility.concat(item));
+      // place the item back in the array
+      arr.splice(i, 0, item);
     }
   }
   makePosibility(keys);
@@ -71,7 +76,7 @@ function getPINs(observed) {
   return posiblities;
 }
 
-console.log(getPINs('11'));
+console.log(getPINs('112'));
 
 
 module.exports = getPINs
