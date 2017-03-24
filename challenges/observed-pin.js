@@ -43,8 +43,40 @@ expectations = {
 
 
 function getPINs(observed) {
-  console.log('the observed value', observed);
+  let numArr = observed.split('');
+  let i; 
+  let possibleArr = [];
+  for (i = 0; i < numArr.length; i += 1) {
+    if (numArr[i] === '1') possibleArr.push(['1', '2', '4']);
+    if (numArr[i] === '2') possibleArr.push(['1', '2', '3', '5']);
+    if (numArr[i] === '3') possibleArr.push(['2', '3', '6']);
+    if (numArr[i] === '4') possibleArr.push(['1', '4', '5', '7']);
+    if (numArr[i] === '5') possibleArr.push(['2', '4', '5', '6', '8']);
+    if (numArr[i] === '6') possibleArr.push(['3', '5', '6', '9']);
+    if (numArr[i] === '7') possibleArr.push(['4', '7', '8']);
+    if (numArr[i] === '8') possibleArr.push(['5', '7', '8', '9', '0']);
+    if (numArr[i] === '9') possibleArr.push(['6', '8', '9']);
+    if (numArr[i] === '0') possibleArr.push(['0', '8']);
+  }
+
+  let finalArr = [];
+  let max = possibleArr.length - 1;
+  function helper(arr, i) {
+    for (let j = 0, l = possibleArr[i].length; j < l; j += 1) {
+      let a = arr.slice(0);
+      a.push(possibleArr[i][j]);
+      if (i === max) finalArr.push(a);
+      else helper(a, i + 1);
+    }
+  }
+  helper([], 0);
+  for (let x = 0; x < finalArr.length; x += 1) {
+    finalArr[x] = finalArr[x].join('');
+  }
+  return finalArr;
 }
+
+console.log(getPINs('369'));
 
 
 module.exports = getPINs
