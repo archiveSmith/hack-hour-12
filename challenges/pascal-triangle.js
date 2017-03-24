@@ -33,6 +33,26 @@
 */
 
 function pascalTriangle(numRows) {
+  if (!Number.isInteger(numRows) || numRows < 1) return 'error';
+
+  const triangle = [[1]];
+
+  for (let i = 1; i < numRows; i += 1) {
+    const currentRow = [1];
+
+    for (let j = 1; j < i; j += 1) {
+      const previousRow = triangle[triangle.length - 1];
+      const sum = previousRow[j] + previousRow[j - 1];
+      currentRow.push(sum);
+    }
+
+    currentRow.push(1);
+    triangle.push(currentRow);
+  }
+  return triangle;
+}
+
+function pascalTriangleMess(numRows) {
   const output = [[1], [1, 1]];
   
   while (numRows > 1) {
