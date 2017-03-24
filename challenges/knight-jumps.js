@@ -10,10 +10,10 @@
 //  example input:
 // var str = "(4 5)"
 
+// not dynamic
 function knightjumps(str) {
   let nums = str.split(/(\w+)\s(\w+)/gi);
   let [x, y] = [Number(nums[1]), Number(nums[2])];
-  // console.log(x, y)
   if (y === 1 || y === 8) {
     if (x === 1 || x === 8) return 2;
     if (x === 2 || x === 7) return 3;
@@ -23,6 +23,10 @@ function knightjumps(str) {
   if (x === 1 || x === 8) return 4;
 
   return 8;
+}
+
+function knightjumps(str) {
+
 }
 
 console.log(knightjumps("(4 5)"))
