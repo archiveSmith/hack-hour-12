@@ -16,12 +16,12 @@
 // drawStairs
 function drawStairs(n) {
   let str = ''
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < i - 1; j++) {
-      str = str.concat('*')
-      console.log(str)
-    }
+  for (let j = 0; j < n; j++) {
+    str = str.concat('*')
+    let stair = (' ').repeat(n - j - 1).concat(str)
+    console.log(stair)
   }
 }
 
+drawStairs(6)
 module.exports = drawStairs;
