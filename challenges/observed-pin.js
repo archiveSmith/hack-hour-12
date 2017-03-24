@@ -43,7 +43,7 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  console.log('the observed value', observed);
 }
 
 
