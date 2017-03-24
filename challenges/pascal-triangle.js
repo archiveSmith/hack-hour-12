@@ -34,16 +34,13 @@
 
 function pascalTriangle(numRows) {
   const pscalTriangle = [];
+
   if (numRows === 0) return pscalTriangle;
+
   pscalTriangle.push([1]);
-  if (numRows === 1) {
-    return pscalTriangle;
-  }
-  pscalTriangle.push([1,1]);
-  if (numRows === 2) {
-    return pscalTriangle;
-  }
-  numRows -= 2;
+  if (numRows === 1) return pscalTriangle;
+  
+  numRows -= 1;
   while (numRows--) {
     const newRow = [1];
     const prevRow = pscalTriangle[pscalTriangle.length - 1];
@@ -55,8 +52,5 @@ function pascalTriangle(numRows) {
   }
   return pscalTriangle;
 }
-// console.log(pascalTriangle(1));
-// console.log(pascalTriangle(2));
-// console.log(pascalTriangle(3));
-// console.log(pascalTriangle(5));
+console.log(pascalTriangle(5));
 module.exports = pascalTriangle;
