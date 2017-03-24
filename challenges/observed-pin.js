@@ -43,8 +43,35 @@ expectations = {
 
 
 function getPINs(observed) {
+  const pos = [
+    ['8', '0'],
+    ['1', '2', '4'],
+    ['1', '2', '3', '5'],
+    ['2', '3', '6'],
+    ['1', '4', '5', '7'],
+    ['2', '4', '5', '6'],
+    ['5', '6', '9'],
+    ['4', '7', '8'],
+    ['5', '7', '8', '9', '0'],
+    ['6', '8', '9'],
+  ];
+  const keys = observed.split('');
+  const len = keys.length;
+  const posiblities = [];
 
+  function makePosibility(arr, posibility = ''){
+    if (posibility.length === len) return posiblities.push(posibility);
+
+    for (let i = 0; i < arr.length; i += 1) {
+      makePosibility(arr.slice(), posibility + pos[Number(arr[i])]);
+    }
+  }
+  makePosibility(keys);
+
+  return posiblities;
 }
+
+console.log(getPINs('11'));
 
 
 module.exports = getPINs
