@@ -20,9 +20,6 @@ function Node(val) {
   this.value = val;
   this.next = null;
   this.length = 0;
-
-  
-
 }
 
 function kthToLastNode(k, head) {
@@ -37,10 +34,20 @@ function kthToLastNode(k, head) {
     head = head.next;
     count++;
   }
-
   return head.value;
 }
 
-// change to file just to make a new pull request
+//  var a = new Node('A');
+//  var b = new Node('B');
+//  var c = new Node('C');
+//  var d = new Node('D');
+//  var e = new Node('E');
+ 
+//  a.next = b;
+//  b.next = c;
+//  c.next = d;
+//  d.next = e;
+
+//  kthToLastNode(2,a);
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
