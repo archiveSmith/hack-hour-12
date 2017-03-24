@@ -40,8 +40,7 @@ function pascalTriangle(numRows) {
 
   for(let i = numRows; i > 1; i--) {
     last = results[results.length - 1];
-    temp = [];
-    temp.push(1);
+    temp = [1];
     for(let j = 0; j < last.length - 1; j++) {
       temp.push(last[j] + last[j+1]);
     }
