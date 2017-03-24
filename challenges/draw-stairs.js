@@ -13,6 +13,7 @@
 
 */
 
+// drawStairs
 function drawStairs(n) {
   let str = ''
   for (let i = 0; i < n; i++) {
@@ -23,5 +24,4 @@ function drawStairs(n) {
   }
 }
 
-// drawStairs(5)
 module.exports = drawStairs;
