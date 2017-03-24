@@ -17,8 +17,32 @@
  * 	 
  */
 
-function newIntersections(x, y){
+function newIntersections(x, y) {
+      // Get all vertical lines and their max/min
+  const exes = x.reduce((accum, xCoord, index) => {
+    if (!accum[xCoord]) accum[xCoord] = { max: y[index], min: y[index] };
+    accum[xCoord].max = Math.max(accum[xCoord].max, y[index]);
+    accum[xCoord].min = Math.min(accum[xCoord].min, y[index]);
+    return accum;
+  }, {});
 
+  // Get all horizontal lines and their max/min
+  const whys = y.reduce((accum, yCoord, index) => {
+    if (!accum[yCoord]) accum[yCoord] = { max: x[index], min: x[index] };
+    accum[yCoord].max = Math.max(accum[yCoord].max, x[index]);
+    accum[yCoord].min = Math.min(accum[yCoord].min, x[index]);
+    return accum;
+  }, {});
+
+  // Count # of intersections
+  let intersections = 0;
+  for (let xCoord in exes) {
+    for (let yCoord in whys) {
+      if (exes[xCoord].max > yCoord && yCoord > exes[xCoord].min
+        && whys[yCoord].max > xCoord && xCoord > whys[yCoord].min) intersections++;
+    }
+  }
+  return intersections;
 }
 
 module.exports = newIntersections;
