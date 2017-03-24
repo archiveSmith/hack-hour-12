@@ -20,17 +20,20 @@
 function newIntersections(x, y) {
   let intersections = 0;
   const Xs = x.reduce((acc, xCoord, i) => {
-    if (!acc[xCoord]) acc[xCoord] = { min: Math.min(), max: Math.max() };
+    if (!acc[xCoord]) acc[xCoord] = { min: Math.min(acc[xCoord].min, y[i]), max: Math.max(acc[xCoord].max, y[i]) };
     return acc;
   }, {});
   const Ys = y.reduce((acc, yCoord, i) => {
-    if (!acc[yCoord]) acc[yCoord] = { min: Math.min(), max: Math.max() };
+    if (!acc[yCoord]) acc[yCoord] = { min: Math.min(acc[yCoord].min, x[i]), max: Math.max(acc[yCoord].max, x[i]) };
     return acc;
   }, {});
 
-  for (let x in Xs) {
-    for (let y in Ys) {
-      if (true) intersections += 1;
+  for (let xCoord in Xs) {
+    for (let yCoord in Ys) {
+      if (
+        Xs[xCoord].max > yCoord && yCoord > Xs[xCoord].min
+        && Ys[yCoord].max > xCoord && xCoord > Ys[yCoord].min
+      ) intersections += 1;
     }
   }
 
