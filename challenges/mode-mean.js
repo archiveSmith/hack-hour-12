@@ -8,6 +8,7 @@
  * Return true or false
  *
  */
+// modemean
 
 function modemean(array) {
   let sum = array.reduce(function (a, b) {

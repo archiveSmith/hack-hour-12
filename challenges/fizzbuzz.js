@@ -16,6 +16,7 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+// fizzbuzz
 function fizzbuzz(num) {
   let arr = [];
 
