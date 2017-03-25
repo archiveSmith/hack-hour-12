@@ -22,7 +22,7 @@ function poker(hand1, hand2) {
   function tokenize(hand) {
     const tokens = {};
     for (let i = 0; i < hand.length; i += 1) {
-      if (tokens.hasOwnProperty(i)) {
+      if (tokens.hasOwnProperty(hand[i])) {
         tokens[hand[i]] += 1;
       } else {
         tokens[hand[i]] = 1;
@@ -32,6 +32,8 @@ function poker(hand1, hand2) {
   }
   const hand1token = tokenize(hand1);
   const hand2token = tokenize(hand2);
+
+  // console.log(hand1token, hand2token);
 
   // weight
   // four of a kind = 600 + card -> 614
