@@ -134,12 +134,15 @@ function poker(hand1, hand2) {
   const player1 = getHandScore(hand1Map);
   const player2 = getHandScore(hand2Map);
 
+  console.log(player1)
+  console.log(player2)
+
   if (player1 === player2) return "Draw";
   if (player1 < player2) return "Player 2 wins";
   if (player1 > player2) return "Player 1 wins";
 }
 
-console.log(poker([2,5,5,5,2], [4,6,7,8,8]));
+console.log(poker([2,5,5,5,1], [4,6,8,8,8]));
 
 
 module.exports = poker;
