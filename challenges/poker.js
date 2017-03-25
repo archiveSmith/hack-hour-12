@@ -32,8 +32,8 @@
 // const hand2 = createHand();
 
 function poker(hand1, hand2) {
-  console.log(hand1);
-  console.log(hand2);
+  // console.log(hand1);
+  // console.log(hand2);
 
   function findHandStrength(array) {
     const compObj = {};
@@ -71,16 +71,20 @@ function poker(hand1, hand2) {
       }
     }
     if (result > 140 && result < 1000000) {
-      console.log('FULL HOUSE!!!')
       for (let key in compObj) {
-        if (compObj[key] === 2) result *= 1000
+        if (compObj[key] === 2) {
+          console.log('FULL HOUSE!!!')
+          result *= 1000
+        }
       }
     }
-    if (result === 0) {
-      console.log('STRAIGHT!!!')
+    if (result < 15) {
       const compArr = Object.keys(compObj).sort((a, b) => a - b);
       console.log(compArr)
-      if (compArr[4] - compArr[0] === 4) result = compArr[4] * 1000;
+      if (compArr[4] - compArr[0] === 4) {
+        console.log('STRAIGHT!!!')
+        result = compArr[4] * 1000;
+      }
     }
 
     console.log(result)
