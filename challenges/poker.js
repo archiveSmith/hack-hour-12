@@ -19,7 +19,56 @@
 */
 
 function poker(hand1, hand2) {
+  function tokenize(hand) {
+    const tokens = {};
+    for (let i = 0; i < hand.length; i += 1) {
+      if (tokens.hasOwnProperty(i)) {
+        tokens[hand[i]] += 1;
+      } else {
+        tokens[hand[i]] = 1;
+      }
+    }
+    return tokens;
+  }
+  const hand1token = tokenize(hand1);
+  const hand2token = tokenize(hand2);
 
+  // weight
+  // four of a kind = 600 + card -> 614
+  // full house three of a kind + one pair = 300 + 100 + high cards = 427
+  // three of a kind = 300 + card -> 314
+  // two pairs = 200 (pair) + 50 (double pairs) + high card of pair + high card -> 264
+  // one pair = 100 (pair) + high card of pair + high card -> 214 + 13 -> 127
+  // high card = 0 + high card -> 14
+
+  function getWeight(handObj) {
+    let weight = 0;
+    const highCard = [];
+
+    for (let card in handObj) {
+      if (handObj[card] === 4) {
+        weight += 600 + Number(card);
+      }
+      if (handObj[card] === 3) {
+        weight += 300 + Number(card);
+      }
+      if (handObj[card] === 2) {
+        weight += 100 + Number(card);
+      }
+      if (handObj[card] === 1) {
+        highCard.push(Number(card));
+      }
+    }
+    return weight + Number(Math.max(...highCard));
+  }
+
+  const player1 = getWeight(hand1token);
+  const player2 = getWeight(hand2token);
+
+  if (player1 === player2) return 'Draw';
+  return player1 > player2 ? 'Player 1 wins' : 'Player 2 wins';
 }
+
+console.log(poker([3,5,5,5,2], [4,6,7,8,8]));
 
 module.exports = poker;
