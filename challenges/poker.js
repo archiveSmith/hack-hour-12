@@ -70,7 +70,7 @@ function poker(hand1, hand2) {
         if (key > result) result = key;
       }
     }
-    if (result > 140) {
+    if (result > 140 && result < 1000000) {
       console.log('FULL HOUSE!!!')
       for (let key in compObj) {
         if (compObj[key] === 2) result *= 1000
