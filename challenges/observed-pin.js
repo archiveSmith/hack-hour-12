@@ -39,25 +39,51 @@ expectations = {
 
 */
 
-function getPINs(observed) {
-  let numbers = observed.split('');
-  let potentialArrays = [];
-  let temp;
-  let currentNum;
+// function getPINs(observed) {
+//   let numbers = observed.split('');
+//   let potentialArrays = [];
+//   let temp;
+//   let currentNum;
 
-  for(let i = 0; i < numbers.length; i++) {
-    temp = [];
-    currentNum = Number(numbers[i]);
-    temp.push(currentNum);
-    if(currentNum - 3 > 0 && currentNum - 3 < 10) temp.push(currentNum - 3);
-    if(currentNum + 3 > 0 && currentNum < 10) temp.push(currentNum + 3)
-    if(currentNum - 1 > 0 && currentNum - 1 < 10) temp.push(currentNum - 1)
-    if(currentNum + 1 > 0 && currentNum + 1 < 10) temp.push(currentNum + 1)
-    potentialArrays.push(temp);
-  }
-  console.log(potentialArrays);
+//   for(let i = 0; i < numbers.length; i++) {
+//     temp = [];
+//     currentNum = Number(numbers[i]);
+//     temp.push(currentNum);
+//     if(currentNum - 3 > 0 && currentNum - 3 < 10) temp.push(currentNum - 3);
+//     if(currentNum + 3 > 0 && currentNum < 10) temp.push(currentNum + 3)
+//     if(currentNum - 1 > 0 && currentNum - 1 < 10) temp.push(currentNum - 1)
+//     if(currentNum + 1 > 0 && currentNum + 1 < 10) temp.push(currentNum + 1)
+//     potentialArrays.push(temp);
+//   }
+//   console.log(potentialArrays);
+// }
+
+let pad = {
+  1: [1, 2, 4],
+  2: [1,2,3,5],
+  3: [2,3,6],
+  4: [1,3,5,7],
+  5: [2,4,5,6,8],
+  6: [3,5,6,9],
+  7: [4,7,8],
+  8: [5,7,8,9,0],
+  0: [8, 0]
+}
+function getPINs(observed) {
+  let optionsArray = observed.split('').map(function(digit) {
+    return pad[digit];
+  })
+  let final = [];
+  (function formCombos(array, combo) {
+    if(combo.length === optionsArray.length) return final.push(combo);
+    array.forEach(function(digit) {
+      return formCombos(optionsArray[combo.length + 1], combo + digit);
+    });
+  })(optionsArray[0], '')
+  return final;
 }
 
-getPINs('3');
+console.log(getPINs('369'));
+
 
 module.exports = getPINs
