@@ -67,6 +67,11 @@ function poker(hand1, hand2) {
   sortedHandValues1.sort(function(a, b){ return b-a });
   sortedHandValues2.sort(function(a, b){ return b-a });
   console.log(sortedHandValues1, sortedHandValues2);
+  // if (sortedHandValues1.length === sortedHandValues2.length) {
+  //   for (let i = 0; i < sortedHandValues2.length; i += 1) {
+
+  //   }
+  // }
   if (sortedHandValues1[0] !== sortedHandValues2[0]) {
     return sortedHandValues1[0] > sortedHandValues2[0] ? 'Player 1 wins' : 'Player 2 wins';
   } else {
@@ -78,10 +83,7 @@ function poker(hand1, hand2) {
     if (sortedHand1[i] > sortedHand2[i]) return 'Player 1 wins';
     if (sortedHand2[i] > sortedHand1[i]) return 'Player 2 wins';
   }
-
-
-  
-
+  return 'Draw';
 }
 
 console.log(poker([3,4,5,5,2], [4,6,7,8,8]))
