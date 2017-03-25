@@ -43,8 +43,30 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  const adjs = {
+    0: [0, 8],
+    1: [1, 2, 4],
+    2: [2, 3, 5, 1],
+    3: [3, 6, 2],
+    4: [4, 1, 5, 7],
+    5: [5, 2, 6, 8, 4],
+    6: [6, 9, 5, 3],
+    7: [7, 4, 8],
+    8: [8, 5, 9, 0, 7],
+    9: [9, 8, 6],
+  };
+  observed = observed.toString();
+  const poss = [];
+  for (let i = 0; i < observed.length; i++) {
+    const current = observed.charAt(i);
+    poss.push(adjs[current].length);
+  }
+  return poss.reduce((acc, val) => {
+    return acc * val;
+  }, 1); 
 }
+
+console.log(getPINs(11));
 
 
 module.exports = getPINs
