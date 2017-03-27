@@ -26,13 +26,13 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
-  if (!arr || Array.isArray(arr) || !arr.length) return 'Check inputs';
-  
+  if (!arr || !Array.isArray(arr) || !arr.length) return 'Check inputs';
+
   arr.push(0);
   
   return arr.reduce((accum, num, i) => {
     return accum ^ num ^ (i + 1);
   }, 0);
 }
-// console.log(missingNum([1,2,3,4,6,7]));
+console.log(missingNum([1,2,3,4,6,7]));
 module.exports = missingNum;
