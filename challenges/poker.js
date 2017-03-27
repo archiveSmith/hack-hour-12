@@ -39,8 +39,8 @@ function poker(hand1, hand2) {
   // four of a kind = 600 + card -> 614
   // full house three of a kind + one pair = 300 + 100 + high cards = 427
   // three of a kind = 300 + card -> 314
-  // two pairs = 200 (pair) + 50 (double pairs) + high card of pair + high card -> 264
-  // one pair = 100 (pair) + high card of pair + high card -> 214 + 13 -> 127
+  // two pairs = 200 (pair) + high card of pair + high card -> 214
+  // one pair = 100 (pair) + high card of pair + high card -> 114 + 13 -> 127
   // high card = 0 + high card -> 14
 
   function getWeight(handObj) {
