@@ -28,10 +28,10 @@ Challange:
 function missingNum(arr) {
   arr.push(0);
   let num = 0;
-  for (var i = 1; i <= arr.length; i++) {
-    num = num ^ i ^ arr[i-1];
-  }
-  return num;
+  
+  return arr.reduce((accum, num, i) => {
+    return accum ^ num ^ (i + 1);
+  }, 0);
 }
-// console.log(missingNum([1,2,3,5,6]));
+console.log(missingNum([1,2,3,4,6,7]));
 module.exports = missingNum;
