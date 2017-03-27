@@ -26,11 +26,23 @@ Challange:
   ** keep in mind time complexity
 */
 
-function missingNum(Array) {
-  if(!Array) return false;
-  const sortedArray = Array.slice().sort((a, b) => (a - b));
-  for(let i = 0; i < sortedArray.length; i++) {
-    if(sortedArray[i] !== i + 1) return i + 1;
+// function missingNum(Array) {
+//   if(!Array) return false;
+//   const sortedArray = Array.slice().sort((a, b) => (a - b));
+//   for(let i = 0; i < sortedArray.length; i++) {
+//     if(sortedArray[i] !== i + 1) return i + 1;
+//   }
+//   return false;
+// }
+
+// time complexity of O(N);
+function missingNum(array) {
+  const obj = {};
+  for(let i = 0; i < array.length; i++) {
+    obj[array[i]] = true;
+  }
+  for(let i = 0; i < Object.keys(obj).length; i++) {
+    if(!obj[i + 1]) return i + 1;
   }
   return false;
 }
