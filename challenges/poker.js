@@ -19,7 +19,15 @@
 */
 
 function poker(hand1, hand2) {
-
+  function handStrength(hand) {
+    //handStrength is integer from 1 to 7, 7 being 4-of-a-kind
+    let highCard, handStrength;
+    hand.sort();
+    if (hand)
+    return hand;
+  }
+  console.log(handStrength(hand1));
 }
+poker([5,4,3,2,1]);
 
 module.exports = poker;
