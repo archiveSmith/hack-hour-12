@@ -26,10 +26,15 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  let compare = 0;
+  let count = 1;
   for (let i = 1; i < Array.length + 1; i += 1) {
-    if (Array.indexOf(i) === -1) return i;
+    compare = count ^ Array[i];
+    count += 1;
   }
-  return 'all good';
+  return compare;
 }
+
+console.log(missingNum([2,3,1,5]));
 
 module.exports = missingNum;
