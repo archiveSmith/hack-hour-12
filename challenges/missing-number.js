@@ -31,6 +31,7 @@ function missingNum(Array) {
   for(let i = 0; i < sortedArray.length; i++) {
     if(sortedArray[i] !== i + 1) return i + 1;
   }
+  return false;
 }
 
 module.exports = missingNum;
