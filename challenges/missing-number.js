@@ -33,5 +33,5 @@ function missingNum(arr) {
     return accum ^ num ^ (i + 1);
   }, 0);
 }
-console.log(missingNum([1,2,3,4,6,7]));
+// console.log(missingNum([1,2,3,4,6,7]));
 module.exports = missingNum;
