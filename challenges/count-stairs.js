@@ -15,6 +15,22 @@
  */
 
 function countStairs(n) {
+  const memo = {};
+  function counting(i) {
+    if (memo.hasOwnProperty(i)) return memo[i];
+    if (n < 2) return 1;
+    return memo[i] = counting(n - 1) + counting(n - 2);
+  }
+}
+
+function countStairs(n, memo = {}) {
+  if (memo.hasOwnProperty(n)) return memo[n];
+  if (n < 2) return 1;
+  return memo[n] = countStairs(n - 1) + countStairs(n - 2);
+}
+
+
+function countStairs(n) {
   const arr = [];
   arr[0] = 0;
   arr[1] = 1;
@@ -28,6 +44,6 @@ function countStairs(n) {
   return arr[n];
 }
 
-console.log(countStairs(5));
+console.log(countStairs(1000));
 
 module.exports = countStairs;
