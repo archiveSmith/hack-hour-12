@@ -39,12 +39,39 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
+  if (!observed || observed.length <= 0) return {};
+  const expectations = {};
+  expectations[observed] = [];
+  
+  function recurse(pin, digit, i, curr) {
+    console.log(`${pin}, ${digit}, ${i}, ${curr}`);
+    if (curr.length >= pin.length) return expectations[observed].push(curr);
 
+    curr[i] = String(digit);
+    digit = Number(pin[i]);
+    i += 1;
+
+    // left neighbor;
+    if (digit !== 1 && digit !== 4 && digit !== 7 && digit !== 0) recurse(pin, digit - 1, i, curr);
+    // right neighbor;
+    if (digit !== 3 && digit !== 6 && digit !== 9 && digit !== 0) recurse(pin, digit + 1, i, curr);
+    // top neighbor;
+    if (digit !== 1 && digit !== 2 && digit !== 3 && digit !== 0) recurse(pin, digit - 3, i, curr);
+    // below neighbor;
+    if (digit !== 7 && digit !== 9 && digit !== 8 && digit !== 0) recurse(pin, digit + 3, i, curr);
+    // special cases for 8 and 0
+    if (digit === 8) recurse(pin, 0, i, curr);
+    if (digit === 0) recurse(pin, 8, i, curr);
+
+    recurse(pin, digit, i, curr);
+
+  }
+  recurse(observed, observed[0], 0, String(observed[0]));
+
+  console.log(expectations);
 }
 
+getPINs("45");
 
 module.exports = getPINs
