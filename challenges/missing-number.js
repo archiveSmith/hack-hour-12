@@ -35,6 +35,4 @@ function missingNum(Array) {
   return false;
 }
 
-console.log(missingNum([2,3,5]));
-
 module.exports = missingNum;
