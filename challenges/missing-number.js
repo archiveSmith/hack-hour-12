@@ -41,10 +41,11 @@ function missingNum(array) {
   for(let i = 0; i < array.length; i++) {
     obj[array[i]] = true;
   }
-  for(let i = 0; i < Object.keys(obj).length; i++) {
+  let keys = Object.keys(obj);
+  for(let i = 0; i < keys.length; i++) {
     if(!obj[i + 1]) return i + 1;
   }
-  return false;
+  return 0;
 }
 
 module.exports = missingNum;
