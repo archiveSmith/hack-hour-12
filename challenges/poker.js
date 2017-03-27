@@ -19,6 +19,8 @@
 */
 
 function poker(hand1, hand2) {
+  console.log('hand 1:', hand1);
+  console.log('hand 2:', hand2);
   let sortedHand1 = hand1.sort(function(a, b){ return b-a });
   let sortedHand2 = hand2.sort(function(a, b){ return b-a });
   let handScore1;
