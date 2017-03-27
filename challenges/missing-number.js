@@ -37,7 +37,7 @@ function missingNum(arr) {
       if (arr[i] > largest) largest = arr[i];
     }
   }
-  console.log('total', total)
+  console.log('total', total);
   console.log('e total', expectedTotal);
   total -= largest;
   return expectedTotal - total;
