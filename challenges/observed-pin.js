@@ -79,4 +79,10 @@ function getPINs(observed) {
 console.log(getPINs('112'));
 
 
+// form array of parray of possibiities for each observerd digit
+// recurse thru each subarray to form all possibiities
+// adding each digit from the next array to the new combo
+// base case -> combp/path has reached length of observed pin
+
+
 module.exports = getPINs
