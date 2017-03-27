@@ -40,11 +40,42 @@ expectations = {
 */
 
 
-
-
 function getPINs(observed) {
+  const objTable = {
+    1: ["1","2","4"],
+    2: ["1","2","3","5"],
+    3: ["2","3","6"],
+    4: ["1","4","5","7"],
+    5: ["2","4","5","6","8"],
+    6: ["5","6","3","9"],
+    7: ["4","7","8"],
+    8: ["5","8","7","9","0"],
+    9: ["6","8","9"],
+    0: ["0","8"]
+  }
 
+
+  let mem = {};
+
+  function getSinglePIN(n) {
+    if (objTable[n]) {
+      return objTable[n];
+    } else {
+      let result = []
+      getSinglePIN(n[0]).forEach( (ele) => {
+        getSinglePIN(n.slice(1)).forEach ( (ele2) => {
+          result.push(ele + ele2);
+        })
+      })
+
+      mem[n] = result;
+      return mem[n];
+    }
+  }
+
+  return getSinglePIN(observed);
 }
 
+// console.log(getPINs("11"));
 
 module.exports = getPINs
