@@ -26,7 +26,6 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
-  console.log(arr);
   let total = arr.reduce((curr, next) => {
     return curr + next;
   });
@@ -38,10 +37,11 @@ function missingNum(arr) {
       if (arr[i] > largest) largest = arr[i];
     }
   }
+  if (total === expectedTotal) return arr.length + 1;
   total -= largest;
   return expectedTotal - total;
 }
 
-console.log(missingNum([1, 5, 3, 2]));
+console.log(missingNum([ 1, 2 ]));
 
 module.exports = missingNum;
