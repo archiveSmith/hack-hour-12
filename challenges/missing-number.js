@@ -25,7 +25,24 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(arr) {
+  let total = arr.reduce((curr, next) => {
+    return curr + next;
+  });
+  let expectedTotal = 0;
+  let largest = -Infinity;
+  for (let i = 0; i <= arr.length; i += 1) {
+    expectedTotal += i;
+    if (arr[i]) {
+      if (arr[i] > largest) largest = arr[i];
+    }
+  }
+  console.log('total', total)
+  console.log('e total', expectedTotal);
+  total -= largest;
+  return expectedTotal - total;
 }
+
+console.log(missingNum([1, 2, 3, 5]));
 
 module.exports = missingNum;
