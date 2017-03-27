@@ -26,8 +26,9 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
+  if (!arr || Array.isArray(arr) || !arr.length) return 'Check inputs';
+  
   arr.push(0);
-  let num = 0;
   
   return arr.reduce((accum, num, i) => {
     return accum ^ num ^ (i + 1);
