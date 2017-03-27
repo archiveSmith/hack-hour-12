@@ -25,7 +25,20 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(arr) {
+  const obj = {};
+
+  //generate an object, that have key equal to the value and value equal to the indexed
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = i;
+  }
+
+  //iterate through the array against the look for an exist value
+  for (let key in obj) {
+    if (obj[Number(key) + 1] === undefined) {
+      return (Number(key) + 1);
+    }
+  }
 }
 
 module.exports = missingNum;
