@@ -30,11 +30,12 @@ function missingNum(Array) {
   let count = 1;
   for (let i = 1; i < Array.length + 1; i += 1) {
     compare = count ^ Array[i];
+    console.log(compare)
     count += 1;
   }
   return compare;
 }
 
-console.log(missingNum([2,3,1,5]));
+console.log(missingNum([2,3,1,5,6,7]));
 
 module.exports = missingNum;
