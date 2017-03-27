@@ -25,7 +25,15 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  //create an object to store
+  //if array length is 4 we expect 1-5 in array
+  let expected = Array.from(Array(array.length+2).keys()).slice(1);
+  return expected.filter(item => {
+    return array.indexOf(item) === -1; 
+  })[0];
 }
+let test = [3,2,4,6,1]
+console.log(missingNum(test));
 
 module.exports = missingNum;
