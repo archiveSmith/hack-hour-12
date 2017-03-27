@@ -42,54 +42,136 @@ expectations = {
 
 
 
-function getPINs(observed) {
+// function getPINs(observed) {
+//   const pinValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', null, '0', null];
+//   const observedNums = observed.split(''); // .map(str => Number(str));
+//   console.log(observedNums)
+//   const result = [observed];
+//   for (let i = 0; i < observedNums.length; i += 1) {
+//     let curr = observedNums[i];
+//     let positionOnKeypad = pinValues.indexOf(curr);
+//     console.log(positionOnKeypad)
+//     if (pinValues[positionOnKeypad - 1]) {
+//       let next = observedNums.map((val, index) => {
+//         if (index === i) return pinValues[positionOnKeypad - 1];
+//         return val;
+//       }).join('');
+      
+//       result.push(next);
+//     }
+//     if (pinValues[positionOnKeypad + 1]) {
+//       let next = observedNums.map((val, index) => {
+//         if (index === i) return pinValues[positionOnKeypad + 1];
+//         return val;
+//       }).join('');
+      
+//       result.push(next);
+//     }
+//     if (pinValues[positionOnKeypad - 3]) {
+//       let next = observedNums.map((val, index) => {
+//         if (index === i) return pinValues[positionOnKeypad - 3];
+//         return val;
+//       }).join('');
+      
+//       result.push(next);
+//     }
+//     if (pinValues[positionOnKeypad + 3]) {
+//       let next = observedNums.map((val, index) => {
+//         if (index === i) return pinValues[positionOnKeypad + 3];
+//         return val;
+//       }).join('');
+      
+//       result.push(next);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function getPINs(observed, currIndex = 0, result = []) {
+//   result.push(observed);
+//   console.log('currindex', currIndex, observed.length)
+//   if (currIndex === observed.length) return result;
+//   const pinValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', null, '0', null];
+//   const observedNums = observed.split('');
+//   console.log(observedNums)
+//   let currNum = observedNums[currIndex];
+//   let positionOnKeypad = pinValues.indexOf(currNum);
+//   if (pinValues[positionOnKeypad - 1]) {
+//     let next = observedNums.map((val, index) => {
+//         if (index == currIndex) return pinValues[positionOnKeypad - 1];
+//         return val;
+//       }).join('');
+//       console.log('next', next)
+    
+//     getPINs(next, currIndex += 1, result);
+//   }
+//   if (pinValues[positionOnKeypad + 1]) {
+//     let next = observedNums.map((val, index) => {
+//         if (index == currIndex) return pinValues[positionOnKeypad - 1];
+//         return val;
+//       }).join('');
+    
+//     getPINs(next, currIndex += 1, result);
+//   }
+//   if (pinValues[positionOnKeypad - 3]) {
+//     let next = observedNums.map((val, index) => {
+//         if (index == currIndex) return pinValues[positionOnKeypad - 1];
+//         return val;
+//       }).join('');
+    
+//     getPINs(next, currIndex += 1, result);
+//   }
+//   if (pinValues[positionOnKeypad + 3]) {
+//     let next = observedNums.map((val, index) => {
+//         if (index == currIndex) return pinValues[positionOnKeypad - 1];
+//         return val;
+//       }).join('');
+    
+//     getPINs(next, currIndex += 1, result);
+//   }
+// }
+
+function getPINs(observed, currIndex = 0, result = []) {
+  // pin values on keypad
   const pinValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', null, '0', null];
-  const observedNums = observed.split(''); // .map(str => Number(str));
-  console.log(observedNums)
-  const result = [observed];
-  for (let i = 0; i < observedNums.length; i += 1) {
-    let curr = observedNums[i];
-    console.log(curr)
-    let positionOnKeypad = pinValues.indexOf(curr);
-    console.log(positionOnKeypad)
-    if (pinValues[positionOnKeypad - 1]) {
-      let next = observedNums.map((val, index) => {
-        if (index === i) return pinValues[positionOnKeypad - 1];
-        return val;
+
+  // push each observed value in result
+  result.push(observed);
+
+  // if you've reached the end of the input, return the result
+  if (currIndex === observed.length) return result;
+
+  // get current Number
+  let currNum = observed.split('')[currIndex];
+  console.log(currNum)
+  // get current position on keypad
+  let position = pinValues.indexOf(currNum);
+  console.log(position)
+  // check for all permutations
+  let allPossibleChanges = [pinValues[position - 1], pinValues[position + 1], pinValues[position - 3], pinValues[position + 3]];
+  console.log('all', allPossibleChanges)
+  let final = [];
+  for (let i = 0; i < allPossibleChanges.length; i += 1) {
+    if (allPossibleChanges[i]) {
+      let next = observed.split('').map((cv, index) => {
+        if (index === currIndex) return cv = allPossibleChanges[i];
+        return cv;
       }).join('');
-      
-      result.push(next);
-    }
-    if (pinValues[positionOnKeypad + 1]) {
-      let next = observedNums.map((val, index) => {
-        if (index === i) return pinValues[positionOnKeypad + 1];
-        return val;
-      }).join('');
-      
-      result.push(next);
-    }
-    if (pinValues[positionOnKeypad - 3]) {
-      let next = observedNums.map((val, index) => {
-        if (index === i) return pinValues[positionOnKeypad - 3];
-        return val;
-      }).join('');
-      
-      result.push(next);
-    }
-    if (pinValues[positionOnKeypad + 3]) {
-      let next = observedNums.map((val, index) => {
-        if (index === i) return pinValues[positionOnKeypad + 3];
-        return val;
-      }).join('');
-      
-      result.push(next);
+      console.log(String(next))
+      final.concat(getPINs(String(next), currIndex += 1, result));
     }
   }
 
-  return result;
-}
+//   return final;
 
-console.log(getPINs('11'))
+// }
+
+// function getPINs(observed) {
+  
+// }
+
+console.log(getPINs('8'))
 
 
 module.exports = getPINs
