@@ -27,11 +27,14 @@ Challange:
 */
 
 function missingNum(Array) {
+  if(!Array) return false;
   const sortedArray = Array.slice().sort((a, b) => (a - b));
   for(let i = 0; i < sortedArray.length; i++) {
     if(sortedArray[i] !== i + 1) return i + 1;
   }
   return false;
 }
+
+console.log(missingNum([2,3,5]));
 
 module.exports = missingNum;
