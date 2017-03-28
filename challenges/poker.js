@@ -19,6 +19,57 @@
 */
 
 function poker(hand1, hand2) {
+  if(!Array.isArray()) return undefined;
+
+  const countCards = (hand) => {
+    const counts = hand.reduce((table, card) => {
+      table.hasOwnProperty(card) ? table[card]++ : table[card] = 1;
+      return table;
+    }, {});
+    return Object.values(counts).sort((a, b) => b - 1);
+  }
+
+  const handRanker = (handCounts, hand) => {
+    const HAND_RANKS = {
+      highCard: 0,
+      pair: 1,
+      twoPair: 2,
+      threeKind: 3,
+      straight: 4,
+      fullHouse: 5,
+      fourKind: 6
+    }
+
+    if(handCounts[0] === 4) return HAND_RANKS.fourKind;
+    if(handCounts[0] === 3) return handCounts[1] === 2 ? HAND_RANKS.fullHouse : HAND_RANKS.threeKind;
+    if(handCounts[0] === 2) return handCounts[1] === 2 ? HAND_RANKS.twoPair : HAND_RANKS.pair;
+
+    const handAscending = hand.slice().sort((a, b) => a - b);
+    for(let i = 0; i  < handAscending.length - 1; i++) {
+      if (handAscending[i + 1] - handAscending[i] !== 1) return HAND_RANKS.highCard;
+    }
+    return HAND_RANKS.straight;
+  }
+
+  const checkWinner = (player1Rank, player2Rank, hand1, hand2) => {
+    if(player1Rank > player2Rank) return 'Player 1 wins';
+    if(player2Rank > player1Rank) return 'Player 2 wins';
+
+    const hand1High = Math.max(...hand1);
+    const hand2High = Math.max(...hand2);
+    
+    if(hand1High > hand2High) return 'Player 1 wins';
+    if(hand2High > hand1High) return 'Player 2 wins';
+    return 'DRAW';
+  }
+
+  const hand1CountsDescending = countCards(hand1);
+  const hand2CountsDescending = countCards(hand2);
+
+  const player1Rank = handRanker(hand1CountsDescending, hand1);
+  const player2Rank = handRanker(hand2CountsDescending, hand2);
+
+  return checkWinner(player1Rank, player2Rank, hand1, hand2);
 
 }
 
