@@ -58,6 +58,11 @@ const objectToExport = {
 
 module.exports = objectToExport;
 
+// ES6 Map
+// const makePhoneBookObject = (jazbook) => new Map(jazbook);
+// const jazziestBook = makePhoneBookObject(jazbook);
+// const findName = (jazbook, name) => jazbook.get(name) || false;
+// console.log(findName(jazziestBook, 'travis'));
 
 // const jazbook = [
 //   ['alex', '301-844-3421'],
