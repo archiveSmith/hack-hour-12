@@ -23,10 +23,14 @@ function poker(hand1, hand2) {
     return undefined;
   }
 
-  const countCards = hand => hand.reduce((table, card) => {
-    table.hasOwnProperty(card) ? table[card]++ : table[card] = 1;
-    return table;
-  }, {});
+  const countCards = (hand) => {
+    const counts = hand.reduce((table, card) => {
+      table.hasOwnProperty(card) ? table[card]++ : table[card] = 1;
+      return table;
+    }, {});
+
+    return Object.values(counts).sort((a, b) => a < b);
+  };
 
   const handRanker = (handCounts, hand) => {
     const HAND_RANKS = {
@@ -47,6 +51,7 @@ function poker(hand1, hand2) {
     for (let i = 0; i < hand.length - 1; i += 1) {
       if (hand[i + 1] - hand[i] !== 1) return HAND_RANKS.highCards;
     }
+    return HAND_RANKS.straight;
   };
 
   const checkWinner = (player1Rank, player2Rank, hand1, hand2) => {
