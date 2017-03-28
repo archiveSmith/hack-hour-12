@@ -40,7 +40,9 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  console.log(str);
+  if (isNaN(Date.parse(str))) return new Date();
+  return new Date(str);
 }
 
 module.exports = parseDates;
