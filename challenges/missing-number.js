@@ -26,7 +26,10 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
-  const expected = 
+  const n = Math.max(...arr);
+  const expected = (n * (n + 1)) / 2;
+  const actual = arr.reduce((sum, cv) => sum + cv);
+  return expected - actual;
 }
   // let min = 0;
   // let max = 0;
@@ -66,6 +69,6 @@ function missingNum(arr) {
 //   })
 // }
 
-console.log(missingNum([2, 3, 1, 4, 5, 6, 8]));
+// console.log(missingNum([2, 3, 1, 4, 5, 6, 8]));
 
 module.exports = missingNum;
