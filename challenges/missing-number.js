@@ -36,16 +36,30 @@ Challange:
 // }
 
 // time complexity of O(N);
-function missingNum(array) {
-  const obj = {};
-  for(let i = 0; i < array.length; i++) {
-    obj[array[i]] = true;
-  }
-  let keys = Object.keys(obj);
-  for(let i = 0; i < keys.length; i++) {
-    if(!obj[i + 1]) return i + 1;
-  }
-  return 0;
+
+// function missingNum(array) {
+//   const obj = {};
+//   for(let i = 0; i < array.length; i++) {
+//     obj[array[i]] = true;
+//   }
+//   let keys = Object.keys(obj);
+//   for(let i = 1; i < keys.length + 1; i++) {
+//     // if(!obj[i]) return i;
+//     if(Number(keys[i - 1] !== i)) console.log(Number(keys[i - 1]));
+//   }
+//   return false;
+// }
+
+// Arithmetic Sum Formula
+// 1, 4, 7, 10, 13, 16
+// n / 2 ( t1 - tn);
+// n(n+1)/2
+
+function missingNum(arr) {
+  const rangeLength = arr.length + 1;
+  const rangeSum = rangeLength / 2 * (1 + rangeLength);
+  const arraySum = arr.reduce((sum, num) => sum + num, 0);
+  return rangeSum - arraySum;
 }
 
 module.exports = missingNum;
