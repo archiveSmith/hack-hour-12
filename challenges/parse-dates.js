@@ -40,7 +40,24 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let today = new Date();
+  let day = days[today.getDay()];
+  let dd = today.getDate();
+  let mm = months[today.getMonth()];
+  let year = today.getFullYear();
+  let offset = today.getTimezoneOffset();
+  let UTC_hr = today.getUTCHours();
+  let local_hour = UTC_hr - Math.floor(offset / 60);
+  let UTC_min = today.getUTCMinutes();
+  let UTC_sec = today.getUTCSeconds();
+
+  const now = `${day} ${mm} ${dd} ${year} ${local_hour}:${UTC_min}:${UTC_sec} GMT-0800 (PST)`;
+  return now;
 }
+
+parseDates();
 
 module.exports = parseDates;
