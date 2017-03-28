@@ -40,7 +40,40 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+
+  const dateArr = str.split(' ');
+  const now = new Date();
+  const nowDay = now.getDay();
+  const dayMs = 1000 * 60 * 60 * 24;
+
+  switch (dateArr[0]) {
+    case 'Sunday': dateArr[0] = 7 - 0 + nowDay; break; // 2
+    case 'Monday': dateArr[0] = 1; break; // 1
+    case 'Tueday': dateArr[0] = 2; break; // 7
+    case 'Wednesday': dateArr[0] = 3; break; // 6
+    case 'Thursday': dateArr[0] = 4; break;
+    case 'Friday': dateArr[0] = 5; break;
+    case 'Saturday': dateArr[0] = 6; break;
+    case 'Today': dateArr[0] = now.getMonth() + ' ' + now.getDate(); break;
+    default: break;
+  }
+
+  const dateStr = dateArr.join(' ');
+
+
+  let output = new Date();
+  output.setTime(Date.parse(dateStr))
+  return output;
 }
+
+console.log(parseDates('Thursday 12:37 PM'));
+console.log(parseDates('Nov 19th 1:12 PM'));
+console.log(parseDates('Mar 1st 6:09 PM'));
+console.log(parseDates('Monday 5:33 PM'));
+console.log(parseDates('Friday 7:04 PM'));
+console.log(parseDates('Today 2:01 PM'));
+console.log(parseDates('Dec 25, 1995'));
+console.log(parseDates('Nov 19 1:12 PM'));
+console.log(parseDates('11 19, 1:12 PM').toJSON());
 
 module.exports = parseDates;
