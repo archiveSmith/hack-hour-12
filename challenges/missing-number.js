@@ -26,9 +26,14 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(arr) {
-  let min = 0;
-  let max = 0;
-  const findMissingNum = {};
+  const n = Math.max(...arr);
+  const expected = (n * (n + 1)) / 2;
+  const actual = arr.reduce((sum, cv) => sum + cv);
+  return expected - actual;
+}
+  // let min = 0;
+  // let max = 0;
+  // const findMissingNum = {};
   // for (let num of arr) {
   //   console.log(num, num - 1, num + 1)
   //   if (findMissingNum[num]) delete findMissingNum[num];
@@ -36,24 +41,34 @@ function missingNum(arr) {
   //   findMissingNum[num + 1] = true;
   // }
 
-  arr.forEach(num => {
-    if (findMissingNum[num]) delete findMissingNum[num];
-    else {
-      if (num - 1 < min) min = num - 1;
-      if (min < 0) min = 0;
-      if (num + 1 > max) max = num + 1;
-      findMissingNum[num - 1] = true;
-      findMissingNum[num + 1] = true;
-    }
-  })
+  // arr.forEach(num => {
+  //   console.log(num)
+  //   if (findMissingNum[num]) {
+  //     console.log('nummmmmmm',num);
+  //     console.log('first', findMissingNum)
+  //     delete findMissingNum[num];
+  //     console.log(findMissingNum)
+  //   }
+  //   else {
+  //     if (num - 1 < min) min = num - 1;
+  //     if (min < 0) min = 0;
+  //     if (num + 1 > max) max = num + 1;
+  //     findMissingNum[num - 1] = true;
+  //     findMissingNum[num + 1] = true;
+  //   }
+  // })
 
-  console.log(findMissingNum, min, max)
-  if (findMissingNum[max]) delete findMissingNum[max];
-  if (findMissingNum[min]) delete findMissingNum[min];
+  // console.log(findMissingNum, min, max)
+  // if (findMissingNum[max]) delete findMissingNum[max];
+  // if (findMissingNum[min]) delete findMissingNum[min];
 
-  return Object.keys(findMissingNum)[0];
-}
+  // return Object.keys(findMissingNum)[0];
 
-console.log(missingNum([2, 3, 1, 4, 5, 6, 8]));
+//   arr.forEach(num => {
+    
+//   })
+// }
+
+// console.log(missingNum([2, 3, 1, 4, 5, 6, 8]));
 
 module.exports = missingNum;
