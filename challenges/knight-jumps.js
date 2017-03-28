@@ -15,13 +15,15 @@ function knightjumps(str) {
   // [x, y] = [Number(x), Number(y)];
   const x = Number(str[1]);
   const y = Number(str[3]);
+  console.log('x', x);
+  
   const MIN = 1;
   const MAX = 8;
   let moves = 0;
   if (x + 1 <= MAX && y + 2 <= MAX) moves += 1;
   if (x + 1 <= MAX && y - 2 >= MIN) moves += 1;
   if (x - 1 >= MIN && y + 2 <= MAX) moves += 1;
-  if (x - 1 >= MAX && y - 2 >= MIN) moves += 1;
+  if (x - 1 >= MIN && y - 2 >= MIN) moves += 1;
   if (x + 2 <= MAX && y + 1 <= MAX) moves += 1;
   if (x - 2 >= MIN && y + 1 <= MAX) moves += 1;
   if (x + 2 <= MAX && y - 1 >= MIN) moves += 1;
@@ -39,4 +41,4 @@ function knightjumps(str) {
 
 module.exports = knightjumps;
 
-console.log(knightjumps('(1 1)'));
+console.log(knightjumps('(4 5)'));
