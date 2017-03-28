@@ -11,7 +11,32 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  // let [x, y] = (str.slice(1, 4).split(' '));
+  // [x, y] = [Number(x), Number(y)];
+  const x = Number(str[1]);
+  const y = Number(str[3]);
+  const MIN = 1;
+  const MAX = 8;
+  let moves = 0;
+  if (x + 1 <= MAX && y + 2 <= MAX) moves += 1;
+  if (x + 1 <= MAX && y - 2 >= MIN) moves += 1;
+  if (x - 1 >= MIN && y + 2 <= MAX) moves += 1;
+  if (x - 1 >= MAX && y - 2 >= MIN) moves += 1;
+  if (x + 2 <= MAX && y + 1 <= MAX) moves += 1;
+  if (x - 2 >= MIN && y + 1 <= MAX) moves += 1;
+  if (x + 2 <= MAX && y - 1 >= MIN) moves += 1;
+  if (x + 2 >= MIN && y - 1 >= MIN) moves += 1;
 
+
+  // for (let i = -2; i <= 2; i += 1) {
+  //   if (i !== 0) {
+  //     if ((x + i) >= MIN && (x + i) <= MAX) moves += 1;
+  //     if ((y + i) >= MIN && (y + i) <= MAX) moves += 1;
+  //   }
+  // }
+  return moves;
 }
 
 module.exports = knightjumps;
+
+console.log(knightjumps('(1 1)'));

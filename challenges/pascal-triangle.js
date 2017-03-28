@@ -33,7 +33,17 @@
 */
 
 function pascalTriangle(numRows) {
-
+// if input is not integer or integer is less than 1, inform user
+// build triangle starting with first row completed
+// for loop from 1 to numRows (exclusive) incrementing by 1
+// all rows start with 1
+// loop from j = 1 to i (exclusive) incrementing by 1
+// need access to previous row for element lookups
+// apply pascal logic to add values from previous row at same index and index - 1
+// push sum to current row
+// all rows end with a 1
+// when finished making current row, push to triangle
+// return triangle after all rows added
 }
 
 module.exports = pascalTriangle;
