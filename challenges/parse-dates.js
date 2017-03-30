@@ -44,7 +44,7 @@ function getHour(hour, ampm) {
 }
 
 function parseDates(str) {
-  //console.log(str);
+  console.log(str);
   let date;
   const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
   const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -58,7 +58,8 @@ function parseDates(str) {
     let month = months.indexOf(parsed[1].toUpperCase());
     let hour  = getHour(parsed[3],parsed[5]);
     date = new Date(2017, month, parsed[2], hour, parsed[4]);
-    return date.toString(date.toLocaleDateString());
+    console.log(toString(date.toLocaleDateString()));
+    return date;
   } else if (parsed = str.match(reDayHhMm)){
       let hour  = getHour(parsed[2],parsed[4]);
       let dayDiff = 0;
@@ -76,7 +77,8 @@ function parseDates(str) {
       }
 
       date.setDate(date.getDate() - dayDiff);
-      return date.toString(date.toLocaleDateString());
+      console.log(date.toString(date.toLocaleDateString()));
+      return date;
   } else {
     return new Date;
   }
