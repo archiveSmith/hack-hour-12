@@ -9,8 +9,11 @@
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
-function solveKnapsack(items, weightAvailable) {
-
-};
+function solveKnapsack(items, weightAvailable, value = 0) {
+  if (weightAvailable === 0) return value;
+  if (weightAvailable < 0) return 9;
+  return solveKnapsack(items.slice(1), weightAvailable -= items[0].weight, value += items[0].value) ||
+  solveKnapsack(items.slice(1), weightAvailable, value)
+}
 
 module.exports = solveKnapsack;
