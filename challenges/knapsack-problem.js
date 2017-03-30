@@ -10,7 +10,21 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  let value = 0;
 
+  function check(items, currWeight, currValue) {
+    // console.log(weightAvailable, items, value, currValue, currWeight);
+    if (!items.length || currWeight > weightAvailable) return;
+    if (currValue >= value) value = currValue;
+    return check(items.slice(1), currWeight + items[0].weight, currValue + items[0].value) || check(items.slice(1), currWeight, currValue)
+  }
+
+  check(items, 0, 0);
+
+  return value;
 };
+
+// let items = [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}];
+// console.log(solveKnapsack(items, 5));
 
 module.exports = solveKnapsack;
