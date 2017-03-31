@@ -19,19 +19,13 @@ function commonElements(array1, array2, array3, array4){
 	if (!Array.isArray(array1) || !Array.isArray(array2) || !Array.isArray(array3) || !Array.isArray(array4)) return;
 
 	const common = [array1, array2, array3, array4].reduce((acc, next) => {
-		const newArray = [];
-
-		next.forEach((ch) => {
-			if (acc.includes(ch) && !newArray.includes(ch)) newArray.push(ch);
-		});
-
-		return newArray;
+		return next.reduce((a, b) => {
+			if (acc.indexOf(b) >= 0 && a.indexOf(b) === -1) a.push(b);
+			return a;
+		}, []);
 	});
 
-	// Nothing in common
-	if (common.length === 0) return 'Nothing in Common!';
-
-	return common;
+	return common.length ? common : 'Nothing in Common!'
 }
 
 module.exports = commonElements;
