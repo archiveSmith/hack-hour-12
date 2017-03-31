@@ -31,6 +31,7 @@ function commonElements(array1, array2, array3, array4){
     if (Object.keys(items[item]).length === 4) matches.push(item);
   }
   console.log(matches);
+  if (!matches.length) return 'Nothing in Common!';
   return matches;
 }
 
