@@ -15,10 +15,9 @@
 function commonElements(array1, array2, array3, array4){
   // var stringed = JSON.stringify(array1) + JSON.stringify(array2) + JSON.stringify(array3) + JSON.stringify(array4);
   return array1.filter((elem, i) => {
-    const str = elem + '';
     return array2.indexOf(elem) >= 0 && array3.indexOf(elem) >= 0 && array4.indexOf(elem) >= 0 && array1.indexOf(elem, i + 1) === -1;
   });
 
 }
-// console.log(commonElements(array1,array2,array3,array4));
+console.log(commonElements(array1,array2,array3,array4));
 module.exports = commonElements;
