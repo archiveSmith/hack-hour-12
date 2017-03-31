@@ -15,7 +15,7 @@
 function commonElements(array1, array2, array3, array4){
   if (!array1 || !array2 ||!array3 ||!array4) return "insufficient input";
   const result = [...arguments].reduce((acc, val) => val.filter(item => acc.indexOf(item) >= 0));
-  return result.length ? new Set(result) : "Nothin in Common!";
+  return result.length ? Array.from(new Set(result)) : "Nothin in Common!";
 }
 
 // console.log(commonElements(array1, array2, array3, array4));
