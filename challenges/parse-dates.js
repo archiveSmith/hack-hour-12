@@ -40,7 +40,40 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const days = {
+    'Monday': 'Mon',
+    'Tuesday': 'Tue',
+    'Wednesday': 'Wed',
+    'Thursday': 'Thu',
+    'Friday': 'Fri',
+    'Saturday': 'Sat',
+    'Sunday': 'Sun'
+  },
+  const months = {
+    'Jan': 'Jan',
+    'Feb': 'Feb',
+    'Mar': 'Mar',
+    'Apr': 'Apr',
+    'May': 'May',
+    'Jun': 'Jun',
+    'Jul': 'Jul',
+    'Aug': 'Aug',
+    'Sep': 'Sep',
+    'Oct': 'Oct',
+    'Nov': 'Nov',
+    'Dec': 'Dec'
+  }
+  const split = str.split(' ');
+  let dateStr = '';
+  let today = new Date(Date.now());
+  if (split[0] === 'Today') {
+    dateStr += today.getUTCDay() + ' ' + today.getUTCMonth + ' ' + today.getUTCDate;
+  } else if (days.hasOwnProperty(split[0])) {
+    dateStr += days[split[0]];
+  } else if (months.hasOwnProperty(split[0])) {
+    dateStr += split[0] + ' ' + split[1].match(/\d/)[0]
+  }
+
 }
 
 module.exports = parseDates;

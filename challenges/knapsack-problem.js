@@ -10,7 +10,13 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  const values = [];
 
+  function recurseKnapsack(items, weightAvailable, value = 0) {
+    //base case
+
+    
+  }
 };
 
 module.exports = solveKnapsack;
