@@ -58,10 +58,10 @@ function getPINs(observed) {
   };
 
   // If there is only one observed digit, return array of possibilities from the object above.
-  if (observed.length === 1) return adj[observed]
+  if (observed.length === 1) return adj[observed];
 
   // Get the remaining possibilities from remaining digits.
-  const theRest = getPINs(observed.slice(1))
+  const theRest = getPINs(observed.slice(1));
 
   // Place each possible digit from current observed digit and place it front of every possibility from
   // above array of possibilities (based on remaining observed digits). Return big array of possibilities.
@@ -69,4 +69,4 @@ function getPINs(observed) {
 }
 
 
-module.exports = getPINs
+module.exports = getPINs;
