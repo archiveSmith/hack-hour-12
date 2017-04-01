@@ -51,7 +51,7 @@ function parseDates(str) {
     Wednesday: 3,
     Thursday: 4,
     Friday: 5,
-    Saturday: 6
+    Saturday: 6,
   };
 
   const MONTHS = {
@@ -66,7 +66,7 @@ function parseDates(str) {
     Sep: 8,
     Oct: 9,
     Nov: 10,
-    Dec: 11
+    Dec: 11,
   };
 
   // Create Date object to manipulate with "set" and "get" Date API
@@ -79,7 +79,7 @@ function parseDates(str) {
   const sections = str.split(' ');
 
   // Create month, dayOfMonth, times, hour, minutes, and ampm variables to modify Date object
-  let month, dayOfMonth, times, hour, minutes, ampm;
+  let month, day, times, hour, min, ampm;
 
   // If given the today format like 'Today 2:01 PM'...
   if (sections[0] === 'Today') {
@@ -87,26 +87,54 @@ function parseDates(str) {
     ampm = sections[2];
   }
 
+  if (sections[0] in DAYS) {
+    // we have a day of week for the past week
+    day = sections[0];
+    ampm = sections[2];
+    times = sections[1].split(':');
+    hour = parseInt(times[0]);
+    min = parseInt(times[1]);
+
+    date.setDate(date.getDate() - 1);
+    while(date.getDay() !== DAYS[day]) {
+      date.setDate(date.getDate() - 1);
+    }
+
+  }
+
+  if (sections[0] in MONTHS) {
+    // we have a month in the past year
+    month = MONTHS[sections[0]];
+    day = parseInt(sections[1].replace(/[^\d]/g, ""));
+    times = sections[2].split(':');
+    hour = parseInt(times[0]);
+    min = parseInt(times[1]);
+    ampm = sections[3];
+
+    date.setMonth(month);
+    date.setDate(day);
+  }
+
    // If given the month format like 'Jan 12th 1:09 AM'...
   if (MONTHS.hasOwnProperty(sections[0])) {
     month = MONTHS[sections[0]];
-    dayOfMonth = Number(sections[1].match(/\d+/));
+    day = Number(sections[1].match(/\d+/));
     times = sections[2].split(':');
     ampm = sections[3];
     // Mutate Date object with input's month and day
     date.setMonth(month);
-    date.setDate(dayOfMonth);
+    date.setDate(day);
   }
 
   // If given the day format like 'Thursday 12:37 PM'...
-  if (DAYS_OF_WEEK.hasOwnProperty(sections[0])) {
+  if (DAYS.hasOwnProperty(sections[0])) {
     day = sections[0];
     times = sections[1].split(':');
     ampm = sections[2];
     // Move one day back in case day of week matches today
     date.setDate(date.getDate() - 1);
     // Loop backwards one day at a time checking if day of week matches
-    while (date.getDay() !== DAYS_OF_WEEK[day]) {
+    while (date.getDay() !== DAYS[day]) {
       // Note that this works even if month changes!
       date.setDate(date.getDate() - 1);
     }
@@ -114,16 +142,16 @@ function parseDates(str) {
 
   // All formats have time data stored in times variable
   hour = Number(times[0]);
-  minutes = Number(times[1]);
-  
+  min = Number(times[1]);
+
   // Midnight should be 0 instead of 12
   if (ampm === 'AM' && hour === 12) hour = 0;
   // Non-noon PM hours should increase by 12. Think military time.
   if (ampm === 'PM' && hour !== 12) hour += 12;
-  
+
   // Mutate Date object with input's hour and minutes
   date.setHours(hour);
-  date.setMinutes(minutes);
+  date.setMinutes(min);
   return date;
 }
 
