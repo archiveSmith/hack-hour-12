@@ -47,7 +47,7 @@ function commonElements(array1, array2, array3, array4){
   for (let prop in memo) {
     if (memo[prop].count === 4) results.push(memo[prop].value);
   }
-  return results.length > 0 ? results : 'Nothing in Common';
+  return results.length > 0 ? results : 'Nothing in Common!';
 
 }
 
