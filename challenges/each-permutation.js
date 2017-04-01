@@ -21,9 +21,33 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  if (!arr || !callback || !Array.isArray(arr)) return 'Check Inputs';
 
+  const perms = [];
+
+  function recursePerms(arr, perm = []) {
+    if (!arr.length) {
+      perms.push(perm)
+    }
+    else {
+      arr.forEach((elem, i, array) => {
+        const dupArr = array.slice();
+        dupArr.splice(i, 1);
+        const dupPerm = perm.slice();
+        dupPerm.push(elem);
+        recursePerms(dupArr, dupPerm);
+      })
+    }
+  }
+
+  recursePerms(arr);
+  perms.forEach((elem) => {
+    callback(elem);
+  })
 }
-
+eachPermutation([1, 2, 3, 4], function(perm) {
+  console.log(perm)
+});
 
 
 module.exports = eachPermutation;
