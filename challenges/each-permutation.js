@@ -21,8 +21,25 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  let finalArr = [];
 
+  const permute = (array, m = []) => {
+    if (array.length === 0) finalArr.push(m);
+    else {
+      for (let i = 0; i < array.length; i += 1) {
+        let curr = array.slice();
+        let next = curr.splice(i, 1);
+        permute(curr.slice(), m. concat(next));
+      }
+    }
+  }
+  permute(arr);
+  for (let j = 0; j < finalArr.length; j += 1) {
+    callback(finalArr[j]);
+  }
 }
+
+console.log(eachPermutation([1,2,3,4]));
 
 
 
