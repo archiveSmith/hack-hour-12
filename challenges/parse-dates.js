@@ -39,34 +39,40 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-function getDetails(date) {
+// function getDetails(date) {
   
-}
+// }
 
-function parseDates(str) {
-  const months = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sept: 8, Oct: 9, Nov: 10, Dec: 11 };
-  if (str.includes(Today)) {
-    let month = 
-    let hour = str.match(/(\w+)(?=:)/gi);
-    let minutes = str.match(/:(\w+)/gi)[0].replace(/:/gi, '');
-    let timeOfDay = str.match(/(AM)|(PM)/gi);
-    if (timeOfDay[0] === 'AM') {
+// function parseDates(str) {
+//   const months = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sept: 8, Oct: 9, Nov: 10, Dec: 11 };
+//   if (str.includes(Today)) {
+//     let month = 
+//     let hour = str.match(/(\w+)(?=:)/gi);
+//     let minutes = str.match(/:(\w+)/gi)[0].replace(/:/gi, '');
+//     let timeOfDay = str.match(/(AM)|(PM)/gi);
+//     if (timeOfDay[0] === 'AM') {
 
-    }
-  }
-  const month = str.match(/^(\w+){1}/gi);
-  if (month) {
-    const date = str.match(/(\w+)(?=st|th|nd)/gi);
-    if (date) {
-      let hour = str.match(/(\w+)(?=:)/gi);
-      let minutes = str.match(/:(\w+)/gi)[0].replace(/:/gi, '');
-      let timeOfDay = str.match(/(AM)|(PM)/gi);
-      if (timeOfDay[0] === 'AM') {
-        return new Date(2017, months[month[0]], date[0], hour[0], minutes[0]).toString();
-      }
-    }
-  }
-}
+//     }
+//   }
+//   const month = str.match(/^(\w+){1}/gi);
+//   if (month) {
+//     const date = str.match(/(\w+)(?=st|th|nd)/gi);
+//     if (date) {
+//       let hour = str.match(/(\w+)(?=:)/gi);
+//       let minutes = str.match(/:(\w+)/gi)[0].replace(/:/gi, '');
+//       let timeOfDay = str.match(/(AM)|(PM)/gi);
+//       if (timeOfDay[0] === 'AM') {
+//         return new Date(2017, months[month[0]], date[0], hour[0], minutes[0]).toString();
+//       }
+//     }
+//   }
+// }
+
+// create a new date object from todays data
+// split that object and mutate it depending on the input
+// function parseDates(str) {
+
+// }
 
 console.log(parseDates('Jan 12th 1:09 AM'));
 
