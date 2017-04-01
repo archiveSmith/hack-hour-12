@@ -10,8 +10,20 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-  let sortedItems = items.sort((a, b) => a.weight - b.weight);
-  console.log(sortedItems)
+  
+  if (items.length === 0 || weightAvailable === 0) return 0;
+
+  if (items[0].weight > weightAvailable) {
+    return solveKnapsack(items.slice(1), weightAvailable);
+  }
+
+  else {
+    let left = items.slice(1);
+    let takeItem = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight);
+    let leaveItem = solveKnapsack(left, weightAvailable);
+
+    return (takeItem > leaveItem) ? takeItem : leaveItem;
+  }
 };
 
 console.log(solveKnapsack([{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}]))
