@@ -20,8 +20,13 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+// function eachPermutation(arr, callback) {
 
+// }
+
+function eachPermutation(arr, callback, built = [], perms = {}) {
+  if (!arr.length && !(built in perms)) perms[built] = callback(built);
+  else arr.forEach((el, i) => eachPermutation([...arr.slice(0, 1), ...arr.slice(i + 1)], callback, [...built, el], perms));
 }
 
 
