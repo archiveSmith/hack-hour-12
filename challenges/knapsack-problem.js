@@ -13,7 +13,6 @@ function solveKnapsack(items, weightAvailable) {
   if (items.length === 0 || weightAvailable === 0) return 0;
 
   // if first item is too heavy to fit, disregard it and consider other items
-
   if (items[0].weight > weightAvailable) {
     return solveKnapsack(items.slice(1), weightAvailable);
   } else { // if first item does fit
