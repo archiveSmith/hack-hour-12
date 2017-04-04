@@ -8,8 +8,11 @@
 function sumMultiples3Or5Below1000() {
   let sum = 0;
   let i;
-  for (i = 3; i < 1000; i += 1) {
-    if (i % 3 === 0 || i % 5 === 0) sum += i;
+  for (i = 3; i < 1000; i += 3) {
+    if (i % 3 === 0) sum += i;
+  }
+  for (j = 5; j < 1000; j += 5) {
+    if (j % 5 === 0 && j % 3 !== 0) sum += j;
   }
   return sum;
 }
