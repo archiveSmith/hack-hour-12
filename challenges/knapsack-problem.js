@@ -15,13 +15,12 @@ function solveKnapsack(items, weightAvailable) {
   // if first item is too heavy to fit, disregard it and consider other items
   if (items[0].weight > weightAvailable) {
     return solveKnapsack(items.slice(1), weightAvailable);
-  } else { // if first item does fit
-    const left = items.slice(1);
-    const takeItem = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight);
-    const leaveItem = solveKnapsack(left, weightAvailable);
+  }  // if first item does fit
+  const left = items.slice(1);
+  const takeItem = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight);
+  const leaveItem = solveKnapsack(left, weightAvailable);
 
-    return (takeItem > leaveItem) ? takeItem : leaveItem;
-  }
+  return (takeItem > leaveItem) ? takeItem : leaveItem;
 }
 
 module.exports = solveKnapsack;
