@@ -43,6 +43,7 @@ function eachPermutation(arr, cb) {
 
   createPermutation(arr)
 
+  //iterate though mem to run cb()
   mem.forEach( (ele) => {
     cb(ele)
   })
