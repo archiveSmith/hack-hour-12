@@ -24,9 +24,26 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
+jazbook = [
+  ['alex','301-844-3421'],
+  ['jae','301-844-1211'],
+  ['david','301-844-0978'],
+  ['travis','301-844-8505']
+  ['jasmine','1800-974-4539'],
+];
+
+let result = findName(jazbook, 'alex');
+console.log(result);
+
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
+  for (let i = 0; i < jazbook.length; i++) {
+    if (jazbook[i][0] === name) {
+      return jazbook[i][1];
+    }
+  }
 
+  return false;
 }
 
 // return an object literal representing the jazbook
