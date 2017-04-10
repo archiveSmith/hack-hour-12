@@ -38,7 +38,7 @@ function addLinkedList(l1, l2) {
     let i;
 
     for (i = len - 2; i >= 0; i -= 1) {
-      currNode.next = new Node(i);
+      currNode.next = new Node(numberArr[i]);
       currNode = currNode.next;
     }
 
