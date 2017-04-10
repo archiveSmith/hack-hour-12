@@ -10,7 +10,10 @@
  *
  */
 function uniqueNumber(array) {
-
+  for (let i = 0; i < array.length; i += 1) {
+    if (array.indexOf(array[i]) === array.lastIndexOf(array[i])) return array[i];
+  }
+  return 'bad input';
 }
 
 module.exports = uniqueNumber;

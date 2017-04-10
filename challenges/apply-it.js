@@ -25,8 +25,17 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+function helper(fn, thisObj, args) {
+  let obj = {fn: fn};
+  let str = "obj.fn(";
+  for (let i = 0; i < args.length; i += 1)
+    str += (i?',':'') + "args["+i+"]";
+  str += ");";
+  return () => eval(str);
+}
 
+function applyIt(func, args) {
+  return helper(func, this, args);
 }
 
 module.exports = applyIt;

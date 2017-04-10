@@ -11,7 +11,20 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const x = +str[1];
+  const y = +str[3];
+  let result = 0;
 
+  if (x - 2 > 0 && y - 1 > 0) result += 1;
+  if (x - 2 > 0 && y + 1 < 9) result += 1;
+  if (x - 1 > 0 && y - 2 > 0) result += 1;
+  if (x - 1 > 0 && y + 2 < 9) result += 1;
+  if (x + 1 < 9 && y - 2 > 0) result += 1;
+  if (x + 1 < 9 && y + 2 < 9) result += 1;
+  if (x + 2 < 9 && y - 1 > 0) result += 1;
+  if (x + 2 < 9 && y + 1 < 9) result += 1;
+
+  return result;
 }
 
 module.exports = knightjumps;

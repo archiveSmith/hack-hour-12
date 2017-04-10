@@ -23,7 +23,24 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // how many circles is start point inside (is distance from start point to center of circle less than circle radius)
+  // of the circles start point is inside, how many is the end point outside of (distance from end point to circle center
+  // is greater than circle radius)
+  // how many circles is start point outside
+  // of the circles start point is outside, how many is the end point inside of
+  // add together for final result
+  let crossedBorders = 0;
 
+  r.forEach((radius, i) => {
+    const startDist = Math.hypot(x[i] - start_x, y[i] - start_y);
+    const endDist = Math.hypot(x[i] - end_x, y[i] - end_y);
+
+    if (startDist < radius && endDist > radius || startDist > radius && endDist < radius) {
+      crossedBorders++;
+    }
+  });
+
+  return crossedBorders;
 }
 
 module.exports = circleCountry;
