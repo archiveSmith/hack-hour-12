@@ -19,9 +19,11 @@ findInOrderedSet(nums, 2);  -> false
 //   return false;
 // }
 
+
+// refactor later so that you're not using slice.
 function findInOrderedSet(arr, target) {
   if(arr[0] === target) return true;
-  if(arr[0] > target || arr.length === 1) return false;
+  if(target > arr[arr.length - 1] || arr[0] > target || arr.length === 1) return false;
 
   let middle = arr.length / 2
   let arr1 = arr.slice(0, middle);
