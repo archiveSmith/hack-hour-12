@@ -8,6 +8,8 @@
  *
  */
 
+// now it happens in place
+
 function Node(value) {
     this.value = value;
     this.next = null;
