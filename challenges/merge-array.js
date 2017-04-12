@@ -14,6 +14,8 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  // const result = [];
+  // for (let i = 0; i < arr1.length + arr2)
 
 }
 

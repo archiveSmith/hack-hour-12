@@ -43,8 +43,30 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  // const keypad = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [null, 0, null]];
+  const adjacent = {
+    1: [1, 2, 4],
+    2: [1, 2, 3, 5],
+    3: [2, 3, 6],
+    4: [1, 4, 5, 7],
+    5: [2, 4, 5, 6, 8],
+    6: [3, 5, 6, 9],
+    7: [4, 7, 8],
+    8: [7, 5, 8, 9],
+    9: [6, 8, 9],
+    0: [0, 8],
+  };
+  const pressed = observed.split('').map(digit => adjacent[digit]);
+  const possible = [];
+  // pressed.forEach((el, i, arr) => arr[i] = adjacent[el]);
+  // console.log(pressed);
+  function formCombos(array, combo){
+    if (combo.length === pressed.length) return possible.push(combo);
+    array.forEach(digit => formCombos(pressed[combo.length + 1], combo + digit))
+  }
 }
 
 
 module.exports = getPINs
+
+getPINs('0123');

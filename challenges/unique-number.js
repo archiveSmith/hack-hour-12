@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
-
+  let result = array.slice();
+  result = result.sort();
+  for (let i = 0; i < result.length; i += 2) {
+    if (result[i] !== result[i + 1]) return result[i];
+  }
 }
+
+// use bitwise XOR
+// const uniqueNumber = (array) => array.reduce((acc, curr) => acc ^ curr);
 
 module.exports = uniqueNumber;
