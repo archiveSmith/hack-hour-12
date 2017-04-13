@@ -71,7 +71,7 @@ function solveKnapsackA(itemsLeft, weightAvailable) {
 
 
 // recursive
-function solveKnapsack(itemsLeft, weightAvailable) {
+function solveKnapsackRecursive(itemsLeft, weightAvailable) {
   var selected = {
     value : 0,
     list : []
@@ -98,6 +98,38 @@ function solveKnapsack(itemsLeft, weightAvailable) {
 
     return (takeItem.value > leaveItem.value) ? takeItem : leaveItem;
   }
+}
+
+function solveKnapsack(itemsLeft, weightAvailable) {
+  var memo = [];
+
+  // build the table
+  for (var n = 0; n <= itemsLeft.length; n++) {
+
+    memo.push([]);
+    for (var w = 0; w <= weightAvailable; w++) {
+      // if 0 items in consideration or 0 weight available, set value to zero
+      if (n === 0 || w === 0) memo[n][w] = 0;
+
+      // if item.weight > weightAvailable, return memo[n-1][w]
+      // current item is itemsLeft[n-1] because we start from n = 1
+      else if (itemsLeft[n-1].weight > w) {
+        memo[n][w] = memo[n-1][w];
+      }
+
+      else {
+        var item = itemsLeft[n-1];
+        var take = item.value + memo[n-1][w-item.weight];
+        var leave = memo[n-1][w];
+
+        memo[n][w] = (take > leave) ? take : leave;
+      }
+    }
+  }
+  // after we exit the for loops, the table (memo) will have been built,
+  // with the answer we want saved at the bottom right most corner of the table
+
+  return memo[itemsLeft.length][weightAvailable];
 }
 
 
