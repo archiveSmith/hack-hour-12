@@ -33,22 +33,33 @@
 */
 
 function pascalTriangle(numRows) {
-  console.log(numRows);
-  let finalArr = [];
-  let lastArr = [];
-  let i;
-  for (i = 1; i <= numRows; i += 1) {
-    let tempArr = [1];
-    for (let j = 0; j < lastArr.length; j += 1) {
-      if (lastArr[j + 1]) tempArr.push(lastArr[j] + lastArr[j + 1]);
+  // handle invalid inputs
+    if (!numRows || numRows < 1) return [];
+
+    // there is at least one row - let's add it
+    var triangle = [[1]];
+    var row;
+
+    // 'j' will be the index of the PREVIOUS row in the triangle
+    for (var j = 0; j < numRows-1; j++) {
+      // row will be our CURRENT row, and all rows begin with a 1
+      row = [1];
+
+      // 'k' will be the index of each element in a given row
+      // start from k = 1 because the index 0 is already added
+      // we iterate until we are where the previous row ends.
+      // on each iteration we add two values from the previous row
+      for (var k = 1; k < triangle[j].length; k++) {
+        row[k] = triangle[j][k] + triangle[j][k-1];
+      }
+      // push the trailing 1 to complete the row
+      row.push(1);
+      triangle.push(row);
     }
-    if (lastArr.length > 0) tempArr.push(1);
-    lastArr = tempArr;
-    finalArr.push(lastArr);
-  }
-  return finalArr;
+
+    return triangle;
 }
 
-console.log(pascalTriangle(20));
+console.log(pascalTriangle(5000));
 
 module.exports = pascalTriangle;
