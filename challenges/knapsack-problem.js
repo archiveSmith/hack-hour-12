@@ -47,7 +47,7 @@ function solveKnapsackInProgress(items, weightAvailable) {
 // console.log(solveKnapsack(items, 3)); // returns 7 (from items[0] and items[1])
 // console.log(solveKnapsack(items, 5)); // returns 9 (from items[1] and items[2])
 
-function solveKnapsack(itemsLeft, weightAvailable) {
+function solveKnapsackA(itemsLeft, weightAvailable) {
 
   if (itemsLeft.length === 0 || weightAvailable === 0) return 0;
 
@@ -65,6 +65,38 @@ function solveKnapsack(itemsLeft, weightAvailable) {
     var leaveItem = solveKnapsack(left, weightAvailable);
 
     return (takeItem > leaveItem) ? takeItem : leaveItem;
+  }
+}
+
+
+
+// recursive
+function solveKnapsack(itemsLeft, weightAvailable) {
+  var selected = {
+    value : 0,
+    list : []
+  };
+
+  if (itemsLeft.length === 0 || weightAvailable === 0) return selected;
+
+  // if first item is too heavy to fit, consider other items
+  if (itemsLeft[0].weight > weightAvailable) {
+    return solveKnapsack(itemsLeft.slice(1), weightAvailable);
+  }
+  //if first item does fit
+  else {
+    // leaveItem must be declared before takeItem for proper outcome
+
+    var leaveItem = solveKnapsack(itemsLeft.slice(1), weightAvailable);
+    var considerTakeItem = solveKnapsack(itemsLeft.slice(1), weightAvailable - itemsLeft[0].weight);
+
+    considerTakeItem.list.push(itemsLeft[0]);
+    var takeItem = {
+      value : itemsLeft[0].value + considerTakeItem.value,
+      list : considerTakeItem.list
+    }
+
+    return (takeItem.value > leaveItem.value) ? takeItem : leaveItem;
   }
 }
 
