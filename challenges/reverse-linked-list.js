@@ -22,6 +22,20 @@ function reverseLinkedListAlternate(head) {
     return tempNode;
 }
 
+// iterative solution
+function reverseLinkedListIterative(head) {
+  if (!head || !head.next) return head;
+  let prev = null, curr = head, next;
+  while (curr) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+  }
+  head = prev; // prev is last truthy node
+  return head;
+}
+
 // recursive
 function reverseLinkedList(head, prev = null) {
     if (!head) return null;
