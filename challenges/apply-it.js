@@ -25,8 +25,9 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-
-}
+// "Mark had an awesome solution that I added to the slides, check out how clean this is."
+// -George Anoberg
+// THANKS GEORGE!
+const applyIt = (func, args) => () => eval(`func("${args.join('","')}")`);
 
 module.exports = applyIt;

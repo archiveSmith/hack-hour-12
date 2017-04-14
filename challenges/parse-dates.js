@@ -39,8 +39,88 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-function parseDates(str) {
-  
+function parseDatesInProgress(str) {
+
+  const dateArr = str.split(' ');
+  const now = new Date();
+  const nowDay = now.getDay();
+  const dayMs = 1000 * 60 * 60 * 24;
+
+  switch (dateArr[0]) {
+    case 'Sunday': dateArr[0] = 7 - 0 + nowDay; break; // 2
+    case 'Monday': dateArr[0] = 1; break; // 1
+    case 'Tueday': dateArr[0] = 2; break; // 7
+    case 'Wednesday': dateArr[0] = 3; break; // 6
+    case 'Thursday': dateArr[0] = 4; break;
+    case 'Friday': dateArr[0] = 5; break;
+    case 'Saturday': dateArr[0] = 6; break;
+    case 'Today': dateArr[0] = now.getMonth() + ' ' + now.getDate(); break;
+    default: break;
+  }
+
+  const dateStr = dateArr.join(' ');
+
+
+  let output = new Date();
+  output.setTime(Date.parse(dateStr))
+  return output;
 }
+
+function parseDates(str) {
+  // INPUT: String containing date information, possibly poorly formatted
+  // OUTPUT: Date object, NOT a string
+  // Create store for days and months since Date object takes numerical inputs
+
+  // DAYS object (previous slide)
+  // MONTHS object (previous slide)
+  
+  // Create Date object to manipulate with "set" and "get" Date API
+  const date = new Date();
+
+  // Check if input is properly formatted. If not, return current date.
+  if (!/^[a-zA-Z]{3,9}\s(\d{1,2}[a-z]{2}\s)?\d{1,2}:\d{2}\s(AM|PM)$/.test(str)) return date;
+
+  // Split input by spaces to check which format we're dealing with and then extract data
+  const sections = str.split(' ');
+
+  // Create month, dayOfMonth, times, hour, minutes, and ampm variables to modify Date object
+  let month, dayOfMonth, times, hour, minutes, ampm;
+
+  // If given the today format like 'Today 2:01 PM'...
+  if (sections[0] === 'Today') {
+    times = sections[1].split(':');
+    ampm = sections[2];
+  }
+
+  // If given the month format like 'Jan 12th 1:09 AM'...
+  // PARSE MONTHS (next slide)
+
+  // If given the day format like 'Thursday 12:37 PM'...
+  // PARSE DAYS (next slide)
+
+  // All formats have time data stored in times variable
+  hour = Number(times[0]);
+  minutes = Number(times[1]);
+  
+  // Midnight should be 0 instead of 12
+  if (ampm === 'AM' && hour === 12) hour = 0;
+  // Non-noon PM hours should increase by 12. Think military time.
+  if (ampm === 'PM' && hour !== 12) hour += 12;
+  
+  // Mutate Date object with input's hour and minutes
+  date.setHours(hour);
+  date.setMinutes(minutes);
+  return date;
+}
+
+// console.log(parseDates('Thursday 12:37 PM'));
+// console.log(parseDates('Nov 19th 1:12 PM'));
+// console.log(parseDates('Mar 1st 6:09 PM'));
+// console.log(parseDates('Monday 5:33 PM'));
+// console.log(parseDates('Friday 7:04 PM'));
+// console.log(parseDates('Today 2:01 PM'));
+// console.log(parseDates('Dec 25, 1995'));
+// console.log(parseDates('Nov 19 1:12 PM'));
+// console.log(parseDates('11 19, 1:12 PM').toJSON());
 
 module.exports = parseDates;

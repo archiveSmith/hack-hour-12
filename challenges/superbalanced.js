@@ -13,8 +13,16 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function getHeight(bst) {
+  if (!bst) return 0;
+  return 1 + Math.max(getHeight(bst.left), getHeight(bst.right));
+}
 
+function superbalanced(tree) {
+  if (!tree) return true;
+  return Math.abs(getHeight(tree.left) - getHeight(tree.right)) < 2
+    && superbalanced(tree.left)
+    && superbalanced(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

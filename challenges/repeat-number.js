@@ -11,7 +11,22 @@
  */
 
 function repeatNumbers(array) {
+  const checked = {};
+  for (let i = 0; i < array.length; i += 1) {
+    if (checked[array[i]]) return array[i];
+    checked[array[i]] = 1;
+  }
+  return 'Invalid input array';
+}
 
+function repeatNumbersOptimal(array) {
+  const expected = ((array.length - 1) * array.length) / 2;
+  let action = 0;
+
+  for (let i = 0; i < array.length; i += 1) {
+    actual += array[i];
+  }
+  return actual - expected;
 }
 
 module.exports = repeatNumbers;

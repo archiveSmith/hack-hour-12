@@ -8,7 +8,31 @@
  */
 
 function maxSubarray(arr) {
+  let max = arr[0];
 
+  for (let i = 0; i < arr.length; i += 1) {
+    let acc = arr[i];
+    if (acc > max) max = acc;
+    for (let j = i + 1; j < arr.length; j += 1) {
+      acc = acc + arr[j];
+      if (acc > max) max = acc;
+    }
+  }
+
+  return max;
+}
+
+// linear
+function maxSubarrayOptimal(arr) {
+
+  var currentMax = Number.NEGATIVE_INFINITY;
+  var finalMax = Number.NEGATIVE_INFINITY;
+
+  for (var i = 0; i < arr.length; i++) {
+    currentMax = Math.max(arr[i], currentMax + arr[i]);
+    finalMax = Math.max(finalMax, currentMax);
+  }
+  return finalMax;
 }
 
 module.exports = maxSubarray;

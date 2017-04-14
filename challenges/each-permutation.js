@@ -20,10 +20,35 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+function eachPermutationOg(arr, callback) {
+  const result = [];
+  const len = arr.length;
 
+  function perm(items, cur = []) {
+    if (cur.length === len) return result.push(cur);
+
+    let item;
+    for (let i = 0; i < items.length; i += 1) {
+      item = items.splice(i, 1)[0];
+      perm(items.slice(), cur.concat(item));
+      items.splice(i, 0, item);
+    }
+  }
+  perm(arr);
+  result.forEach((e) => callback(e));
 }
 
+// eachPermutation([1, 2, 3], function(perm) {
+//   console.log(perm)
+// });
 
+function eachPermutation(arr, callback, built = [], perms = {}) {
+    // If arr is empty, then this particular array is complete. Save in object as key and perform callback.
+    // Successive identical arrays will not result in performing the callback.
+    if (!arr.length && !(built in perms)) perms[built] = callback(built);
+
+    // Else, give each remaining element a turn being in front of the rest.
+    else arr.forEach((e, i) => eachPermutation([...arr.slice(0, i), ...arr.slice(i + 1)], callback, [...built, e], perms));
+}
 
 module.exports = eachPermutation;

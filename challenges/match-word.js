@@ -8,7 +8,11 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  const arr = str.toLowerCase().match(/[a-z]+/g);
+  if (arr === null) return true;
+  const close = arr[0].split('').reverse().join('');
+  if (arr.length > 1 && close === arr[arr.length - 1]) return true;
+  return false;
 }
 
 module.exports = matchWord;
