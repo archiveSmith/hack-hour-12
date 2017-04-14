@@ -12,8 +12,36 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
+ let array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+ let array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
+ let array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
+ let array4 = ['ferret',12,12,45,9,66,77,78,2000];
 
-}
+ function commonElements(array1, array2, array3, array4) {
+  // const set = new Set();
 
-module.exports = commonElements;
+  // array1.forEach((item) => {
+  //   if ()
+  // })
+  //  const arr = [];
+  //  let a = new Set(array1);
+  //  let b = new Set(array2);
+  //  let c = new Set(array3);
+  //  let d = new Set(array4);
+  //  arr.push(a, b, c, d);
+  //  console.log(arr);
+  //  return arr.reduce((accum, next) => accum.has(next));
+// const args = Array.from(arguments).forEach((el, i) => {
+//   return el.filter(elem => el.includes(elem));
+// });
+// console.log(args);
+
+   for (let i = 1; i < arguments.length; i += 1) {
+     array1 = array1.filter(elem => arguments[i].includes(elem));
+   }
+   return [...new Set([...array1])];
+ }
+
+ console.log(commonElements(array1, array2, array3, array4));
+
+ module.exports = commonElements;
