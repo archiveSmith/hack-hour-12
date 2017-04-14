@@ -12,13 +12,73 @@
  *
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
-
 function addLinkedList(l1, l2) {
+  function linkedListToNumber(linkedList) {
+    const tempArr = [];
+    let currNode = linkedList;
 
+    while (currNode) {
+      tempArr.unshift(currNode.value);
+      currNode = currNode.next;
+    }
+
+    return Number(tempArr.reduce((acc, cur) => acc + cur, ''));
+  }
+
+  function Node(val) {
+    this.value = val;
+    this.next = null;
+  }
+
+  function numberToLinkedList(number) {
+    const numberArr = String(number).split('');
+    const len = numberArr.length;
+    const result = new Node(numberArr[len - 1]);
+    let currNode = result;
+    let i;
+
+    for (i = len - 2; i >= 0; i -= 1) {
+      currNode.next = new Node(numberArr[i]);
+      currNode = currNode.next;
+    }
+
+    return result;
+  }
+
+  return numberToLinkedList(linkedListToNumber(l1) + linkedListToNumber(l2));
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { addLinkedList };
+
+// function Node(val) {
+//   this.value = val;
+//   this.next = null;
+// }
+//
+// function addLinkedList(l1, l2) {
+//   const arr1 = [];
+//   const arr2 = [];
+//
+//   while (l1) {
+//     arr1.unshift(l1.value);
+//     l1 = l1.next;
+//   }
+//
+//   while (l2) {
+//     arr2.unshift(l2.value);
+//     l2 = l2.next;
+//   }
+//
+//   const resultArr = String(+arr1.join('') + +arr2.join('')).split('').reverse();
+//
+//   const result = new Node(resultArr[0]);
+//   let currNode = result;
+//
+//   for (let i = 1; i < resultArr.length; i += 1) {
+//     const newNode = new Node(resultArr[i]);
+//     currNode.next = newNode;
+//     currNode = currNode.next;
+//   }
+//
+//   return result;
+// }

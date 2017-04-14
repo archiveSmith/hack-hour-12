@@ -40,7 +40,18 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const d = new Date();
+  // if (str.match(/monday|tuesday|wednesday|thursday|friday|saturday|sunday/i) !== null) {
+  //   console.log('A Day!');
+  // }
+  if (str.match(/st|nd|rd|th/i) !== null) {
+    str = str.replace(/st|nd|rd|th/i, '');
+  }
+  if (str.match(/today/i) !== null) {
+    str = str.replace(/today/i, `${d.getMonth() + 1}/${d.getDate()}`)
+  }
+  if (isNaN(Date.parse(str))) return new Date();
+  return new Date(str);
 }
 
 module.exports = parseDates;

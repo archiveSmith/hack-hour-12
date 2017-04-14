@@ -12,8 +12,11 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
-
+function commonElements(array1, array2, array3, array4) {
+  for (let i = 1; i < arguments.length; i += 1) {
+    array1 = array1.filter(elem => arguments[i].includes(elem));
+  }
+  return new Set([...array1]);
 }
 
 module.exports = commonElements;
