@@ -11,19 +11,31 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  let arr = [str[1], str[3]];
-  arr[0] = parseInt(arr[0]);
-  arr[1] = parseInt(arr[1]);
-  let count = 0;
-  if (arr[0] + 2 < 9 && arr[1] + 1 < 9) count += 1;
-  if (arr[0] + 2 < 9 && arr[1] - 1 > 0) count += 1;
-  if (arr[0] + 1 < 9 && arr[1] - 2 > 0) count += 1;
-  if (arr[0] + 1 < 9 && arr[1] + 2 < 9) count += 1;
-  if (arr[0] - 2 > 0 && arr[1] + 1 < 9) count += 1;
-  if (arr[0] - 2 > 0 && arr[1] - 1 > 0) count += 1;
-  if (arr[0] - 1 > 0 && arr[1] - 2 > 0) count += 1;
-  if (arr[0] - 1 > 0 && arr[1] + 2 < 9) count += 1;
-  return count;
+ var x = +str[1];
+ var y = 1 * str[3];
+ var spaces = 0;
+
+ // check all moves going left 1
+ if (x - 1 >= 1) {
+   if (y - 2 > 0) spaces++;
+   if (y + 2 < 9) spaces++;
+ }
+ // check all moves going left 2
+ if (x - 2 >= 1) {
+   if (y - 1 > 0) spaces++;
+   if (y + 1 < 9) spaces++;
+ }
+ // check all moves going right 1
+ if (x + 1 <= 8) {
+   if (y - 2 > 0) spaces++;
+   if (y + 2 < 9) spaces++;
+ }
+ // check all moves going right 2
+ if (x + 2 <= 8) {
+   if (y - 1 > 0) spaces++;
+   if (y + 1 < 9) spaces++;
+ }
+ return spaces;
 }
 
 console.log(knightjumps('(4 5'));
