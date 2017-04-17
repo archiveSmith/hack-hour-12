@@ -56,11 +56,15 @@ function addLinkedList1(num1, num2, carryover) {
   answerlist = new Node((num1.value + num2.value)%10);
   carryover = (num1.value + num2.value)/10<1 ? 0 : 1;
 
+  // Use a while loop to iterate over values
+  // Iterate over both linked lists while there is a value  or a carryvalue of  1
   while(current1 || current2 || carryover===1){
     var currentanswer = answerlist
     while(currentanswer.next){
       currentanswer = currentanswer.next
     }
+    // On each iteration add the result to the new linked list and if addition results in a
+    // carryvalue - add that to next iteration result
     if (!current1 && !current2){
       currentanswer.next = new Node(carryover);
       carryover = 0;
@@ -77,6 +81,7 @@ function addLinkedList1(num1, num2, carryover) {
       carryover = tempvalue/10<1 ? 0 : 1;
       current2 = current2.next;
     }
+    // Keep iterating even if no values in linked lists as long as there is still a carryover value
     else{
       tempvalue = current1.value + current2.value + carryover;
       currentanswer.next = new Node(tempvalue%10);
@@ -85,6 +90,7 @@ function addLinkedList1(num1, num2, carryover) {
       current2 = current2.next;
     }
   }
+  // When no values or carryvalue - return new linked list
   return answerlist;
 }
 
