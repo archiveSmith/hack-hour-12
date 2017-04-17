@@ -88,4 +88,32 @@ function addLinkedList1(num1, num2, carryover) {
   return answerlist;
 }
 
+var zero = new Node(0);
+zero.next = zero;
+
+
+// Provided Solution 2
+function addLinkedList2(num1, num2, carryover) {
+  var node1 = num1, node2 = num2, ansNode;
+  var ansList = ansNode = new Node(node1.value + node2.value);
+  while (node1 || node2) {
+    node1 = node1.next || zero;
+    node2 = node2.next || zero;
+    if (node1 === zero && node2 === zero) break;
+    ansNode.next = new Node(node1.value + node2.value);
+    ansNode = ansNode.next;
+  }
+  //handle the carry-overs. this loop handles all but the last digit
+  for (ansNode = ansList; ansNode.next; ansNode = ansNode.next) {
+    ansNode.next.value += Math.floor(ansNode.value / 10);
+    ansNode.value %= 10;
+  }
+  //handle the last digit
+  if (ansNode.value >= 10) {
+    ansNode.next = new Node(1);
+    ansNode.value %= 10;
+  }
+  return ansList;
+}
+
 module.exports = {Node: Node, addLinkedList: addLinkedList};
