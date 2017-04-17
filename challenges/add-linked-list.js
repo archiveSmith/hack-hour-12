@@ -46,4 +46,46 @@ function addLinkedList(l1, l2) {
   return output;
 }
 
+// provided solution 1
+function addLinkedList1(num1, num2, carryover) {
+  var current1  = num1.next
+  var current2  = num2.next
+  var tempvalue;
+  var answerlist;
+
+  answerlist = new Node((num1.value + num2.value)%10);
+  carryover = (num1.value + num2.value)/10<1 ? 0 : 1;
+
+  while(current1 || current2 || carryover===1){
+    var currentanswer = answerlist
+    while(currentanswer.next){
+      currentanswer = currentanswer.next
+    }
+    if (!current1 && !current2){
+      currentanswer.next = new Node(carryover);
+      carryover = 0;
+    }
+    else if (!current2){
+      tempvalue = current1.value + carryover;
+      currentanswer.next = new Node(tempvalue%10);
+      carryover = tempvalue/10<1 ? 0 : 1;
+      current1 = current1.next;
+    }
+    else if (!current1){
+      tempvalue = current2.value + carryover;
+      currentanswer.next = new Node(tempvalue%10);
+      carryover = tempvalue/10<1 ? 0 : 1;
+      current2 = current2.next;
+    }
+    else{
+      tempvalue = current1.value + current2.value + carryover;
+      currentanswer.next = new Node(tempvalue%10);
+      carryover = tempvalue/10<1 ? 0 : 1;
+      current1 = current1.next;
+      current2 = current2.next;
+    }
+  }
+  return answerlist;
+}
+
 module.exports = {Node: Node, addLinkedList: addLinkedList};
