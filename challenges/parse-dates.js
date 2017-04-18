@@ -96,24 +96,23 @@ function parseDates(str) {
     min = parseInt(times[1]);
 
     date.setDate(date.getDate() - 1);
-    while(date.getDay() !== DAYS[day]) {
+    while (date.getDay() !== DAYS[day]) {
       date.setDate(date.getDate() - 1);
     }
-
   }
 
-  if (sections[0] in MONTHS) {
-    // we have a month in the past year
-    month = MONTHS[sections[0]];
-    day = parseInt(sections[1].replace(/[^\d]/g, ""));
-    times = sections[2].split(':');
-    hour = parseInt(times[0]);
-    min = parseInt(times[1]);
-    ampm = sections[3];
+  // if (sections[0] in MONTHS) {
+  //   // we have a month in the past year
+  //   month = MONTHS[sections[0]];
+  //   day = parseInt(sections[1].replace(/[^\d]/g, ''));
+  //   times = sections[2].split(':');
+  //   hour = parseInt(times[0]);
+  //   min = parseInt(times[1]);
+  //   ampm = sections[3];
 
-    date.setMonth(month);
-    date.setDate(day);
-  }
+  //   date.setMonth(month);
+  //   date.setDate(day);
+  // }
 
    // If given the month format like 'Jan 12th 1:09 AM'...
   if (MONTHS.hasOwnProperty(sections[0])) {
