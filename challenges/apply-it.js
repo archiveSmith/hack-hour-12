@@ -26,7 +26,15 @@
  */
 
 function applyIt(func, args) {
-
+  let argStr = '';
+  let i;
+  for(i = 0; i < args.length; i += 1) {
+    argStr += args[i];
+    if(i !== args.length - 1) {
+      argStr += ', ';
+    }
+  }
+  return func();
 }
 
 module.exports = applyIt;
