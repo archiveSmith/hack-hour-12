@@ -26,7 +26,29 @@
  */
 
 function applyIt(func, args) {
+  // build up the func call as a string and eval it!
+  // yay closures!
+  let funcCall = 'func(';
 
+  // apply necessary formatting to the arg list
+  const argList = args.map(function(arg) {
+    return (typeof arg === 'string') ? `'${arg}'` : arg;
+  });
+
+  // put all the arguments together and close out the parens
+  funcCall += argList.join(",") + ");";
+
+  // eval(‘func(args[0]... args[i])’);
+  return function() {
+    return eval(funcCall);
+  };
 }
+
+var jae = function(name, age, location) {
+  return name + " is " + age + " and he lives in " + location;
+};
+
+var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+console.log(jaero()); //Returns "Jae is 19 and he lives in South Carolina"
 
 module.exports = applyIt;
