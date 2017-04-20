@@ -18,11 +18,11 @@ function insertionSort(array) {
 }
 
 function insertionSortProvided(array) {
-  for (var i = 1; i < array.length; i++) {
-    var j = i;
-    while (array[j] < array[j-1] && j > 0) {
-      var temp = array[j];
-      array[j] = array[j-1];
+  for (let i = 1; i < array.length; i++) {
+    let j = i;
+    while (array[j] < array[j - 1] && j > 0) {
+      const temp = array[j];
+      array[j] = array[j - 1];
       array[--j] = temp;
     }
   }
