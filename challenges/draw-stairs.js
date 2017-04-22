@@ -12,15 +12,21 @@
 ******
 */
 
-function drawStairs(n) {
-  let stairsArr = [];
-  let i = 0;
+// function drawStairs(n) {
+//   let stairsArr = [];
+//   let i = 0;
 
-  while (i < n) {
-    stairsArr[i] = ' '.repeat(n - i - 1) + '*'.repeat(i + 1);
-    i++;
+//   while (i < n) {
+//     stairsArr[i] = ' '.repeat(n - i - 1) + '*'.repeat(i + 1);
+//     i++;
+//   }
+//   console.log(stairsArr.join('\n'));
+// }
+
+function drawStairs(n) {
+  for (let i =1; i <= n; i += 1) {
+    console.log(' '.repeat(n - i) + '*'.repeat(i));
   }
-  console.log(stairsArr.join('\n'));
 }
 
 module.exports = drawStairs;
