@@ -10,7 +10,6 @@
   ****
  *****
 ******
-
 */
 
 function drawStairs(n) {
@@ -18,7 +17,7 @@ function drawStairs(n) {
   let i = 0;
 
   while (i < n) {
-    stairsArr[i] = ' '.repeat(n-i-1) + '*'.repeat(i+1);
+    stairsArr[i] = ' '.repeat(n - i - 1) + '*'.repeat(i + 1);
     i++;
   }
   console.log(stairsArr.join('\n'));
