@@ -23,6 +23,26 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // initialize counter to 0;
+  let crossedBorders = 0;
+
+  // loop through radius
+  r.forEach((radius, i) => {
+    // compare radii using distance from start to center and end to center
+    const startDistance = Math.hypot(x[i] - start_x, y[i] - start_y);
+    const endDistance = Math.hypot(x[i] - end_x, y[i] - end_y);
+
+    if(startDistance < radius && endDistance > radius || startDistance > radius && endDistance < radius) {
+      crossedBorders++;
+    }
+
+    // what is distance formula? Is there a tool to use in javascript?
+
+  })
+
+  return crossedBorders;
+
+
 
 }
 

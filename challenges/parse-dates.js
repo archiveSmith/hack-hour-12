@@ -14,6 +14,7 @@
 // Friday 7:04 PM
 // Today 2:01 PM
 
+
 // - If the date string starts with a day of week (e.g. Monday) then it's the last occurence
 //   that day of the week BEFORE today (e.g. if today is Wednesday and the string
 //   'Wednesday 12:37 PM' is passed in, then the date you return should be 7 days ago,
@@ -39,8 +40,43 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+
+// month or days or today/ time or day or both // PM
+// if day only, compare day to today... 
+// use the new Date()
+// months have days following right after
+// days have time following right after
 function parseDates(str) {
+  const months = {
+    'Jan': 0,
+    'Feb': 1,
+    'Mar': 2,
+    'Apr': 3,
+    'May': 4,
+    'Jun': 5,
+    'Jul': 6,
+    'Aug': 7,
+    'Sep': 8,
+    'Oct': 9,
+    'Nov': 10,
+    'Dec': 11,
+  }
+
+  let arr = str.split(' ');
+  const year = new Date(Date.now()).getFullYear();
+  const month = months[arr[0]]; // will return a number for the month, or undefined
+  // const day = 
+
   
 }
+
+
+parseDates('Nov 19th 1:12 PM');
+// console.log(new Date('Thursday 12:37 PM'));
+// console.log(new Date('Nov 19th 1:12 PM'));
+// console.log(new Date('Mar 1st 6:09 PM'));
+// console.log(new Date('Monday 5:33 PM'));
+// console.log(new Date('Friday 7:04 PM'));
+// console.log(new Date('today 2:01 PM'));
 
 module.exports = parseDates;

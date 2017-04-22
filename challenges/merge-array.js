@@ -14,7 +14,39 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    // SOLUTION 1
+    // let i = 0; // pointer for arr1
+    // let j = 0; // pointer for arr2
+    // const mergedArray = [];
+    // let length = arr1.length + arr2.length;
+    // while(length) {
+    //     if(arr1[i] === undefined || arr2[j] === undefined) break;
+    //     if(arr1[i] < arr2[j]) {
+    //         mergedArray.push(arr1[i]);
+    //         i++;
+    //     } else {
+    //         mergedArray.push(arr2[j]);
+    //         j++;
+    //     }
+    //     length--;
+    // }
+    // if(i < arr1.length) {
+    //     for(let k = i; k < arr1.length; k++) {
+    //         mergedArray.push(arr1[k]);
+    //     }
+    // } else {
+    //     for(let k = j; j < arr2.length; k++) {
+    //         mergedArray.push(arr1[k]);
+    //     }
+    // }
+    // return mergedArray;
 
+    // SOLUTION 2
+    return arr1.concat(arr2).sort((a, b) => a - b);
 }
+
+// let my_array = [3,4,6,10,11,15,21];
+// let another_array = [1,5,8,12,14,19];
+// console.log(mergeArrays(my_array, another_array));
 
 module.exports = mergeArrays;

@@ -18,7 +18,39 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  const arr1 = [];
+  const arr2 = [];
+  let addLinkedList;
+  let pointer;
+  while(l1 !== null) {
+    arr1.push(l1.value);
+    l1 = l1.next;
+  }
+  while(l2 !== null) {
+    arr2.push(l2.value);
+    l2 = l2.next;
+  }
+  let carried = 0;
+  let temp;
+  let maxLength = (arr1.length > arr2.length) ? arr1.length : arr2.length
+  for(let i = 0; i < maxLength; i++) {
+    if(arr1[i] === undefined) arr1[i] = 0;
+    if(arr2[i] === undefined) arr2[i] = 0;
+    temp = arr1[i] + arr2[i] + carried;
+    if(temp > 9) {
+      temp = temp.toString().split('');
+      carried = parseInt(temp.slice(0, temp.length - 1));
+      temp = parseInt(temp.slice(-1));
+    }
+    if(addLinkedList === undefined) {
+      addLinkedList = new Node(temp);
+      pointer = addLinkedList;
+    } else {
+      pointer.next = new Node(temp);
+      pointer = pointer.next;
+    }
+  }
+  return addLinkedList;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

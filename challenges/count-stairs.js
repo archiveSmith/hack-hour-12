@@ -14,8 +14,21 @@
  * That is a total of 8 different ways to take 5 steps, given that you can take 1 or 2 steps at a time.
  */
 
-function countStairs(n) {
+// function countStairs(n) {
+//   // Base case: when n < 2
+//   if(n < 2) return 1;
+//   // Return the recursive sum
+//   return countStairs(n - 1) + countStairs(n - 2);
+// }
 
+function countStairs(n) {
+  const memo = {};
+  function counting(n) {
+    if(memo.hasOwnProperty(n)) return memo[n];
+    if(n < 2) return 1;
+    return memo[n] = countStairs(n - 1) + counting(n - 2);
+  }
+  return counting(n);
 }
 
 module.exports = countStairs;

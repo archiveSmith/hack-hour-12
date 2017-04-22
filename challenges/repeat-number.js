@@ -11,7 +11,13 @@
  */
 
 function repeatNumbers(array) {
-
+    // use object
+    let obj = {};
+    for(let i = 0; i < array.length; i++) {
+        // if not in obj, add to obj. if in obj, return
+        if(obj.hasOwnProperty(array[i].toString())) return array[i];
+        else obj[array[i]] = '';
+    }
 }
 
 module.exports = repeatNumbers;

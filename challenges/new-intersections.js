@@ -17,8 +17,54 @@
  * 	 
  */
 
-function newIntersections(x, y){
+// function newIntersections(x, y){
+//   let counter = 0;
+//   let length = x.length;
+//   let currentX;
+//   let currentY;
+//   let top;
+//   let right;
+//   let bottom;
 
+//   for(let i = 0; i < length; i++) {
+//     currentX = x[i];
+//     currentY = y[i];
+//     top = false;
+//     right = false;
+//     bottom = false;
+//     for(let j = 0; j < length; j++) {
+//       if(i !== j) {
+//         if(currentX + 1 === x[j] && currentY - 1 === y[j]) bottom = true;
+//         if(currentX + 1 === x[j] && currentY + 1 === y[j]) top = true;
+//         if(currentX + 2 === x[j] && currentY + 0 === y[j]) right = true;
+//       }
+//     }
+//     if(top && right && bottom) {
+//       counter++;
+//     }
+//   }
+//   return counter;
+// }
+
+function newIntersections(x, y) {
+  const exes = x.reduce((accum, yCoord, index) => {
+    if (!accum[yCoord]) accum[yCoord] = { max: y[index], min: y[index] };
+    accum[xCoord].max = Math.max(accum[xCoord].max, y[index])
+    accum[xCoord].min = Math.min(accum[xCoord].min, y[index])
+    return accum
+  }, {})
+
+  const exes = y.reduce((accum, yCoord, index) => {
+    if (!accum[yCoord]) accum[yCoord] = { max: y[index], min: y[index] };
+    accum[yCoord].max = Math.max(accum[yCoord].max, x[index])
+    accum[yCoord].min = Math.min(accum[yCoord].min, x[index])
+    return accum
+  }, {})
+
+  
 }
+
+
+
 
 module.exports = newIntersections;

@@ -10,7 +10,31 @@
  */
 
 function getAllProducts(array) {
-
+  if(array.length === 0) return [0];
+  if(array.length === 1) return [array[0]];
+  let results = [];
+  for(let i = 0; i < array.length; i++) {
+    results.push(array.slice(0, i).concat(array.slice(i+1)).reduce((a, b) => {
+      return a * b;
+    }));
+  }
+  return results;
 }
+
+// function getAllProducts(array, counter = 0, results = []) {
+//   if(counter === array.length) return results;
+//   let tempArr = array.slice(0, counter).concat(array.slice(counter + 1));
+//   results.push(tempArr.reduce((a, b) => {
+//     return a * b;
+//   }))
+//   getAllProducts(tempArr, counter+1, results);
+// }
+
+// function getAllProducts(array) {
+  
+// }
+
+// console.log(getAllProducts([1,7,3,4]));
+
 
 module.exports = getAllProducts;

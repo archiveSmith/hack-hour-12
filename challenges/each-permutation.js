@@ -20,10 +20,26 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+// function eachPermutation(arr, callback) {
+//   let results = [];
+//   function recurse(pStr, arr) {
+//     if (arr.length === 0) {
+//       results.push(pStr); 
+//       return;
+//     }
+//     for(let i = 0; i < arr.length; i++) {
+//       recurse(pStr.push(arr[i]), arr.slice(0,i) + arr.slice(i+1)); 
+//     }
+//   }
+//   recurse([], arr); 
+//   return results;
+// }
+
+function eachPermutation(arr, callback, built = [], perms = {}) {
+  if(!arr.length && !(built in perms)) perms[built] = callback(built);
+
+  else arr.forEach((e, i) => eachPermutation([...arr.slice(0, i), ...arr.slice(i + 1)], callback, [...built, e], perms));
 
 }
-
-
 
 module.exports = eachPermutation;
