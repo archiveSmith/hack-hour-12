@@ -67,8 +67,8 @@ function reverseInPlace(array) {
 
 // ES6
 function reverseInPlace(array) {
-  // If input is not an array, tell user to insert array
-  if (!Array.isArray(array)) return 'Please insert array';
+  // should return empty array if given empty array or no input
+  if (!Array.isArray(array)) return [];
 
   // Loop through first half of array only since all elements will be swapped by then
   for (let i = 0; i < array.length / 2; i++) {
