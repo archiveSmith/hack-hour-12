@@ -9,36 +9,28 @@
  *
  */
 
+// Mode is the number that appears the most often in a set of numbers
 
 function modemean(array) {
-  let mean = 0;
-
-  for (let i = 0; i < array.length; i++) {
-    mean += array[i];
-  }
-  mean = mean / array.length;
+  let sum = array.reduce((acc, current) => current += acc);
+  let mean = sum / array.length;
 
   // get mode
-  let mode;
-  let modes = [];
-  let modeCount = {};
+  let mode = -Infinity;
+  let modeFreq = -Infinity;
+  const modeCount = {};
 
   // use modeCount to increment counts
   for (let i = 0; i < array.length; i++) {
     if (!modeCount[array[i]]) modeCount[array[i]] = 0;
     modeCount[array[i]] += 1;
+    if (modeCount[array[i]] >= modeFreq && array[i] > mode) {
+      mode = array[i];
+      modeFreq = modeCount[array[i]];
+    };
   }
 
-  for (num in modeCount) {
-    if (modeCount[num] >= modeCount[mode] || !mode) {
-      mode = num;
-      modes.push(num);
-    }
-  }
-
-  if (Math.max(modes) > mode) mode = Math.max(modes);
-
-  return Number(mode) === mean;
+  return mode === mean;
 }
 
 module.exports = modemean;
