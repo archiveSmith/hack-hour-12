@@ -32,6 +32,7 @@ function kthToLastNode(k, head) {
   while (k > 1) {
     last = last.next;
     k--
+    if (last === null) return undefined;
   }
 
   while (last.next) {
@@ -39,8 +40,6 @@ function kthToLastNode(k, head) {
     last = last.next;
   }
 
-  console.log('target', target.value);
-  console.log('last', last.value);
   return target;
 
 }
@@ -50,16 +49,11 @@ function kthToLastNode(k, head) {
 // var c = new Node('C');
 // var d = new Node('D');
 // var e = new Node('E');
-// var f = new Node('F');
-// var g = new Node('G');
 
 // a.next = b;
 // b.next = c;
 // c.next = d;
 // d.next = e;
-// e.next = f;
-// f.next = g;
-
 
 // kthToLastNode(2, a);
 
