@@ -40,7 +40,7 @@ function kthToLastNode(k, head) {
     last = last.next;
   }
 
-  return target;
+  return target.value;
 
 }
 
@@ -55,6 +55,6 @@ function kthToLastNode(k, head) {
 // c.next = d;
 // d.next = e;
 
-// kthToLastNode(2, a);
+// kthToLastNode(2, a); //should return 'D'
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
