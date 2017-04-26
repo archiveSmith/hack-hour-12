@@ -36,10 +36,13 @@
 // });
 // console.log(args);
 
-   for (let i = 1; i < arguments.length; i += 1) {
-     array1 = array1.filter(elem => arguments[i].includes(elem));
-   }
-   return [...new Set([...array1])];
+  //  for (let i = 1; i < arguments.length; i += 1) {
+  //    array1 = array1.filter(elem => arguments[i].includes(elem));
+  //  }
+  //  return [...new Set([...array1])];
+
+
+   return [...new Set([...arguments].reduce((acc, cur) => acc.filter(e => cur.includes(e))))];
  }
 
  console.log(commonElements(array1, array2, array3, array4));
