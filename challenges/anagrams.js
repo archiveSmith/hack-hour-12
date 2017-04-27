@@ -15,7 +15,7 @@
 function anagrams(string) {
   //sepertate string into array
   let arr = string.split(''); // ['a','b','c']
-  console.log(arr);
+
   // create permutation
   let result = arr;
 
@@ -32,9 +32,6 @@ function anagrams(string) {
         })
       result = new_result
     })
-
-
-    console.log(result)
   }
 
   return result;
