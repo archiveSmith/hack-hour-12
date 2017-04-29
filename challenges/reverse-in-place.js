@@ -81,3 +81,56 @@ function reverseInPlace(array) {
 
 
 module.exports = reverseInPlace;
+
+
+// APPROACH LECTURE BP
+
+// reverse in place
+
+
+
+// tests
+// console.log(reverseInPlace([1, 2, 3, 4])); // -> [ 4, 3, 2, 1 ]
+// console.log(reverseInPlace(['a', 'b', 'c'])); // -> [ 'c', 'b', 'a' ]
+// console.log(reverseInPlace(['a'])); // -> ['a']
+
+
+
+// 1. ***
+// Push each element to the end of the array 
+// starting with the last element and moving in reverse order,
+// then remove (splice) the original element.
+// function reverseInPlace(array) {
+//   for (let i = array.length - 2; i >= 0; i--) {
+//     array.push(array[i]);
+//     array.splice(i, 1);
+//   }
+//   return array;
+// }
+
+// 2.
+// Start with second element
+// Unshift each element to the beginning of the array
+// Return spliced array from 0 to midway point of new array (rounded up for odd # of elements)
+
+// 3. ***
+// Keep track of two temporary variables 
+// (one at the beginning and one at the end) and swap 
+// the two elements at their positions (leaving any potential middle element in place).
+// function reverseInPlace(array) {
+//   for (let i = 0, length = array.length; i < length / 2 - 1; i++) {
+//     let left = array[i];
+//     array[i] = array[length - 1 - i];
+//     array[length - 1 - i] = left;
+//   }
+//   return array;
+// }
+
+// 4. ***
+// Refactor #3 with Destructuring assignment
+// function reverseInPlace(array) {
+//   for (let i = 0, length = array.length; i < length / 2 - 1; i++) {
+//     [array[i], array[length - i - 1]] = [array[length - i - 1], array[i]]
+//   }
+//   return array;
+// }
