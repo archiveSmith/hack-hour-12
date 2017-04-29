@@ -134,3 +134,15 @@ module.exports = reverseInPlace;
 //   }
 //   return array;
 // }
+
+// 5. Bonus
+// use of while loop, postfix increment oporator and
+// right-to-left associativity of the equal/assignment operator
+// function reverseInPlace(array) {
+//   let head = 0, tail = array.length - 1;
+
+//   while(tail > head) {
+//     [array[head++], array[tail--]] = [array[tail], array[head]]
+//   }
+//   return array;
+// }
