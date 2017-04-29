@@ -20,6 +20,9 @@ function stringRotation(s1, s2) {
     return false;
   }
 
+  let temp = s1.concat(s1);
+  
+  return isSubstring(temp, s2);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
