@@ -4,6 +4,7 @@
 
 function pow(base, power) {
   if (typeof base !== "number" || typeof power !== "number") return undefined;
+  if (power === 0) return 1
   if (power === 1) return base * power;
   return base * pow(base, power - 1)
 }
