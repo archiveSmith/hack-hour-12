@@ -21,22 +21,64 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
+
+// Set listeners and functions properties on the constructor
+// With the 'on' method, add funcName and func to relevant arrays
+// With trigger, loop through listeners to find match/es for funcName
+// call appropriate function that matches listener
+// Check for additional arguments and pass any to listeners array
+
 function EventEmitter() {
   this.listeners = [];
-  this.functions = [];
+  this.functions = []; 
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-  this.listeners.push(funcName);
-  this.functions.push(func);  
+   this.listeners.push(funcName);
+   this.functions.push(func);
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-  this.listeners.forEach((el, i) => {
+EventEmitter.prototype.trigger = function(funcName) {
+  this.listeners.forEach((el, idx) => {
     if (el === funcName) this.functions[i]();
-  }) 
-
-
+  });
+  let args = [...arguments];
+  for (let i = 1; i < args.length; i += 1) {
+    this.listeners.push(args[i]);
+  }
 };
 
 module.exports = EventEmitter;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.listeners = [];
+// this.functions = [];
+
+// this.listeners.push(funcName);
+// this.functions.push(func); 
+
+// this.listeners.forEach((el, i) => {
+//   if (el === funcName) this.functions[i]();
+// });
+// let args = [...arguments];
+// for (let i = 1; i < args.length; i++) {
+//   this.listeners.push(args[i]);
+// }
