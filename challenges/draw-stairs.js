@@ -16,7 +16,7 @@
 */
 
 function drawStairs(n) {
-    if(n < 1 || n > 100) {
+    if(n < 1 || n > 100 || !n) {
         return "Invalid Input";
     }
 
