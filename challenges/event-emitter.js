@@ -40,13 +40,22 @@ EventEmitter.prototype.on = function(funcName, func) {
 
 EventEmitter.prototype.trigger = function(funcName) {
   this.listeners.forEach((el, idx) => {
-    if (el === funcName) this.functions[i]();
+    if (el === funcName) this.functions[idx]();
   });
-  // let args = [...arguments];
-  // for (let i = 1; i < args.length; i += 1) {
-  //   this.listeners.push(args[i]);
-  // }
+  let args = [...arguments];
+  for (let i = 1; i < args.length; i += 1) {
+    this.listeners.push(args[i]);
+  }
 };
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function() {
+   counter++;
+ });
+ instance.trigger('increment');
+ instance.trigger('increment');
+ console.log(counter);
 
 module.exports = EventEmitter;
 
