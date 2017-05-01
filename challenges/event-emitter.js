@@ -36,11 +36,7 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
     if (el === funcName) this.functions[i]();
   }) 
 
-  // for (let i = 0; i < this.listeners.length; i += 1) {
-  //   if (this.listeners[i] === funcName) {
-  //     this.functions[i]();
-  //   }
-  // }
+
 };
 
 module.exports = EventEmitter;
