@@ -3,7 +3,15 @@
  */
 
 function twoSum(arr, n) {
-
+  const hash = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    const subTar = n - arr[i];
+    if (hash[subTar] !== undefined) {
+      return true;
+    }
+    hash[arr[i]] = true;
+  }
+  return false;
 }
 
 module.exports = twoSum;
