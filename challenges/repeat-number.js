@@ -11,7 +11,15 @@
  */
 
 function repeatNumbers(array) {
-
+  const storage = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!storage.hasOwnProperty(array[i])) {
+      storage[array[i]] = null;
+    } else {
+      return array[i];
+    }
+  }
+  return;
 }
 
 module.exports = repeatNumbers;

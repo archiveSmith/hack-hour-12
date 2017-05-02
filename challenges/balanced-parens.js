@@ -24,8 +24,73 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+    if (!input) return;
+    let symbols = {'(':')', '[':']', '{':'}'};
+    let symbolsI = {')':'(', ']':'[', '}':'{'};
+    let array = [];
+    for (let i = 0; i < input.length; i++) {
+        let c = input.charAt(i);
+        if (['(', '[', '{', ')', ']', '}'].indexOf(c) !== -1) {
+            array.push(c);
+        }        
+    }
+    if (array.length === 0) return false;
+    if (array.length % 2 !== 0) return false;
 
+    let matches = 0;
+    // let countdown = array.length - 1;
+    for (let i = 0; i < array.length; i+=1) {
+        // console.log('comparing', array[i], symbolsI[array[countdown]]);
+        let symbol = array[i];
+        if (['(', '[', '{'].indexOf(symbol) === -1) {
+            // console.log('continue');
+            continue;
+        }
+        let closeSymbol = symbols[symbol];
+        // console.log('SYMBOL', symbol);
+        for (let j = i+1; j < array.length; j+=1) {
+            // console.log('comparing', i, j, array[j], closeSymbol);
+
+            if (array[j] === closeSymbol) {
+                // console.log('MATCH', array[j], closeSymbol);
+                matches += 1;
+                break;
+            }
+        }
+    }    
+    // console.log('matches', matches);
+    if ((array.length/2) === matches) {
+        return true;
+    }
+    return false;
 }
+
+function CCCbalancedParens(input) {
+    let matches = {'(':')', '[':']', '{':'}'};
+    var brackets = [];
+    for (let i = 0; i < input.length; i++) {
+        let char = input[i];
+        if (char in matches) {
+            brackets.push(char);
+        } else if (char === ']' || char === ')' || char === '}') {
+            if (matches[brackets.pop()] !== char) {
+                return false;
+            }
+        }
+    }
+    return !brackets.length;
+}
+
+// console.log(balancedParens('()[]{]'));
+// console.log(balancedParens('('))
+// console.log(balancedParens('()'))
+// console.log(balancedParens(')'))
+// console.log(balancedParens('[asd asdas][wr wer we]asd asd@#!@{das da}()'))
+// console.log(balancedParens('[]'))
+// console.log(balancedParens('{}'))
+// console.log(balancedParens('({}'))
+// console.log(balancedParens('{})'))
+// console.log(balancedParens('(([))'))
 
 module.exports = balancedParens;
