@@ -16,19 +16,12 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  return isSubstring(s1 + s1, s2);
+  return isSubstring(s1 + s1, s2) && s1.length === s2.length;
 }
 
-// function stringRotation(s1, s2) {
-//   if (s1.length !== s2.length) return false;
-
-//   const arr2 = s2.split('');
-
-//   for (let i = 0; i < s2.length; i++) {
-//     arr2.unshift(arr2.pop());
-//     if (isSubstring(s1,arr2.join(''))) return true;
-//   }
-//   return false;
-// }
+console.log(stringRotation("hello", "hello")) // -> true
+console.log(stringRotation("hello", "llohe")) // -> true
+console.log(stringRotation("hello", "he")) // -> false
+console.log(stringRotation("hello", "ollhe")) // -> false (not a rotation, juconsole.log(st an anagram)
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

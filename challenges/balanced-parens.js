@@ -46,7 +46,11 @@ function balancedParens(input){
 
 // return true;
 
+  // implement a stack data-structure to manage last-in-first-out
+  // that way, each opening/closing character must either be an opening character
+  // or a closing character that corresponds to the top stack character
   let stack = [];
+
   const open = { '{': '}', '[': ']', '(': ')' };
   const closed = { '}': true, ']': true, ')': true };
   
@@ -58,6 +62,8 @@ function balancedParens(input){
       if (open[stack.pop()] !== chr) return false;
     }
   }
+  // if we iterate through the input w/o false patterns
+  // we check to see if the stack is clear
   return stack.length === 0;
 }
 
