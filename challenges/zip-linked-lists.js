@@ -11,6 +11,18 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+<<<<<<< HEAD
+  if (!l1) return l2;
+  if (!l2) return l1;
+
+  const curr = new Node(l1.value);
+  curr.next = zip(l2, l1.next);
+  return curr;
+}
+
+module.exports = { Node, zip };
+=======
 };
 
 module.exports = {Node: Node, zip: zip};
+>>>>>>> a77205c41e32f0af3cd87986d552a949a9c56047
