@@ -22,7 +22,21 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (k === undefined || k < 1 || !head) return undefined;
 
+  const nodes = [];
+
+  // find length of list
+  function traverseList(node) {
+    nodes.push(node.value);
+    if (node.next === null) return;
+    traverseList(node.next);
+  }
+
+  traverseList(head);
+  if (k > nodes.length) return;
+
+  return nodes[nodes.length - k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

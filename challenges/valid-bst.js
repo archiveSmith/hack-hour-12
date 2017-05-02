@@ -12,7 +12,19 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
+  let validLeft = true;
+  let validRight = true;
+  
+  if (tree.left === null && tree.right === null) return true;
+  
+  if (tree.left.value <= tree.value) validLeft = validBST(tree.left);
+  else validLeft = false;
+  
+  if (tree.right.value > tree.value) validRight = validBST(tree.right);
+  else validRight = false;
+  
+  if (validLeft && validRight) return true;
+  else return false;
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};

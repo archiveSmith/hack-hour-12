@@ -14,6 +14,9 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return 'not arrays';
+  
+  return arr1.concat(arr2).sort((a, b) => { return a - b; });
 
 }
 

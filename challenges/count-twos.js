@@ -8,6 +8,16 @@
 
 
 function countTwos(num) {
+  if (typeof num !== 'number') return 'bad input';
+  let count = 0;
+  
+  for (let i = 1; i <= num; i += 1) {
+    const stringI = String(i);
+    for (let j = 0; j < stringI.length; j += 1) {
+      if (stringI[j] === '2') count += 1;
+    }
+  }
+  return count;
 
 }
 
