@@ -1,3 +1,5 @@
+'use strict';
+
 /* You are given an array of integers and a target number. Write a function that returns true if
  * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
@@ -9,7 +11,31 @@
  */
 
 function subsetSum(array, target) {
-
+  if (array.length === 1) return array[0] === target;
+  
+  let sum;
+  
+  for (let i = 0; i < array.length; i++) {
+    sum = array[i];
+    if (sum === target) return true;
+    
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j) {
+        sum += array[j];
+      }
+      
+      if (sum === target) return true;
+    }
+    
+    for (let k = 0; k < array.length; k++) {
+      if (k !== i) {
+        sum -= array[k];
+      }
+      if (sum === target) return true;
+    }
+  }
+  
+  return false;
 }
-
+// console.log(subsetSum([5,3,1,7,11],15));
 module.exports = subsetSum;

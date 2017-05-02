@@ -3,8 +3,22 @@
  */
 
 function highestProduct(array) {
-
+  if (!Array.isArray(array) || array.length < 3) return 0;
+  let max = -Infinity;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j) {
+        for (let k = 0; k < array.length; k++) {
+          if (k !== i && k !== j) {
+            let product = array[i] * array[j] * array[k];
+            if (product > max) max = product;
+          }
+        }
+      }
+    }
+  }
+  
+  return max;
 }
-
 
 module.exports = highestProduct;

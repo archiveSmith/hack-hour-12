@@ -7,14 +7,34 @@
  * var another_array = [1,5,8,12,14,19];
  *
  * mergeArrays(my_array, another_array); -> [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
- * 
- * BONUS: 
- * Complete in O(n) time and O(n) space 
+ *
+ * BONUS:
+ * Complete in O(n) time and O(n) space
  *
  */
 
 function mergeArrays(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return;
+  let sorted = [];
 
+  let i, j;
+  for (i = 0, j = 0; i < arr1.length && j < arr2.length;) {
+    if (arr1[i] < arr2[j]) {
+      sorted.push(arr1[i++]);
+    } else {
+      sorted.push(arr2[j++]);
+    }
+  }
+
+  if (i < arr1.length) {
+    sorted = sorted.concat(arr1.slice(i));
+  }
+
+  if (j < arr2.length) {
+    sorted = sorted.concat(arr2.slice(j));
+  }
+
+  return sorted;
 }
 
 module.exports = mergeArrays;
