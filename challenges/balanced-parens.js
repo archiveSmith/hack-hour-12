@@ -25,7 +25,32 @@
  */
 
 function balancedParens(input){
+    // let filtered = input.replace(/[a-zA-Z0-9\.\=\:\s\;]/gi, "");
+    let filtered = input.match(/[\(\)\[\]\{\}]/g).join("");
+    let arr = [];
+    let popped;
+    for(let i = 0; i < filtered.length; i++) {
+        if(filtered[i] === '(') arr.push(filtered[i]);
+        if(filtered[i] === '{') arr.push(filtered[i]);
+        if(filtered[i] === '[') arr.push(filtered[i]);
 
+        if(filtered[i] === ')') {
+            popped = arr.pop();
+            if(popped !== '(' || popped === undefined) return false;
+        }
+        if(filtered[i] === '}') {
+            popped = arr.pop();
+            if(popped !== '{' || popped === undefined) return false;
+        }
+        if(filtered[i] === ']') {
+            popped = arr.pop();
+            if(popped !== '[' || popped === undefined) return false;
+        }
+    }
+    if(arr.length !== 0) {
+        return false;
+    }
+    return true;
 }
 
 module.exports = balancedParens;

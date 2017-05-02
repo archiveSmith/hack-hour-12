@@ -15,8 +15,36 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
-function stringRotation(s1, s2) {
-
+function rotate(string) {
+  let rotated = string[string.length - 1];
+  for(let i = 0; i < string.length - 1; i++) {
+    rotated += string[i];
+  }  
+  return rotated;
 }
 
+function stringRotation(s1, s2) {
+  if(s1.length !== s2.length || s1 === undefined || s2 === undefined) {
+    return false;
+  }
+  let counter = s1.length;
+  while(counter-- > 0) {
+    if(s1 === s2) return true;
+    s2 = rotate(s2);
+  }
+  return false;
+}
+
+// function stringRotation(s1, s2) {
+//   var head = s2.indexOf(s1[0]);
+
+//   if (s1.length !== s2.length || head < 0) return false;
+
+//   var s3 = s2.slice(head, s2.length).concat(s2.slice(0, head));
+//   console.log("s3", s3);
+//   return isSubstring(s1, s3);
+
+// }
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+
