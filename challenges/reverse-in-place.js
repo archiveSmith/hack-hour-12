@@ -14,7 +14,19 @@
  */
 
 function reverseInPlace(array) {
+  // define edge cases
+  if (!Array.isArray(array)) return [];
 
+  const arrayLength = array.length;
+  let temp = 0;
+
+  for (let i = 0; i < Math.floor(arrayLength / 2); i += 1) {
+    temp = array[i];
+    array[i] = array[arrayLength - 1 - i];
+    array[arrayLength - 1 - i] = temp;
+  }
+
+  return array;
 }
 
 module.exports = reverseInPlace;
