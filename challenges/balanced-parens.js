@@ -25,7 +25,15 @@
  */
 
 function balancedParens(input){
-
+  var openParens = "([{"
+  var closedParens = ")]}"
+  var storage = []
+  for(let i = 0; i < input.length; i++){
+    if(openParens.indexOf(input[i]) !== -1){
+      storage.push(input[i])
+    }
+  }
+  console.log(storage)
 }
 
 module.exports = balancedParens;

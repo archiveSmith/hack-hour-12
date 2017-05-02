@@ -19,10 +19,28 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  this.length = 0;
+
+  
+
 }
 
 function kthToLastNode(k, head) {
+  // looking for head node
+  let count = 0;
 
+  if(k > this.length){
+    return undefined;
+  }
+
+  while (count <= k){
+    head = head.next;
+    count++;
+  }
+
+  return head.value;
 }
+
+// change to file just to make a new pull request
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
