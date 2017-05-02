@@ -11,7 +11,25 @@
 
 
 function mergeRanges(array) {
+	array = array.sort(function(a, b) {
+		return a[0] - b[0];
+	})
 
+	let i = 0;
+
+	while (i < array.length - 1){
+		if (array[i][1] <= array[i+1][1] && array[i][1] >= array[i+1][0]) {
+			array[i][1] = array[i+1][1];
+			array.splice(i + 1,1)
+		} else {
+			i++;
+		}
+	}
+
+	return array;
 }
+
+// let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+// console.log(mergeRanges(times));  [[0, 1], [3, 8], [9, 12]]
 
 module.exports = mergeRanges;
