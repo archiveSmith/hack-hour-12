@@ -11,6 +11,20 @@
 
 
 function modemean(array) {
+	let sorted = array.sort();
+	let min; let max; let mode = 0;
+	let modeHash = {};
+	min = max = array[0];
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i] < min) min = array[i];
+		if (array[i] > max) max = array[i];
+		
+		if (modeHash.hasOwnProperty(array[i])) modeHash[array[i]] += 1;
+		else modeHash[array[i]] = 1;
+	}
+	Object.keys(modeHash).forEach(key => if (modeHash[key] >= mode) mode = modeHash[key]);
+	let mean = Math.floor((max-min)/2);
+	return (mode === mean);
 
 }
 
