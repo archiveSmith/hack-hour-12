@@ -11,7 +11,42 @@
 
 
 function modemean(array) {
+    let sum = 0;
+    let modes = {};
+    let mode;
+    let max = 1;
 
+
+    for (let i = 0; i < array.length ; i++) {
+        let val = array[i];
+        sum += val;
+        if (modes[val] === undefined ) modes[val] = 0;
+        modes[val] += 1;
+    }
+
+    let mean = Math.floor(sum / array.length);
+
+    for (val in modes) {
+
+            if ( modes[val] > max ) {
+                max = modes[val];
+                mode = val;
+            }
+            else if ( modes[val] === max && val > mode ) {
+                mode = val;
+            }
+
+
+        if(mode === undefined) {
+            mode = Math.max(...Object.keys(modes));
+        }
+
+    }
+
+    console.log("Mean:",mean,"Mode",mode);
+    return +mean === +mode;
 }
 
+
+console.log(modemean([105,105,105,105,3,4,53,4,105,105,105,105,105]));
 module.exports = modemean;

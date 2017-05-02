@@ -17,7 +17,25 @@
  */
 
 function rotateGrid(grid, n) {
+  const target = [];
+
+  // re-assign the edges
+  for (let i = 0; i < n; i++) {
+    let arr = [];
+    for (let j = n - 1; j >= 0; j--) {
+      arr.push(grid[j][i]);
+    }
+    target.push(arr);
+  }
+
+  return target;
 
 }
+
+let grid = [['1','2','3'],['4','5','6'],['7','8','9']];
+
+let target = rotateGrid(grid,3);
+
+target.forEach((row) => console.log(row));
 
 module.exports = rotateGrid;
