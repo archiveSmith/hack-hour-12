@@ -8,7 +8,17 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if (!str || typeof str !== 'string' || str.length === 0) return 'Check Inputs';
+  if (str.match(/whileelihw|iffi|forrof|tryyrt|enddne/gi)) return false;
 
+  str = str.replace(/[^A-Za-z]/g, '');
+  
+  let prevLen = str.length + 1;
+
+  while (prevLen > str.length) {
+    prevLen = str.length;
+    str = str.replace(/whileelihw|iffi|forrof|tryyrt|enddne/gi, '');
+  }  
+  return !str.length;
 }
-
 module.exports = matchWord;

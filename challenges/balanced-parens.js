@@ -25,7 +25,17 @@
  */
 
 function balancedParens(input){
+  if (typeof input !== 'string' || !input) return false;  
+  const leftSides = [];
 
+  for (var i = 0; i < input.length; i++) {
+    if (input[i].match(/[\[\(\{]/)) leftSides.push(input[i]);
+    else if (input[i].match(/[\]\}\)]/)) {
+      if ((leftSides[leftSides.length - 1] + input[i]).match(/(\[\])|(\{\})|(\(\))/))
+        leftSides.pop(); 
+      else return false;
+    }
+  } return leftSides.length === 0;
 }
 
 module.exports = balancedParens;

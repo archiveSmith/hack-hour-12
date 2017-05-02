@@ -9,7 +9,11 @@
  */
 
 function subsetSum(array, target) {
-
+  if (target === 0) return true;
+  if (array.length < 1) return false;
+  
+  const temp = [...array];
+  temp.shift();
+  return subsetSum(temp, target - array[0]) || subsetSum(temp, target);
 }
-
 module.exports = subsetSum;

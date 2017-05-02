@@ -14,7 +14,14 @@
  */
 
 function mergeArrays(arr1, arr2) {
+if (!arr1 || !arr2) return false;
 
+let merged = [];
+    while (arr1.length && arr2.length) {
+        arr1[0] <= arr2[0] ? (merged.push(arr1[0]), arr1.shift()) : (merged.push(arr2[0]), arr2.shift()); 
+    }
+    merged = arr1.length ? merged.concat(arr1) : merged.concat(arr2);
+    return merged;
 }
 
 module.exports = mergeArrays;
