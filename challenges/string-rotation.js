@@ -16,7 +16,26 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  if (!s1 || !s2) return;
+  if (s1.length !== s2.length) return false;
+  let firstIdx = s2.indexOf(s1.charAt(0));
+  let firstHalf = s2.slice(0, firstIdx);
+  let secondHalf = s2.slice(firstIdx);
+  if (secondHalf + firstHalf === s1) {
+    return true;
+  }
+  return false;
 }
+
+function CCCstringRotation(s1, s2) {
+    // Rotation must be same length and be a subset of the first
+    // string concatenated onto itself.
+    return s1.length === s2.length && isSubstring(s1.concat(s1), s2);
+}
+
+// stringRotation('abcdef','cdefab');
+// stringRotation('hello','hello');
+// stringRotation('hello','llohe');
+// stringRotation('hello','ollhe');
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
