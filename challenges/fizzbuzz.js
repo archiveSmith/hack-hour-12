@@ -18,6 +18,24 @@
 
 function fizzbuzz(num) {
 
+	var arr = [];
+	for(var i = 1; i <= num; i++) {
+		(i % 3 !== 0 && i % 5 !== 0) ? arr.push(i) : i % 3 === 0 && i % 5 !== 0 ? arr.push('fizz') : i % 5 === 0 && i % 3 !== 0 ? arr.push('buzz') : arr.push('fizzbuzz');
+	}return arr;
 }
+/*
+function fizzbuzz(num) {
+	var arr = [];
+	for(var i = 1; i <= num; i++) {
+		if(i % 3 !== 0 && i % 5 !== 0) arr.push(i);
+		else if(i % 3 === 0 && i % 5 !== 0) arr.push('fizz');
+		else if(i % 3 !== 0 && i % 5 === 0) arr.push('buzz');
+		else arr.push('fizzbuzz');
+	} return arr;
+}*/
+
+
+}
+
 
 module.exports = fizzbuzz;
