@@ -22,15 +22,32 @@
  */
 
 function EventEmitter() {
-
+  this.events = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if(this.events[funcName] === undefined) {
+    this.events[funcName] = [];
+    this.events[funcName].push(func);
+  } else {
+    this.events[funcName].push(func);
+  }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  for(let i = 0; i < this.events[funcName].length; i++) {
+    this.events[funcName][i].bind(null, ...args)();
+  }
 };
+
+// let instance = new EventEmitter();
+// instance.on('increment', () => {
+//   console.log('hi')
+// });
+// instance.on('increment', () => {
+//   console.log('richard');
+// })
+
+// instance.trigger('increment');
 
 module.exports = EventEmitter;

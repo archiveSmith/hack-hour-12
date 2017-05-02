@@ -7,8 +7,39 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos(num) {
+// function countTwos(num) {
+//     let count = 0;
+//     for(let i = 1; i <= num; i++) {
+//         let numString = String(i);
+//         for(let j = 0; j < numString.length; j++) {
+//             if(numString[j] === '2') {
+//                 count++;
+//             }
+//         }        
+//     }
+//     return count;
+// }
 
+function countTwos(num) {
+    let bigString = '';
+    let count = 0;
+    for(let i = 1; i <= num; i++) {
+        bigString += i;
+    }
+    for(let i = 0; i < bigString.length; i++) {
+        if(bigString[i] === '2') count++;
+    }
+    return count;
 }
+
+// need updating
+// function countTwos(num, currentNum = 0, count = 0) {
+//     if(currentNum > num) return count;
+//     let currString = currentNum + "";
+//     for(let i = 0; i < currString.length; i++) {
+//         if(currString[i] === '2') count++;
+//     }
+//     return countTwos(num, ++currentNum, count);
+// }
 
 module.exports = countTwos;
