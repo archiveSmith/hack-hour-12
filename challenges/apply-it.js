@@ -26,7 +26,8 @@
  */
 
 function applyIt(func, args) {
-
+  const argums = args.join('","');
+  return () => eval(`func("${argums}")`);
 }
 
 module.exports = applyIt;

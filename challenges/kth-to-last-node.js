@@ -15,6 +15,7 @@
  *
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
+ // adding a comment
 
 function Node(val) {
   this.value = val;
@@ -22,7 +23,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+	if (!head || !k || k < 1) return;
+	let currNode = head;
+	let counter = k;
+	let output;
 
+	function traversList(k, node) {
+		console.log('in: ', node.value, 'k: ', counter);
+		if (node.next) {
+			traversList(k, node.next);
+		}
+		counter--;
+		if (counter === 0) output = node.value;
+	}
+
+	traversList(counter, head);
+
+	return output;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

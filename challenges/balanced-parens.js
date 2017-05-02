@@ -3,7 +3,7 @@
  * the parentheses are balanced and false otherwise.
  *
  * Example:
- *   balancedParens('(');  // false
+ *   balancedParens('(');  // false!
  *   balancedParens('()'); // true
  *   balancedParens(')(');  // false
  *   balancedParens('(())');  // true
@@ -24,8 +24,23 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+	const matches = {'[':']', '{':'}', '(':')',};
+	let brackets = [];
+	// loop over string
+	for (var i = 0; i < input.length; i += 1) {
+		let char = input[i];
+		// if char is opening bracket, push it on the stack
+		if (char in matches) {
+			brackets.push(char);
+		// else, if char closing, compare it with last item on stack
+		} else if (char === ']' || char === '}' || char === ')') {
+			if (matches[brackets.pop()] !== char) {
+				return false;
+			}
+		}
+	}
+	// return true if stack is empty
+	return !brackets.length;
 }
-
 module.exports = balancedParens;

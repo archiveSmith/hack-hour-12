@@ -8,7 +8,9 @@
  */
 
 function gcd(a, b) {
-
+  return b ? gcd(b, a % b) : Math.abs(a);
 }
+
+// console.log(gcd(44, 8));
 
 module.exports = gcd;
