@@ -12,10 +12,18 @@
 ******
 
 */
-
+'use strict';
 function drawStairs(n) {
-
+	let result = '', space = ' ', asterisk = '*', spaces, asterisks;
+	for (let row = 1; row <= n; row++) {
+		spaces = space.repeat(n-row);
+		asterisks = asterisk.repeat(row);
+		result = result + spaces + asterisks + '\n';
+	}
+	return result;
 }
+//console.log(' '+ ' ' + ' ' + '*'+'\n'+'**');
+console.log(drawStairs(10));
 
 
 module.exports = drawStairs;
