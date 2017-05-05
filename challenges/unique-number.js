@@ -13,11 +13,11 @@ function uniqueNumber(array) {
   if(!array) return;
   let numbers = {};
   for(let i = 0; i < array.length; i++) {
-    if(!numbers[array[i]]) numbers[array[i]] = false;
+    if(!numbers[array[i]]) numbers[array[i]] = true;
     else numbers[array[i]]++;
   }
   for(num in numbers) {
-    if(numbers[num] === false) return num;
+    if(numbers[num] === true) return num;
   }
 }
 
