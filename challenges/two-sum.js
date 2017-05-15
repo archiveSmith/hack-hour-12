@@ -14,7 +14,7 @@
 function twoSum(arr, n) {
     let obj = {};
     for(let i = 0; i < arr.length; i++) {
-        if(obj[n - arr[i]] === undefined) obj[arr[i]] = 'ROAWR';
+        if(obj[n - arr[i]] === undefined) obj[arr[i]] = false;
         else return true;
     }
     return false;
