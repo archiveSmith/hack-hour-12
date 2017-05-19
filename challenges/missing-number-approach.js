@@ -28,12 +28,16 @@ Challange:
 
 // time complexity: O(n^2)
 // space complexity: 1
-function missingNum(array) {
-  // iterate through input array where i <= array.length
-  // look for the index + 1 in the array
-  // if not found, you found the missing number
+// function missingNum(array) {
+//   // iterate through input array where i <= array.length
+//   // look for the index + 1 in the array
+//   for (let i = 1; i < array.length + 1; i++) {
+//     if (array.indexOf(i) === -1) return i;
+//   }
+//   // if not found, you found the missing number
 
-}
+
+// }
 
 // time complexity: O(n)
 // space complexity: 1
@@ -41,8 +45,10 @@ function missingNum(array) {
 function missingNum(array) {
   // get sum of all integers from 1 to (N+1) including missing element
   // using sum of linear series of number: n*(n+1)/2, n = Array.length + 1
+  const sum = (array.length + 1) * (array.length + 2) / 2;
 
   // subtract all present integers from sum to find missing element
+  return array.reduce((acc, num) => acc - num, sum);
 
 };
 

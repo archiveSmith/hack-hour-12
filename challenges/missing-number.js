@@ -28,28 +28,28 @@ Challange:
 
 // time complexity: O(n^2)
 // space complexity: 1
-function missingNum(array) {
-  // iterate through input array where i <= array.length
-  // look for the index + 1 in the array
-  // if not found, you found the missing number
-  for (let i = 0; i <= array.length; i++) {
-    if (array.indexOf(i + 1) === -1) {
-      return i + 1;
-    }
-  }
-}
+// function missingNum(array) {
+//   // iterate through input array where i <= array.length
+//   // look for the index + 1 in the array
+//   // if not found, you found the missing number
+//   for (let i = 0; i <= array.length; i++) {
+//     if (array.indexOf(i + 1) === -1) {
+//       return i + 1;
+//     }
+//   }
+// }
 
 // time complexity: O(n)
 // space complexity: 1
 // sum of a sequence of natural numbers begining at 1 where n is the length/max = n(n+1)/2
-function missingNum(array) {
-  // get sum of all integers from 1 to (N+1) including missing element
-  // using sum of linear series of number: n*(n+1)/2, n = Array.length + 1
-  const sum = (array.length + 1) * (array.length + 2) / 2;
+// function missingNum(array) {
+//   // get sum of all integers from 1 to (N+1) including missing element
+//   // using sum of linear series of number: n*(n+1)/2, n = Array.length + 1
+//   const sum = (array.length + 1) * (array.length + 2) / 2;
 
-  // subtract all present integers from sum to find missing element
-  return array.reduce((total, num) => total - num, sum);
-};
+//   // subtract all present integers from sum to find missing element
+//   return array.reduce((total, num) => total - num, sum);
+// };
 
 const missingNum = a => a.reduce((acc, n) => acc - n, (a.length + 1) * (a.length + 2) / 2); 
 
