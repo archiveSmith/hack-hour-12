@@ -48,7 +48,6 @@ function addLinkedList(l1, l2) {
   }
 
   return result;
-
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
