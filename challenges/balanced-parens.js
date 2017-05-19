@@ -25,6 +25,8 @@
  */
 
 function balancedParens(input) {
+  if (typeof input !== 'string') throw new Error('Input must be a string.');
+  
   const stack = [];
   let counter = 0;
   let ch = input[counter++];
