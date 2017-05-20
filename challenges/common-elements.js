@@ -57,10 +57,23 @@
 // var array4 = ['ferret',12,12,45,9,66,77,78,2000];
 // console.log(commonElements(array1, array2, array3, array4));
 
-const commonElements = (array1, array2, array3, array4) => [array1, array2, array3, array4]
-  .reduce((inCommon, nextArray) => inCommon.filter(el => nextArray.includes(el)))
-  .filter((el, i, array) => array.indexOf(el) === i)
-  .reduce((a, b, i, arr) => arr, 'Nothing in Common!');
+// const commonElements = (array1, array2, array3, array4) => [array1, array2, array3, array4]
+//   .reduce((inCommon, nextArray) => inCommon.filter(el => nextArray.includes(el)))
+//   .filter((el, i, array) => array.indexOf(el) === i)
+//   .reduce((a, b, i, arr) => arr, 'Nothing in Common!');
+
+const commonElements = (array1, array2, array3, array4) => {
+  return array1.filter(n => 
+    array2.indexOf(n) > -1 && array3.indexOf(n) > -1 && array4.indexOf(n) > -1
+  ).filter((val, i, arr) => i === arr.indexOf(val));
+};
+
+var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
+var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
+var array4 = ['ferret',12,12,45,9,66,77,78,2000];
+
+console.log(commonElements(array1, array2, array3, array4));
 
 
 module.exports = commonElements;
