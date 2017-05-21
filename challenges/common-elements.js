@@ -62,13 +62,36 @@
 //   .filter((el, i, array) => array.indexOf(el) === i)
 //   .reduce((a, b, i, arr) => arr, 'Nothing in Common!');
 
-const commonElements = (array1, array2, array3, array4) => {
-  const common = array1.filter(n => 
-    array2.indexOf(n) > -1 && array3.indexOf(n) > -1 && array4.indexOf(n) > -1
-  ).filter((val, i, arr) => i === arr.indexOf(val));
+// const commonElements = (array1, array2, array3, array4) => {
+//   const common = array1.filter(n => 
+//     array2.indexOf(n) > -1 && array3.indexOf(n) > -1 && array4.indexOf(n) > -1
+//   ).filter((val, i, arr) => i === arr.indexOf(val));
 
-  return common.length === 0 ? 'Nothing in Common!' : common;
-};
+//   return common.length === 0 ? 'Nothing in Common!' : common;
+// };
+
+function commonElements() {
+  const args = [...arguments];
+  const memory = {};
+  var common;
+  var i;
+
+  args.forEach((arr, index) => {
+    for (i = 0; i < arr.length; i++) {
+      if (!memory[arr[i]]) {
+        memory[arr[i]] = 1;
+      } else if (memory[arr[i]] === index) {
+        memory[arr[i]] ++;
+      }
+    }
+  });
+
+  common = Object.keys(memory).filter(key => memory[key] === args.length);
+
+  if (common.length === 0) return 'Nothing in Common!';
+
+  return common;
+}
 
 var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
 var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
