@@ -65,9 +65,9 @@
 const commonElements = (array1, array2, array3, array4) => {
   const common = array1.filter(n => 
     array2.indexOf(n) > -1 && array3.indexOf(n) > -1 && array4.indexOf(n) > -1
-  ).filter((val, i, arr) => i === arr.indexOf(val));
+  ).sort().filter((n, i, arr) => n !== arr[i + 1]);
 
-  return common.length === 0 ? 'Nothing in Common!' : common.sort();
+  return common.length === 0 ? 'Nothing in Common!' : common;
 };
 
 // function commonElements() {
