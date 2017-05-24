@@ -65,20 +65,20 @@ function zip(l1, l2) {
   return newLL;
 };
 
-const l1 = new Node(1);
-l1.next = new Node(3);
-l1.next.next = new Node(5);
+// const l1 = new Node(1);
+// l1.next = new Node(3);
+// l1.next.next = new Node(5);
 
-const l2 = new Node(2);
-l2.next = new Node(4);
-l2.next.next = new Node(6);
-l2.next.next.next = new Node(7);
+// const l2 = new Node(2);
+// l2.next = new Node(4);
+// l2.next.next = new Node(6);
+// l2.next.next.next = new Node(7);
 
-const l3 = zip(l1, l2);
-let currNode = l3;
-while (currNode) {
-  console.log(currNode.value);
-  currNode = currNode.next;
-}
+// const l3 = zip(l1, l2);
+// let currNode = l3;
+// while (currNode) {
+//   console.log(currNode.value);
+//   currNode = currNode.next;
+// }
 
 module.exports = {Node: Node, zip: zip};
