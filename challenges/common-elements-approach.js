@@ -13,7 +13,16 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(arr1, arr2, arr3, arr4) {
+  // filter each value of the first array
+  const common = arr1.filter(n => 
+    arr2.includes(n) && arr3.includes(n) && arr4.includes(n)
+  ).sort().filter((n, i, arr) => n !== arr[i + 1]);
 
+  return common.length === 0 ? "Nothing in Common!" : common;
+  // by checking for the indexOf of each value in the other arrays
+  // then remove duplicates by filtering by checking the first index of each value
+  // sort to resolve testing
+  // return 'Nothing in Common' if the array length is 0, otherwise return result array
 };
 
 const array1 = [1, 4, 6, 7, 'ferret', 12, 12, 99, 2000, 'dog', 'dog', 99, 1000];
@@ -22,12 +31,15 @@ const array3 = [23, 12, 12, 77, 'ferret', 9, 88, 100, 'dog'];
 const array4 = ['ferret', 12, 12, 45, 9, 66, 77, 78, 2000];
 
 console.log(commonElements(array1, array2, array3, array4));
+// your output would be [ 12, 'ferret']
+
 console.log(commonElements(
   ['dog', 3, 69, 34],
   ['dog', 3, 45, 67, 'cat'],
   [3, 78, 'dog', 'cat'],
   [3, 78, 'dog', 'cat'],
 ));
+// your output would be [ 3, 'dog']
 
 
 module.exports = commonElements;

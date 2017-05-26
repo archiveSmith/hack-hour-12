@@ -63,12 +63,23 @@
 //   .reduce((a, b, i, arr) => arr, 'Nothing in Common!');
 
 const commonElements = (array1, array2, array3, array4) => {
+  // filter each value of the first array
+  // by checking each value is included in the other arrays
+  // then remove duplicates by filtering by checking the first index of each value
+  // sort to resolve testing
+  // return 'Nothing in Common' if the array length is 0, otherwise return result array
   const common = array1.filter(n => 
-    array2.indexOf(n) > -1 && array3.indexOf(n) > -1 && array4.indexOf(n) > -1
+    array2.includes(n) && array3.includes(n) && array4.includes(n)
   ).sort().filter((n, i, arr) => n !== arr[i + 1]);
 
   return common.length === 0 ? 'Nothing in Common!' : common;
 };
+
+const commonElements = (array1, array2, array3, array4) =>
+  [array1, array2, array3, array4]
+    .reduce((acc, nextArray) => acc.filter((el) => nextArray.includes(el)))
+    .filter((el, i, array) => array.indexOf(el) === i)
+    .reduce((a, b, i, arr) => arr, 'Nothing in Common!');
 
 // function commonElements() {
 //   const args = [...arguments];

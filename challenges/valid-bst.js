@@ -18,6 +18,7 @@ function validBST(tree) {
     return [...makeArray(node.left), node.value, ...makeArray(node.right)];
   }
   const entireArray = makeArray(tree);
+  console.log(entireArray)
 
   // check if it is in order
   for (let i = 1; i < entireArray.length; i++) {
@@ -44,5 +45,62 @@ function validBSTalternate(tree) {
   }
   return isValid(tree, -Infinity, Infinity);
 }
+
+const btTrue1 = {
+  value: 2,
+  left: { value: 1 },
+  right: { value: 3 },
+};
+
+const btFalse1 = {
+  value: 2,
+  left: { value: 3 },
+  right: { value: 1 },
+};
+
+const btTrue2 = {
+  value: 2,
+  left: {
+    value: 1,
+    left: { value: -1 },
+  },
+  right: {
+    value: 3,
+    right: {
+      value: 6,
+      left: {
+        value: 5,
+      },
+      right: {
+        value: 7,
+      }
+    }
+  },
+};
+
+const btFalse2 = {
+  value: 2,
+  left: {
+    value: 1,
+    left: { value: -1 },
+  },
+  right: {
+    value: 3,
+    right: {
+      value: 6,
+      left: {
+        value: 7,
+      },
+      right: {
+        value: 7,
+      }
+    }
+  },
+};
+
+console.log(validBST(btTrue1)); // -> true
+console.log(validBST(btFalse1)); // -> false
+console.log(validBST(btTrue2)); // -> true
+console.log(validBST(btFalse2)); // -> false
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
