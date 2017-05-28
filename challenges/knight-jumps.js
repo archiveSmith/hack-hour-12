@@ -40,7 +40,6 @@ function knightjumps(str) {
   if ( (x - 2) >= 1 && (y - 1) >= 1 ) possibleJumps++;
 
   return possibleJumps;
-
 }
 
 module.exports = knightjumps;
