@@ -31,11 +31,11 @@ function knightjumps(str) {
   if ( (x + 1) >= 1 && (y + 2) <= 8 ) possibleJumps++;
   if ( (x + 2) >= 1 && (y + 1) <= 8 ) possibleJumps++;
 
-  // // Check bottom right
+  // Check bottom right
   if ( (x + 2) <= 8 && (y - 1) >= 1 ) possibleJumps++;
   if ( (x + 1) <= 8 && (y - 2) >= 1 ) possibleJumps++;
 
-  // // Check bottom left
+  // Check bottom left
   if ( (x - 1) >= 1 && (y - 2) >= 1 ) possibleJumps++;
   if ( (x - 2) >= 1 && (y - 1) >= 1 ) possibleJumps++;
 
