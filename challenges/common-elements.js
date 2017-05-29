@@ -15,17 +15,17 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
-// validate input
-	if (!Array.isArray(array1) || !Array.isArray(array2) || !Array.isArray(array3) || !Array.isArray(array4)) return;
+  // validate input
+  if (!Array.isArray(array1) || !Array.isArray(array2) || !Array.isArray(array3) || !Array.isArray(array4)) return;
 
-	const common = [array1, array2, array3, array4].reduce((acc, next) => {
-		return next.reduce((a, b) => {
-			if (acc.indexOf(b) >= 0 && a.indexOf(b) === -1) a.push(b);
-			return a;
-		}, []);
-	});
+  const common = [array1, array2, array3, array4].reduce((acc, next) => {
+    return next.reduce((a, b) => {
+    if (acc.indexOf(b) >= 0 && a.indexOf(b) === -1) a.push(b);
+      return a;
+    }, []);
+  });
 
-	return common.length ? common : 'Nothing in Common!'
+  return common.length ? common : 'Nothing in Common!'
 }
 
 module.exports = commonElements;
