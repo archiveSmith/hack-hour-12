@@ -3,29 +3,29 @@
 // duplicates are only counted once;
 // for example == given the following input
 
-  // var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
-  // var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
-  // var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
-  // var array4 = ['ferret',12,12,45,9,66,77,78,2000];
-	//
-	// console.log(commonElements(array1, array2, array3, array4));
+// var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+// var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
+// var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
+// var array4 = ['ferret',12,12,45,9,66,77,78,2000];
+
+// console.log(commonElements(array1, array2, array3, array4));
 
 // your output would be [ 12, 'ferret']
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
-	// validate input
-	if (!Array.isArray(array1) || !Array.isArray(array2) || !Array.isArray(array3) || !Array.isArray(array4)) return;
+  // validate input
+  if (!Array.isArray(array1) || !Array.isArray(array2) || !Array.isArray(array3) || !Array.isArray(array4)) return;
 
-	const common = [array1, array2, array3, array4].reduce((acc, next) => {
-		return next.reduce((a, b) => {
-			if (acc.indexOf(b) >= 0 && a.indexOf(b) === -1) a.push(b);
-			return a;
-		}, []);
-	});
+  const common = [array1, array2, array3, array4].reduce((acc, next) => {
+    return next.reduce((a, b) => {
+    if (acc.indexOf(b) >= 0 && a.indexOf(b) === -1) a.push(b);
+      return a;
+    }, []);
+  });
 
-	return common.length ? common : 'Nothing in Common!'
+  return common.length ? common : 'Nothing in Common!'
 }
 
 module.exports = commonElements;
