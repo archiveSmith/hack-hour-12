@@ -46,6 +46,6 @@ function mergeRanges(array) {
   return ranges;
 }
 
-console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]));
+// console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]));
 
 module.exports = mergeRanges;
