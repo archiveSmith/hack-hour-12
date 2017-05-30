@@ -13,24 +13,33 @@ function BinaryTree(val) {
 // flatten array approach
 function validBST(tree) {
   // flattens tree into an array
-  // create a recursive function 'makeArray' that returns an array and accepts a tree node as an input
+  // create a recursive function 'makeArray' that
+  // returns an array and accepts a tree node as an input
   function makeArray(node) {
     // base case: if no node/falsey input, return empty array
     // (return must be an array because of the use of the spread syntax)
+   if (!node) return [];
 
     // return an array with three values
     // the middle value is the current node's value
     // the left and right values are the recursive results (arrays) of the left and right node
     // use spread syntax to expand the results
+    return [...makeArray(node.left), node.value, ...makeArray(node.right)];
+   
 
   }
   // invoke the resursive function and store the array
   const entireArray = makeArray(tree);
+  console.log(entireArray)
 
   // check if it is in order
   // iterate begining at the 2nd value (i = 1) and compare each val with previous
   // if the current val is less the the previous val, exit return false
   // if loop completes, return false
+  for (let i = 1; i < entireArray.length; i++) {
+    if (entireArray[i] < entireArray[i - 1]) return false;
+  }
+  return true;
 
 }
 
@@ -92,6 +101,26 @@ console.log(validBST(btFalse1)); // -> false
 console.log(validBST(btTrue2)); // -> true
 console.log(validBST(btFalse2)); // -> false
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // The “flatten tree” approach uses a recursive function to convert the binary tree into an array.
 
 // Then we check to see if that array is in ascending order.
@@ -102,12 +131,14 @@ console.log(validBST(btFalse2)); // -> false
 
 // If the for loop completes, we will return true, therefor we must setup an exiting condition that must evaluate to false.
 
-// In this case, that is if the current value is somehow less than the previous value, return false.
+// In this case, the exiting condition is if the current value is somehow less than the previous value, which we'll return false.
 
 
-// The more difficult part is how to we “flatten” array. More precisely, how do we traverse a binary in order, and push it’s values in to an array?
+// The more difficult part is how to we “flatten” the array. More precisely, how do we traverse a binary tree in order, and push it’s values in to an array?
 
-// The first tool we’ll use is recursion, because recursion uses the call stack for last in, last out evaluation.
+// The first tool we’ll use is recursion, because recursion allows us to return a function/itself, a base case, and/or a value.
+
+// In this case the function is itself, the value will be a node value, and the base case will be some kind of return of an end point.
 
 // Let’s set that up.
 
