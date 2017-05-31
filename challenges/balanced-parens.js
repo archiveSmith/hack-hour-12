@@ -33,8 +33,8 @@ function balancedParens(input) {
   const open = { '{': '}', '[': ']', '(': ')' };
   const closed = { '}': true, ']': true, ')': true };
 
-  for (let i = 0; i < input.length; i ++) {
-    let chr = input[i];
+  for (let i = 0; i < input.length; i++) {
+    const chr = input[i];
     if (open[chr]) {
       stack.push(chr);
     } else if (closed[chr]) {
