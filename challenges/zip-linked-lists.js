@@ -24,7 +24,7 @@ function zip(l1, l2) {
   let currNode = l2;
 
   while (currNode) {
-    console.log(currNode);
+    // console.log(currNode);
     const newNode = new Node(currNode.value);
     newCurr.next = newNode;
     newCurr = newNode;
