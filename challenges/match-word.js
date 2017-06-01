@@ -13,7 +13,7 @@ function matchWord(str) {
   let word = '';
 
   for (let i = 0; i < str.length; i++) {
-    if( str[i].toLowerCase() !== str[i].toUpperCase() ) {
+    if(str[i].toLowerCase() !== str[i].toUpperCase()) {
       word += str[i];
     } else {
       if (word !== '') {
@@ -30,6 +30,7 @@ function matchWord(str) {
       word = ''
     }
   }
+  
   if (words[words.length - 1] === word.split('').reverse().join('').toLowerCase()) {
     words.pop();
   }
