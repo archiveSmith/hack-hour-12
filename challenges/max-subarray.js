@@ -45,5 +45,7 @@ function maxSubarray(arr) {
 
   return max;
 }
+
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+
 module.exports = maxSubarray;
