@@ -16,7 +16,7 @@ function countTwos(num) {
     }
 
     let twos = string.match(/(2)/g);
-    
+
     return twos.length;
 }
 
