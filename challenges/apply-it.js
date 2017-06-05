@@ -33,23 +33,18 @@ const applyIt = (func, args) => () => eval(`func("${args.join('","')}")`);
 
 // Test 1
 const jae = (name, age, location) => `${name} is ${age} and he lives in ${location}`;
-
 const jaero = applyIt(jae, ['Jae', 19, 'South Carolina']);
 
 // Test 2
-const jasmine = (name, age) => {
-  if (!age) return `We don't know how old ${name} is!`;
-  return `${name} is ${age} years old!`;
-};
-
+const jasmine = (name, age) => !age
+  ? `We don't know how old ${name} is!`
+  : `${name} is ${age} years old!`;
 const jmoney = applyIt(jasmine, ['Jasmine']);
 
 // Test 3
 // Note: Current solutions only work for string arguments!
 const addEm = (num1, num2) => num1 + num2;
-
 const addedEm = applyIt(addEm, [1, 2]);
-
 
 // Log Tests
 console.log(jaero()); // Returns "Jae is 19 and he lives in South Carolina"
