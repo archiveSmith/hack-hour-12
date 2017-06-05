@@ -18,7 +18,20 @@
  */
 
 function romanNumeral(n) {
+  var string = '';
+  const rmn = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+  const num = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
 
+  while (n > 0) {
+    for (let i = 0; i < num.length; i++) {
+      if (n >= num[i]) {
+        string += rmn[i];
+        n = n - num[i];
+        break;
+      }
+    }
+  }
+  return string;
 }
 
 module.exports = romanNumeral;

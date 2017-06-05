@@ -13,9 +13,23 @@
 
 */
 
+// function drawStairs(n) {
+//   let stairsArr = [];
+//   let i = 0;
+
+//   while (i < n) {
+//     stairsArr[i] = ' '.repeat(n - i - 1) + '*'.repeat(i + 1);
+//     i++;
+//   }
+//   console.log(stairsArr.join('\n'));
+// }
+
 function drawStairs(n) {
-
+  for (let i = 1; i <= n; i++) {
+    const spaces = ' '.repeat(n - i);
+    const splats = '*'.repeat(i);
+    console.log(spaces + splats);
+  }
 }
-
 
 module.exports = drawStairs;

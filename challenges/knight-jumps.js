@@ -11,7 +11,21 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const x = Number(str[1]);
+  const y = Number(str[3]);
+  let moves = 0;
 
+  if (x + 1 < 9 && y + 2 < 9) moves += 1;
+  if (x + 1 < 9 && y - 2 > 0) moves += 1;
+  if (x - 1 > 0 && y + 2 < 9) moves += 1;
+  if (x - 1 > 0 && y - 2 > 0) moves += 1;
+  if (x + 2 < 9 && y + 1 < 9) moves += 1;
+  if (x + 2 < 9 && y - 1 > 0) moves += 1;
+  if (x - 2 > 0 && y + 1 < 9) moves += 1;
+  if (x - 2 > 0 && y - 1 > 0) moves += 1;
+
+  return moves;
 }
+console.log(knightjumps('(4 5)'));
 
 module.exports = knightjumps;

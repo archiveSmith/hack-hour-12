@@ -42,8 +42,72 @@ expectations = {
 
 
 
-function getPINs(observed) {
+// function getPINs(observed) {
+//   const pos = [
+//     ['8', '0'],
+//     ['1', '2', '4'],
+//     ['1', '2', '3', '5'],
+//     ['2', '3', '6'],
+//     ['1', '4', '5', '7'],
+//     ['2', '4', '5', '6'],
+//     ['5', '6', '9'],
+//     ['4', '7', '8'],
+//     ['5', '7', '8', '9', '0'],
+//     ['6', '8', '9'],
+//   ];
+//   const keys = observed.split('');
+//   const len = keys.length;
+//   const posiblities = [];
 
+//   function makePosibility(arr, posibility = ''){
+//     if (posibility.length === len) return posiblities.push(posibility);
+
+//     for (let i = 0; i < arr.length; i += 1) {
+//       // get the ith item out of the array
+//       item = arr.splice(i, 1)[0];
+//       // recurisve call with copy of arr array and copy of cur with the item added
+//       makePosibility(arr.slice(), posibility.concat(item));
+//       // place the item back in the array
+//       arr.splice(i, 0, item);
+//     }
+//   }
+//   makePosibility(keys);
+
+//   return posiblities;
+// }
+
+// console.log(getPINs('112'));
+
+
+// form array of parray of possibiities for each observerd digit
+// recurse thru each subarray to form all possibiities
+// adding each digit from the next array to the new combo
+// base case -> combp/path has reached length of observed pin
+
+function getPINs(observed) {
+  // Object mapping out possibilities based on observed digit.
+  const adj = {
+    0: ['8', '0'],
+    1: ['1', '2', '4'],
+    2: ['1', '2', '3', '5'],
+    3: ['2', '3', '6'],
+    4: ['1', '4', '5', '7'],
+    5: ['2', '4', '5', '6', '8'],
+    6: ['3', '5', '6', '9'],
+    7: ['4', '7', '8'],
+    8: ['5', '7', '8', '9', '0'],
+    9: ['6', '8', '9']
+  }
+  
+  // If there is only one observed digit, return array of possibilities from the object above.
+  if (observed.length === 1) return adj[observed]
+
+  // Get the remaining possibilities from remaining digits.
+  const theRest = getPINs(observed.slice(1))
+
+  // Place each possible digit from current observed digit and place it front of every possibility from
+  // above array of possibilities (based on remaining observed digits). Return big array of possibilities.
+  return adj[observed[0]].reduce((accum, num) => [...accum, ...theRest.map(pins => num.concat(pins))], [])
 }
 
 

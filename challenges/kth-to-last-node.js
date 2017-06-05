@@ -22,7 +22,40 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (!Number.isInteger(k) || k < 1 || !head) return;
 
+  const nodeValues = [];
+  while (head !== null) {
+    nodeValues.push(head.value);
+    head = head.next;
+  }
+
+  return nodeValues[nodeValues.length - k];
+}
+
+function kthToLastNodeAlternate(k, head) {
+  let nodeLength = 1;
+  let nodeSpot = 0;
+  let currentNode = head;
+
+  // get length of list
+  while (currentNode.next !== null) {
+    nodeLength += 1;
+    currentNode = currentNode.next;
+  }
+
+  // reset node finder location
+  currentNode = head;
+
+  if (nodeLength < k || !head || k < 1) return undefined;
+
+  // iterate through list until desired node
+  while (nodeSpot < nodeLength - k) {
+    nodeSpot += 1;
+    currentNode = currentNode.next;
+  }
+
+  return currentNode.value ? currentNode.value : undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
