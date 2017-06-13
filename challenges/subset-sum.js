@@ -12,7 +12,7 @@
 
 function subsetSum(array, target) {
   if (array.length === 1) return array[0] === target;
-  let arrLen = array.length;
+  const arrLen = array.length;
   let sum;
 
   for (let i = 0; i < arrLen; i++) {
