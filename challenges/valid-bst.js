@@ -42,17 +42,33 @@ function BinaryTree(val) {
 // }
 
 
-function validBST(tree) {
-    function makeArray(node) {
-        if(!node) return [];
-        return [...makeArray(node.left), node.value, ...makeArray(node.right)];
-    }
+// function validBST(tree) {
+//     function makeArray(node) {
+//         if(!node) return [];
+//         return [...makeArray(node.left), node.value, ...makeArray(node.right)];
+//     }
 
-    const entireArray = makeArray(tree);
-    for(let i = 1; i < entireArray.length; i++) {
-        if(entireArray[i] < entireArray[i-1]) return true;
-    }
-    return false;
+//     const entireArray = makeArray(tree);
+//     for(let i = 1; i < entireArray.length; i++) {
+//         if(entireArray[i] < entireArray[i-1]) return true;
+//     }
+//     return false;
+// }
+
+function validBST(tree) {
+  function helperLeft(tree, n, root) {
+    if (tree === null) return true;
+    if (tree.value > n || tree.value > root) return false;
+    return helperLeft(tree.left, tree.value, root) && helperRight(tree.right, tree.value, root);
+  }
+
+  function helperRight(tree, n, root) {
+    if (tree === null) return true;
+    if (tree.value <= n || tree.value <= root) return false;
+    return helperLeft(tree.left, tree.value, root) && helperRight(tree.right, tree.value, root);
+  }
+
+  return helperLeft(tree.left, tree.value, tree.value) && helperRight(tree.right, tree.value, tree.value);
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
