@@ -25,10 +25,24 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // create a function with 2 arguments: a function and an array
 // it will return a function
 // use "eval", template literals, and "join" convert the array to a string
-const applyIt
+const applyIt = (func, args) => () => eval(`func("${args.join('","')}")`);
 
 
 // Test 1

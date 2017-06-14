@@ -21,6 +21,7 @@ function Node(val) {
   this.next = null;
 }
 
+// convert to array
 function kthToLastNode(k, head) {
   if (!Number.isInteger(k) || k < 1 || !head) return;
 
