@@ -17,14 +17,19 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
+  // If no head exists, new node is head and tail
   if (this.head === null) {
     return this.head = this.tail = new Node(val);
   }
 
+  // Create new node after the tail
   const newNode = new Node(val);
   this.tail.next = newNode;
   newNode.prev = this.tail;
   this.tail = newNode;
+  
+  // Return the new node
+  return newNode;
 };
 
 /*
