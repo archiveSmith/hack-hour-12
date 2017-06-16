@@ -24,8 +24,14 @@ LinkedList.prototype.add = function(val) {
 
   // Create new node after the tail
   const newNode = new Node(val);
+  
+  // Point tail's next to the new node
   this.tail.next = newNode;
+  
+  // Point new node's prev to the old tail
   newNode.prev = this.tail;
+  
+  // Make new node the tail
   this.tail = newNode;
   
   // Return the new node
