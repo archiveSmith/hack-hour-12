@@ -22,11 +22,14 @@ Stack.prototype.push = function(element) {
 };
 
 Stack.prototype.pop = function() {
+  // Store popped value
   const output = this.storage.shift();
+  
   if (output === this.max) {
     this.max = this.storage.slice().sort((a, b) => b - a)[0];
   }
 
+  // Return popped value
   return output;
 };
 
