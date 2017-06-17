@@ -25,7 +25,9 @@ Stack.prototype.pop = function() {
   // Store popped value
   const output = this.storage.shift();
   
+  // Check if popped value is the max
   if (output === this.max) {
+    // Store new max value
     this.max = this.storage.slice().sort((a, b) => b - a)[0];
   }
 
