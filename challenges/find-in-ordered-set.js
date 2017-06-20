@@ -10,25 +10,26 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 // binary search using low and high ranges
-function findInOrderedSet(arr, target, lowRange = 0, highRange = arr.length, half) {
+function findInOrderedSet(arr, target, start, end) {
   // get halfway point using averaging
-  halfwayPoint = Math.floor((lowRange + highRange) / 2);
+  const midValue = Math.floor((start + end) / 2);
 
   // check for value
-  if (arr[halfwayPoint] === target) return true;
+  if (arr[midValue] === target) return true;
 
   // check for base case - no more range
-  if (highRange - lowRange < 2) return false;
+  // if (end - start < 2) return false;
+  if (end === start) return false;
 
   // change ranges
-  if (arr[halfwayPoint] > target) {
-    highRange = halfwayPoint;
+  if (arr[midValue] > target) {
+    end = midValue;
   } else {
-    lowRange = halfwayPoint;
+    start = midValue;
   }
 
   // recurse
-  return findInOrderedSet(arr, target, lowRange, highRange, halfwayPoint)
+  return findInOrderedSet(arr, target, start, end);
 }
 
 
