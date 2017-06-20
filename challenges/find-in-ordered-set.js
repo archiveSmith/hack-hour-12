@@ -10,7 +10,7 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 // binary search using low and high ranges
-function findInOrderedSet(arr, target, start, end) {
+function findInOrderedSetNotPassingAll(arr, target, start, end) {
   // get halfway point using averaging
   const midValue = Math.floor((start + end) / 2);
 
@@ -34,7 +34,7 @@ function findInOrderedSet(arr, target, start, end) {
 
 
 // Provided solution
-function findInOrderedSetProvided(arr, target) {
+function findInOrderedSet(arr, target) {
   function binSearch(start, end) {
     var mid = Math.floor((start + end) / 2);
     if (arr[mid] === target) return true;
