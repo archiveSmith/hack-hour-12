@@ -17,6 +17,7 @@
  * 	 
  */
 
+// check
 function newIntersections(x, y){
 
   // use obj to count number of instances of each value
