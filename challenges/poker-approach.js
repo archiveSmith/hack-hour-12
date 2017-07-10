@@ -23,7 +23,7 @@ function getScore(hand) {
   const cardCount = hand.reduce((a, c) => {
     a.hasOwnProperty(c) ? a[c] += 1 : a[c] = 1;
     return a;
-  }, {});
+  }, {})
 
   // Accumulate scores of card count frequency
   let score = 0;
@@ -43,7 +43,7 @@ function getScore(hand) {
 
   // add high card
   return score + hand[0];
-}
+};
 
 function poker(hand1, hand2) {
   const player1 = getScore(hand1);
