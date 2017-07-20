@@ -48,6 +48,17 @@ function hasCycle(head) {
   return false;
 }
 
+// This is bad because you're manipulating the object
+// function hasCycle(head) {
+//   let current = head;
+//   while(current) {
+//     if(current.checked) return true;
+//     else current.checked = true;
+//     current = current.next;
+//   }
+//   return false;
+// }
+
 // function hasCycle(head) {
 //   let arr = [];
 //   while(head !== null) {
