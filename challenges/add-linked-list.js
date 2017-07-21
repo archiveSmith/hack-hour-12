@@ -18,7 +18,64 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  // Strategy: get each number as actual numbers, add, create list based on sum
 
+  // Use arrays to append characters backwards in constant time (string concat is linear time, as is array unshift)
+  function convertToArray(list) {
+    const reverseNumber = [];
+
+    while (list !== null) {
+      reverseNumber.push(list.value);
+      list = list.next;
+    }
+
+    return reverseNumber;
+  }
+
+  function convertToNumber(array) {
+    return Number(array.reverse().join(''));
+  }
+
+  function convertToList(array) {
+    // Return head to grab whole list. Use tail to append in constant time.
+    let sumListHead;
+    let sumListTail;
+
+    for (let i = 0; i < reversedSumArray.length; i++) {
+      const digit = Number(reversedSumArray[i]);
+      const node = new Node(digit);
+
+      if (sumListHead === undefined) {
+        sumListHead = sumListTail = node;
+        continue;
+      }
+
+      sumListTail.next = node;
+      sumListTail = sumListTail.next;
+    }
+
+    return sumListHead;
+  }
+  
+  const l1Array = convertToArray(l1);
+  const l2Array = convertToArray(l2);
+
+  const l1Number = convertToNumber(l1Array);
+  const l2Number = convertToNumber(l2Array);
+
+  const sum = l1Number + l2Number;
+  const reversedSumArray = sum.toString().split('').reverse();
+  
+  return convertToList(reversedSumArray);
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+// const a = new Node(1);
+// const b = new Node(2);
+// const c = new Node(3);
+// const d = new Node(4);
+
+// a.next = b;
+// b.next = c;
+// console.log(addLinkedList(a, d)); // 325
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
