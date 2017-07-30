@@ -36,15 +36,38 @@ function Node(value) {
 // }
 
 // for loops
+// function deleteDups(head) {
+//   if(!head) return;
+//   if(head.next === null) return head;
+//   for(let compare = head; compare !== null; compare = compare.next) {
+//     let currNode = compare;
+//     for(let nextNode = currentNode.next; nextNode !== null; nextNode = nextNode.next) {
+//       nextNode.value === compare.value ? currNode.next = nextNode.next : currNode = nextNode;
+//     }
+//   }
+//   return head;
+// }
+
 function deleteDups(head) {
-  if(!head) return;
-  if(head.next === null) return head;
-  for(let compare = head; compare !== null; compare = compare.next) {
-    let currNode = compare;
-    for(let nextNode = currentNode.next; nextNode !== null; nextNode = nextNode.next) {
-      nextNode.value === compare.value ? currNode.next = nextNode.next : currNode = nextNode;
+  if (head.next === null) return head;
+
+  let current = head;
+  let pointer;
+  let previous;
+
+  while (current !== null) {
+    previous = current;
+    pointer = current.next
+    while (pointer !== null) {
+      if (current.value === pointer.value) {
+        previous.next = pointer.next;
+      }
+      previous = previous.next;
+      pointer = pointer.next;
     }
+    current = current.next;
   }
+
   return head;
 }
 
